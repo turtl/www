@@ -1,4 +1,4 @@
-(in-package :tagit-www)
+(in-package :turtl-www)
 
 (setf cl-who:*attribute-quote-char* #\"
       (cl-who:html-mode) :html5)
@@ -8,7 +8,7 @@
 
 (defun error-handler (err)
   (unless (typep err 'as:tcp-info)
-    (format t "(tagit-www) UNcaught error: ~a~%" err)))
+    (format t "(turtl-www) UNcaught error: ~a~%" err)))
 
 (defun start (&key bind (port 8080))
   ;; setup the wookie log

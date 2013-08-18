@@ -1,4 +1,4 @@
-(in-package :tagit-www)
+(in-package :turtl-www)
 
 (define-condition view-not-found (error)
   ((view :initarg :view :reader view-name :initform nil))
@@ -17,7 +17,7 @@
 (defmacro deflayout (name (data-var &key (stream-var 's) top-level) &body body)
   "Define a wookie layout function. Can be used in conjunction with a
    'layout: ...' header in a markdown file."
-  (let ((view-name (intern (string-upcase (format nil "layout-~a" name)) :tagit-www)))
+  (let ((view-name (intern (string-upcase (format nil "layout-~a" name)) :turtl-www)))
     `(progn
        (defun ,view-name (,data-var)
          (cl-who:with-html-output-to-string (,stream-var nil :prologue ,top-level :indent t)
@@ -50,7 +50,7 @@
                    (value (subseq line (+ colon-pos 1)))
                    (value (string-trim #(#\space #\return #\newline) value)))
               (case key
-                (:layout (setf value (intern (string-upcase value) :tagit-www))))
+                (:layout (setf value (intern (string-upcase value) :turtl-www))))
               (setf (getf kv-pairs key) value))))))
     kv-pairs))
 
@@ -124,6 +124,6 @@
 
 (defun layout (name data)
   "Sends data to a layout and returns the content for that layout."
-  (let ((layout-fn (intern (string-upcase (format nil "layout-~a" name)) :tagit-www)))
+  (let ((layout-fn (intern (string-upcase (format nil "layout-~a" name)) :turtl-www)))
     (funcall layout-fn data)))
 

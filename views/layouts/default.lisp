@@ -1,16 +1,16 @@
-(in-package :tagit-www)
+(in-package :turtl-www)
 
 
 (deflayout default (data :top-level t)
   (:html
     (:head
-      (:title (str (conc (getf data :title) " | Tagit")))
+      (:title (str (conc (getf data :title) " | Turtl")))
       (:link :rel "stylesheet" :href "/css/template.css")
       (:link :rel "stylesheet" :href "/css/site.css")
       (:link :rel "shortcut icon" :href "/favicon.png" :type "image/png")
       (:script :src "/js/mootools-core-1.4.5.js")
       (:script :src "/js/mootools-more-1.4.0.1.js")
-      (:script :src "/js/tagit.js"))
+      (:script :src "/js/turtl.js"))
     (:body :class (if (getf data :body-class)
                       (getf data :body-class)
                       "")
@@ -27,7 +27,7 @@
             (str (getf data :content))))
         
         (:footer
-          "<a href=\"https://github.com/lyonbros/tagit-js\">Github</a>"
+          "<a href=\"https://github.com/lyonbros/turtl-js\">Github</a>"
           " &nbsp;&nbsp;|&nbsp;&nbsp;"
           (:p "&copy;" (:a :href "http://lyonbros.com" "Lyon Bros. Enterprises, LLC") " & Drew")))
       (:script

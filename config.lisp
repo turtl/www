@@ -1,4 +1,4 @@
-(in-package :tagit-www)
+(in-package :turtl-www)
 
-(defparameter *root* (asdf:system-relative-pathname :tagit-www #P"")
-  "Defines the root directory tagit-www is loading from (basically the ASDF path).")
+(defparameter *root* (asdf:system-relative-pathname :turtl-www #P"")
+  "Defines the root directory turtl-www is loading from (basically the ASDF path).")
