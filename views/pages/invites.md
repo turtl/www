@@ -1,14 +1,7 @@
 ---
-title: Accept Tagit invite
+title: Accept invite
 layout: default
 ---
-
-<h1>Install the add-on to accept your invite</h1>
-
-You are here because someone on Tagit shared with you. If you'd like to accept
-the invite, install the Tagit browser add-on and join us.
-
-&nbsp;  
 
 <div class="button-row">
     <div class="button huge firefox">
@@ -26,5 +19,10 @@ the invite, install the Tagit browser add-on and join us.
     </div>
     -->
 </div>
+
+<h1>Install the add-on to accept your invite</h1>
+
+You are here because someone on Tagit shared with you. If you'd like to accept
+the invite, install the Tagit browser add-on and join us.
 
 To learn more about Tagit, [check out the about page](/about).
