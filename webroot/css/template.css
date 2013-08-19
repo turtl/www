@@ -14,7 +14,8 @@ body {margin: 0; padding: 0; font-family: arial, helvetica; font-size: 13px; lin
 a {color: #5398d1; outline: none;}
 
 header h1 {display: inline-block; margin: 0 0 42px -6px; font-size: 64px;}
-header h1 a {color: #999; text-decoration: none;}
+header h1 a {color: #999; text-decoration: none; font-family: 'lucida console','consolas','monaco'; letter-spacing: -0.07em;}
+header h1 a em {display: none;}
 header h1 a:hover em {color: #5398d1;}
 header small {position: absolute; margin: 32px 0 0 24px; color: #aaa;}
 header ul {display: inline-block; margin: 0 0 0 16px; list-style: none;}

@@ -16,7 +16,7 @@
                       "")
       (:div :id "container"
         (:header
-          (:h1 (:a :href "/" "tag<em>.</em>it"))
+          (:h1 (:a :href "/" "Turtl<em>.</em>"))
           (:small "(secure note and file storage)")
           (:ul
             (:li (:a :href "/about" "About"))

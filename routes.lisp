@@ -24,7 +24,7 @@
   (let ((body (load-view :pages/about)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
-(defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)") (req res args)
+(defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)/([0-9a-f-]+)") (req res args)
   (let ((body (load-view :pages/invites)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
