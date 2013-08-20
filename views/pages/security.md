@@ -5,7 +5,7 @@ layout: default
 
 {{toc}}
 
-# When is turtle *not* secure?
+# When is turtl *not* secure?
 
 Here are some possible scenarios where Turtl's security measures will fail you.
 We try to provide an exhaustive list so you're aware of the dangers of relying
