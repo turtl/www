@@ -80,6 +80,49 @@
          (str (cl-ppcre:regex-replace-all "(^-+|-+$)" str "")))
     (string-downcase str)))
 
+(defun generate-table-of-contents (str)
+  "Generate a table of contents for documentation. Injects itself into {{toc}}
+   tags."
+  (unless (search "{{toc}}" str)
+    (return-from generate-table-of-contents str))
+
+  (let* ((headers nil)
+         (str (cl-ppcre:regex-replace-all
+                (cl-ppcre:create-scanner "^((#{1,3})\\s*(.*?)(\\s*#+)?)$" :multi-line-mode t)
+                str
+                (lambda (match &rest regs)
+                  (declare (ignore match))
+                  (let* ((regs (cddddr regs))
+                         (rs (car regs))
+                         (re (cadr regs))
+                         (tag (subseq str (aref rs 0) (aref re 0)))
+                         (level (length (subseq str (aref rs 1) (aref re 1))))
+                         (title (subseq str (aref rs 2) (aref re 2)))
+                         (type-pos (position (code-char 40) title))
+                         (type (if type-pos (subseq title (1+ type-pos) (position (code-char 41) title :start type-pos)) ""))
+                         (title (if type-pos (subseq title 0 type-pos) title))
+                         (id (convert-to-html-id title)))
+                    (push (list :title title
+                                :type type
+                                :id id
+                                :level (- level 1)) headers)
+                    (concatenate 'string "<a id=\"" id "\"></a>" markdown.cl::*nl* tag)))))
+         (headers (reverse headers)))
+    (cl-ppcre:regex-replace "{{toc}}" str
+      (lambda (&rest _)
+        (declare (ignore _))
+        (with-output-to-string (s)
+          (dolist (header headers)
+            (dotimes (i (getf header :level))
+              (format s " "))
+            (let* ((title (getf header :title))
+                   (id (getf header :id))
+                   (type (getf header :type)))
+              (format s "- [~a](#~a)" title id)
+              (unless (string= type "")
+                (format s " _~a_" type))
+              (format s "~a" markdown.cl::*nl*))))))))
+
 (defun load-views (&key subdir (clear t) (view-directory (format nil "~a/views" *root*)))
   "Load and cache all view files."
   (when clear
@@ -101,6 +144,7 @@
                            (parsed-headers (parse-markdown-header markdown-header))
                            (markdown-str (cl-ppcre:regex-replace *scanner-md-header* markdown-str ""))
                            (markdown-str (format-code-blocks markdown-str))
+                           (markdown-str (generate-table-of-contents markdown-str))
                            (html (markdown.cl:parse markdown-str)))
                       (setf (gethash view-name *views*)
                             (list :meta parsed-headers

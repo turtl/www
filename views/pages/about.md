@@ -6,24 +6,24 @@ layout: default
 What is it?
 ===========
 
-Turtl is an application that allows you to store notes, bookmarks, and files
+Turtl is an application that allows you to store notes, bookmarks, (and soon files)
 and access them from anywhere. Turtl uses AES encryption for personal data, and
 RSA shared-key encryption when sending data between users.
 
-Turtl is open-source (both the [client](https://github.com/lyonbros/turtl-js)
-and the [server](https://github.com/lyonbros/turtl-api)) allowing anybody to
-audit the source or run their own version.
+Turtl is [open-source](https://github.com/turtl), allowing anybody to audit the
+source or run their own version.
 
 It is distributed as a browser add-on because implementing it as a website
-introduces security holes that could compromise your data.
+introduces security holes that could compromise your data. We may in the future
+offer desktop applications.
 
 The philosophy
 ==============
 
-The idea behing Turtl is that at any given moment, someone could break into the
-database and steal all the data...and this would be just fine. Be it hackers or
-government agencies, without your username and password, your data is a heap of
-rubbish to anyone looking at it.
+The idea behind Turtl is that at any given moment, someone could break into the
+database and steal all the data...*and this would be just fine*. Be it hackers
+or government agencies, without your username and password, your data is a heap
+of rubbish to anyone looking at it.
 
 Obviously we go to great lengths to keep your data (encrypted or not) safe from
 prying eyes, but the point is that your data is meaningless without the keys

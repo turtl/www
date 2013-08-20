@@ -17,7 +17,11 @@
 (clear-routes)
 
 (defroute (:get "/") (req res)
-  (let ((body (load-view :pages/index :data '(:body-class "home"))))
+  (let ((body (load-view :pages/index :data '(:body-class "splash"))))
+    (send-response res :headers '(:content-type "text/html") :body body)))
+
+(defroute (:get "/security") (req res)
+  (let ((body (load-view :pages/security)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/about") (req res)
@@ -25,7 +29,7 @@
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)/([0-9a-f-]+)") (req res args)
-  (let ((body (load-view :pages/invites)))
+  (let ((body (load-view :pages/invites :data '(:body-class "splash"))))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/refresh-views") (req res)

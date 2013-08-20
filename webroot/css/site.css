@@ -1,5 +1,10 @@
-content {color: #555; font-size: 16px;}
-content h1 {margin: 8px 0 16px -6px; padding: 6px 0 0 0; font-size: 24px; color: #666; text-transform: none;}
+content {color: #555; font-size: 15px;}
+body.splash content {font-size: 16px;}
+content h1 {margin: 8px 0 16px -6px; padding: 6px 0 0 0; font-size: 24px; color: #555; text-transform: none;}
+content h2 {margin: 8px 0 16px 0; padding: 6px 0 0 0; font-size: 18px; color: #555; text-transform: none;}
+content ul {margin: 0 0 0 32px; list-style: disc;}
+content strong {font-weight: bold;}
+content em {font-style: italic;}
 content p {margin: 0 0 16px 0;}
 
 
@@ -60,6 +65,8 @@ div.button.huge.firefox a {
 
 div.button.huge a h2 {
 	margin: 32px 0 0 0;
+	padding: 0;
+	color: inherit;
 	text-align: center;
     font-family: 'Open Sans',sans-serif;
     font-size: 24px;
@@ -68,6 +75,7 @@ div.button.huge a h2 {
 div.button.huge a h2 em {
 	display: inline-block;
 	margin: 0 0 0 6px;
+	font-style: normal;
 }
 div.button.huge a small {
 	display: block;
