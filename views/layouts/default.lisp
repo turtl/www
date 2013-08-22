@@ -30,6 +30,8 @@
         (:footer
           "<a href=\"https://github.com/lyonbros/turtl-js\">Github</a>"
           " &nbsp;&nbsp;|&nbsp;&nbsp;"
+          "<a href=\"https://twitter.com/turtlapp\">@turtlapp</a>"
+          " &nbsp;&nbsp;|&nbsp;&nbsp;"
           (:p "&copy;" (:a :href "http://lyonbros.com" "Lyon Bros. Enterprises, LLC") " & Drew")))
       (:script
         "
