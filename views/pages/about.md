@@ -6,9 +6,9 @@ layout: default
 What is it?
 ===========
 
-Turtl is an application that allows you to store notes, bookmarks, (and soon files)
-and access them from anywhere. Turtl uses AES encryption for personal data, and
-RSA shared-key encryption when sending data between users.
+Turtl is an application that allows you to store notes, bookmarks, (and soon
+files) and access them from anywhere. Turtl uses client-side AES encryption for
+personal data, and RSA shared-key encryption when sending data between users.
 
 Turtl is [open-source](https://github.com/turtl), allowing anybody to audit the
 source or run their own version.
@@ -20,14 +20,18 @@ offer desktop applications.
 The philosophy
 ==============
 
-The idea behind Turtl is that at any given moment, someone could break into the
-database and steal all the data...*and this would be just fine*. Be it hackers
-or government agencies, without your username and password, your data is a heap
-of rubbish to anyone looking at it.
+We believe you should have control over who has access to your data. This is a
+real problem: with increasing threats from hackers and government surveillance,
+how can you trust the online services that store your private information? The
+idea behind Turtl is that _you shouldn't have to._
 
-Obviously we go to great lengths to keep your data (encrypted or not) safe from
-prying eyes, but the point is that your data is meaningless without the keys
-that only you hold.
+We've set up our service so that only _you_ have the keys to your data and it
+gets encrypted _before_ it leaves your computer. That way, even if the NSA
+wiretaps your Internet connection, even if an army of mercenaries storms our
+data-center and steals our hard drives, your data is unreadable to everyone,
+including us.
+
+Because it's nobody else's business but yours.
 
 Why use encryption?
 ===================
