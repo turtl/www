@@ -27,8 +27,8 @@ header ul li a {font-size: 12px; text-decoration: none; text-transform: uppercas
 
 #container {width: 700px; margin: 0 auto;}
 
-footer {display: block; margin: 42px 0 0 0; padding: 16px; font-size: 10px; color: #777; text-align: center;}
-footer a {color: #777; text-decoration: underline;}
+footer {display: block; margin: 42px 0 0 0; padding: 16px; font-size: 10px; color: #999; text-align: center;}
+footer a {color: #5398d1;}
 footer ul {list-style: none; display: inline-block; margin: 0 6px 0 0;}
 footer ul li {display: inline; margin: 0 2px;}
 footer p {display: inline;}
