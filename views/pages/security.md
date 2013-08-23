@@ -30,7 +30,8 @@ the board and its data*. If you want to share something but need it to be
 secure, set the secret and communicate it (via phone, text message, etc) to the
 person you're inviting. Please note that the shared-secret method is not as
 secure as RSA encryption (RSA is used when inviting an *existing* user to a
-board), but it's a lot better than not having one if you care about security.
+board), but it's a lot better than not having the shared secret at all (if you
+care about privacy).
 - __When someone you shared data with is compromised.__ If you share
 notes, boards, or any other data with other Turtl users, you are giving them the
 ability to decrypt those pieces of your data. It's possible that the person you
@@ -105,7 +106,8 @@ board, making board sharing easy.
 
 As mentioned above in [When is Turtl *not* secure](#when-is-turtl-not-secure),
 Turtl has a feature that allows inviting people to share content over email.
-While this is not nearly as secure, it is a necessary feature for those who
+While this is not nearly as secure as sharing using the built-in messaging
+system (which uses RSA encryption), it is a necessary feature for those who
 don't necessarily need higher levels of information securty but want to use the
 collaborative aspects of Turtl.
 
@@ -125,7 +127,8 @@ string*) and sends an email containing an invite code (last 7 digits of a hash
 of the current time, the invitee's email, and a crypto-secure random number),
 the invite ID (deterministic SHA256 value of the board's ID + the invitee's
 email), and the random string to the invitee (all of the above is in a link,
-of course).
+of course). Note that Turtl purposefully splits up the random string and the
+encrypted board key in the case the database is compromised.
 
 This email contains all the information to download the invite (including the
 encrypted board key) and accept the invite (giving the invitee access to the
@@ -134,12 +137,13 @@ to a page that lets them download the add-on for their favorite browser. The
 add-on, on install, detects that it's on an invite page and saves the invite
 for later (until the user has joined/logged in).
 
-It's important to note that if a shared secret is not used, and the email sent
-to the invitee is intercepted, *it can be used to gain full access to the board
-and all its data*. If you care about security at all, use the shared secret. If
-you *really* care about securty, send an email telling the would-be invitee to
-install Turtl and create a persona, and once they do, share with their persona
-(which transmits the board's key, RSA encrypted, over Turtl's messaging system).
+It's important to note that if a shared secret is not used and the email sent to
+to the invitee is intercepted OR the invite data sent from the client to the
+server is intercepted, *it can be used to gain full access to the board and all
+its data*. If you care about security at all, use the shared secret. If you
+*really* care about securty, don't share over email...only share with someone
+who has a persona registered on Turtl already. Remember, sharing between
+existing personas uses RSA encryption!
 
 ## Authentication data
 
@@ -182,3 +186,17 @@ a third party not being able to tie your different personas together.
 Also, for now, an account can only have one persona. This may or may not change
 in the future.
 
+## Encryption
+
+Turtl uses [CowCrypt](https://github.com/rubbingalcoholic/cowcrypt) for all
+encryption. All AES keys are 256-bit, generated using PBKDF2 with SHA256, 400 
+iterations. All RSA keys are 3072-bit. All random numbers are generated using
+`crypto.getRandomValues`.
+
+Turtl uses a [single object](https://github.com/turtl/js/blob/master/library/tcrypt.js)
+to wrap all low-level encryption, and a [higher-level model](https://github.com/turtl/js/blob/master/models/_protected.js)
+(known as "Protected") for handling subkeys, (de)serialization, and asymmetric
+encryption. All models using encryption extend the Protected model and use its
+functions (with the exception of the [User model](https://github.com/turtl/js/blob/master/models/user.js),
+which uses [tcrypt](https://github.com/turtl/js/blob/master/library/tcrypt.js)
+directly to generate its master key).

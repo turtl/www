@@ -6,7 +6,9 @@ content ul {margin: 0 0 0 32px; list-style: disc;}
 content strong {font-weight: bold;}
 content em {font-style: italic;}
 content p {margin: 0 0 16px 0;}
-
+content code {margin: 0 2px; padding: 0 5px; white-space: nowrap; font-family: Consolas, "Liberation Mono", Courier, monospace; background: #ddd; border-radius: 3px;}
+content pre code {color: #c9bf9f; white-space: pre; background: none;}
+content em code, strong code {font-style: normal; font-weight: normal;}
 
 /* --------------------------------------------------------------------------
  * buttons!
