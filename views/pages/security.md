@@ -20,6 +20,17 @@ your username and password. If you choose a username/password combination that's
 short, predictable, easy to guess, etc then your data is *not safe*. Choose a
 good password. Turtl has no restrictions on username/password length, we suggest
 you take advantage of this.
+- __When you invite someone to a board over email.__ Turtl has a feature that
+allows you to invite someone to share one of your boards via email. Before
+sending, you are able to set a shared secret for the invite, which makes the
+invite useless unless the invitee enters the secret when they accept the invite
+(this secret must be communicated to the invitee separately). Without setting
+this secret, anybody who intercepts the invite email *will gain full access to
+the board and its data*. If you want to share something but need it to be 
+secure, set the secret and communicate it (via phone, text message, etc) to the
+person you're inviting. Please note that the shared-secret method is not as
+secure as RSA encryption (RSA is used when inviting an *existing* user to a
+board), but it's a lot better than not having one if you care about security.
 - __When someone you shared data with is compromised.__ If you share
 notes, boards, or any other data with other Turtl users, you are giving them the
 ability to decrypt those pieces of your data. It's possible that the person you
@@ -89,6 +100,46 @@ not my master key.
 Notes store their own key in their data, encrypted using the board's key.
 What this means is that having a board's key can unlock all notes within that
 board, making board sharing easy.
+
+## Sharing over email
+
+As mentioned above in [When is Turtl *not* secure](#when-is-turtl-not-secure),
+Turtl has a feature that allows inviting people to share content over email.
+While this is not nearly as secure, it is a necessary feature for those who
+don't necessarily need higher levels of information securty but want to use the
+collaborative aspects of Turtl.
+
+Here's a rundown of how it works: you want to share a board with your friend.
+Your friend isn't signed up on Turtl (at least, the email address you have for
+her isn't registered to a persona), so you initiate a board invite over email.
+What happens next is Turtl generates a random string which will be used to
+generate an AES key (we'll call it the invite key). The resulting AES key is a
+combination of the random string (which is sent to the server along with the
+other invite data) and the shared secret (if one is entered). The shared secret
+never leaves the client. The invite key (remember, random string + shared secret)
+is then used to encrypt the key of the board being shared (see [Subkeys and
+sharing](#subkeys-and-sharing) above). This encrypted board key, the random
+string used to generate the invite key, and the invitee's email are sent back to
+the server, which stores the all the invite information (*except the random
+string*) and sends an email containing an invite code (last 7 digits of a hash
+of the current time, the invitee's email, and a crypto-secure random number),
+the invite ID (deterministic SHA256 value of the board's ID + the invitee's
+email), and the random string to the invitee (all of the above is in a link,
+of course).
+
+This email contains all the information to download the invite (including the
+encrypted board key) and accept the invite (giving the invitee access to the
+board and its data). When the user clicks the link in the email, they are taken
+to a page that lets them download the add-on for their favorite browser. The
+add-on, on install, detects that it's on an invite page and saves the invite
+for later (until the user has joined/logged in).
+
+It's important to note that if a shared secret is not used, and the email sent
+to the invitee is intercepted, *it can be used to gain full access to the board
+and all its data*. If you care about security at all, use the shared secret. If
+you *really* care about securty, send an email telling the would-be invitee to
+install Turtl and create a persona, and once they do, share with their persona
+(which transmits the board's key, RSA encrypted, over Turtl's messaging system).
 
 ## Authentication data
 
