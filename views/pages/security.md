@@ -176,13 +176,6 @@ being able to read it. Your persona's name, email, and public key are all stored
 plaintext in the database. All other persona data (like the private key) is
 encrypted using your master account key (like all your other data).
 
-Also note that the link between a persona and an account is obscured. This means
-that it's not possible for someone to tie your personas to your account just by
-looking at the database. *However* someone who has access to server running the
-Turtl backend (the thing that the add-on communicates with) would be able to
-infer connections between your account and your persona. Do not bet your life on
-a third party not being able to tie your different personas together.
-
 Also, for now, an account can only have one persona. This may or may not change
 in the future.
 
