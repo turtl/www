@@ -149,7 +149,40 @@
                       (setf (gethash view-name *views*)
                             (list :meta parsed-headers
                                   :html html)))))))))
+  ;; process modules (only after ALL views are loaded)
+  (loop for k being the hash-keys of *views*
+        for v being the hash-values of *views* do
+    (let* ((html (getf v :html))
+           (html (inject-modules html)))
+      (setf (getf v :html) html
+            (gethash k *views*) v)))
   *views*)
+
+(defun find-module (name)
+  "Find a module by name (without the leading 'module:')"
+  (loop for k being the hash-keys of *views* do
+    (let ((module-str (string k)))
+      (when (zerop (or (search "MODULES/" module-str) -1))
+        (let ((modname (string-downcase (subseq module-str 8))))
+          (when (string= (string-downcase name) modname)
+            (return-from find-module (getf (gethash k *views*) :html)))))))
+  "")
+
+(defun inject-modules (html)
+  "Add in any modules to this HTML string."
+  (unless (search "{{module:" html)
+    (return-from inject-modules html))
+  (cl-ppcre:regex-replace-all
+    (cl-ppcre:create-scanner "{{module:([a-z0-9_-]+)}}" :multi-line-mode t)
+    html
+    (lambda (match &rest regs)
+      (declare (ignore match))
+      (let* ((regs (cddddr regs))
+             (rs (car regs))
+             (re (cadr regs))
+             (name (subseq html (aref rs 0) (aref re 0)))
+             (module (find-module name)))
+        module))))
 
 (defun load-view (name &key data)
   "Load a view from the view cache."

@@ -3,22 +3,7 @@ title: Accept invite
 layout: default
 ---
 
-<div class="button-row">
-    <div class="button huge firefox">
-        <a href="/download/firefox-latest.xpi">
-            <h2>Turtl <em>v0.1.1</em></h2>
-            <small>(Firefox >= 21)</small>
-        </a>
-    </div>
-    <!--
-    <div class="button huge chrome">
-        <a href="/download/chrome-latest.123">
-            <h2>Turtl <em>v0.1.1</em></h2>
-            <small>(Chrome >= 69)</small>
-        </a>
-    </div>
-    -->
-</div>
+{{module:buttons}}
 
 <h1>Install the add-on to accept your invite</h1>
 
