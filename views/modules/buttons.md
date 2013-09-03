@@ -8,7 +8,7 @@
     </div>
     -->
     <div class="button huge chrome">
-        <a href="/download/chrome-latest.123">
+        <a href="/download/chrome-latest.crx">
             <h2>Turtl <em>v0.1.0</em></h2>
             <small>(Chrome >= 28)</small>
         </a>
