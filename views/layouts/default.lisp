@@ -9,7 +9,7 @@
       (:link :rel "stylesheet" :href "/css/site.css")
       (:link :rel "shortcut icon" :href "/favicon.png" :type "image/png")
       ;; LOL GoOgLe is pretecting us!!!1
-      (:link :rel "chrome-webstore-item" href="https://chrome.google.com/webstore/detail/turtl/dgcojenhfdjhieoglmiaheihjadlpcml")
+      (:link :rel "chrome-webstore-item" :href "https://chrome.google.com/webstore/detail/turtl/dgcojenhfdjhieoglmiaheihjadlpcml")
       (:script :src "/js/mootools-core-1.4.5.js")
       (:script :src "/js/mootools-more-1.4.0.1.js")
       (:script :src "/js/turtl.js"))
