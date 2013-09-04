@@ -15,7 +15,7 @@ a {color: #5398d1; outline: none; text-decoration: none;}
 a:hover {text-decoration: underline;}
 
 header h1 {display: inline-block; margin: 0 0 42px -6px; font-size: 64px;}
-header h1 a {color: #999; text-decoration: none; text-transform: lowercase;}
+header h1 a {color: #999; color: #92b579; text-decoration: none; text-transform: lowercase;}
 header h1 a em {}
 header h1 a:hover {text-decoration: none;}
 header h1 a:hover em {color: #5398d1; text-decoration: none;}
