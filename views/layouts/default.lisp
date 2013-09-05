@@ -22,6 +22,7 @@
           (:small "(encrypted note storage)")
           (:ul
             (:li (:a :href "/about" "About"))
+            ;(:li (:a :href "/screenshots" "Screenshots"))
             (:li (:a :href "/security" "Security"))
             ;(:li (:a :href "/demo" "Demo"))
             ))
@@ -34,7 +35,7 @@
           " &nbsp;&nbsp;|&nbsp;&nbsp;"
           "<a href=\"https://twitter.com/turtlapp\">Twitter</a>"
           " &nbsp;&nbsp;|&nbsp;&nbsp;"
-          (:p "&copy;" (:a :href "http://lyonbros.com" "Lyon Bros. Enterprises, LLC") " & Drew")))
+          (:p "&copy;" (:a :href "http://lyonbros.com" "Lyon Bros. Enterprises, LLC"))))
       (:script
         "
   var _paq = _paq || [];
