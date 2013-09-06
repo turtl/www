@@ -32,6 +32,10 @@
   (let ((body (load-view :pages/screenshots)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
+(defroute (:get "/donate") (req res)
+  (let ((body (load-view :pages/donate)))
+    (send-response res :headers '(:content-type "text/html") :body body)))
+
 (defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)/([0-9a-f-]+)") (req res args)
   (let ((body (load-view :pages/invites :data '(:body-class "splash"))))
     (send-response res :headers '(:content-type "text/html") :body body)))
