@@ -12,7 +12,7 @@
 
 (defun start (&key bind (port 8080))
   ;; setup the wookie log
-  (setf *log-level* :debug)
+  (setf *log-level* :notice)
 
   (setf *error-handler* 'error-handler)
 
