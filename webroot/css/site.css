@@ -90,3 +90,11 @@ div.button.huge a small {
 	text-align: center;
 	text-decoration: none !important;
 }
+
+/* --------------------------------------------------------------------------
+ * screenshots
+ * -------------------------------------------------------------------------- */
+.screenshots ul {list-style: none; margin: 0; padding: 0;}
+.screenshots ul li {display: inline-block; width: 45%; margin: 0 16px 16px 0; padding: 0; background: #fff; border: 1px solid #aaa;}
+.screenshots ul li:hover {border: 1px solid #222;}
+.screenshots ul li a {display: block; line-height: 0;}
