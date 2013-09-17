@@ -8,7 +8,7 @@ layout: default
 Turtl is an [open-source](https://github.com/turtl) encrypted note (and soon
 file) storage app. It allows you to securely track information you use
 throughout the day and also allows collaboration and sharing of your data with
-friends or colleagues. [Learn more &raquo;](/about)
+friends and colleagues. [Learn more &raquo;](/about)
 
 
 ***
