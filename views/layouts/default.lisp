@@ -24,6 +24,7 @@
             (:li (:a :href "/about" "About"))
             (:li (:a :href "/screenshots" "Screenshots"))
             (:li (:a :href "/security" "Security"))
+            (:li (:a :href "https://github.com/turtl/js/issues" "Report a bug"))
             ;(:li (:a :href "/demo" "Demo"))
             ))
         (:content
