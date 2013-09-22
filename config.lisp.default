@@ -6,3 +6,6 @@
 (defparameter *pid-file* nil
   "File to write the current proc's PID to.")
 
+(defparameter *always-reload-views* nil
+  "Reload views on every request? HUGE performance penalty!!!")
+

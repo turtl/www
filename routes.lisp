@@ -1,10 +1,10 @@
 (in-package :turtl-www)
 
-;; TODO: rmoveme when not testing
-(add-hook :pre-route (lambda (req res)
-                       (declare (ignore req res))
-                       (load-views))
-          :load-views)
+(when *always-reload-views*
+  (add-hook :pre-route (lambda (req res)
+                         (declare (ignore req res))
+                         (load-views))
+            :load-views))
 
 (defun page-not-found (res)
   "Sends a 404 error."
