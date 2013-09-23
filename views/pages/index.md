@@ -5,11 +5,41 @@ layout: default
 
 {{module:buttons}}
 
+{{module:twitter}}
+
+# About
 Turtl is an [open-source](https://github.com/turtl) encrypted note (and soon
 file) storage app. It allows you to securely track information you use
-throughout the day and also allows collaboration and sharing of your data with
+throughout the day and also lets you collaborate and share your data with
 friends and colleagues. [Learn more &raquo;](/about)
 
+# Screenshots
+<div class="screenshots">
+    <ul>
+        <li>
+            <a href="/images/screens/turtl-screen-1.jpg">
+                <img src="/images/screens/turtl-screen-1.sm.jpg" width="241" height="151" alt="turtl screenshot"/>
+            </a>
+        </li>
+        <li>
+            <a href="/images/screens/turtl-screen-2.jpg">
+                <img src="/images/screens/turtl-screen-2.sm.jpg" width="241" height="151" alt="turtl screenshot"/>
+            </a>
+        </li>
+        <li>
+            <a href="/images/screens/turtl-screen-3.jpg">
+                <img src="/images/screens/turtl-screen-3.sm.jpg" width="241" height="151" alt="turtl screenshot"/>
+            </a>
+        </li>
+        <li>
+            <a href="/images/screens/turtl-screen-4.jpg">
+                <img src="/images/screens/turtl-screen-4.sm.jpg" width="241" height="151" alt="turtl screenshot"/>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<span style="clear:both;height:0;display:block;font-size:0">.</span>
 
 ***
 
