@@ -19,10 +19,10 @@ header h1 a {color: #444; text-decoration: none; text-transform: lowercase;}
 header h1 a em {}
 header h1 a:hover {text-decoration: none;}
 header h1 a:hover em {color: #000; text-decoration: none;}
-header small {position: absolute; margin: 26px 0 0 24px; color: #444;}
+header small {position: absolute; margin: 26px 0 0 24px; color: #698257;}
 header ul {display: inline-block; margin: 0 0 0 16px; list-style: none;}
 header ul li {display: inline-block; margin: 0 8px;}
-header ul li a {font-size: 14px; text-decoration: none; text-transform: uppercase; color: #366388;}
+header ul li a {font-size: 14px; text-decoration: none; text-transform: uppercase; color: #444;}
 
 #container {width: 780px; margin: 0 auto;}
 
