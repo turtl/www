@@ -4,6 +4,9 @@
 (deflayout default (data :top-level t)
   (:html
     (:head
+      (:meta :http-equiv "Content-type" :content "text/html; charset=utf-8")
+      (:meta :http-equiv "Content-language" :content "en")
+
       (:title (str (conc (getf data :title) " | Turtl")))
       (:link :rel "stylesheet" :href "/css/template.css")
       (:link :rel "stylesheet" :href "/css/site.css")

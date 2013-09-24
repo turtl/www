@@ -3,8 +3,6 @@ title: Security
 layout: default
 ---
 
-{{toc}}
-
 # When is Turtl *not* secure?
 
 Here are some possible scenarios where Turtl's security measures will fail you.
