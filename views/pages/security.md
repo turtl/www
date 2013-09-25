@@ -3,6 +3,8 @@ title: Security
 layout: default
 ---
 
+{{toc}}
+
 # Encryption explained
 As mentioned in [the about page](/about), the Turtl add-on encrypts all your
 data before it leaves the browser. What this means is that you add a note,
@@ -93,9 +95,9 @@ about your second account.
 
 # Turtl security overview
 
-Note that while Turtl employs standard encryption practices (AES, RSA), we do
-not believe this provides "security" (yet). Turtl is very, very new and needs to
-be vetted by the community before being called secure.
+Note that while Turtl employs standard encryption practices (AES 256, RSA 3072),
+we do not believe this provides "security" (yet). Turtl is very, very new and
+needs to be vetted by the community before being called secure.
 
 Turtl was built on the principal that everything that can be encrypted should
 be. All encryption is centralized through one class, providing both a central
@@ -201,7 +203,7 @@ encrypted using your master account key (like all your other data).
 Also, for now, an account can only have one persona. This may or may not change
 in the future.
 
-## Encryption
+## Encryption libraries
 
 Turtl uses [CowCrypt](https://github.com/rubbingalcoholic/cowcrypt) for all
 encryption. All AES keys are 256-bit, generated using PBKDF2 with SHA256, 400 
