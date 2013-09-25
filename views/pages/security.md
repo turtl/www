@@ -3,6 +3,30 @@ title: Security
 layout: default
 ---
 
+# Encryption explained
+As mentioned in [the about page](/about), the Turtl add-on encrypts all your
+data before it leaves the browser. What this means is that you add a note,
+image, or bookmark via Turtl and what happens next is that the add-on scrambles
+the data you just added. It does this in a way that makes your data completely
+unreadable and unrecoverable, unless you have the key to de-scramble it. This
+key is generated for you when you add the note, and is only accessible using
+your "master key" which based on your username/password.  This process of
+scrambling is known as encryption, and using your key to unlock your data is
+known as decryption.
+
+Once your data is encrypted it's sent to the Turtl storage system, making it
+accessible to you from other computers or devices. When your data is moving
+between your browser and Turtl's servers, it's encrypted again via TLS (the
+same encryption your bank uses when you log in), which protects it from prying
+eyes while en route to being stored. Once your data is stored, it stays
+completely encrypted (remember, we don't have the keys to your data, only you
+do). The only way to get the data out is to log in via the Turtl add-on,
+download your data (again, over TLS), and decrypt it *inside of the Turtl
+add-on*.
+
+Effectively, this gives you a private place to put data that you (and only you)
+can access...and you can access it *anywhere*.
+
 # When is Turtl *not* secure?
 
 Here are some possible scenarios where Turtl's security measures will fail you.
