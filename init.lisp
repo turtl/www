@@ -6,7 +6,7 @@
 ;; load all enabled wookie plugins
 (load-plugins :use-quicklisp t)
 
-(defun error-handler (err)
+(defun error-handler (err &optional sock)
   (unless (typep err 'as:tcp-info)
     (format t "(turtl-www) UNcaught error: ~a~%" err)))
 

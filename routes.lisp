@@ -32,6 +32,10 @@
   (let ((body (load-view :pages/faq)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
+(defroute (:get "/privacy") (req res)
+  (let ((body (load-view :pages/privacy)))
+    (send-response res :headers '(:content-type "text/html") :body body)))
+
 (defroute (:get "/donate") (req res)
   (let ((body (load-view :pages/donate)))
     (send-response res :headers '(:content-type "text/html") :body body)))

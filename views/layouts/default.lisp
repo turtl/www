@@ -35,6 +35,8 @@
             (str (getf data :content))))
         
         (:footer
+          "<a href=\"/privacy\">Privacy</a>"
+          " &nbsp;&nbsp;|&nbsp;&nbsp;"
           "<a href=\"https://github.com/turtl\">Github</a>"
           " &nbsp;&nbsp;|&nbsp;&nbsp;"
           "<a href=\"https://twitter.com/turtlapp\">Twitter</a>"
