@@ -214,6 +214,5 @@ Turtl uses a [single object](https://github.com/turtl/js/blob/master/library/tcr
 to wrap all low-level encryption, and a [higher-level model](https://github.com/turtl/js/blob/master/models/_protected.js)
 (known as "Protected") for handling subkeys, (de)serialization, and asymmetric
 encryption. All models using encryption extend the Protected model and use its
-functions (with the exception of the [User model](https://github.com/turtl/js/blob/master/models/user.js),
-which uses [tcrypt](https://github.com/turtl/js/blob/master/library/tcrypt.js)
-directly to generate its master key).
+functions. Some models use tcrypt directly for various tasks, such as key/hash
+generation, (de)serializing tcrypt binary keys, and certain RSA key operations.
