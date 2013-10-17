@@ -40,6 +40,16 @@
   (let ((body (load-view :pages/donate)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
+(defroute (:get "/help/(.*)") (req res args)
+  (handler-case
+    (let* ((view (intern (string-upcase (format nil "help/~a" (car args))) :keyword))
+           (content (load-view view)))
+      (send-response res :headers '(:content-type "text/html") :body content))
+    (view-not-found ()
+      (page-not-found res))
+    (error (e)
+      (send-response res :status 500 :body (format nil "~a" e)))))
+
 (defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)/([0-9a-f-]+)") (req res args)
   (let ((body (load-view :pages/invites :data '(:body-class "splash"))))
     (send-response res :headers '(:content-type "text/html") :body body)))
