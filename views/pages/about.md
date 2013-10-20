@@ -11,11 +11,13 @@ files) and access them from anywhere. Turtl uses client-side AES encryption for
 personal data, and RSA shared-key encryption when sending data between users.
 
 Turtl is [open-source](https://github.com/turtl), allowing anybody to audit the
-source or run their own version.
+source or run their own version. See the [project timeline](https://github.com/turtl/js/issues/milestones)
+to get a sense for what's to come.
 
-It is distributed as a browser add-on because implementing it as a website
-introduces security holes that could compromise your data. We may in the future
-offer desktop applications.
+Right now, Turtl is a browser add-on. We're planning on releasing to mobile and
+desktop soon, so stay tuned (be sure to follow our [twitter](https://twitter.com/turtlapp)
+or check out the [discussion group](http://groups.google.com/d/forum/turtl) to
+stay up to date).
 
 The philosophy
 ==============
@@ -46,7 +48,7 @@ How much does it cost?
 ======================
 
 Right now, Turtl is free. It will always be a free download and free to use, but
-eventually we plan to offer premium features as well as charge per-gigabyte of
-storage used.
+eventually we plan to offer premium features and charge for storage (ala
+Dropbox).
 
 
