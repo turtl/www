@@ -58,7 +58,6 @@ friends and colleagues.
 
 <small>
 Please note that Turtl is in *alpha* stage right now, and may be prone to bugs and
-performance issues. Bugs and other issues can be reported using the
-[issue tracker](https://github.com/turtl/js/issues) on Turtl's github. Thanks!
+performance issues. Bugs and other issues can be reported on our [discussion group](http://groups.google.com/d/forum/turtl).
 </small>
 
