@@ -27,7 +27,8 @@
             (:li (:a :href "/about" "About"))
             (:li (:a :href "/security" "Security"))
             (:li (:a :href "/faq" "FAQ"))
-            (:li (:a :href "https://github.com/turtl/js/issues" "Report a bug"))
+            (:li (:a :href "/contact" "Get in touch"))
+            ;(:li (:a :href "https://github.com/turtl/js/issues" "Report a bug"))
             ;(:li (:a :href "/demo" "Demo"))
             ))
         (:content
@@ -36,6 +37,10 @@
         
         (:footer
           "<a href=\"/privacy\">Privacy</a>"
+          " &nbsp;&nbsp;|&nbsp;&nbsp;"
+          "<a href=\"/contact\">Contact</a>"
+          " &nbsp;&nbsp;|&nbsp;&nbsp;"
+          "<a href=\"http://groups.google.com/d/forum/turtl\">Discussion group</a>"
           " &nbsp;&nbsp;|&nbsp;&nbsp;"
           "<a href=\"https://github.com/turtl\">Github</a>"
           " &nbsp;&nbsp;|&nbsp;&nbsp;"
