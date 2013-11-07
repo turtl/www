@@ -44,9 +44,13 @@
   (let ((body (load-view :pages/donate)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
-(defroute (:get "/help/(.*)") (req res args)
+(defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)/([0-9a-f-]+)") (req res args)
+  (let ((body (load-view :pages/invites :data '(:body-class "splash"))))
+    (send-response res :headers '(:content-type "text/html") :body body)))
+
+(defroute (:get "/docs(/(.*))?") (req res args)
   (handler-case
-    (let* ((view (intern (string-upcase (format nil "help/~a" (car args))) :keyword))
+    (let* ((view (intern (string-upcase (format nil "docs/~a" (or (cadr args) "index"))) :keyword))
            (content (load-view view)))
       (send-response res :headers '(:content-type "text/html") :body content))
     (view-not-found ()
@@ -54,13 +58,9 @@
     (error (e)
       (send-response res :status 500 :body (format nil "~a" e)))))
 
-(defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)/([0-9a-f-]+)") (req res args)
-  (let ((body (load-view :pages/invites :data '(:body-class "splash"))))
-    (send-response res :headers '(:content-type "text/html") :body body)))
-
-(defroute (:get "/refresh-views") (req res)
-  (load-views)
-  (send-response res :body "Views refreshed!!"))
+;(defroute (:get "/refresh-views") (req res)
+;  (load-views)
+;  (send-response res :body "Views refreshed!!"))
 
 (defroute (:get "/favicon.ico") (req res)
   (send-response res :status 301 :headers '(:location "/favicon.png")))
