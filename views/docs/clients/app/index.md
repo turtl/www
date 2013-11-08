@@ -37,7 +37,7 @@ formats Turtl uses to protect data.
 - [Tcrypt / Protected model](/docs/clients/app/encryption#tcrypt-protected-model)
 {{{/div}}}
 
-<div class="clearMe"></div>
+<div class="clearMe">&nbsp;</div>
 
 {{{div.doc-sec}}}
 ### [Local storage/syncing](/docs/clients/app/local_db)
@@ -59,7 +59,7 @@ Explains the internals of the Turtl app and how it all fits together.
 - [Full list &raquo;](/docs/clients/app/libraries)
 {{{/div}}}
 
-<div class="clearMe"></div>
+<div class="clearMe">&nbsp;</div>
 
 {{{/div}}}
 

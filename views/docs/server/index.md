@@ -39,18 +39,18 @@ Lists the resources accessible via the API and how to retrieve and update them.
 - [Full list &raquo;](/docs/server/api/index)
 {{{/div}}}
 
-<div class="clearMe"></div>
+<div class="clearMe">&nbsp;</div>
 
 {{{div.doc-sec}}}
-### [Running Turtl](/docs/server/api/running)
+### [Running Turtl](/docs/server/running)
 Covers how to run your own Turtl server! This is useful if you do not with to
 use the primary Turtl service or you want an environment to test on.
 
-- [Common Lisp](/docs/server/api/running#common-lisp)
-- [Quicklisp](/docs/server/api/running#quicklisp)
-- [Git libraries](/docs/server/api/running#git-libraries)
-- [Configuration](/docs/server/api/running#configuration)
-- [Starting](/docs/server/api/running#starting)
+- [Common Lisp](/docs/server/running#common-lisp)
+- [Quicklisp](/docs/server/running#quicklisp)
+- [Git libraries](/docs/server/running#git-libraries)
+- [Configuration](/docs/server/running#configuration)
+- [Starting](/docs/server/running#starting)
 {{{/div}}}
 
 {{{/div}}}

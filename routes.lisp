@@ -21,8 +21,10 @@
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/security") (req res)
-  (let ((body (load-view :pages/security)))
-    (send-response res :headers '(:content-type "text/html") :body body)))
+  (send-response res
+                 :status 301
+                 :headers '(:location "/docs/security")
+                 :body "Moved to <a href=\"/docs/security\">Security</a>"))
 
 (defroute (:get "/about") (req res)
   (let ((body (load-view :pages/about)))

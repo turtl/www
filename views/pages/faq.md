@@ -53,7 +53,7 @@ Whenever you add data, Turtl uses a cryptographic "key" generated from your
 username/password to encrypt your data before sending it off to the Turtl
 servers. Your data is stored encrypted and stays that way until you download it
 again via the Turtl add-on and decrypt it. The only time your data is ever
-readable is when you're logged in to the Turtl add-on.
+readable is when you're logged in to Turtl.
 
 Only *you* hold the keys to your data. Not even the people running the Turtl
 servers have access to your data.
@@ -85,23 +85,20 @@ will remove the board's key from her private data).
 Why, yes! We host all our code (clients *and* server) on [Github](https://github.com/turtl)
 for the world to read.
 
-If it's not open-source, it's not encrypted. Plain and simple. You cannot both
-keep your code private and at the same time claim you are secure. Security comes
-from years of prying eyes reviewing your work and trying to find ways to break
-it. Although Turtl has not yet been vetted in this way, one of our main goals is
-to gain the trust of the crypto-security community. Until that day, we will not
-brand ourselves as "secure."
+__If it's not open-source, it's not encrypted.__ Plain and simple. You cannot
+both keep your code private and at the same time claim you are secure. Security
+comes from years of prying eyes reviewing your work and trying to find ways to
+break it. Although Turtl has not yet been vetted in this way, one of our main
+goals is to gain the trust of the crypto-security community. Until that day, we
+will not brand ourselves as "secure."
 
 # Is there documentation?
 
-Just this site. Real docs coming soon, promise.
+We now have [full documentation](/docs) of Turtl, its apps/clients, and the
+server.
 
 # Can I run my own Turtl server?
 
-Absolutely. However, there's no documentation on doing so at this point. The
-server is written in Common Lisp and uses [RethinkDB](http://rethinkdb.com) as
-the storage backend. So with a linux server, a RethinkDB setup, and a Common
-Lisp implementation (see [Clozure CL](http://ccl.clozure.com/), [SBCL](http://www.sbcl.org/))
-you'd have everything you need. The server runs off of [Wookie](http://wookie.beeets.com/),
-an asynchronous app server written in Common Lisp.
+Absolutely. Head over to the [Running Turtl](/docs/server/running) section in
+the documentation to read about how to run your own server.
 

@@ -25,9 +25,8 @@
           (:small "(encrypted note storage)")
           (:ul
             (:li (:a :href "/about" "About"))
-            (:li (:a :href "/security" "Security"))
-            (:li (:a :href "/faq" "FAQ"))
             (:li (:a :href "/docs" "Documentation"))
+            (:li (:a :href "/faq" "FAQ"))
             (:li (:a :href "/contact" "Get in touch"))
             ;(:li (:a :href "https://github.com/turtl/js/issues" "Report a bug"))
             ;(:li (:a :href "/demo" "Demo"))

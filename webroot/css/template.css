@@ -4,6 +4,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 html {overflow-y: scroll; overflow-x: auto;}
 body {margin: 0; padding: 0; font-family: arial, helvetica; font-size: 13px; line-height: 1.6; color: #000; background: #ededed url(/images/template/header.png) 0 0 repeat-x;}
 
+.clearMe {display: block; height: 0; clear: both; font-size: 0;}
 .clear:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 .clear {display: inline-block;}
 /* hide IE mac \*/
