@@ -1,5 +1,5 @@
 ---
-title: Users | API documentation | Server | Documentation
+title: Sync | API documentation | Server | Documentation
 layout: documentation
 ---
 
@@ -7,17 +7,11 @@ layout: documentation
     <a href="/docs">Documentation</a> &raquo;
     <a href="/docs/server/index">Server</a> &raquo;
     <a href="/docs/server/api/index">API documentation</a> &raquo;
-    Users
+    Sync
 </div>
 
-# Users
-
-Users blah blah
-
+# Sync
 {{toc}}
 
-## GET /asdf
-
-## POST /blah
-
+TODO
 

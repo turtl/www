@@ -10,19 +10,26 @@ layout: documentation
 </div>
 
 # Architecture
-
 {{toc}}
 
+TODO
+
 ## RESTy
+TODO
 
 ## MVC
+TODO
 
 ## Futures
+TODO
 
 ## Auth
+TODO
 
 ## Sync
+TODO
 
 ## RethinkDB
+TODO
 
 

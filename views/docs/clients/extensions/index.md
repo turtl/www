@@ -36,7 +36,6 @@ the click of a button.
 {{{/div}}}
 
 ## Architecture
-
 TODO:
 
 - notes on IndexedDB as sync point

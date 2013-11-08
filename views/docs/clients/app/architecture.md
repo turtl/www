@@ -11,8 +11,9 @@ layout: documentation
 </div>
 
 # Architecture
-
 {{toc}}
+
+TODO
 
 ## MVC
 TODO, basic overview of Composer and how Turtl uses it
@@ -21,7 +22,7 @@ TODO, basic overview of Composer and how Turtl uses it
 
 ## Events
 
-"Ties the app together"
+TODO
 
 ## Local storage
 

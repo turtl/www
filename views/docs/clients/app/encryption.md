@@ -11,24 +11,27 @@ layout: documentation
 </div>
 
 # Encryption
-
 {{toc}}
 
+TODO
+
 ## Ciphers and modes
+TODO:
+
 - AES 256
 - CBC
 - random IV on each encrypt
 
 ## Authentication
+TODO:
 
 - HMAC
 - sub-key derivation (master key used to derive HMAC and encryption key)
 
 ## Serialization format
-
-show format (via github)
+TODO
 
 ## Tcrypt/Protected model
-
+TODO:
 - link architecture#mvc
 - central point of encryption for all data

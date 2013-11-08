@@ -10,15 +10,22 @@ layout: documentation
 </div>
 
 # Running Turtl
-
 {{toc}}
 
+TODO
+
 ## Common Lisp
+TODO
 
 ## Quicklisp
+TODO
 
 ## Git libraries
+TODO
 
 ## Configuration
+TODO
 
 ## Starting
+TODO
+

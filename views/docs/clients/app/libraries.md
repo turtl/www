@@ -11,33 +11,37 @@ layout: documentation
 </div>
 
 # Packaged libraries
-Any libs we haven't built in-house
-
 {{toc}}
 
-## Cowcrypt
+TODO
 
-Crypto/RSA
+## Cowcrypt
+TODO
 
 ## Mootools
+TODO:
 
 - core 1.4.5
 - more 1.4.0.1
 
 ## Composer
+TODO:
 
 - link to architecture#MVC
 
 ## History.js
-
-unknown version
+TODO
 
 ## DB.js
+TODO
 
 ## lunr.js
+TODO
 
 ## Markdown.converter
+TODO
 
 ## mooMasonry
+TODO
 
 

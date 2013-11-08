@@ -11,13 +11,7 @@ layout: documentation
 </div>
 
 # Users
-
-Users blah blah
-
 {{toc}}
 
-## GET /asdf
-
-## POST /blah
-
+TODO
 

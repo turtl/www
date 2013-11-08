@@ -11,16 +11,19 @@ layout: documentation
 </div>
 
 # Local storage/syncing
-
 {{toc}}
 
+TODO
+
 ## Local DB
+TODO:
 
 - usage of indexeddb in clients
 - 1:1 mapping of objects in database to memory
 - profile clearing
 
 ## Syncing
+TODO:
 
 - sync between memory and DB
   - sync between background pages and app

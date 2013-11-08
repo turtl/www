@@ -9,11 +9,11 @@ layout: documentation
 </div>
 
 # Security and encryption
+{{toc}}
+
 Turtl uses encryption to protect your data in such a way that only you, and
 those you choose, are able to view your data. Keep reading for a high-level
 overview of Turt's encryption and how it protects you.
-
-{{toc}}
 
 ## Encryption explained
 Simply put, encryption is the process of scrambling data. Generally, this is
