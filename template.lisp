@@ -103,7 +103,9 @@
                          (title (if type-pos (subseq title 0 type-pos) title))
                          (id (convert-to-html-id title)))
                     (push (list :title title
-                                :type type
+                                ;; NOTE: disabling "type" since it's mainly used for code docs
+                                ;:type type
+                                :type ""
                                 :id id
                                 :level (- level 1)) headers)
                     (concatenate 'string "<a id=\"" id "\"></a>" markdown.cl::*nl* tag)))))
@@ -122,6 +124,7 @@
             (dotimes (i (getf header :level))
               (format s " "))
             (let* ((title (getf header :title))
+                   (title (cl-ppcre:regex-replace-all "[\\[\\]]" title ""))
                    (id (getf header :id))
                    (type (getf header :type)))
               (format s "- [~a](#~a)" title id)
