@@ -35,6 +35,8 @@ the click of a button.
 {{{/div}}}
 {{{/div}}}
 
+<a id="#architecture"></a>
+
 ## Architecture
 TODO:
 
