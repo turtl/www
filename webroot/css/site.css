@@ -2,14 +2,16 @@ content {color: #555; font-size: 15px;}
 body.splash content {font-size: 16px;}
 content h1 {margin: 8px 0 16px -6px; padding: 6px 0 0 0; font-size: 24px; color: #555; text-transform: none;}
 content h2 {margin: 8px 0 16px 0; padding: 6px 0 0 0; font-size: 18px; color: #555; text-transform: none;}
+content h3 {margin: 8px 0 16px 0; padding: 6px 0 0 0; font-size: 16px; font-weight: bold; color: #555; text-transform: none;}
 content ul {margin: 0 0 0 32px; list-style: disc;}
 content ol {margin: 0 0 0 32px;}
 content strong {font-weight: bold;}
 content em {font-style: italic;}
 content p {margin: 0 0 16px 0;}
 content small {font-size: 80%;}
-content code {margin: 0 2px; padding: 0 5px; white-space: nowrap; font-family: Consolas, "Liberation Mono", Courier, monospace; background: #ddd; border-radius: 3px;}
-content pre code {color: #c9bf9f; white-space: pre; background: none;}
+content code {margin: 0 2px; padding: 0 5px; white-space: nowrap; font-family: Consolas, "Liberation Mono", Courier, monospace; background: #f8f8ff; border-radius: 3px;}
+/*content pre code {color: #c9bf9f; white-space: pre; background: none;}*/
+content pre {margin: 0 0 16px 0;}
 content em code, strong code {font-style: normal; font-weight: normal;}
 content hr {height: 0; margin: 20px auto; background: none; border: 0; border-bottom: 1px solid #ccc;}
 

@@ -21,5 +21,8 @@ window.addEvent('domready', function() {
 			el.dispose();
 		});
 	}
+
+	// highlight code
+	hljs.initHighlightingOnLoad();
 });
 
