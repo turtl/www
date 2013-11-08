@@ -21,6 +21,22 @@ act on that. Controllers are responsible for rendering and updating views based
 on the events they listen to. Events are the fabric the entire app is woven
 from.
 
+## Login and join
+Turtl requires being logged in to use it. To do authentication, it takes the
+username and password you enter, and uses it to generate your master key. Once
+you have this key, it SHA256's your password, appends your username to the
+resulting hash, and encrypts the resulting string using your master key. This is
+your auth token, and it's what it sent to the server to verify that you are who
+you say you are. Neither your username nor password ever leave the client, just
+your auth token, which is complete nonsense to everyone but you.
+
+Joining is the same process, except the auth token is posted to the server with
+a request to join.
+
+Once you've logged in, Turtl will either download your profile (if you're on a
+new device) or load the data stored locally into memory and sync any changes to
+your profile from the API.
+
 ## Data profile
 Just about all of a user's profile is stored as collections or models in the
 `Profile` model. This includes boards, notes, personas, etc...anything that's

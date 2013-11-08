@@ -15,12 +15,17 @@ layout: documentation
 The Turtl app makes the world go round. It's the common piece that all clients
 either wrap or use to drive their different parts. 
 
+It's the face of Turtl, letting you add/update notes, boards, personas, and any
+other data you can think of. When people think of Turtl, this is what comes to
+mind. The rest is icing on the cake.
+
 {{{div.clear}}}
 
 {{{div.doc-sec}}}
 ### [Architecture](/docs/clients/app/architecture)
 Explains the internals of the Turtl app and how it all fits together.
 
+- [Login and join](/docs/clients/app/architecture#login-and-join)
 - [Data profile](/docs/clients/app/architecture#data-profile)
 - [Controllers](/docs/clients/app/architecture#controllers)
 - [Local storage](/docs/clients/app/architecture#local-storage)
@@ -28,8 +33,7 @@ Explains the internals of the Turtl app and how it all fits together.
 
 {{{div.doc-sec}}}
 ### [Encryption](/docs/clients/app/encryption)
-Covers how Turtl encrypts data. Goes into detail about the specific methods and
-formats Turtl uses to protect data.
+Covers specifics of encryption, data authentication, serialization, etc.
 
 - [Ciphers and modes](/docs/clients/app/encryption#ciphers-and-modes)
 - [Authentication](/docs/clients/app/encryption#authentication)

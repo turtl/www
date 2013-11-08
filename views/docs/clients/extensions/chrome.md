@@ -26,7 +26,7 @@ Note that before running, you need to create a symlink to the Turtl app in the
 `data/` folder:
 
 ### Windows
-Must be run in an admin shell (because creating links is soooOOooOOo dangerous).
+Must be run in an admin shell:
 ```
 dir path\to\turtl-firefox\data
 mklink /d app \path\to\turtl-app
