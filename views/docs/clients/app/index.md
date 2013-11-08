@@ -35,6 +35,7 @@ formats Turtl uses to protect data.
 - [Authentication](/docs/clients/app/encryption#authentication)
 - [Serialization format](/docs/clients/app/encryption#serialization-format)
 - [Tcrypt / Protected model](/docs/clients/app/encryption#tcrypt-protected-model)
+- [Asymmetric key messaging](/docs/clients/app/encryption#asymmetric-key-messaging)
 {{{/div}}}
 
 <div class="clearMe">&nbsp;</div>

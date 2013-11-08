@@ -7,8 +7,8 @@ What is it?
 ===========
 
 Turtl is an application that allows you to store notes, bookmarks, (and soon
-files) and access them from anywhere. Turtl uses client-side AES encryption for
-personal data, and RSA shared-key encryption when sending data between users.
+files) and access them from anywhere. Turtl encrypts all your data client-side
+before sending it out to the server to give to the highest level of privacy.
 
 Turtl is [open-source](https://github.com/turtl), allowing anybody to audit the
 source or run their own version. See the [project timeline](https://github.com/turtl/js/issues/milestones)
@@ -18,6 +18,8 @@ Right now, Turtl is a browser add-on. We're planning on releasing to mobile and
 desktop soon, so stay tuned (be sure to follow our [twitter](https://twitter.com/turtlapp)
 or check out the [discussion group](http://groups.google.com/d/forum/turtl) to
 stay up to date).
+
+For more information, head over the [Turtl documentation](/docs).
 
 The philosophy
 ==============
@@ -50,5 +52,4 @@ How much does it cost?
 Right now, Turtl is free. It will always be a free download and free to use, but
 eventually we plan to offer premium features and charge for storage (ala
 Dropbox).
-
 

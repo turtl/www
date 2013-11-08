@@ -33,5 +33,12 @@ TODO
 
 ## Tcrypt/Protected model
 TODO:
+
 - link architecture#mvc
 - central point of encryption for all data
+
+## Asymmetric key messaging
+TODO:
+
+- personas/RSA
+- messaging system
