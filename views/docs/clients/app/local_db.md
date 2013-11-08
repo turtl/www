@@ -91,3 +91,17 @@ These changes are them applied in order to the local DB. After this, the
 [DB -> Memory](#db-memory) process picks the changes up and syncs them to the
 in-memory models, keeping our API data, local DB, and in-memory models in sync.
 
+### ID matching
+When an item is added in the app, it get sa temporary id (a CID, or "client" ID)
+which lets us identify the object locally. When it's saved to the API, it gets a
+real, server-generated ID which is saved back into and all instances of the CID
+are replaced with the ID.
+
+There is a small possibility that an item is added to the API and the client is
+killed before the generated ID is able to rewrite itself to the local data. In
+this case, the next time the client syncs from the API, the CID *and* ID of the
+new object are returned in the sync call, and the app updates the object with
+its new ID.
+
+This mitigates potential orphans and mismatches in the data.
+

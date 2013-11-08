@@ -13,15 +13,39 @@ layout: documentation
 # Chrome
 {{toc}}
 
-TODO
+The Chrome extension uses Chrome's standard extension API and uses the main
+background page API for its background process.
 
-## Overview
+## Running
+You can open the extension locally by going to `Tools > Extensions`, making sure
+"Developer mode" is *checked* and then click "Load unpacked extension..." Then
+browse to the folder the Turtl Chrome extension is and you're now running Turtl
+in Chrome!
 
-TODO
+Note that before running, you need to create a symlink to the Turtl app in the
+`data/` folder:
+
+### Windows
+Must be run in an admin shell (because creating links is soooOOooOOo dangerous).
+```
+dir path\to\turtl-firefox\data
+mklink /d app \path\to\turtl-app
+```
+
+### \*nix
+```
+cd /path/to/turtl-firefox/data
+ln -s /path/to/turtl-app app
+```
 
 ## Building and packaging
+There is a bash script (`scripts/package`) which builds and packages the
+extension in its entirety. This creates `release/turtl.zip` file.
 
-TODO
+Note that the `package` script must be run in the main extension directory, not
+in the `scripts/` directory.
 
-
+### Config
+If you're building the extensions to point to your own Turtl server, be sure to
+update `config.live.js` *before* building
 

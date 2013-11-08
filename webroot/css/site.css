@@ -126,7 +126,7 @@ div.toc {float: right; width: 25%; margin: 0 0 16px 16px; padding: 10px 16px; ba
 div.toc ul {color: #999; margin-left: 16px;}
 .documentation p:first-child {display: inline; padding: 0; margin: 0;}
 .documentation .breadcrumb {float: right; margin: 8px 0 0 0;}
-.documentation .doc-sec {float: left; width: 41%; margin: 0 24px 16px 0; padding: 10px 2.5% 16px 2.5%; background: #fff; border-radius: 6px;}
+.documentation .doc-sec {float: left; width: 41%; margin: 0 24px 24px 0; padding: 10px 2.5% 16px 2.5%; background: #fff; border-radius: 6px;}
 .documentation .doc-sec.main {float: none; width: auto; margin: 0 0 16px 0;}
 .documentation .doc-sec p {font-size: 13px; color: #777;}
 .documentation .doc-sec h3 {font-size: 18px; text-decoration: none; margin: 0; padding: 0;}
