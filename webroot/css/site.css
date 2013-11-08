@@ -112,7 +112,7 @@ div.button.huge a small {
  * screenshots
  * -------------------------------------------------------------------------- */
 .screenshots ul {list-style: none; margin: 0; padding: 0;}
-.screenshots ul li {display: inline-block; 239px; margin: 0 12px 12px 0; padding: 0; background: #fff; border: 1px solid #aaa;}
+.screenshots ul li {display: inline-block; 239px; margin: 0 8px 12px 0; padding: 0; background: #fff; border: 1px solid #aaa;}
 .screenshots ul li:hover {border: 1px solid #222;}
 .screenshots ul li a {display: block; line-height: 0;}
 

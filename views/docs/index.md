@@ -32,7 +32,8 @@ protects your data.
 
 - [Encryption explained](/docs/security#encryption-explained)
 - [Keys and sharing](/docs/security#keys-and-sharing)
-- [When is Turtl *not* secure?](/docs/security/#when-is-turtl-no-secure)
+- [Encryption specifics](/docs/security#encryption-specifics)
+- [When is Turtl *not* secure?](/docs/security#when-is-turtl-not-secure)
 {{{/div}}}
 
 

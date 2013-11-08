@@ -48,6 +48,12 @@ board (and the board's key) they can also decrypt all the notes in that board.
 This allows sharing of entire boards *without* having to share the key of each
 note in that board.
 
+## Encryption specifics
+If you're looking for a more comprehensive look at how Turtl does encryption,
+check out the [Client encryption](/docs/clients/app/encryption) page of the docs
+which goes over the ciphers, block modes, and other methods Turtl uses when
+handling your data.
+
 ## When is Turtl *not* secure?
 
 Here are some possible scenarios where Turtl's security measures will fail you.

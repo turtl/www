@@ -22,7 +22,7 @@
       (:div :id "container"
         (:header
           (:h1 (:a :href "/" "Turtl<em>.</em>"))
-          (:small "(encrypted note storage)")
+          (:small "(private storage)")
           (:ul
             (:li (:a :href "/about" "About"))
             (:li (:a :href "/docs" "Documentation"))
