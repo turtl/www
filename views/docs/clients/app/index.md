@@ -21,8 +21,8 @@ either wrap or use to drive their different parts.
 ### [Architecture](/docs/clients/app/architecture)
 Explains the internals of the Turtl app and how it all fits together.
 
-- [MVC](/docs/clients/app/architecture#mvc)
-- [Events](/docs/clients/app/architecture#events)
+- [Data profile](/docs/clients/app/architecture#data-profile)
+- [Controllers](/docs/clients/app/architecture#controllers)
 - [Local storage](/docs/clients/app/architecture#local-storage)
 {{{/div}}}
 
@@ -34,8 +34,8 @@ formats Turtl uses to protect data.
 - [Ciphers and modes](/docs/clients/app/encryption#ciphers-and-modes)
 - [Authentication](/docs/clients/app/encryption#authentication)
 - [Serialization format](/docs/clients/app/encryption#serialization-format)
-- [Tcrypt / Protected model](/docs/clients/app/encryption#tcrypt-protected-model)
-- [Asymmetric key messaging](/docs/clients/app/encryption#asymmetric-key-messaging)
+- [Protected model](/docs/clients/app/encryption#protected-model)
+- [Encrypted messaging](/docs/clients/app/encryption#encrypted-messaging)
 {{{/div}}}
 
 <div class="clearMe">&nbsp;</div>

@@ -67,7 +67,7 @@
    "
   (cl-ppcre:regex-replace-all
     (cl-ppcre:create-scanner
-      "```(.*?)(\\n.*?)(\\n)```"
+      "```(.*?)\\n(.*?)(\\n)```"
       :case-insensitive-mode t
       :single-line-mode t)
     str

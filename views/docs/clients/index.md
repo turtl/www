@@ -1,11 +1,11 @@
 ---
-title: Clients | Documentation
+title: Apps and clients | Documentation
 layout: documentation
 ---
 
 <div class="breadcrumb">
     <a href="/docs">Documentation</a> &raquo;
-    Clients
+    Apps and clients
 </div>
 
 # Turtl clients
@@ -39,11 +39,11 @@ possible to safely run Turtl in the browser.
 {{{/div}}}
 
 ## Clients on the way
-While these may be a ways off until we get more support (money/developers), here
-is a list of clients we do not yet support *but plan to*:
-
-TODO:
+Turtl's goal is to bring you your data no matter where you are. Here are some of
+the apps and clients we have not yet finished, but are planning to support in
+the near future:
 
 - iPhone
 - Android
-- Desktop
+- Desktop (Windows, Linux, Mac)
+

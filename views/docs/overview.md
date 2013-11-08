@@ -68,3 +68,9 @@ Personas use encryption when sending messages and data between each other (read
 more about [persona messaging](/docs/security#keys-and-sharing)) so that sharing
 data between two people is as secure as possible.
 
+Note that at this time, a user is only allowed one persona. This is a somewhat
+arbitrary restriction: the entire app was set up *assuming* that a user could
+have multiple personas, but that functionality was never enabled.
+
+__In the future an account will be able to have multiple personas.__
+
