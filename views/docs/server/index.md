@@ -32,11 +32,17 @@ This gives an overview of the way the server is put together and how it works.
 ### [API documentation](/docs/server/api/index)
 Lists the resources accessible via the API and how to retrieve and update them.
 
+__Note__: The API docs are fairly incomplete at this time, however you can get a
+very good idea of what resources are available by looking through the
+[controllers/](https://github.com/turtl/api/tree/master/controllers) folder on
+Turtl's API github.
+<!--
 - [Users](/docs/server/api/users)
 - [Boards](/docs/server/api/boards)
 - [Notes](/docs/server/api/notes)
 - [Invites](/docs/server/api/invites)
 - [Full list &raquo;](/docs/server/api/index)
+-->
 {{{/div}}}
 
 <div class="clearMe">&nbsp;</div>
@@ -48,7 +54,6 @@ use the primary Turtl service or you want an environment to test on.
 
 - [Common Lisp](/docs/server/running#common-lisp)
 - [Quicklisp](/docs/server/running#quicklisp)
-- [Git libraries](/docs/server/running#git-libraries)
 - [Configuration](/docs/server/running#configuration)
 - [Starting](/docs/server/running#starting)
 {{{/div}}}

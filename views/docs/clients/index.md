@@ -5,7 +5,7 @@ layout: documentation
 
 <div class="breadcrumb">
     <a href="/docs">Documentation</a> &raquo;
-    Apps and clients
+    Clients
 </div>
 
 # Turtl clients

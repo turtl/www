@@ -12,10 +12,15 @@ layout: documentation
 # API documentation
 
 This section covers the various objects and resources the API supports and how
-they are called. Note that with a [few exceptions](/docs/server/config#public-actions),
+they are called. Note that with a [few exceptions](/docs/server/architecture#public-actions),
 the resources provided by the Turtl API all require
 [authentication](/docs/server/architecture#auth), so please familiarize yourself
 with the auth process.
+
+__Note__: The API docs are fairly incomplete at this time, however you can get a
+very good idea of what resources are available by looking through the
+[controllers/](https://github.com/turtl/api/tree/master/controllers) folder on
+Turtl's API github.
 
 {{{div.clear}}}
 
