@@ -55,8 +55,8 @@ Dive in to Turtl's server: the architecture and the full API documentation. Also
 learn how to run your own Turtl server.
 
 - [Architecture](/docs/server/architecture)
-- [API documentation](/docs/server/api/index)
 - [Running](/docs/server/running)
+- [API documentation](/docs/server/api/index)
 {{{/div}}}
 
 <div class="clearMe">&nbsp;</div>
