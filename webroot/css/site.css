@@ -4,6 +4,7 @@ content h1 {margin: 8px 0 16px -6px; padding: 6px 0 0 0; font-size: 24px; color:
 content h2 {margin: 8px 0 16px 0; padding: 6px 0 0 0; font-size: 18px; color: #555; text-transform: none;}
 content h3 {margin: 8px 0 16px 0; padding: 6px 0 0 0; font-size: 17px; text-decoration: underline; color: #555; text-transform: none;}
 content ul {margin: 0 0 8px 32px; list-style: disc;}
+content ul ul {margin-bottom: 0;}
 content ol {margin: 0 0 8px 32px;}
 content strong {font-weight: bold;}
 content em {font-style: italic;}
