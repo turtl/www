@@ -11,7 +11,7 @@
       (:link :rel "stylesheet" :href "/css/template.css")
       (:link :rel "stylesheet" :href "/css/site.css")
       (:link :rel "stylesheet" :href "/css/highlight.js/github.css")
-      (:link :rel "shortcut icon" :href "/favicon.png" :type "image/png")
+      (:link :rel "shortcut icon" :href "/favicon.png" :type "image/x-icon")
       ;; LOL GoOgLe is pretecting us!!!1
       (:link :rel "chrome-webstore-item" :href "https://chrome.google.com/webstore/detail/dgcojenhfdjhieoglmiaheihjadlpcml")
       (:script :src "/js/mootools-core-1.4.5.js")

@@ -64,8 +64,8 @@
   (load-views)
   (send-response res :body "Views refreshed!!"))
 
-(defroute (:get "/favicon.ico") (req res)
-  (send-response res :status 301 :headers '(:location "/favicon.png")))
+;(defroute (:get "/favicon.ico") (req res)
+;  (send-response res :status 301 :headers '(:location "/favicon.png")))
 
 (def-directory-route "/" (format nil "~awebroot" *root*))
 
