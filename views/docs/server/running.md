@@ -12,9 +12,8 @@ layout: documentation
 # Running Turtl
 {{toc}}
 
-Running your own Turtl server can be a fun and rewarding activity the entire
-family can enjoy. It allows creating a private Turtl network for your company,
-your friends, or your family.
+Running your own server allows creating a private Turtl network for your
+company, your friends, or your family.
 
 ## Common Lisp
 The Turtl server runs on Common Lisp. It was primarily developed on [Clozure CL](http://ccl.clozure.com/),
