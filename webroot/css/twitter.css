@@ -1,6 +1,7 @@
 .tweet {padding: 12px 0 10px 0 !important;}
 .tweet:first-child {padding-top: 0 !important;}
 .tweet:last-child {padding-bottom: 0 !important; border-bottom: 0 !important;}
+.tweet .header {min-height: 0 !important; padding: 0 !important; display: block;}
 .tweet a.permalink {float: right; margin: 0 0 0 8px; color: #83aed1;}
 .tweet .e-entry-title {clear: none; margin: 0; font-size: 13px; color: #555; overflow: visible; white-space: normal;}
 .tweet .avatar {display: none;}
