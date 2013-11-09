@@ -29,6 +29,19 @@ This gives an overview of the way the server is put together and how it works.
 {{{/div}}}
 
 {{{div.doc-sec}}}
+### [Running Turtl](/docs/server/running)
+Covers how to run your own Turtl server! This is useful if you do not with to
+use the primary Turtl service or you want an environment to test on.
+
+- [Common Lisp](/docs/server/running#common-lisp)
+- [Quicklisp](/docs/server/running#quicklisp)
+- [Configuration](/docs/server/running#configuration)
+- [Starting](/docs/server/running#starting)
+{{{/div}}}
+
+<div class="clearMe">&nbsp;</div>
+
+{{{div.doc-sec}}}
 ### [API documentation](/docs/server/api/index)
 Lists the resources accessible via the API and how to retrieve and update them.
 
@@ -43,19 +56,6 @@ Turtl's API github.
 - [Invites](/docs/server/api/invites)
 - [Full list &raquo;](/docs/server/api/index)
 -->
-{{{/div}}}
-
-<div class="clearMe">&nbsp;</div>
-
-{{{div.doc-sec}}}
-### [Running Turtl](/docs/server/running)
-Covers how to run your own Turtl server! This is useful if you do not with to
-use the primary Turtl service or you want an environment to test on.
-
-- [Common Lisp](/docs/server/running#common-lisp)
-- [Quicklisp](/docs/server/running#quicklisp)
-- [Configuration](/docs/server/running#configuration)
-- [Starting](/docs/server/running#starting)
 {{{/div}}}
 
 {{{/div}}}
