@@ -53,7 +53,7 @@ Starting the server is as easy as starting your lisp implemenation in the
 server's directory and doing the following:
 
 ```lisp
-(ql:quicklisp :turtl)
+(ql:quickload :turtl)
 ;; ...loading blah blah...
 (turtl:start :port 6969)
 ```
