@@ -20,7 +20,7 @@ contributor, this is the place to be!
 
 <h2><a href="https://twitter.com/turtlapp" target="_blank">Twitter</a></h2>
 <p>
-Follow us or send us a shout&#160;<a href="https://twitter.com/turtlapp" target="_blank">@turtl</a>.
+Follow us or send us a shout&#160;<a href="https://twitter.com/turtlapp" target="_blank">@turtlapp</a>.
 </p>
 
 
