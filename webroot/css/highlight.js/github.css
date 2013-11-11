@@ -27,7 +27,7 @@ pre .subst,
 pre .request,
 pre .status {
   color: #333;
-  font-weight: bold
+  /*font-weight: bold*/
 }
 
 pre .number,

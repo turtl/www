@@ -66,14 +66,14 @@ learn how to run your own Turtl server.
 ## [Roadmap and planned features](https://github.com/turtl/js/issues)
 Turtl has a very clear picture of its [next steps and features](https://github.com/turtl/js/issues)
 on Github. Note that a lot of planned featured are not tracked on the issue
-tracker on Github in order to keep it concise and organized.
-
-These features and issues are tracked internally by the Turtl team, and are
-added to the Github issue tracker as they become relevant.
+tracker on Github in order to keep it concise and organized. These features
+and issues are tracked internally by the Turtl team, and are added to the Github
+issue tracker as they become relevant.
 
 Doing things this way provides a clear picture of what we're working on in the
 next few releases and what features we have planned down the road.
 
-If you have an idea for how we can make Turtl better (or a bug retport), do not
-hesitate to [contact us](/contact).
+If you have an idea for how we can make Turtl better (or a bug report), do not
+hesitate to let us know [on the discussion board](http://groups.google.com/d/forum/turtl)
+or [contact us](/contact) via email/twitter.
 
