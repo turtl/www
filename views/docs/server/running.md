@@ -12,9 +12,8 @@ layout: documentation
 # Running Turtl
 {{toc}}
 
-Running your own Turtl server can be a fun and rewarding activity the entire
-family can enjoy. It allows creating a private Turtl network for your company,
-your friends, or your family.
+Running your own server allows creating a private Turtl network for your
+company, your friends, or your family.
 
 ## Common Lisp
 The Turtl server runs on Common Lisp. It was primarily developed on [Clozure CL](http://ccl.clozure.com/),
@@ -22,8 +21,8 @@ but [SBCL](http://www.sbcl.org/) may also be used as well (although not as
 extensively tested).
 
 Common Lisp was chosen because it's awesome. It compiles to machine code,
-supports native threading, allows calling out the C with the flick of your
-wrist, and best of all, lets you write code that writes code that writes...
+supports native threading, allows calling out to C with the flick of your
+wrist. Best of all, lets you write code that writes code that writes...
 
 It has made developing the server fast and easy.
 
@@ -32,8 +31,11 @@ The server loads many of its components via [Quicklisp](http://www.quicklisp.org
 It's not required to run the server, but will make your life a lot easier.
 
 ### Libraries not in Quicklisp
-There are some libraries the server uses that are not yet added to quicklisp:
+There are some libraries the server uses that are not yet added to quicklisp.
+Also, while these libraries may find their way into Quicklisp son enough, it's
+much better to use the latest git versions:
 
+- [Wookie](https://github.com/orthcreedence/wookie)
 - [cl-rethinkdb](https://github.com/orthcreedence/cl-rethinkdb)
 
 ## Configuration

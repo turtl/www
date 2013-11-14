@@ -30,6 +30,7 @@
             (:li (:a :href "/docs" "Documentation"))
             (:li (:a :href "/faq" "FAQ"))
             (:li (:a :href "/contact" "Get in touch"))
+            (:li (:a :href "http://turtlapp.tumblr.com/" "Blog"))
             ;(:li (:a :href "https://github.com/turtl/js/issues" "Report a bug"))
             ;(:li (:a :href "/demo" "Demo"))
             ))
@@ -47,6 +48,8 @@
           "<a href=\"https://github.com/turtl\">Github</a>"
           " &nbsp;&nbsp;|&nbsp;&nbsp;"
           "<a href=\"https://twitter.com/turtlapp\">Twitter</a>"
+          " &nbsp;&nbsp;|&nbsp;&nbsp;"
+          "<a href=\"http://turtl.dev:8182/refresh-views\">Blog</a>"
           " &nbsp;&nbsp;|&nbsp;&nbsp;"
           (:p "&copy;" (:a :href "http://lyonbros.com" "Lyon Bros. Enterprises, LLC"))))
       (:script
