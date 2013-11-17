@@ -34,4 +34,4 @@ Enabling IndexedDB in Chrome
 There's no way to *disable* IndexedDB in Chrome (as far as we know).
 
 If you are having problems loading Turtl, please
-[let us know using the Turtl issue tracker](https://github.com/turtl/js/issues).
+[let us know on the discussion board](http://groups.google.com/d/forum/turtl).
