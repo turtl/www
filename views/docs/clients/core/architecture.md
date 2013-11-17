@@ -1,20 +1,20 @@
 ---
-title: Architecture | App | Clients | Documentation
+title: Architecture | Core | Clients | Documentation
 layout: documentation
 ---
 
 <div class="breadcrumb">
     <a href="/docs">Documentation</a> &raquo;
     <a href="/docs/clients/index">Clients</a> &raquo;
-    <a href="/docs/clients/app/index">App</a> &raquo;
+    <a href="/docs/clients/core/index">Core</a> &raquo;
     Architecture
 </div>
 
 # Architecture
 {{toc}}
 
-The Turtl app is set up as an MVC (Model View Controller) application written in
-Javascript. The idea behind it is that "models" are representations of data.
+The Turtl core is set up as an MVC (Model View Controller) application written
+in Javascript. The idea behind it is that "models" are representations of data.
 When a model changes, it signals that change using an event, and anyone
 listening (other models, collections of models, or controllers) will be able to
 act on that. Controllers are responsible for rendering and updating views based
@@ -98,7 +98,7 @@ For instance, a controller may call `render()` on itself if its model triggers a
 `change` event. Or the controller may call its `submit_form()` method if the
 user clicks a submit button in a form that the controller displays.
 
-The controllers all exist under the app's `controllers/` folder and generally
+The controllers all exist under the core's `controllers/` folder and generally
 have self-explanatory names.
 
 ## Local storage
@@ -106,12 +106,12 @@ Turtl mirrors your profile locally using IndexedDB. All changes that happen to
 your data flow through the local db whether they are triggered by you or coming
 from the API syncing data to your profile.
 
-When you save a note (or other data) in the Turtl app interface, it triggers a
+When you save a note (or other data) in the Turtl core interface, it triggers a
 `save()` on the corresponding model. The `save` method saves the model's data to
 the local DB, marking it as recently modified. This allows other parts of the
-app to locate data that has recently changed and apply those changes where
+core to locate data that has recently changed and apply those changes where
 needed (or sync the changes to the API).
 
-To read more about local storage, check out the [Local storage/syncing section](/docs/clients/app/local_db)
+To read more about local storage, check out the [Local storage/syncing section](/docs/clients/core/local_db)
 of the docs.
 

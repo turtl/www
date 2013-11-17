@@ -1,20 +1,20 @@
 ---
-title: Encryption | App | Clients | Documentation
+title: Encryption | Core | Clients | Documentation
 layout: documentation
 ---
 
 <div class="breadcrumb">
     <a href="/docs">Documentation</a> &raquo;
     <a href="/docs/clients/index">Clients</a> &raquo;
-    <a href="/docs/clients/app/index">App</a> &raquo;
+    <a href="/docs/clients/core/index">Core</a> &raquo;
     Encryption
 </div>
 
 # Encryption
 {{toc}}
 
-As mentioned in the [architecture overview](/docs/clients/app/architecture),
-Turtl is an MVC application. All models that use encryption in the app extend
+As mentioned in the [architecture overview](/docs/clients/core/architecture),
+Turtl is an MVC application. All models that use encryption in the core extend
 a model called [Protected](https://github.com/turtl/js/blob/master/models/_protected.js).
 The Protected model provides all the abstracted methods used for encrypting and
 decrypting data.
@@ -91,9 +91,8 @@ converts serialization/deserialization into an asynchronous background thread.
 This is great for encrypting or decrypting large amounts of data without
 blocking the main thread (files, for instance).
 
-Note that this model is not yet merged into the Turtl app's core as it has not
-been fully tested yet, and was mainly built for file support which is not
-finished.
+Note that this model is not yet merged into the Turtl core as it has not been
+fully tested yet, and was mainly built for file support which is not finished.
 
 ### ProtectedShared
 The ProtectedShared model extends Protected, but replaces all of its key search

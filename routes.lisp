@@ -24,7 +24,13 @@
   (send-response res
                  :status 301
                  :headers '(:location "/docs/security")
-                 :body "Moved to <a href=\"/docs/security\">Security</a>"))
+                 :body "moved to <a href=\"/docs/security\">security</a>"))
+
+(defroute (:get "/docs/clients/app/(.*)") (req res args)
+  (send-response res
+                 :status 301
+                 :headers (list :location (format nil "/docs/clients/core/~a" (car args)))
+                 :body (format nil "moved to <a href=\"/docs/clients/core/~a\">here</a>" (car args))))
 
 (defroute (:get "/about") (req res)
   (let ((body (load-view :pages/about)))

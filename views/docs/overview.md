@@ -50,7 +50,7 @@ you log in, Turtl just pulls down *the things that have changed* and applies
 those changes to your local profile.
 
 If you're interested in knowing more about how Turtl syncs data, head over to
-the [Local storage/syncing](/docs/clients/app/local_db) section of the
+the [Local storage/syncing](/docs/clients/core/local_db) section of the
 documentation.
 
 ## Personas and sharing

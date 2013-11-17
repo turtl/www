@@ -22,20 +22,20 @@ You can open the extension locally by going to `Tools > Extensions`, making sure
 browse to the folder the Turtl Chrome extension is and you're now running Turtl
 in Chrome!
 
-Note that before running, you need to create a symlink to the Turtl app in the
+Note that before running, you need to create a symlink to the Turtl core in the
 `data/` folder:
 
 ### Windows
 Must be run in an admin shell:
 ```
 dir path\to\turtl-firefox\data
-mklink /d app \path\to\turtl-app
+mklink /d app \path\to\turtl-core
 ```
 
 ### \*nix
 ```
 cd /path/to/turtl-firefox/data
-ln -s /path/to/turtl-app app
+ln -s /path/to/turtl-core app
 ```
 
 ## Building and packaging

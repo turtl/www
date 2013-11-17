@@ -26,13 +26,13 @@ doing so, you must create a symlink to the app under data:
 Must be run in an admin shell (because creating links is soooOOooOOo dangerous).
 ```
 dir path\to\turtl-firefox\data
-mklink /d app \path\to\turtl-app
+mklink /d app \path\to\turtl-core
 ```
 
 ### \*nix
 ```
 cd /path/to/turtl-firefox/data
-ln -s /path/to/turtl-app app
+ln -s /path/to/turtl-core app
 ```
 
 ## Building and packaging

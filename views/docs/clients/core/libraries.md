@@ -1,12 +1,12 @@
 ---
-title: Packaged libraries | App | Clients | Documentation
+title: Packaged libraries | Core | Clients | Documentation
 layout: documentation
 ---
 
 <div class="breadcrumb">
     <a href="/docs">Documentation</a> &raquo;
     <a href="/docs/clients/index">Clients</a> &raquo;
-    <a href="/docs/clients/app/index">App</a> &raquo;
+    <a href="/docs/clients/core/index">Core</a> &raquo;
     Packaged libraries
 </div>
 
@@ -37,8 +37,8 @@ object-orientation, and also to drive Composer.js (our MVC framework).
 More is used for things like drag and drop sorting and other UI niceties.
 
 ## [Composer.js](http://lyonbros.github.io/composer.js/)
-Composer.js is the MVC framework used by the Turtl app. It provides a good
-amount of tools and structure that help make the app fast, secure, and
+Composer.js is the MVC framework used by the Turtl core. It provides a good
+amount of tools and structure that help make the core fast, secure, and
 maintainable.
 
 Composer.js is built and maintained by Lyon Bros. Enterprises, the wonderful

@@ -17,19 +17,19 @@ Turtl supports and how each client works.
 {{{div.clear}}}
 
 {{{div.doc-sec}}}
-### [Main app](/docs/clients/app/index)
-The main component of Turtl's clients. This is the main interface to viewing and
-changing your data. Also responsible for encrypting your data.
+### [Core](/docs/clients/core/index)
+The main component of Turtl's clients. This houses the interfaces to view and
+update your data, and is responsible for all encryption.
 
-- [Architecture](/docs/clients/app/architecture)
-- [Encryption](/docs/clients/app/encryption)
-- [Local storage / Syncing](/docs/clients/app/local_db)
-- [Packaged libraries](/docs/clients/app/libraries)
+- [Architecture](/docs/clients/core/architecture)
+- [Encryption](/docs/clients/core/encryption)
+- [Local storage / Syncing](/docs/clients/core/local_db)
+- [Packaged libraries](/docs/clients/core/libraries)
 {{{/div}}}
 
 {{{div.doc-sec}}}
 ### [Browser extensions](/docs/clients/extensions/index)
-The browser extensions wrap the [main app](/docs/clients/app/index), making it
+The browser extensions wrap the [core](/docs/clients/core/index), making it
 possible to safely run Turtl in the browser.
 
 - [Chrome](/docs/clients/extensions/chrome)

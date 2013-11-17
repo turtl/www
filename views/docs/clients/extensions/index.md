@@ -40,19 +40,19 @@ the click of a button.
 ## Architecture
 All browser extensions follow the same basic architecture: They have a main
 process that loads the extensions libraries and does basic setup, a background
-process that loads the [app](/docs/clients/app/index) and its data, and they are
-able to open tabs into a new instance of the app.
+process that loads the [core](/docs/clients/core/index) and its data, and they
+are able to open tabs into a new instance of the core.
 
 ### Syncing
-The extensions sync data between their background process and app tabs using the
-[local DB](/docs/clients/app/local_db), which allows sharing of all profile data
+The extensions sync data between their background process and core tabs using the
+[local DB](/docs/clients/core/local_db), which allows sharing of all profile data
 without having to constantly manually sync changes via messaging.
 
 When an extension is loaded, the only piece that does remote syncing (ie, saving
 data to the API and syncing data from the API) is the background process. All
-app tabs are only permitted to sync locally.
+core tabs are only permitted to sync locally.
 
-What this means is that if you add a note in an app tab, it will save to the
+What this means is that if you add a note in an core tab, it will save to the
 local DB, but it's the background process of the extension that actually saves
 the new data to the API.
 
@@ -67,18 +67,17 @@ Note that the only interfaces that the extensions house themselves are:
 1. The user login/join dialog.
 1. The dropdown menu that opens when you click the Turtl extension button.
 
-Everything else is loaded from views that exist in the app. This makes Turtl as
-a whole much more maintainable and also allows testing of the app as a web app
+Everything else is loaded from views that exist in the core. This makes Turtl as
+a whole much more maintainable and also allows testing of the core as a web app
 and not just a browser extension.
 
 ### Messaging
 The extensions allow messaging through objects called addon-adapters, housed
-under `library/addon/adapters` in the main app. These provide a standard
-interface for the app to send messages to and listen to messages from the 
-extensions.
+under `library/addon/adapters` in the core. These provide a standard interface
+for the core to send messages to and listen to messages from the extensions.
 
 The object lives under the `window.port` context, and in many places throughout
-the app you'll see:
+the core you'll see:
 
 ```javascript
 // send a message to the extension
@@ -88,5 +87,5 @@ if(window.port) window.port.send(...);
 if(window.port) window.port.bind(...);
 ```
 
-This is the app communicating with the addon.
+This is the core communicating with the addon.
 

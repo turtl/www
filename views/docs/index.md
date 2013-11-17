@@ -45,7 +45,7 @@ Get to know the various apps, clients, and platforms we support. This section
 includes architecture of Turtl's various apps, how we do encryption, build
 instructions, and more.
 
-- [Main app](/docs/clients/app/index)
+- [Turtl core](/docs/clients/core/index)
 - [Browser extensions](/docs/clients/extensions/index)
 {{{/div}}}
 
