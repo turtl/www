@@ -13,16 +13,17 @@ layout: documentation
 # Packaged libraries
 {{toc}}
 
-Turtl uses many third-party libraries, and this is meant to be a comprehensive
-list of which ones and why it's included.
+Turtl uses some third-party libraries, and this is meant to be a comprehensive
+list of which ones we use and why.
 
 It's important to note that Turtl does __not__ use git submodules. All libraries
-are stored in Turtl's source control, eliminating the chance that someone could
-sneak in malicious code through one of the listed third-party libraries.
+are stored directly in Turtl's source control, eliminating the chance that
+someone could sneak in malicious code through one of the listed third-party
+libraries.
 
-Note also that all included libraries have been carefully reviews for any trace
-of data leakage (via JSONP, iframes, browser APIs, etc)...anything that could
-compromise user privacy. None found.
+Note also that all included libraries have been carefully reviewed for any trace
+of data leakage (via JSONP, iframes, browser APIs, etc) before inclusion in the
+Turtl project.
 
 ## [Cowcrypt](https://github.com/rubbingalcoholic/cowcrypt)
 The main crypto library used by Turtl. Provides AES, Twofish, RSA, hashers,
