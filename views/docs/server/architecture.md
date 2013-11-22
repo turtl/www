@@ -62,7 +62,7 @@ Note that there are some resources that do not require auth which are listed in
 
 ## Sync
 The API tracks all user profile data changes in a central table in the database
-(called "sync"). This table stored the action (add, edit, delete), the item ID
+(called "sync"). This table stores the action (add, edit, delete), the item ID
 the action occured on, the item type (note, board, persona, ...) and the ID of
 the user performing the action.
 
