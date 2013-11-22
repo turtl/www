@@ -26,6 +26,13 @@ look to the right, you'll see a label called __Value__. Make sure that the
 "dom.indexedDB.enabled" value is `true`. If it is `false`, double-click the
 entry to set it to `true`.
 
+### Private Browsing bug
+As of Firefox 25.x (and lower), you cannot use IndexedDB in Private Browsing
+mode. They are aware of this issue: <https://bugzilla.mozilla.org/show_bug.cgi?id=781982>.
+What this means is that while you can log in/join and bookmark while using
+Private Browsing, you cannot open a Turtl tab in a browser window that's
+private.
+
 <img src="/images/site/icons/chrome_32x32.png" width="32" height="32" alt="Chrome" align="right"/>
 
 Enabling IndexedDB in Chrome
