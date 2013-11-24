@@ -32,7 +32,7 @@ It's not required to run the server, but will make your life a lot easier.
 
 ### Libraries not in Quicklisp
 There are some libraries the server uses that are not yet added to quicklisp.
-Also, while these libraries may find their way into Quicklisp son enough, it's
+Also, while these libraries may find their way into Quicklisp soon enough, it's
 much better to use the latest git versions:
 
 - [Wookie](https://github.com/orthcreedence/wookie)
