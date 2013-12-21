@@ -108,7 +108,7 @@
                                 :type ""
                                 :id id
                                 :level (- level 1)) headers)
-                    (concatenate 'string "<a id=\"" id "\"></a>" markdown.cl::*nl* tag)))))
+                    (concatenate 'string "<a class=\"toc-anchor\" id=\"" id "\"></a>" markdown.cl::*nl* tag)))))
          (headers (reverse headers))
          ;; finds top-level headers (<h1>)
          (header-search-fn (lambda (header) (zerop (getf header :level)))))
@@ -183,43 +183,18 @@
          (markdown-header (when markdown-header (aref markdown-header 0)))
          (parsed-headers (parse-markdown-header markdown-header))
          (markdown-str (cl-ppcre:regex-replace *scanner-md-header* markdown-str ""))
-         (markdown-str (format-code-blocks markdown-str))
-         (markdown-str (generate-table-of-contents markdown-str))
-         (markdown-str (parse-special-tags markdown-str))
-         (html (markdown.cl:parse markdown-str))
+         (raw (if (string= (getf parsed-headers :markdown) "off")
+                  markdown-str
+                  nil))
+         (markdown-str (unless raw (format-code-blocks markdown-str)))
+         (markdown-str (unless raw (generate-table-of-contents markdown-str)))
+         (markdown-str (unless raw (parse-special-tags markdown-str)))
+         (html (if raw
+                   raw
+                   (markdown.cl:parse markdown-str)))
          (html (fix-anchors html))
          (html (finish-special-tags html)))
     (values html parsed-headers)))
-
-(defun test ()
-  (process-markdown-view
-"---
-title: Documentation
-layout: default
----
-
-# Turtl Documentation
-
-{{{div.docs}}}
-{{{div.doc-sec}}}
-### [Clients](/docs/clients/index)
-- [App](/docs/clients/app/index)
-  - [Architecture](/docs/clients/app/architecture)
-  - [Encryption](/docs/clients/app/encryption)
-  - [Local storage / Syncing](/docs/clients/app/local_db)
-  - [Packaged libraries](/docs/clients/app/libraries)
-- [Extensions](/docs/clients/extensions)
-{{{/div}}}
-
-
-{{{div.doc-sec}}}
-### [Server](/docs/server/index)
-  - [Architecture](/docs/server/architecture)
-  - [API documentation](/docs/server/api/index)
-    - [Users](/docs/server/api/users)
-{{{/div}}}
-{{{/div}}}
-"))
 
 (defun load-views (&key subdir (clear t) (view-directory (format nil "~a/views" *root*)))
   "Load and cache all view files."

@@ -1,37 +1,104 @@
-content {color: #555; font-size: 15px;}
-body.splash content {font-size: 16px;}
-content h1 {margin: 8px 0 16px -6px; padding: 6px 0 0 0; font-size: 24px; color: #555; text-transform: none;}
-content h2 {margin: 8px 0 16px 0; padding: 6px 0 0 0; font-size: 18px; color: #555; text-transform: none;}
-content h3 {margin: 8px 0 16px 0; padding: 6px 0 0 0; font-size: 17px; text-decoration: underline; color: #555; text-transform: none;}
-content ul {margin: 0 0 8px 32px; list-style: disc;}
-content ul ul {margin-bottom: 0;}
-content ol {margin: 0 0 8px 32px;}
-content strong {font-weight: bold;}
-content em {font-style: italic;}
-content p {margin: 0 0 16px 0;}
-content small {font-size: 80%;}
-content code {margin: 0 2px; padding: 0 5px; white-space: nowrap; font-family: Consolas, "Liberation Mono", Courier, monospace; background: #f8f8ff; border-radius: 3px;}
-/*content pre code {color: #c9bf9f; white-space: pre; background: none;}*/
-content pre {margin: 0 0 16px 0;}
-content pre code {white-space: pre;}
-content em code, strong code {font-style: normal; font-weight: normal;}
-content hr {height: 0; margin: 20px auto; background: none; border: 0; border-bottom: 1px solid #ccc;}
+/* --------------------------------------------------------------------------
+ * general content styles
+ * -------------------------------------------------------------------------- */
+section {color: #444; font-size: 1.1em; line-height: 1.7em;}
+section em {font-style: italic;}
+section strong {font-weight: bold;}
+section h1 {margin: 8px 0 16px -6px; padding: 6px 0 0 0; font-size: 24px; color: #555; text-transform: none;}
+section h1 small {margin: 0 0 0 10px; font-size: .55em; font-weight: normal; font-style: normal; text-transform: none; letter-spacing: .04em;}
+section h2 {margin: 0 0 0.3em 0; font-size: 1.3em;}
+section
+section h3 {margin: 8px 0 16px 0; padding: 6px 0 0 0; font-size: 17px; text-decoration: underline; color: #555; text-transform: none;}
+section ul {margin: 0 0 8px 32px; list-style: disc;}
+section ul ul {margin-bottom: 0;}
+section ol {margin: 0 0 8px 32px;}
+section p {margin: 0 0 16px 0;}
+section small {font-size: .8em;}
+section code {margin: 0 2px; padding: 0 5px; white-space: nowrap; font-family: Consolas, "Liberation Mono", Courier, monospace; background: #f8f8ff; border-radius: 3px;}
+/*section pre code {color: #c9bf9f; white-space: pre; background: none;}*/*/
+section pre {margin: 0 0 16px 0;}
+section pre code {white-space: pre;}
+section em code, strong code {font-style: normal; font-weight: normal;}
+section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bottom: 1px solid #ccc;}
+
+/* modalbox stuff */
+#modalbox {position: absolute; display: block; z-index: 2000;}
+#modalbox.loading {text-align: center;}
+#modalbox .modalgutter {display: block; padding: 12px;}
+#modalbox .modalgutter .modalcontent {display: block; padding: 16px; overflow: auto; line-height: 0; background: #fff; box-shadow: 0 0 16px 0 #000;}
+#modalbox .closelink {position: absolute; top: -5px; right: -12px; display: block; width: 40px; height: 40px; margin: 0; padding: 0; background: url(/images/modal/close.png) 0 0 no-repeat;}
+#modalbox-overlay {position: fixed; z-index: 100; top: 0; bottom: 0; left: 0; right: 0; margin: 0; padding: 0; opacity: .6; cursor: pointer; background: #000;}
+
+/* slideshow styles (general) */
+.slideshow {width: 100%; height: 588px; padding: 0;}
+.slideshow .container {width: auto; height: 588px; position: relative; overflow: visible;}
+.slideshow .container > ul {height: 588px; overflow: hidden;}
+.slideshow .container > ul > li {display: inline-block; z-index: 3; float: left; width: 100%; height: 588px; background: #000 center center no-repeat; background-size: cover;}
+.slideshow .container a.full {position: absolute; z-index: 1; display: block; top: 0; bottom: 0; left: 0; right: 0;}
+.slideshow .container a.button {position: absolute; z-index: 3; display: block; width: 206px; height: 31px; padding: 12px 0 0 6px; font-family: 'Roboto Condensed'; font-weight: normal; font-size: 1.1em; color: #edb347; color: #fff; letter-spacing: 0.34em; text-transform: uppercase; text-align: center; text-decoration: none; background: rgba(0,0,0,.1); border: 1px solid #a6c0aa; border: 1px solid rgba(200,200,200,.49);}
+.slideshow .container a.button:hover {border: 1px solid rgba(200,200,200,.8);}
+.slideshow .container a.button.default {top: 390px; left: 50%; margin: 0 0 0 -106px;}
+.slideshow .container a.button.left {top: 390px; right: 50%; margin: 0 10px 0 0;}
+.slideshow .container a.button.right {top: 390px; left: 50%; margin: 0 0 0 10px;}
+.slideshow .container a.slide-lol {position: absolute; opacity: 0; z-index: 4; top: 45%; margin-top: -70px; width: 72px; height: 140px; text-decoration: none; background: url(/images/home/slide_controls.png) 0 0 no-repeat; transition: opacity .25s;}
+.slideshow:hover .container a.slide-lol {opacity: .4;}
+.slideshow .container a.slide-lol:hover {opacity: 1;}
+.slideshow .container a.back {left: 20px;}
+.slideshow .container a.forward {right: 20px; background-position: -129px 0;}
+.slideshow .pager {position: absolute; bottom: 68px; z-index: 20; left: 50%; width: 200px; margin-left: -100px; text-align: center;}
+.slideshow .pager a {display: inline-block; width: 16px; height: 16px; margin: 0 2px; padding: 0; background: url(/images/home/slide_controls.png) left bottom no-repeat;}
+.slideshow .pager a.active {background-position: -24px bottom;}
+.slideshow .pager a span {display: none;}
+/* per-slide styles */
+.slideshow #slide-2 ul.screenshots {position: absolute; z-index: 3; bottom: 110px; width: 100%; list-style: none; text-align: center; margin: 0 auto;}
+.slideshow #slide-2 ul.screenshots li {display: inline-block; opacity: .8; background: url(/images/home/screens/thumbs.png) 0 0 no-repeat;}
+.slideshow #slide-2 ul.screenshots li:hover {opacity: 1;}
+.slideshow #slide-2 ul.screenshots li a {display: block; width: 230px; height: 155px;}
+.slideshow #slide-2 ul.screenshots li span {display: none;}
+.slideshow #slide-2 ul.screenshots li.playlist {}
+.slideshow #slide-2 ul.screenshots li.code {background-position: -240px 0;}
+.slideshow #slide-2 ul.screenshots li.add {background-position: -480px 0;}
+.slideshow #slide-2 ul.screenshots li.kofi {background-position: -480px 0;}
+.slideshow #slide-2 ul.screenshots li.bookmarks {background-position: -720px 0;}
 
 /* --------------------------------------------------------------------------
- * News/twitter! LOL
+ * homepage
  * -------------------------------------------------------------------------- */
-div.twitter {float: right; width: 28%; min-height: 300px; margin: 0 0 16px 48px; padding: 0px;}
-div.twitter > h1 {margin: 0 0 6px 0; padding: 0; font-size: 20px;}
-div.twitter > h1 small {display: none; font-size: 16px; float: right;}
-div.twitter .twitter-timeline {width: 100%; height: 550px;}
+.splash > section {width: 100%; min-height: 0; padding: 0;}
+.splash > section:nth-child(2n) {background: #fff;}
+.splash > section > .content {width: 1001px; margin: 0 auto; padding: 60px 0;}
+/*.splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; font-family: 'Roboto Condensed'; font-style: italic; font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; color: #888;}*/
+.splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #888;}
+.splash .triplet {display: inline-block; vertical-align: top; width: 27.3%; margin: 0 8.5% 0 0; text-align: left; color: #666;}
+.splash .triplet:last-child {margin-right: 0;}
+.splash .triplet p {padding: 0;}
+.splash .double {position: relative; float: left; width: 490px; margin: 0 0 21px 0; line-height: 0;}
+.splash .double:nth-child(2n) {float: right;}
+.splash .double a h2 {position: absolute; bottom: 16px; left: 12px; font-size: 48px; font-family: 'Roboto Condensed'; font-weight: 400; color: #ededed; text-transform: uppercase;}
+.splash .bullets {margin: 0 0 0 0;}
+.splash .download {margin: 0 0 0 0;}
+.splash .imgnav {margin: 0 0 0 0;}
+.splash .news {margin: 0 0 0 0;}
+.splash .news > .blog {float: left; width: 65%; padding: 0 10px;}
+.splash .news > .twitter {float: right; width: 25%; padding: 0 10px 0 4.5%; border-left: 1px solid #eee;}
+.splash .news h1 {margin: 0 0 .8em -10px;}
+.splash .extra {color: #666;}
+.splash .extra p {padding: 0; margin: 0;}
 
 /* --------------------------------------------------------------------------
- * callout
+ * docs
  * -------------------------------------------------------------------------- */
-.callout {text-align: center; width: 82%; margin: 0 auto 48px auto;}
-.callout h1 {font-size: 48px; color: #92b579; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);}
-.callout p {font-size: 16px;}
-.callout em {display: inline; margin: 0 5px; color: #92b579; font-style: normal; font-weight: bold;}
+div.toc {float: right; width: 25%; margin: 8px 0 16px 16px; padding: 10px 16px; background: #fff; border-radius: 6px;}
+div.toc ul {color: #999; margin-left: 16px;}
+a.toc-anchor {position: absolute; margin-top: -60px;}
+.documentation p:first-child {display: inline; padding: 0; margin: 0;}
+.documentation .breadcrumb {float: right; margin: 8px 0 0 0;}
+.documentation .breadcrumb a {margin: 0 3px;}
+.documentation .doc-sec {float: left; width: 41%; margin: 0 24px 24px 0; padding: 10px 2.5% 16px 2.5%; background: #fff; border-radius: 6px;}
+.documentation .doc-sec.main {float: none; width: auto; margin: 0 0 16px 0;}
+.documentation .doc-sec p {font-size: 13px; color: #777;}
+.documentation .doc-sec h3 {font-size: 18px; text-decoration: none; margin: 0; padding: 0;}
+.documentation .doc-sec ul {color: #999; margin-left: 16px;}
 
 /* --------------------------------------------------------------------------
  * buttons!
@@ -39,7 +106,7 @@ div.twitter .twitter-timeline {width: 100%; height: 550px;}
 div.button-row {display: block; margin: 0 0 64px 0; text-align: center;}
 div.button-row .button {margin: 0 12px 0 66px;}
 
-div.button.huge {
+div.button {
 	display: inline-block;
     border: 0 none;
     border-radius: 6px 6px 6px 6px;
@@ -49,45 +116,62 @@ div.button.huge {
     padding: 0;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
     transition: all 0.25s linear 0s;
+	width: 180px;
+	height: 50px;
+}
+div.button {
+	background: #659324; 
+	background: -moz-linear-gradient(top,  #81bc2e 1%, #659324 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#81bc2e), color-stop(100%,#659324)); 
+	background: -webkit-linear-gradient(top,  #81bc2e 1%,#659324 100%); 
+	background: -o-linear-gradient(top,  #81bc2e 1%,#659324 100%); 
+	background: -ms-linear-gradient(top,  #81bc2e 1%,#659324 100%); 
+	background: linear-gradient(to bottom,  #81bc2e 1%,#659324 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#81bc2e', endColorstr='#659324',GradientType=0 ); 
+}
+div.button a {
+    display: inline-block;
+	width: 126px;
+	height: 61px;
+	margin: -4px 0 0 -60px;
+	padding: 0 0 0 70px;
+    color: #FFFFFF;
+    cursor: pointer;
+    line-height: 20px;
+	text-decoration: none;
+}
+div.button.huge {
     width: 240px;
 	height: 97px;
 }
-div.button.huge {
-	background: #659324; /* Old browsers */
-	background: -moz-linear-gradient(top,  #81bc2e 1%, #659324 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#81bc2e), color-stop(100%,#659324)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #81bc2e 1%,#659324 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #81bc2e 1%,#659324 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #81bc2e 1%,#659324 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #81bc2e 1%,#659324 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#81bc2e', endColorstr='#659324',GradientType=0 ); /* IE6-9 */
-}
 div.button.huge a {
-	display: block;
 	width: 166px;
 	height: 108px;
-}
-div.button.huge.chrome a {
 	margin: -4px 0 0 -54px;
 	padding: 0 0 0 110px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 20px;
-	text-decoration: none;
+}
+div.button.chrome a {
+	background: url(/images/chrome.png) left center no-repeat;
+}
+div.button.firefox a {
+	background: url(/images/firefox.png) left center no-repeat;
+}
+div.button.huge.chrome a {
 	background: url(/images/chrome-large.png) left center no-repeat;
 }
 div.button.huge.firefox a {
-	margin: -4px 0 0 -54px;
-	padding: 0 0 0 110px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 20px;
-	text-decoration: none;
 	background: url(/images/firefox-large.png) left center no-repeat;
 }
 
+div.button a h2 {
+	margin: 14px 0 0 0;
+	padding: 0;
+	color: inherit;
+	text-align: center;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+}
 div.button.huge a h2 {
 	margin: 32px 0 0 0;
 	padding: 0;
@@ -102,35 +186,18 @@ div.button.huge a h2 em {
 	margin: 0 0 0 6px;
 	font-style: normal;
 }
-div.button.huge a small {
+div.button a small {
 	display: block;
-	margin: 7px 0 0 0;
+	margin: -2px 0 0 0;
 	color: #204a02;
-	font-size: 14px;
+	font-size: 11px;
 	text-shadow: 0 1px rgba(255, 255, 255, 0.2);
 	text-align: center;
 	text-decoration: none !important;
 }
-
-/* --------------------------------------------------------------------------
- * screenshots
- * -------------------------------------------------------------------------- */
-.screenshots ul {list-style: none; margin: 0; padding: 0;}
-.screenshots ul li {display: inline-block; 239px; margin: 0 8px 12px 0; padding: 0; background: #fff; border: 1px solid #aaa;}
-.screenshots ul li:hover {border: 1px solid #222;}
-.screenshots ul li a {display: block; line-height: 0;}
-
-/* --------------------------------------------------------------------------
- * docs
- * -------------------------------------------------------------------------- */
-div.toc {float: right; width: 25%; margin: 0 0 16px 16px; padding: 10px 16px; background: #fff; border-radius: 6px;}
-div.toc ul {color: #999; margin-left: 16px;}
-.documentation p:first-child {display: inline; padding: 0; margin: 0;}
-.documentation .breadcrumb {float: right; margin: 8px 0 0 0;}
-.documentation .breadcrumb a {margin: 0 3px;}
-.documentation .doc-sec {float: left; width: 41%; margin: 0 24px 24px 0; padding: 10px 2.5% 16px 2.5%; background: #fff; border-radius: 6px;}
-.documentation .doc-sec.main {float: none; width: auto; margin: 0 0 16px 0;}
-.documentation .doc-sec p {font-size: 13px; color: #777;}
-.documentation .doc-sec h3 {font-size: 18px; text-decoration: none; margin: 0; padding: 0;}
-.documentation .doc-sec ul {color: #999; margin-left: 16px;}
+div.button.huge a small {
+	margin-top: 7px;
+	font-size: 14px;
+	color: #204a02;
+}
 

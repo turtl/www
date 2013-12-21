@@ -1,8 +1,22 @@
 /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(/data/font/roboto-condensed-light.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(/data/font/roboto-condensed-regular.woff) format('woff');
+}
+
 html {overflow-y: scroll; overflow-x: auto;}
-body {margin: 0; padding: 0; font-family: arial, helvetica; font-size: 13px; line-height: 1.6; color: #000; background: #ededed url(/images/template/header.png) 0 0 repeat-x;}
+body {margin: 0; padding: 0; font-family: arial, helvetica; font-size: 13px; line-height: 1.6; color: #000; background: #f3f3f3;}
 
 .clearMe {display: block; height: 0; clear: both; font-size: 0;}
 .clear:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
@@ -12,23 +26,35 @@ body {margin: 0; padding: 0; font-family: arial, helvetica; font-size: 13px; lin
 .clear {display: block;}
 /* */
 
-a {color: #5398d1; outline: none; text-decoration: none;}
+a {color: #5398d1; color: #79a758; outline: none; text-decoration: none;}
 a:hover {text-decoration: underline;}
 
-header h1 {display: inline-block; margin: -6px 0 32px -6px; font-size: 64px;}
-header h1 a {color: #444; text-decoration: none; text-transform: lowercase;}
-header h1 a em {}
-header h1 a:hover {text-decoration: none;}
-header h1 a:hover em {color: #000; text-decoration: none;}
-header small {position: absolute; margin: 26px 0 0 24px; color: #698257;}
-header ul {display: inline-block; margin: 0 0 0 16px; list-style: none;}
-header ul li {display: inline-block; margin: 0 8px;}
-header ul li a {font-size: 14px; text-decoration: none; text-transform: uppercase; color: #444;}
+body.splash header {position: absolute; top: 540px;}
 
-#container {width: 780px; margin: 0 auto;}
+header {position: fixed; z-index: 5; width: 100%; height: 48px; background: url(/images/template/header-back.png); box-shadow: 0 0 6px 0 #0c1d0e;}
+header .inner {width: 991px; margin: 0 auto; padding: 0 25px;}
+header h1 {display: inline-block;}
+header h1 a {display: inline-block; width: 139px; height: 36px; margin: 6px 0 0 0; background: url(/images/template/logo-beta.png) 0 0 no-repeat;}
+header h1 a span {display: none;}
+header ul {float: right; margin: 13px 0 0 0; padding: 0; list-style: none;}
+header ul li {display: inline-block; margin-left: 28px;}
+header ul li a {font-family: arial; font-size: 0.9em; letter-spacing: 0.08em; color: #fff; opacity: .75; text-transform: uppercase;}
+header ul li a.strong {opacity: .88;}
 
-footer {display: block; margin: 42px 0 0 0; padding: 16px; font-size: 10px; color: #999; text-align: center;}
-footer a {color: #5398d1;}
-footer ul {list-style: none; display: inline-block; margin: 0 6px 0 0;}
-footer ul li {display: inline; margin: 0 2px;}
-footer p {display: inline;}
+body > section {width: 880px; min-height: 400px; margin: 0 auto; padding: 80px 0;}
+
+footer {width: 1001px; margin: 0 auto; padding: 32px 0 42px 0; font-size: .8em; color: #777; border-top: 1px solid #ddd;}
+footer .social {float: left; margin: -6px 64px 0 0;}
+footer .social ul {list-style: none;}
+footer .social ul li {display: inline-block; margin: 0 16px 0 0;}
+footer .social ul li a {display: block; height: 21px; opacity: .3; background: url(/images/template/social.png) 0 0 no-repeat; transition: opacity .15s;}
+footer .social ul li a:hover {opacity: 1;}
+footer .social ul li a span {display: none;}
+footer .social ul li a.twitter {width: 25px;}
+footer .social ul li a.tumblr {width: 13px; background-position: -42px 0;}
+footer ul.nav {float: right; list-style: none;}
+footer ul.nav li {display: inline-block; margin: 0 8px 0 0; padding: 0 10px 0 0; line-height: 1em; border-right: 1px solid #d5d5d5; }
+footer ul.nav li:last-child {margin-right: 0; padding-right: 0; border: 0;}
+footer ul.nav li a {text-transform: uppercase;}
+footer ul.nav li.copy a {text-transform: none;}
+

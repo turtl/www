@@ -89,8 +89,7 @@ __If it's not open-source, it's not encrypted.__ Plain and simple. You cannot
 both keep your code private and at the same time claim you are secure. Security
 comes from years of prying eyes reviewing your work and trying to find ways to
 break it. Although Turtl has not yet been vetted in this way, one of our main
-goals is to gain the trust of the crypto-security community. Until that day, we
-will not brand ourselves as "secure."
+goals is to gain the trust of the crypto-security community.
 
 # Is there documentation?
 

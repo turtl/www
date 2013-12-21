@@ -1,6 +1,5 @@
 (in-package :turtl-www)
 
-
 (deflayout default (data :top-level t)
   (:html
     (:head
@@ -17,53 +16,55 @@
       (:script :src "/js/mootools-core-1.4.5.js")
       (:script :src "/js/mootools-more-1.4.0.1.js")
       (:script :src "/js/highlight.js/highlight.pack.js")
+      (:script :src "/js/slideshow.js")
+      (:script :src "/js/modal.js")
       (:script :src "/js/turtl.js"))
     (:body :class (if (getf data :body-class)
                       (getf data :body-class)
                       "")
-      (:div :id "container"
-        (:header
-          (:h1 (:a :href "/" "Turtl<em>.</em>"))
-          (:small "(private storage)")
+      (:header
+        (:div :class "inner"
+          (:h1 (:a :href "/" "<span>Turtl</span>"))
           (:ul
-            (:li (:a :href "/about" "About"))
-            (:li (:a :href "/docs" "Documentation"))
+            (:li (:a :href "/download" :class "strong" "Download"))
+            (:li (:a :href "/pricing" "Pricing"))
+            (:li (:a :href "/docs" "Docs"))
             (:li (:a :href "/faq" "FAQ"))
-            (:li (:a :href "/contact" "Get in touch"))
-            (:li (:a :href "http://turtlapp.tumblr.com/" "Blog"))
-            ;(:li (:a :href "https://github.com/turtl/js/issues" "Report a bug"))
-            ;(:li (:a :href "/demo" "Demo"))
-            ))
-        (:content
-          (:div :class "gutter clear"
-            (str (getf data :content))))
-        
-        (:footer
-          "<a href=\"/privacy\">Privacy</a>"
-          " &nbsp;&nbsp;|&nbsp;&nbsp;"
-          "<a href=\"/contact\">Contact</a>"
-          " &nbsp;&nbsp;|&nbsp;&nbsp;"
-          "<a href=\"http://groups.google.com/d/forum/turtl\">Discussion group</a>"
-          " &nbsp;&nbsp;|&nbsp;&nbsp;"
-          "<a href=\"https://github.com/turtl\">Github</a>"
-          " &nbsp;&nbsp;|&nbsp;&nbsp;"
-          "<a href=\"https://twitter.com/turtlapp\">Twitter</a>"
-          " &nbsp;&nbsp;|&nbsp;&nbsp;"
-          "<a href=\"http://turtl.dev:8182/refresh-views\">Blog</a>"
-          " &nbsp;&nbsp;|&nbsp;&nbsp;"
-          (:p "&copy;" (:a :href "http://lyonbros.com" "Lyon Bros. Enterprises, LLC"))))
+            (:li (:a :href "/about" "About"))
+            (:li (:a :href "/contact" "Contact"))
+            (:li (:a :href "http://turtlapp.tumblr.com/" "Blog")))))
+
+      (str (if (getf data :pre-content)
+               (getf data :pre-content)
+               ""))
+
+      (:section
+        (str (getf data :content)))
+      
+      (:footer
+        (:div :class "social"
+          (:ul
+            (:li "<a class=\"twitter\" href=\"https://twitter.com/turtlapp\" title=\"Follow us on twitter for news and updates\"><span>Twitter</span></a>")
+            (:li "<a class=\"tumblr\" href=\"http://turtlapp.tumblr.com\" title=\"Read about our development process on Tumblr\"><span>Tumblr</span></a>")))
+        (:ul :class "nav"
+          (:li (:a :href "/docs" "Documentation"))
+          (:li (:a :href "/privacy" "Privacy"))
+          (:li (:a :href "/contact" "Contact"))
+          (:li (:a :href "http://groups.google.com/d/forum/turtl" "Discussion group"))
+          (:li (:a :href "https://github.com/turtl" "Github"))
+          (:li :class "copy" "&copy; " (:a :href "http://lyonbros.com" "Lyon Bros. Enterprises, LLC"))))
       (:script
         "
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u=((\"https:\" == document.location.protocol) ? \"https\" : \"http\") + \"://turtl.it/piwik//\";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 1]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
+var _paq = _paq || [];
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+  var u=((\"https:\" == document.location.protocol) ? \"https\" : \"http\") + \"://turtl.it/piwik//\";
+  _paq.push(['setTrackerUrl', u+'piwik.php']);
+  _paq.push(['setSiteId', 1]);
+  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+  g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+})();
         "))))
 
 

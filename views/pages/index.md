@@ -1,62 +1,71 @@
 ---
-title: Turtl: An encrypted note storage app
+title: Turtl: Secure file and note storage
 layout: default
+markdown: off
+pre-content: slideshow
 ---
 
-<div class="callout">
-    <h1>Give your data a safe place</h1>
-    <p>
-        Turtl gives you a <em>private space</em> to keep your thoughts, notes, ideas,
-        and bookmarks.<br/>
-        <em>Install the add-on</em> to keep track of your life's data.
-    </p>
-</div>
+    <div class="content">
+        <div class="bullets clear">
+            <div class="triplet">
+                <h1>Protect your data</h1>
+                <p>
+                    Turtl has a mantra: If it can be encrypted, it will be.
+                    No more sacrificing your privacy for convenience.
+                    <a href="/docs/security">Security basics &raquo;</a>
+                </p>
+            </div>
+            <div class="triplet">
+                <h1>Share with others</h1>
+                <p>
+                    Collaborate on projects with friends or colleagues.
+                    Turtl makes it safe and easy to share with others.
+                    <a href="/download">Get started &raquo;</a>
+                </p>
+            </div>
+            <div class="triplet">
+                <h1>Open source</h1>
+                <p>
+                    Turtl is completely open source &ndash; both the client and server
+                    &ndash; under the GPLv3 license.
+                    <a href="https://github.com/turtl">Turtl Github &raquo;</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
-{{module:buttons}}
+<section>
+    <div class="content">
+        <div class="news clear">
+            <div class="blog">
+                <h1>
+                    From our blog
+                    <small><a href="http://turtlapp.tumblr.com">Find us on Tumblr &raquo;</a></small>
+                </h1>
+            </div>
+            <div class="twitter">
+                <h1>
+                    Twitter
+                    <small><a href="https://twitter.com/turtlapp">@turtlapp &raquo;</a></small>
+                </h1>
+                <div class="twitter">
+                    <a data-widget-id="382037759679934465" data-chrome="noheader nofooter transparent" data-tweet-limit="3" href="https://twitter.com/turtlapp" data-dnt="true" class="twitter-timeline">Tweets by @turtlapp</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    <script src="/js/twitter_fix.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-***
-
-{{module:twitter}}
-
-Turtl is an [open-source](https://github.com/turtl) encrypted note (and soon
-file) storage app. It allows you to securely track information you use
-throughout the day and also lets you collaborate and share your data with
-friends and colleagues.
-
-[Learn more &#187;](/about)
-
-# Screenshots
-<div class="screenshots">
-    <ul>
-        <li>
-            <a href="/images/screens/turtl-screen-1.jpg">
-                <img src="/images/screens/turtl-screen-1.sm.jpg" width="241" height="151" alt="turtl screenshot"/>
-            </a>
-        </li>
-        <li>
-            <a href="/images/screens/turtl-screen-2.jpg">
-                <img src="/images/screens/turtl-screen-2.sm.jpg" width="241" height="151" alt="turtl screenshot"/>
-            </a>
-        </li>
-        <li>
-            <a href="/images/screens/turtl-screen-3.jpg">
-                <img src="/images/screens/turtl-screen-3.sm.jpg" width="241" height="151" alt="turtl screenshot"/>
-            </a>
-        </li>
-        <li>
-            <a href="/images/screens/turtl-screen-4.jpg">
-                <img src="/images/screens/turtl-screen-4.sm.jpg" width="241" height="151" alt="turtl screenshot"/>
-            </a>
-        </li>
-    </ul>
-</div>
-
-<span style="clear:both;height:0;display:block;font-size:0">.</span>
-
-***
-
-<small>
-Please note that Turtl is in *alpha* stage right now, and may be prone to bugs and
-performance issues. Bugs and other issues can be reported on our [discussion group](http://groups.google.com/d/forum/turtl).
-</small>
-
+<section>
+    <div class="content">
+        <div class="extra clear">
+            <p>
+                Note that Turtl is in <strong>beta</strong>. It works well, but may have issues, bugs, and security flaws as it finds its way in life.
+                Please feel free to discuss any problems you have via our <a href="http://groups.google.com/d/forum/turtl">discussion board</a>,
+                via <a href="https://twitter.com/turtlapp">our twitter</a>, or <a href="mailto:info@turtl.it">by email</a>.
+            </p>
+        </div>
+    </div>

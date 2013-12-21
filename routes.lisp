@@ -17,7 +17,9 @@
 (clear-routes)
 
 (defroute (:get "/") (req res)
-  (let ((body (load-view :pages/index :data '(:body-class "splash"))))
+  (let* ((slideshow (find-module :slideshow))
+         (body (load-view :pages/index :data `(:body-class "splash"
+                                               :pre-content ,slideshow))))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/security") (req res)
