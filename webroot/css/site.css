@@ -21,6 +21,8 @@ section pre code {white-space: pre;}
 section em code, strong code {font-style: normal; font-weight: normal;}
 section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bottom: 1px solid #ccc;}
 
+icon {display: inline-block; margin: -10px 0 0 0; padding: 0; font-family: Entypo; font-weight: 400; font-size: 36px; color: #000; line-height: 1em; vertical-align: text-top;}
+
 /* modalbox stuff */
 #modalbox {position: absolute; display: block; z-index: 2000;}
 #modalbox.loading {text-align: center;}
@@ -40,7 +42,7 @@ section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bo
 .slideshow .container a.button.default {top: 390px; left: 50%; margin: 0 0 0 -106px;}
 .slideshow .container a.button.left {top: 390px; right: 50%; margin: 0 10px 0 0;}
 .slideshow .container a.button.right {top: 390px; left: 50%; margin: 0 0 0 10px;}
-.slideshow .container a.slide-lol {position: absolute; opacity: 0; z-index: 4; top: 45%; margin-top: -70px; width: 72px; height: 140px; text-decoration: none; background: url(/images/home/slide_controls.png) 0 0 no-repeat; transition: opacity .25s;}
+.slideshow .container a.slide-lol {position: absolute; opacity: 0; z-index: 4; top: 45%; margin-top: -70px; width: 72px; height: 140px; text-decoration: none; background: url(/images/home/slide_controls.png) 0 0 no-repeat; transition: opacity .15s;}
 .slideshow:hover .container a.slide-lol {opacity: .4;}
 .slideshow .container a.slide-lol:hover {opacity: 1;}
 .slideshow .container a.back {left: 20px;}
@@ -51,7 +53,7 @@ section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bo
 .slideshow .pager a span {display: none;}
 /* per-slide styles */
 .slideshow #slide-2 ul.screenshots {position: absolute; z-index: 3; bottom: 110px; width: 100%; list-style: none; text-align: center; margin: 0 auto;}
-.slideshow #slide-2 ul.screenshots li {display: inline-block; opacity: .8; background: url(/images/home/screens/thumbs.png) 0 0 no-repeat;}
+.slideshow #slide-2 ul.screenshots li {display: inline-block; opacity: .8; background: url(/images/home/screens/thumbs.png) 0 0 no-repeat; transition: opacity .15s;}
 .slideshow #slide-2 ul.screenshots li:hover {opacity: 1;}
 .slideshow #slide-2 ul.screenshots li a {display: block; width: 230px; height: 155px;}
 .slideshow #slide-2 ul.screenshots li span {display: none;}
@@ -84,6 +86,17 @@ section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bo
 .splash .news h1 {margin: 0 0 .8em -10px;}
 .splash .extra {color: #666;}
 .splash .extra p {padding: 0; margin: 0;}
+.splash .download h1 {margin: 0 0 38px 0; font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; text-align: center; text-transform: uppercase; font-style: italic; color: #bbb;}
+.splash .download ul.buttons {display: block; list-style: none; margin: 0; padding: 0; text-align: center;}
+.splash .download ul.buttons li {display: inline-block; opacity: .85; margin: 0 10px 10px 10px;}
+.splash .download ul.buttons li a {display: inline-block; min-width: 140px; padding: 4px 24px 2px 8px; background: #79a758; border-radius: 4px;}
+.splash .download ul.buttons li:first-child {opacity: 1;}
+.splash .download ul.buttons li:hover a {box-shadow: 0 0 9px 0 rgba(255,255,255,.35) inset;}
+.splash .download ul.buttons li h3 {float: left; margin: 2px 0 0 0; font-size: 1.2em; line-height: 0.95em; color: #fff; text-align: center; white-space: nowrap;}
+.splash .download ul.buttons li h3 small {display: block; font-size: .6em; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);}
+.splash .download ul.buttons li icon {float: left; margin: -12px 8px 0 0; color: #fff;}
+.splash .download ul.buttons li img {float: left; margin: 0px 8px 0 0;}
+.splash .download p {padding: 24px 0 0 0; font-size: .9em; line-height: .8em; text-align: center; color: #aaa;}
 
 /* --------------------------------------------------------------------------
  * docs
@@ -115,7 +128,7 @@ div.button {
     min-width: 80px;
     padding: 0;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-    transition: all 0.25s linear 0s;
+    transition: all 0.15s linear 0s;
 	width: 180px;
 	height: 50px;
 }

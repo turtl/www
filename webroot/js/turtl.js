@@ -70,6 +70,33 @@ var turtl	=	{
 		});
 	},
 
+	setup_buttons: function()
+	{
+		var buttons	=	document.getElement('.download ul.buttons');
+		if(!buttons) return false;
+
+		var is_desktop	=	['win', 'linux', 'mac'].contains(Browser.Platform.name);
+
+		buttons.getElements('li.desktop').each(function(el) {
+			var rel	=	el.get('rel');
+			if(rel == 'win32' && !Browser.Platform.win) el.hide();
+			if(rel.match(/linux/))
+			{
+				var cpu64	=	window.navigator && (window.navigator.platform || '').toLowerCase().match(/x86_64/i)
+				if(rel == 'linux64' && !cpu64) el.hide()
+				if(rel == 'linux32' && cpu64) el.hide();
+				if(Browser.Platform.name != 'linux') el.hide();
+			}
+			if(rel == 'mac' && !Browser.Platform.mac) el.hide();
+		});
+
+		buttons.getElements('li.extension').each(function(el) {
+			var rel	=	el.get('rel');
+			if(rel == 'chrome' && (!is_desktop || !window.chrome || !window.chrome.webstore)) el.hide();
+			if(rel == 'firefox' && (!is_desktop || !Browser.firefox)) el.hide();
+		});
+	},
+
 	show_tumblr: function()
 	{
 		var tumblr_box	=	document.getElement('.news .blog');
@@ -98,6 +125,7 @@ window.addEvent('domready', function() {
 	turtl.setup_header();
 	turtl.setup_slideshow();
 	turtl.setup_modal();
+	turtl.setup_buttons();
 	turtl.show_tumblr();
 });
 

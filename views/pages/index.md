@@ -31,7 +31,43 @@ pre-content: slideshow
                     <a href="https://github.com/turtl">Turtl Github &raquo;</a>
                 </p>
             </div>
+            <!--
+            <div class="triplet">
+                <h1>You can't expect</h1>
+                <p>
+                    a fucking birthday cake <em>and</em> a present, you selfish
+                    little brat!
+                </p>
+            </div>
+            <div class="triplet">
+                <h1>Agile syngeries</h1>
+                <p>
+                    with a laser-focus on enterprise resource management processes.
+                </p>
+            </div>
+            <div class="triplet">
+                <h1>I hope you leave</h1>
+                <p>
+                    enough room for my fist, because I'm going to <em>ram it into your stomach!</em>
+                </p>
+            </div>
+            -->
         </div>
+    </div>
+</section>
+
+<section>
+    <div class="content download">
+        {{module:download}}
+        <p>
+            Get started by downloading Turtl for your platform. <a href="/download">See all downloads &raquo;</a>
+        </p>
+    </div>
+</section>
+
+<section>
+    <div class="content">
+        you are a fucking CHOIR BOY compared to me!! A CHOIR BOY!!!!1
     </div>
 </section>
 
