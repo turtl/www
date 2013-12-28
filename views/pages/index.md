@@ -67,7 +67,20 @@ pre-content: slideshow
 
 <section>
     <div class="content">
-        you are a fucking CHOIR BOY compared to me!! A CHOIR BOY!!!!1
+        <div class="imgnav clear">
+            <div class="double">
+                <a href="/docs" title="Read about how Turtl works.">
+                    <h2>Documentation</h2>
+                    <img src="/images/home/docs.jpg" width="490" height="200" alt="Turtl documentation photo">
+                </a>
+            </div>
+            <div class="double">
+                <a href="/about" title="Learn why Turtl exists and about the team behind it">
+                    <h2>Philosophy</h2>
+                    <img src="/images/home/skateboard.jpg" width="490" height="200" alt="Turtle on a skateboard">
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
