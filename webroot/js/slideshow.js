@@ -8,7 +8,8 @@ var Slideshow = new Class({
 		pager_builder: function(idx) { return '<a href="#'+idx+'">'+idx+'</a>'; },
 		stop_on_pager: false,
 		el_prev: null,
-		el_next: null
+		el_next: null,
+		transition: 'fade'
 	},
 
 	el: null,
@@ -18,12 +19,14 @@ var Slideshow = new Class({
 	state: {
 		started: false,
 		cur_slide: 0,
-		timer: null
+		timer: null,
+		fx: [false, false]
 	},
 
 	initialize: function(el, options)
 	{
 		if(!el) return false;
+		if(options.transition && !this['fx_'+options.transition]) options.transition = 'slide';
 		this.setOptions(options);
 
 		this.el	=	el;
@@ -76,7 +79,7 @@ var Slideshow = new Class({
 	{
 		options || (options = {});
 
-		if(this.state.curfx || this.state.nextfx)
+		if(this.state.fx[0] || this.state.fx[1])
 		{
 			if(options.from_timeout && this.state.started)
 			{
@@ -123,46 +126,10 @@ var Slideshow = new Class({
 		}
 		var next	=	this.slides[slide_num];
 
-		//if(this.state.curfx) this.state.curfx.cancel();
-		//if(this.state.nextfx) this.state.nextfx.cancel();
+		//if(this.state.fx[0]) this.state.fx[0].cancel();
+		//if(this.state.fx[1]) this.state.fx[1].cancel();
 
-		var curpos	=	cur.getCoordinates();
-		var nextpos	=	next.getCoordinates();
-
-		var next_start	=	direction < 0 ? '-100%' : '100%';
-		var cur_end		=	direction < 0 ? 100 : -100;
-
-		next.setStyles({
-			'z-index': 3,
-			'left': next_start
-		});
-		this.state.curfx	=	new Fx.Tween(cur, {
-			duration: this.options.duration,
-			property: 'left',
-			unit: '%',
-			onComplete: function() {
-				this.state.curfx	=	null;
-				cur.setStyle('z-index', 2);
-			}.bind(this),
-			onCancel: function() {
-				this.state.curfx	=	null;
-				cur.setStyle('z-index', 2);
-			}.bind(this)
-		}).start(cur_end);
-		this.state.nextfx	=	new Fx.Tween(next, {
-			duration: this.options.duration,
-			property: 'left',
-			unit: '%',
-			onComplete: function() {
-				this.state.nextfx	=	null;
-				next.setStyle('z-index', 3);
-			}.bind(this),
-			onCancel: function() {
-				this.state.nextfx	=	null;
-				next.setStyle('z-index', 2);
-			}.bind(this)
-		}).start(0);
-
+		this['fx_'+this.options.transition](cur, next, direction);
 		show_next();
 	},
 
@@ -215,5 +182,68 @@ var Slideshow = new Class({
 				this.show_slide(slide_num, {direction: 'right'});
 			}.bind(this));
 		}
+	},
+
+	fx_slide: function(cur, next, direction)
+	{
+		var curpos	=	cur.getCoordinates();
+		var nextpos	=	next.getCoordinates();
+
+		var next_start	=	direction < 0 ? '-100%' : '100%';
+		var cur_end		=	direction < 0 ? 100 : -100;
+
+		next.setStyles({
+			'z-index': 3,
+			'left': next_start
+		});
+		this.state.fx[0]	=	new Fx.Tween(cur, {
+			duration: this.options.duration,
+			property: 'left',
+			unit: '%',
+			onComplete: function() {
+				this.state.fx[0]	=	null;
+				cur.setStyle('z-index', 2);
+			}.bind(this),
+			onCancel: function() {
+				this.state.fx[0]	=	null;
+				cur.setStyle('z-index', 2);
+			}.bind(this)
+		}).start(cur_end);
+		this.state.fx[1]	=	new Fx.Tween(next, {
+			duration: this.options.duration,
+			property: 'left',
+			unit: '%',
+			onComplete: function() {
+				this.state.fx[1]	=	null;
+				next.setStyle('z-index', 3);
+			}.bind(this),
+			onCancel: function() {
+				this.state.fx[1]	=	null;
+				next.setStyle('z-index', 2);
+			}.bind(this)
+		}).start(0);
+
+	},
+
+	fx_fade: function(cur, next)
+	{
+		cur.setStyles({
+			'z-index': 3,
+			'left': 0
+		});
+		next.setStyles({
+			'z-index': 4,
+			'left': 0,
+			'opacity': 0
+		});
+		this.state.fx[0]	=	new Fx.Tween(next, {
+			duration: this.options.duration,
+			property: 'opacity',
+			onComplete: function() {
+				this.state.fx[0]	=	null;
+				cur.setStyles({'z-index': 2, 'opacity': 1});
+				next.setStyles({'z-index': 3});
+			}.bind(this)
+		}).start(1);
 	}
 });
