@@ -44,8 +44,8 @@
       (:footer
         (:div :class "social"
           (:ul
-            (:li "<a class=\"twitter\" href=\"https://twitter.com/turtlapp\" title=\"Follow us on twitter for news and updates\"><span>Twitter</span></a>")
-            (:li "<a class=\"tumblr\" href=\"http://turtlapp.tumblr.com\" title=\"Read about our development process on Tumblr\"><span>Tumblr</span></a>")))
+            (:li "<a class=\"twitter\" href=\"https://twitter.com/turtlapp\" title=\"Follow us on twitter for news and updates\"><icon>&#62217;</icon></a>")
+            (:li "<a class=\"tumblr\" href=\"http://turtlapp.tumblr.com\" title=\"Read about our development process on Tumblr\"><icon>&#62229;</icon></a>")))
         (:ul :class "nav"
           (:li (:a :href "/docs" "Documentation"))
           (:li (:a :href "/privacy" "Privacy"))

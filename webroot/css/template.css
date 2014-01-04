@@ -51,11 +51,10 @@ footer {width: 1001px; margin: 0 auto; padding: 32px 0 42px 0; font-size: .8em; 
 footer .social {float: left; margin: -6px 64px 0 0;}
 footer .social ul {list-style: none;}
 footer .social ul li {display: inline-block; margin: 0 16px 0 0;}
-footer .social ul li a {display: block; height: 21px; opacity: .3; background: url(/images/template/social.png) 0 0 no-repeat; transition: opacity .15s;}
+footer .social ul li a {display: block; opacity: .3; transition: opacity .15s;}
 footer .social ul li a:hover {opacity: 1;}
-footer .social ul li a span {display: none;}
-footer .social ul li a.twitter {width: 25px;}
-footer .social ul li a.tumblr {width: 13px; background-position: -42px 0;}
+footer .social ul li a icon {margin-top: -3px; font-size: 28px;}
+footer .social ul li a.tumblr icon {font-size: 24px;}
 footer ul.nav {float: right; list-style: none;}
 footer ul.nav li {display: inline-block; margin: 0 8px 0 0; padding: 0 10px 0 0; line-height: 1em; border-right: 1px solid #d5d5d5; }
 footer ul.nav li:last-child {margin-right: 0; padding-right: 0; border: 0;}
