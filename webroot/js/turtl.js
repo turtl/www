@@ -74,7 +74,6 @@ var turtl	=	{
 	{
 		var buttons	=	document.getElement('.download ul.buttons');
 		if(!buttons) return false;
-		return;
 
 		var is_desktop	=	['win', 'linux', 'mac'].contains(Browser.Platform.name);
 
