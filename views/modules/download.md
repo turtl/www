@@ -6,26 +6,26 @@
     <ul class="buttons">
         <li class="desktop" rel="win32">
             <a href="/data/release/desktop/windows/turtl.exe">
-                <icon>&#128229;</icon>
-                <h3>Windows XP/7/8<small>v0.3.4</small></h3>
+                <img src="/images/windows-small.png" width="32" height="32" alt="windows">
+                <h3>Windows<small>v0.3.4</small></h3>
             </a>
         </li>
         <li class="desktop" rel="linux64">
             <a href="/data/release/desktop/linux/turtl-64">
-                <icon>&#128229;</icon>
+                <img src="/images/linux-small.png" width="32" height="32" alt="linux">
                 <h3>Linux x64<small>v0.3.4</small></h3>
             </a>
         </li>
         <li class="desktop" rel="linux32">
             <a href="/data/release/desktop/linux/turtl-32">
-                <icon>&#128229;</icon>
+                <img src="/images/linux-small.png" width="32" height="32" alt="linux">
                 <h3>Linux x86<small>v0.3.4</small></h3>
             </a>
         </li>
         <li class="desktop" rel="mac">
             <a href="/data/release/desktop/mac/turtl">
-                <icon>&#128229;</icon>
-                <h3>Mac<small>v0.3.4</small></h3>
+                <img src="/images/mac-small.png" width="32" height="32" alt="mac">
+                <h3>Mac OSx<small>v0.3.4</small></h3>
             </a>
         </li>
         <li class="extension" rel="firefox">

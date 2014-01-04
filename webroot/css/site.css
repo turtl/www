@@ -89,7 +89,7 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .splash .download h1 {margin: 0 0 38px 0; font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-align: center; text-transform: uppercase; font-style: italic; color: #bbb;}
 .splash .download ul.buttons {display: block; list-style: none; margin: 0; padding: 0; text-align: center;}
 .splash .download ul.buttons li {display: inline-block; opacity: .85; margin: 0 10px 10px 10px;}
-.splash .download ul.buttons li a {display: inline-block; min-width: 140px; padding: 4px 24px 2px 8px; background: #79a758; border-radius: 4px; transition: box-shadow .15s;}
+.splash .download ul.buttons li a {display: inline-block; min-width: 120px; padding: 4px 24px 2px 8px; background: #79a758; border-radius: 4px; transition: box-shadow .15s;}
 .splash .download ul.buttons li:first-child {opacity: 1;}
 .splash .download ul.buttons li:hover a {box-shadow: 0 0 9px 0 rgba(255,255,255,.35) inset;}
 .splash .download ul.buttons li h3 {float: left; margin: 2px 0 0 0; font-size: 1.2em; line-height: 0.95em; color: #fff; text-align: center; white-space: nowrap;}
