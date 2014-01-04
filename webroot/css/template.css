@@ -16,8 +16,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 }
 
 /* custom icon font(s) */
-@font-face { font-family: 'Entypo'; font-weight: 400; src: url(../images/font/entypo.ttf); }
-@font-face { font-family: 'EntypoSocial'; font-weight: 400; src: url(../images/font/entypo-social.ttf); }
+@font-face { font-family: 'Entypo'; font-weight: 400; src: url(../images/font/entypo.fontello.ttf); }
+/*@font-face { font-family: 'EntypoSocial'; font-weight: 400; src: url(../images/font/entypo-social.ttf); }*/
 
 html {overflow-y: scroll; overflow-x: auto;}
 body {margin: 0; padding: 0; font-family: arial, helvetica; font-size: 13px; line-height: 1.6; color: #000; background: #f3f3f3;}
