@@ -84,8 +84,8 @@ but until it is fixed, we can't release an extension that crashes the browser
 every five minutes.
 
 If you'd like to test out the Firefox extension regardless of these issues,
-[contact us](/contact) and we can easily send you a build, or you can easily
-build your own using [the extension's source](https://github.com/turtl/firefox).
+[contact us](/contact) and we can send you a build, or you can build your own
+using [the extension's source](https://github.com/turtl/firefox).
 
 # Is it open source?
 
