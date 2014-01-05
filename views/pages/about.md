@@ -3,21 +3,17 @@ title: About
 layout: default
 ---
 
-What is it?
-===========
+What is Turtl?
+==============
 
-Turtl is an application that allows you to store notes, bookmarks, (and soon
-files) and access them from anywhere. Turtl encrypts all your data client-side
-before sending it out to the server to give to the highest level of privacy.
+Turtl is an app that you can use to store files and notes. It can be used to
+keep track of research, photos, bookmarks, playlists, and anything else you can
+think of. Turtl uses client-side encryption to keep everything you put into it
+private while still allowing you to access your data from anywhere.
 
 Turtl is [open-source](https://github.com/turtl), allowing anybody to audit the
 source or run their own version. See the [project timeline](https://github.com/turtl/js/issues/milestones)
 to get a sense for what's to come.
-
-Right now, Turtl is a browser add-on. We're planning on releasing to mobile and
-desktop soon, so stay tuned (be sure to follow our [twitter](https://twitter.com/turtlapp)
-or check out the [discussion group](http://groups.google.com/d/forum/turtl) to
-stay up to date).
 
 For more information, head over the [Turtl documentation](/docs).
 
@@ -36,20 +32,4 @@ data-center and steals our hard drives, your data is unreadable to everyone,
 including us.
 
 Because it's nobody else's business but yours.
-
-Why use encryption?
-===================
-
-"I have nothing to hide." Well, would you use a public bathroom with glass
-walls?
-
-Just because you aren't storing harmful or illegal things doesn't mean you want
-the world seeing your thoughts, pictures, files, or ideas.
-
-How much does it cost?
-======================
-
-Right now, Turtl is free. It will always be a free download and free to use, but
-eventually we plan to offer premium features and charge for storage (ala
-Dropbox).
 

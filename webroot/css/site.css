@@ -6,16 +6,16 @@ section em {font-style: italic;}
 section strong {font-weight: bold;}
 section h1 {margin: 8px 0 16px -6px; padding: 6px 0 0 0; font-size: 24px; color: #555; text-transform: none;}
 section h1 small {margin: 0 0 0 10px; font-size: .55em; font-weight: normal; font-style: normal; text-transform: none; letter-spacing: .04em;}
-section h2 {margin: 0 0 0.3em 0; font-size: 1.3em;}
+section h2 {margin: 0 0 0.6em 0; font-size: 1.3em;}
 section
 section h3 {margin: 8px 0 16px 0; padding: 6px 0 0 0; font-size: 17px; text-decoration: underline; color: #555; text-transform: none;}
-section ul {margin: 0 0 8px 32px; list-style: disc;}
+section ul {margin: 0 0 16px 32px; list-style: disc;}
 section ul ul {margin-bottom: 0;}
-section ol {margin: 0 0 8px 32px;}
+section ol {margin: 0 0 16px 32px;}
 section p {margin: 0 0 16px 0;}
 section small {font-size: .8em;}
 section code {margin: 0 2px; padding: 0 5px; white-space: nowrap; font-family: Consolas, "Liberation Mono", Courier, monospace; background: #f8f8ff; border-radius: 3px;}
-/*section pre code {color: #c9bf9f; white-space: pre; background: none;}*/*/
+/*section pre code {color: #c9bf9f; white-space: pre; background: none;}*/
 section pre {margin: 0 0 16px 0;}
 section pre code {white-space: pre;}
 section em code, strong code {font-style: normal; font-weight: normal;}
@@ -74,35 +74,59 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .splash .triplet {display: inline-block; vertical-align: top; width: 27.3%; margin: 0 8.5% 0 0; text-align: left; color: #666;}
 .splash .triplet:last-child {margin-right: 0;}
 .splash .triplet p {padding: 0;}
+.splash .download h1 {margin: 0 0 38px 0; font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-align: center; text-transform: uppercase; font-style: italic; color: #bbb;}
 .splash .double {position: relative; float: left; width: 490px; margin: 0 0 0 0; line-height: 0;}
 .splash .double:nth-child(2n) {float: right;}
 .splash .double a h2 {position: absolute; bottom: 2px; left: 12px; font-size: 48px; font-family: 'Roboto Condensed'; font-weight: 400; color: #ededed; text-transform: uppercase;}
 .splash .bullets {margin: 0 0 0 0;}
 .splash .download {margin: 0 0 0 0;}
 .splash .imgnav {margin: 0 0 0 0;}
-.splash .news {margin: 0 0 0 0;}
-.splash .news > .blog {float: left; width: 65%; padding: 0 10px;}
-.splash .news > .twitter {float: right; width: 25%; padding: 0 10px 0 4.5%; border-left: 1px solid #eee;}
-.splash .news h1 {margin: 0 0 .8em -10px;}
 .splash .extra {color: #666;}
 .splash .extra p {padding: 0; margin: 0;}
-.splash .download h1 {margin: 0 0 38px 0; font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-align: center; text-transform: uppercase; font-style: italic; color: #bbb;}
-.splash .download ul.buttons {display: block; list-style: none; margin: 0; padding: 0; text-align: center;}
-.splash .download ul.buttons li {display: inline-block; opacity: .85; margin: 0 10px 10px 10px;}
-.splash .download ul.buttons li a {display: inline-block; min-width: 120px; padding: 4px 24px 2px 8px; background: #79a758; border-radius: 4px; transition: box-shadow .15s;}
-.splash .download ul.buttons li:first-child {opacity: 1;}
-.splash .download ul.buttons li:hover a {box-shadow: 0 0 9px 0 rgba(255,255,255,.35) inset;}
-.splash .download ul.buttons li h3 {float: left; margin: 2px 0 0 0; font-size: 1.2em; line-height: 0.95em; color: #fff; text-align: center; white-space: nowrap;}
-.splash .download ul.buttons li h3 small {display: block; font-size: .6em; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);}
-.splash .download ul.buttons li icon {float: left; margin: 6px 8px 0 0; color: #fff;}
-.splash .download ul.buttons li img {float: left; margin: 0px 8px 0 0;}
-.splash .download p {padding: 24px 0 0 0; font-size: .9em; line-height: .8em; text-align: center; color: #aaa;}
+
+/* --------------------------------------------------------------------------
+ * downloads/buttons
+ * -------------------------------------------------------------------------- */
+.download ul.buttons {display: block; list-style: none; margin: 0; padding: 0; text-align: center;}
+.download ul.buttons li {display: inline-block; opacity: .85; margin: 0 10px 10px 10px;}
+.download ul.buttons li.div {display: none;}
+.button a,
+.download ul.buttons li a {display: inline-block; min-width: 120px; padding: 4px 24px 2px 8px; background: #79a758; border-radius: 4px; transition: box-shadow .15s;}
+.download ul.buttons li:first-child {opacity: 1;}
+.button:hover a,
+.download ul.buttons li:hover a {box-shadow: 0 0 9px 0 rgba(255,255,255,.35) inset;}
+.download ul.buttons li h3 {float: left; margin: 2px 0 0 0; font-size: 1.2em; line-height: 0.95em; color: #fff; text-align: center; white-space: nowrap;}
+.download ul.buttons li h3 small {display: block; font-size: .6em; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);}
+.download ul.buttons li icon {float: left; margin: 6px 8px 0 0; color: #fff;}
+.download ul.buttons li img {float: left; margin: 0px 8px 0 0;}
+.download p {padding: 24px 0 0 0; font-size: .9em; line-height: .8em; text-align: center; color: #aaa;}
+.download-page {margin: 32px 0;}
+.download-page ul.buttons {text-align: left;}
+.download-page ul.buttons li {opacity: 1;}
+.download-page ul.buttons li.div {display: inline-block; width: 15%; }
+.download-page ul.buttons li.div h2 {display: inline-block; vertical-align: bottom; font-size: 1.25em; color: #999;}
+.button a {padding: 4px 16px; font-size: 1.2em; color: #fff;}
+.button a:hover {text-decoration: none;}
+
+/* --------------------------------------------------------------------------
+ * pricing
+ * -------------------------------------------------------------------------- */
+.pricing {margin: 24px 0 0 0; text-align: center;}
+.pricing .update {margin: 0 0 32px 0; padding: 16px; background: #fff; border-radius: 6px;}
+/*.pricing h1 {font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-transform: uppercase; font-style: italic; color: #bbb;}*/
+.pricing ul {list-style: none; text-align: left;}
+.pricing ul li {display: inline-block; width: 24%; margin: 0 2% 0 0%; padding: 32px 2% 32px 4%; text-align: center; border-left: 1px solid #ddd;}
+.pricing ul li:first-child {border-left: 0;}
+.pricing ul li h2 {margin: 0 0 6px 0; font-size: 1.8em; color: #666;}
+.pricing ul li em {display: block; margin: 0 0 32px 0; color: #888; font-style: normal;}
+.pricing ul li p {margin: 0 0 32px 0; padding: 0; font-size: 1.6em;}
+.pricing ul li p strong {font-size: 2.0em; font-weight: normal;}
 
 /* --------------------------------------------------------------------------
  * docs
  * -------------------------------------------------------------------------- */
 div.toc {float: right; width: 25%; margin: 8px 0 16px 16px; padding: 10px 16px; background: #fff; border-radius: 6px;}
-div.toc ul {color: #999; margin-left: 16px;}
+div.toc ul {color: #999; margin-left: 16px; margin-bottom: 0;}
 a.toc-anchor {position: absolute; margin-top: -60px;}
 .documentation p:first-child {display: inline; padding: 0; margin: 0;}
 .documentation .breadcrumb {float: right; margin: 8px 0 0 0;}
@@ -112,4 +136,14 @@ a.toc-anchor {position: absolute; margin-top: -60px;}
 .documentation .doc-sec p {font-size: 13px; color: #777;}
 .documentation .doc-sec h3 {font-size: 18px; text-decoration: none; margin: 0; padding: 0;}
 .documentation .doc-sec ul {color: #999; margin-left: 16px;}
+
+/* --------------------------------------------------------------------------
+ * contact
+ * -------------------------------------------------------------------------- */
+.contact.documentation {margin-top: 12px;}
+.contact.documentation .doc-sec:first-child {margin-left: 22px;}
+.news {margin: 32px 0 0 0;}
+.news > .blog {float: left; width: 65%; padding: 0 10px;}
+.news > .twitter {float: right; width: 25%; padding: 0 10px 0 4.5%; border-left: 1px solid #eee;}
+.news h1 {margin: 0 0 .8em -10px;}
 

@@ -144,7 +144,7 @@
    removes whitespace preceding the replacment so we don't confuse the markdown
    parser, and adds whitespace around the tag for easy <p> removal."
   (cl-ppcre:regex-replace-all
-    (cl-ppcre:create-scanner "^\\s*{{{(/?[a-z0-9]+(\.[a-z0-9 -]+)?)}}}" :multi-line-mode t)
+    (cl-ppcre:create-scanner "^\\s*{{{(/?[a-z0-9]+((\.[a-z0-9 -]+)+)?)}}}" :multi-line-mode t)
     markdown
     (format nil "~c~c{{tpl|tag|\\1}}~c~c" #\newline #\newline #\newline #\newline)))
 
@@ -171,7 +171,7 @@
                            (if dot
                                (format nil "<~a class=\"~a\">"
                                        (subseq tag 0 dot)
-                                       (subseq tag (1+ dot)))
+                                       (substitute #\space #\. (subseq tag (1+ dot))))
                                (format nil "<~a>" tag)))))))))
     html))
 

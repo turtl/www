@@ -5,55 +5,46 @@ layout: default
 
 {{toc}}
 
-# Why encrypt?
+# Why use encryption?
 
-Why not ;-)? If you can keep your data private from hackers, government
-surveillance, and other prying eyes, then why not do it? People tend to have
-this stigma against encryption: you only need to encrypt if you have something
-to hide. However privacy and having something to hide are two very different
-things, and we believe privacy is a civil right.
+"I have nothing to hide." Well, would you use a public bathroom with glass
+walls?
 
-That said, recently the US government has given us *all* something to hide by
-their outrageous and invasive spying. By using Turtl, you're not only keeping
-your data private (even if it's just cat pictures), but you're letting the US
-government know how you feel about its practices.  
+Just because you aren't storing harmful or illegal things doesn't mean you want
+the world having access to your data. Not only does encryption protect your
+privacy, it makes it extremely difficult (usually impossible) for hackers and
+malicious government agencies to see your data as anything but complete 
+gibberish.
 
-Take a stand.
+We believe privacy is a civil right deserved by all.
 
 # What makes Turtl special?
 
-Good question. There are apps that keep your data/files in sync (Dropbox,
-ownCloud, Evernote, etc). However, they do not provide what most people need
-right now: privacy *and* sharing.
+Privacy and sharing.
 
-Dropbox/ownCloud let you sync data and share with people, but your data is
-stored out in the open for anyone to read. They encrypt your data, but they
-hold the keys. Anyone who asks nicely enough will get access. You can encrypt
-your files before syncing them, but then you cannot share. Evernote is the same:
-it lets you save thoughts and bookmarks, but they were recently hacked and
-anything you had in Evernote is now being cut up, analyzed, passed around, and
-sold to the highest bidder. Whoops.
+*Privacy* is something most (if not all) cloud services lack. Dropbox, Evernote,
+ownCloud, etc...while they may encrypt your data, they only do so *after* it
+it hits their servers. This offers opportunities for anyone operating the app
+(and any third parties or government agencies they give access to) to have
+complete, unfettered access to anything you post.
 
-Turtl gives you the best of both worlds: a private place to keep your data that
-you can access anywhere, *and* a way to share/sync your data between friends,
-family, colleagues. We realize that nobody is hack-proof, but the difference
-between us and them is that if we ever do get hacked, your data is still a
-bunch of garble that is unreadable without the keys that only you hold.
+*Sharing* is easy to do when a service (like the ones mentioned above) holds the
+keys to your data, however it becomes a lot harder when the service has no real
+knowledge of what's being stored.
 
-So think of Turtl like Evernote with encryption and an interface that's actually
-good looking and easy to use.
+Turtl solves both these problems. It allows sharing *with* privacy, giving you
+an easy way to collaborate on projects that you don't want the world seeing.
 
 # How does it work?
 
-Turtl in its current state is a browser add-on (for Chrome and Firefox). It
-installs a button in your browser that lets you add notes or bookmarks in a few
-clicks to your Turtl account.
+Turtl is an installed app (either installed as a browser extension, a desktop
+app, or *soon* a mobile app).
 
 Whenever you add data, Turtl uses a cryptographic "key" generated from your
 username/password to encrypt your data before sending it off to the Turtl
 servers. Your data is stored encrypted and stays that way until you download it
-again via the Turtl add-on and decrypt it. The only time your data is ever
-readable is when you're logged in to Turtl.
+again via Turtl and decrypt it. The only time your data is ever readable is when
+you're logged in to Turtl.
 
 Only *you* hold the keys to your data. Not even the people running the Turtl
 servers have access to your data.
@@ -80,6 +71,22 @@ If at any point Bob no long wants Alice to have access to "Dog pics" he can
 easily remove her from the board, and she'll no longer have access (and Turtl
 will remove the board's key from her private data).
 
+# Is there a Firefox extension?
+
+There is, and it works great, however we no longer support Firefox for two
+reasons:
+
+1. It doesn't support sandboxing. Extensions can easily grab data from each
+other, which doesn't provide the private environment Turtl requires.
+1. Its IndexedDB implementation, which Turtl uses extensively, crashes a
+lot. We have [an open bug report](https://bugzilla.mozilla.org/show_bug.cgi?id=943650)
+but until it is fixed, we can't release an extension that crashes the browser
+every five minutes.
+
+If you'd like to test out the Firefox extension regardless of these issues,
+[contact us](/contact) and we can easily send you a build, or you can easily
+build your own using [the extension's source](https://github.com/turtl/firefox).
+
 # Is it open source?
 
 Why, yes! We host all our code (clients *and* server) on [Github](https://github.com/turtl)
@@ -91,13 +98,9 @@ comes from years of prying eyes reviewing your work and trying to find ways to
 break it. Although Turtl has not yet been vetted in this way, one of our main
 goals is to gain the trust of the crypto-security community.
 
-# Is there documentation?
-
-We now have [full documentation](/docs) of Turtl, its apps/clients, and the
-server.
-
 # Can I run my own Turtl server?
 
 Absolutely. Head over to the [Running Turtl](/docs/server/running) section in
 the documentation to read about how to run your own server.
+
 

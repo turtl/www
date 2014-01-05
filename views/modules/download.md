@@ -1,9 +1,8 @@
 <div class="download">
-    <h1>
-        Download Turtl
-        <!--<small><a href="/download">all downloads &raquo;</a></small>-->
-    </h1>
     <ul class="buttons">
+        <li class="div">
+            <h2>Turtl for desktop</h2>
+        </li>
         <li class="desktop" rel="win32">
             <a href="/data/release/desktop/windows/turtl.exe">
                 <img src="/images/windows-small.png" width="32" height="32" alt="windows">
@@ -28,12 +27,17 @@
                 <h3>Mac OSx<small>v0.3.4</small></h3>
             </a>
         </li>
+        <li class="div">
+            <h2>Turtl extensions</h2>
+        </li>
+        <!--
         <li class="extension" rel="firefox">
             <a href="/data/release/extension/firefox.xpi">
                 <img src="/images/firefox-small.png" width="32" height="32" alt="firefox">
                 <h3>Firefox 21+<small>v0.3.4</small></h3>
             </a>
         </li>
+        -->
         <li class="extension" rel="chrome">
             <a href="/data/release/extension/chrome.crx">
                 <img src="/images/chrome-small.png" width="32" height="32" alt="chrome">

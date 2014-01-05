@@ -34,6 +34,14 @@
                  :headers (list :location (format nil "/docs/clients/core/~a" (car args)))
                  :body (format nil "moved to <a href=\"/docs/clients/core/~a\">here</a>" (car args))))
 
+(defroute (:get "/download") (req res)
+  (let ((body (load-view :pages/download)))
+    (send-response res :headers '(:content-type "text/html") :body body)))
+
+(defroute (:get "/pricing") (req res)
+  (let ((body (load-view :pages/pricing)))
+    (send-response res :headers '(:content-type "text/html") :body body)))
+
 (defroute (:get "/about") (req res)
   (let ((body (load-view :pages/about)))
     (send-response res :headers '(:content-type "text/html") :body body)))

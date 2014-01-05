@@ -58,6 +58,10 @@ pre-content: slideshow
 
 <section>
     <div class="content download">
+        <h1>
+            Download Turtl
+            <!--<small><a href="/download">all downloads &raquo;</a></small>-->
+        </h1>
         {{module:download}}
         <p>
             Get started by downloading Turtl for your platform. <a href="/download">See all downloads &raquo;</a>
@@ -65,6 +69,7 @@ pre-content: slideshow
     </div>
 </section>
 
+<!--
 <section>
     <div class="content">
         <div class="imgnav clear">
@@ -107,6 +112,7 @@ pre-content: slideshow
         </div>
     </div>
 </section>
+-->
 
 <section>
     <div class="content">
