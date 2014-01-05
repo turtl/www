@@ -112,7 +112,7 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
  * pricing
  * -------------------------------------------------------------------------- */
 .pricing {margin: 24px 0 0 0; text-align: center;}
-.pricing .update {margin: 0 0 32px 0; padding: 16px; background: #fff; border-radius: 6px;}
+.pricing .update {width: 90%; margin: 0 auto 32px auto; padding: 16px; background: #fff; border-radius: 6px;}
 /*.pricing h1 {font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-transform: uppercase; font-style: italic; color: #bbb;}*/
 .pricing ul {list-style: none; text-align: left;}
 .pricing ul li {display: inline-block; width: 24%; margin: 0 2% 0 0%; padding: 32px 2% 32px 4%; text-align: center; border-left: 1px solid #ddd;}

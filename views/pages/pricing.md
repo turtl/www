@@ -17,8 +17,8 @@ title: Pricing
     <ul>
         <li>
             <h2>Basic</h2>
-            <em>Store up to 2gb</em>
-            <p><strong>Free</strong></p>
+            <em>Store up to 2gb.</em>
+            <p><strong>$0</strong> / mo</p>
             <div class="button">
                 <a href="/download">Get started</a>
             </div>
