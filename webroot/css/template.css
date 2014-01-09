@@ -30,7 +30,7 @@ body {margin: 0; padding: 0; font-family: arial, helvetica; font-size: 13px; lin
 .clear {display: block;}
 /* */
 
-a {color: #5398d1; color: #79a758; outline: none; text-decoration: none;}
+a {color: #5398d1; color: #79a758; color: #4f832a; outline: none; text-decoration: none;}
 a:hover {text-decoration: underline;}
 
 body.splash header {position: absolute; top: 540px;}
