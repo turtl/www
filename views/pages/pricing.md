@@ -7,7 +7,7 @@ title: Pricing
     <!--<h1>Choose a Turtl plan</h1>-->
 
     <div class="update">
-        <h1>All plans are free</h1>
+        <h1>All plans are currently free</h1>
         <p>
             Lucky you, currently all plans are free. Enjoy! This page gives an
             idea of what plans we'll have when we start charging.
