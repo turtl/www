@@ -51,7 +51,8 @@ incremental syncing with other devices and also provides a central communication
 point for various parts of the client.
 
 - [Local DB](/docs/clients/core/local_db#local-db)
-- [Syncing](/docs/clients/core/architecture#local-storage)
+- [Syncing](/docs/clients/core/local_db#syncing)
+- [File storage](/docs/clients/core/local_db#file-storage)
 {{{/div}}}
 
 {{{div.doc-sec}}}
