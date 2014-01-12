@@ -105,3 +105,35 @@ its new ID.
 
 This mitigates potential orphans and mismatches in the data.
 
+## File storage
+Turtl allows a file to be attached to a note. File syncing is treated somewhat
+differently than other data in the local db (and in-memory) so it deserves its
+own section.
+
+When you attach a file to a note, it immediately triggers a background task to
+encrypt the file (via the WebWorker protocol). Files are always encrypted and
+decrypted in a background thread to keep the main interface from getting choppy.
+When the encryption completes, the file is split up into two places:
+
+1. The note. Each note has a `file` object attached that, if a file is present,
+stores the file's post-encryption HMAC hash as well as the file's filename and
+type. The file contents are *never* stored in this object. This allows
+information about the file to be referenced without having to do further lookups
+in the local database. Note that the note's `file` object *always* uses the same
+encryption key as the note.
+1. The `files` table. This is where the file's contents are stored (encrypted).
+The `id` field of each record in this table is the HMAC hash of the file's
+post-encryption payload. This allows a note to easily reference the file's
+contents by the hash it has stored and avoids any strange id-generating schemes
+when we have an HMAC ID for free.
+
+The `Files` collection is a lot like other syncing collections, however it only
+syncs remotely (there is no in-memory representation of a file record other than
+the metadata that the note holds about the file). There are two separate File
+collection instances: one is registered with the remote syncing system to listen
+to sync records from the API and also perform tasks like uploading/downloading,
+and the other is used just for tracking file uploads/downloads and lives in
+`turtl.files`. Any upload/download triggered by the remote Files collection goes
+through `turtl.files`, allowing the app to track the uploads/downloads in
+progress.
+

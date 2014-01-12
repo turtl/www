@@ -37,6 +37,12 @@ object-orientation, and also to drive Composer.js (our MVC framework).
 
 More is used for things like drag and drop sorting and other UI niceties.
 
+*NOTE*: our Mootools Core implementation has been modified to support features
+in the `Request` library such as upload progress monitoring and raw ArrayBuffer
+downloading. We plan to release these changes as pulls on the [Mootools Github
+repository](https://github.com/mootools/mootools-core) when we have time to
+document and test them.
+
 ## [Composer.js](http://lyonbros.github.io/composer.js/)
 Composer.js is the MVC framework used by the Turtl core. It provides a good
 amount of tools and structure that help make the core fast, secure, and
@@ -55,6 +61,10 @@ likely not be updated.
 
 ## [DB.js](https://github.com/aaronpowell/db.js)
 Used as a layer over IndexedDB (the local DB) to make using it suck less.
+
+*NOTE*: We have a modified version of db.js. Although we've patched the [main
+repository](https://github.com/aaronpowell/db.js) a few times, we have some
+outstanding changes needing to be documented/tested.
 
 ## [lunr.js](http://lunrjs.com/)
 Used for in-dashboard note searching. Indexes note titles, URLs, bodies and tags

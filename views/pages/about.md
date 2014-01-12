@@ -33,3 +33,18 @@ including us.
 
 Because it's nobody else's business but yours.
 
+Turtl is beta
+=============
+
+Turtl is <strong>beta</strong>. Neither its security architecture or the code
+supporting it have been evaluated by security professionals.
+
+*Please do not trust Turtl's security with your life*.
+
+If you are in a situation where you need encrypted cloud storage, you can
+achieve something similar by encrypting your data using [GnuPG](http://www.gnupg.org/)
+and storing it in a cloud storage system like Dropbox. You can share the keys to
+this data with someone using PGP-encrypted email (or some form of secure
+communication mechanism).
+
+
