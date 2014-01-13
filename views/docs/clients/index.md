@@ -36,6 +36,14 @@ possible to safely run Turtl in the browser.
 - [Firefox](/docs/clients/extensions/firefox)
 {{{/div}}}
 
+<div class="clearMe">&nbsp;</div>
+
+{{{div.doc-sec}}}
+### [Desktop](/docs/clients/desktop/index)
+The desktop app wraps the [core](/docs/clients/core/index), bringing Turtl to
+Windows, Linux, and Mac as a standalone app.
+{{{/div}}}
+
 {{{/div}}}
 
 ## Clients on the way
@@ -43,7 +51,6 @@ Turtl's goal is to bring you your data no matter where you are. Here are some of
 the apps and clients we have not yet finished, but are planning to support in
 the near future:
 
-- iPhone
+- iOS (iPhone, iPad)
 - Android
-- Desktop (Windows, Linux, Mac)
 

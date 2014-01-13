@@ -71,21 +71,20 @@ If at any point Bob no long wants Alice to have access to "Dog pics" he can
 easily remove her from the board, and she'll no longer have access (and Turtl
 will remove the board's key from her private data).
 
-# Is there a Firefox extension?
+# What's wrong with the Firefox extension?
 
-There is, and it works great, however we no longer support Firefox for two
-reasons:
+The Firefox Turtl extension generally works great most of the time. However,
+there are some unsolved issues with Firefox itself that make the extension less
+than ideal:
 
-1. It doesn't support sandboxing. Extensions can easily grab data from each
-other, which doesn't provide the private environment Turtl requires.
 1. Its IndexedDB implementation, which Turtl uses extensively, crashes a
-lot. We have [an open bug report](https://bugzilla.mozilla.org/show_bug.cgi?id=943650)
-but until it is fixed, we can't release an extension that crashes the browser
-every five minutes.
+lot on some platforms (Windows, mainly). We have [an open bug report](https://bugzilla.mozilla.org/show_bug.cgi?id=943650)
+but until it is fixed, you'll have to put up with Firefox crashing.
+1. It doesn't support sandboxing. Extensions can easily grab data from each
+other, which doesn't provide the private environment Turtl promotes.
 
-If you'd like to test out the Firefox extension regardless of these issues,
-[contact us](/contact) and we can send you a build, or you can build your own
-using [the extension's source](https://github.com/turtl/firefox).
+While we recommend against the Firefox extension, you can still download it from
+the [downloads page](/download) *at your own risk*.
 
 # Is it open source?
 

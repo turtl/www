@@ -25,7 +25,7 @@ doing so, you must create a symlink to the app under data:
 ### Windows
 Must be run in an admin shell (because creating links is soooOOooOOo dangerous).
 ```
-dir path\to\turtl-firefox\data
+dir \path\to\turtl-firefox\data
 mklink /d app \path\to\turtl-core
 ```
 

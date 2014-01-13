@@ -46,6 +46,7 @@ includes architecture of Turtl's various apps, how we do encryption, build
 instructions, and more.
 
 - [Turtl core](/docs/clients/core/index)
+- [Desktop](/docs/clients/desktop/index)
 - [Browser extensions](/docs/clients/extensions/index)
 {{{/div}}}
 

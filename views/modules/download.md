@@ -10,13 +10,13 @@
             </a>
         </li>
         <li class="desktop" rel="linux64">
-            <a href="/data/release/desktop/linux/turtl-64">
+            <a href="/data/release/desktop/linux/turtl64">
                 <img src="/images/linux-small.png" width="32" height="32" alt="linux">
                 <h3>Linux x64<small>v0.3.4</small></h3>
             </a>
         </li>
         <li class="desktop" rel="linux32">
-            <a href="/data/release/desktop/linux/turtl-32">
+            <a href="/data/release/desktop/linux/turtl">
                 <img src="/images/linux-small.png" width="32" height="32" alt="linux">
                 <h3>Linux x86<small>v0.3.4</small></h3>
             </a>
@@ -30,14 +30,12 @@
         <li class="div">
             <h2>Turtl extensions</h2>
         </li>
-        <!--
         <li class="extension" rel="firefox">
             <a href="/data/release/extension/firefox.xpi">
                 <img src="/images/firefox-small.png" width="32" height="32" alt="firefox">
-                <h3>Firefox 21+<small>v0.3.4</small></h3>
+                <h3>Firefox 21+<small>v0.3.4 - alpha</small></h3>
             </a>
         </li>
-        -->
         <li class="extension" rel="chrome">
             <a href="/data/release/extension/chrome.crx">
                 <img src="/images/chrome-small.png" width="32" height="32" alt="chrome">
