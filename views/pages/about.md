@@ -6,10 +6,10 @@ layout: default
 What is Turtl?
 ==============
 
-Turtl is an app that you can use to store files and notes. It can be used to
-keep track of research, photos, bookmarks, playlists, and anything else you can
-think of. Turtl uses client-side encryption to keep everything you put into it
-private while still allowing you to access your data from anywhere.
+Turtl is an app you can use to store files and notes. It can help keep track of
+research, photos, bookmarks, playlists, and anything else you can think of.
+Turtl uses client-side encryption to keep everything you put into it private
+while still allowing you to access your data from anywhere.
 
 Turtl is [open-source](https://github.com/turtl), allowing anybody to audit the
 source or run their own version. See the [project timeline](https://github.com/turtl/js/issues/milestones)
@@ -40,11 +40,4 @@ Turtl is <strong>beta</strong>. Neither its security architecture or the code
 supporting it have been evaluated by security professionals.
 
 *Please do not trust Turtl's security with your life*.
-
-If you are in a situation where you need encrypted cloud storage, you can
-achieve something similar by encrypting your data using [GnuPG](http://www.gnupg.org/)
-and storing it in a cloud storage system like Dropbox. You can share the keys to
-this data with someone using PGP-encrypted email (or some form of secure
-communication mechanism).
-
 
