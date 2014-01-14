@@ -87,12 +87,11 @@ ability to decrypt those pieces of your data. It's possible that the person you
 shared with isn't who you think they are, or they have a gun to their head and
 have no choice but to expose your data. Be very careful about who you share
 sensitive data with.
-- __When your browser is compromised__. Turtl is a browser add-on (for now).
-This means that all the code that runs it is protected against tampering (unlike
-a website) and you know that when you install it, you're getting the actual
-Turtl app. However, either through browser exploits or possibly even a malicious
-third-party add-on, it's possible that your data could be exposed when you are
-logged in.
+- __When you use Turtl on a compromised browser__. When using Turtl as a browser
+extension, it's possible that other extensions may have access to your
+unencrypted data. This is mostly true for Firefox, which does not have extension
+sandboxing, but could be true of others through various security
+vulnerabilities.
 - __When you have malware installed__. When you're logged in to Turtl, all your
 unencrypted data is sitting in your computer's memory. It's possible that a
 malicious program could gain access to the browser's memory and read your data.
@@ -102,12 +101,10 @@ make it impossible.
 fetched, it's possible that your entire operating system itself is maliciously
 programmed to send contents of memory from certain programs to certain corporate
 headquarters or government agencies. If you really want to elminate this
-possibility, use an open-source operating system (such as Linux or BSD), and an
-open source browser when using Turtl (ie, Firefox).
+possibility, use an open-source operating system (such as Linux or BSD).
 - __When your hardware is compromised__. It's not outside the realm of
 possibility that your computer's hardware is maliciously sharing the contents of
-your memory to a third party. You could probably verify this using some sort of
-packet sniffing on a second device connected to the network you're on.
+your memory to a third party.
 - __When someone is holding a gun to your head__. Sometimes the easiest way to
 get your data is to threaten you or your family. Turtl does have one interesting
 feature: because the account username is not stored anywhere, it can be used

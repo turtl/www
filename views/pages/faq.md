@@ -80,6 +80,10 @@ than ideal:
 1. Its IndexedDB implementation, which Turtl uses extensively, crashes a
 lot on some platforms (Windows, mainly). We have [an open bug report](https://bugzilla.mozilla.org/show_bug.cgi?id=943650)
 but until it is fixed, you'll have to put up with Firefox crashing.
+1. [You can't use IndexedDB in Private Browsing](https://bugzilla.mozilla.org/show_bug.cgi?id=781982).
+Turtl's focus on privacy and ease of bookmarking may come in handy when browsing
+the kinds of websites one generally browses when in Private Browsing mode, but
+Turtl won't run on Firefox's private mode =\[.
 1. It doesn't support sandboxing. Extensions can easily grab data from each
 other, which doesn't provide the private environment Turtl promotes.
 
