@@ -5,14 +5,14 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(/data/font/roboto-condensed-light.woff) format('woff');
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(/images/font/roboto-condensed-light.woff) format('woff');
 }
 
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(/data/font/roboto-condensed-regular.woff) format('woff');
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(/images/font/roboto-condensed-regular.woff) format('woff');
 }
 
 /* custom icon font(s) */
