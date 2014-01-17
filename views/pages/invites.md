@@ -7,6 +7,8 @@ layout: default
 {{module:download}}
 {{{/div}}}
 
+
+<a class="all" href="/download">See all downloads &raquo;</a>
 ******
 
 # Install Turtl to accept your invite

@@ -15,7 +15,7 @@ Turtl is [open-source](https://github.com/turtl), allowing anybody to audit the
 source or run their own version. See the [project timeline](https://github.com/turtl/js/issues/milestones)
 to get a sense for what's to come.
 
-For more information, head over the [Turtl documentation](/docs).
+For more information, head over to the [Turtl documentation](/docs).
 
 The philosophy
 ==============

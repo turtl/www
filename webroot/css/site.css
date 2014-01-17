@@ -140,6 +140,7 @@ a.toc-anchor {position: absolute; margin-top: -60px;}
  * invite page
  * -------------------------------------------------------------------------- */
 section > .invite {padding: 24px 0 32px 0;}
+body.invite a.all {float: right; margin: -13px 0 0 0; }
 
 /* --------------------------------------------------------------------------
  * contact
