@@ -1,5 +1,11 @@
 (in-package :turtl-www)
 
+(defparameter *download-pages*
+  (list (format nil "~a/views/pages/index.md" *root*)
+        (format nil "~a/views/pages/download.md" *root*)
+        (format nil "~a/views/pages/invites.md" *root*)) 
+  "Lists all pages the download module is on.")
+
 (when *always-reload-views*
   (add-hook :pre-route (lambda (req res)
                          (declare (ignore req res))
@@ -17,6 +23,7 @@
 (clear-routes)
 
 (defroute (:get "/") (req res)
+  (generate-download-page *download-pages*)
   (let* ((slideshow (find-module :slideshow))
          (body (load-view :pages/index :data `(:body-class "splash"
                                                :pre-content ,slideshow))))
@@ -35,6 +42,7 @@
                  :body (format nil "moved to <a href=\"/docs/clients/core/~a\">here</a>" (car args))))
 
 (defroute (:get "/download") (req res)
+  (generate-download-page *download-pages*)
   (let ((body (load-view :pages/download)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
@@ -63,7 +71,8 @@
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)/([0-9a-f-]+)") (req res args)
-  (let ((body (load-view :pages/invites :data '(:body-class "splash"))))
+  (generate-download-page *download-pages*)
+  (let ((body (load-view :pages/invites :data '(:body-class "invite"))))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/docs(/(.*))?") (req res args)

@@ -196,6 +196,18 @@
          (html (finish-special-tags html)))
     (values html parsed-headers)))
 
+(defun save-view (view-name file ext)
+  "Load a file's contents from the given `file` var, parse it, and save the 
+   contents into the view of the given name."
+  (cond ((string= ext ".lisp")
+         (load file))
+        ((string= ext ".md")
+         (multiple-value-bind (html parsed-headers)
+             (process-markdown-view (file-contents file))
+           (setf (gethash view-name *views*)
+                 (list :meta parsed-headers
+                       :html html))))))
+
 (defun load-views (&key subdir (clear t) (view-directory (format nil "~a/views" *root*)))
   "Load and cache all view files."
   (when clear
@@ -208,14 +220,7 @@
            (let* ((file-str (namestring file))
                   (ext (subseq file-str (or (position #\. file-str :from-end t) (length file-str))))
                   (view-name (generate-view-name view-directory file-str)))
-             (cond ((string= ext ".lisp")
-                    (load file))
-                   ((string= ext ".md")
-                    (multiple-value-bind (html parsed-headers)
-                        (process-markdown-view (file-contents file))
-                      (setf (gethash view-name *views*)
-                            (list :meta parsed-headers
-                                  :html html)))))))))
+             (save-view view-name file ext)))))
   ;; process modules (only after ALL views are loaded)
   (loop for k being the hash-keys of *views*
         for v being the hash-values of *views* do

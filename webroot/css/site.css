@@ -18,7 +18,7 @@ section code {margin: 0 2px; padding: 0 5px; white-space: nowrap; font-family: C
 section pre {margin: 0 0 16px 0;}
 section pre code {white-space: pre;}
 section em code, strong code {font-style: normal; font-weight: normal;}
-section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bottom: 1px solid #ccc;}
+section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bottom: 1px solid #ddd;}
 
 icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; font-weight: 400; font-size: 1.3em; color: #000; line-height: 1em; vertical-align: text-top;}
 
@@ -135,6 +135,11 @@ a.toc-anchor {position: absolute; margin-top: -60px;}
 .documentation .doc-sec p {font-size: 13px; color: #777;}
 .documentation .doc-sec h3 {font-size: 18px; text-decoration: none; margin: 0; padding: 0;}
 .documentation .doc-sec ul {color: #999; margin-left: 16px;}
+
+/* --------------------------------------------------------------------------
+ * invite page
+ * -------------------------------------------------------------------------- */
+section > .invite {padding: 24px 0;}
 
 /* --------------------------------------------------------------------------
  * contact
