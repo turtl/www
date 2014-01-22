@@ -19,6 +19,7 @@ section pre {margin: 0 0 16px 0;}
 section pre code {white-space: pre;}
 section em code, strong code {font-style: normal; font-weight: normal;}
 section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bottom: 1px solid #ddd;}
+section .success {color: #0a0;}
 
 icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; font-weight: 400; font-size: 1.3em; color: #000; line-height: 1em; vertical-align: text-top;}
 
@@ -69,10 +70,10 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .splash > section:nth-child(2n) {background: #fff;}
 .splash > section > .content {width: 1001px; margin: 0 auto; padding: 60px 0;}
 /*.splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; font-family: 'Roboto Condensed'; font-style: italic; font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; color: #888;}*/
-.splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #888;}
-.splash .triplet {display: inline-block; vertical-align: top; width: 27.3%; margin: 0 8.5% 0 0; text-align: left; color: #666;}
+.splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #666;}
+.splash .triplet {display: inline-block; vertical-align: top; width: 27.3%; margin: 0 8.5% 0 0; text-align: left;}
 .splash .triplet:last-child {margin-right: 0;}
-.splash .triplet p {padding: 0;}
+.splash .triplet p {padding: 0; color: #444;}
 .splash .download h1 {margin: 0 0 38px 0; font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-align: center; text-transform: uppercase; font-style: italic; color: #bbb;}
 .splash .double {position: relative; float: left; width: 490px; margin: 0 0 0 0; line-height: 0;}
 .splash .double:nth-child(2n) {float: right;}
@@ -80,7 +81,7 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .splash .bullets {margin: 0 0 0 0;}
 .splash .download {margin: 0 0 0 0;}
 .splash .imgnav {margin: 0 0 0 0;}
-.splash .extra {color: #666;}
+.splash .extra {color: #444;}
 .splash .extra p {padding: 0; margin: 0;}
 
 /* --------------------------------------------------------------------------
@@ -93,12 +94,12 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .download ul.buttons li a {display: inline-block; min-width: 120px; padding: 4px 24px 2px 8px; background: #79a758; border-radius: 4px; transition: box-shadow .15s;}
 .download ul.buttons li:first-child {opacity: 1;}
 .button:hover a,
-.download ul.buttons li:hover a {box-shadow: 0 0 9px 0 rgba(255,255,255,.35) inset;}
+.download ul.buttons li:hover a {box-shadow: 0 0 9px 0 rgba(255,255,255,.45) inset;}
 .download ul.buttons li h3 {float: left; margin: 0 0 2px 0; font-size: 1.2em; line-height: 0.95em; color: #fff; text-align: center; white-space: nowrap; text-decoration: none;}
 .download ul.buttons li h3 small {display: block; font-size: .6em; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);}
 .download ul.buttons li icon {float: left; margin: 6px 8px 0 0; color: #fff;}
 .download ul.buttons li img {float: left; margin: 3px 8px 0 0;}
-.download p {padding: 24px 0 0 0; font-size: .9em; line-height: .8em; text-align: center; color: #aaa;}
+.download p {padding: 24px 0 0 0; font-size: .9em; line-height: .8em; text-align: center; color: #888;}
 .download-page {margin: 32px 0;}
 .download-page ul.buttons {text-align: left;}
 .download-page ul.buttons li {opacity: 1;}
@@ -132,7 +133,7 @@ a.toc-anchor {position: absolute; margin-top: -60px;}
 .documentation .breadcrumb a {margin: 0 3px;}
 .documentation .doc-sec {float: left; width: 41%; margin: 0 24px 24px 0; padding: 16px 2.5% 16px 2.5%; background: #fff; border-radius: 6px;}
 .documentation .doc-sec.main {float: none; width: auto; margin: 0 0 16px 0;}
-.documentation .doc-sec p {font-size: 13px; color: #777;}
+.documentation .doc-sec p {font-size: 13px; color: #555;}
 .documentation .doc-sec h3 {font-size: 18px; text-decoration: none; margin: 0; padding: 0;}
 .documentation .doc-sec ul {color: #999; margin-left: 16px;}
 
@@ -141,6 +142,8 @@ a.toc-anchor {position: absolute; margin-top: -60px;}
  * -------------------------------------------------------------------------- */
 section > .invite {padding: 24px 0 32px 0;}
 body.invite a.all {float: right; margin: -13px 0 0 0; }
+body.invite div.code {padding: 10px; overflow: auto; background: #fff;}
+body.invite div.code strong {display: block; word-wrap: break-word; font-size: 1.2em; font-weight: normal;}
 
 /* --------------------------------------------------------------------------
  * contact

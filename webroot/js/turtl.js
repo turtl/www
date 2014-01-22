@@ -95,6 +95,13 @@ var turtl	=	{
 			if(rel == 'chrome' && (!is_desktop || !window.chrome || !window.chrome.webstore)) el.hide();
 			if(rel == 'firefox' && (!is_desktop || !Browser.firefox)) el.hide();
 		});
+
+		var using_chrome	=	!!(window.chrome && window.chrome.webstore);
+		document.body.addEvent('click:relay(.download .buttons li[rel=chrome] a)', function(e) {
+			if(!using_chrome) return;
+			if(e) e.stop();
+			chrome.webstore.install();
+		});
 	},
 
 	show_tumblr: function()
@@ -128,4 +135,63 @@ window.addEvent('domready', function() {
 	turtl.setup_buttons();
 	turtl.show_tumblr();
 });
+
+/**
+ * When the desktop client first runs, it opens a port (7471) for 10s that will
+ * listen for invite codes from the client. So here we just jsonp endlessly to
+ * that port on 127.0.0.1 until we get a response or the user leaves the page.
+ */
+function invite_comm()
+{
+	var url			=	window.location.pathname;
+	var split		=	url.replace(/^\/?.*?\//, '').split(/\//);
+	var code		=	split[0];
+	var invite_id	=	split[1];
+	var key			=	split[2];
+	var invite		=	JSON.stringify({code: code, id: invite_id, key: key});
+	var code_el		=	document.getElement('body.invite div.code');
+	if(code_el)
+	{
+		var box_code	=	btoa(invite);
+		code_el.set('html', '<strong>'+box_code+'</strong>');
+	}
+
+	var all	=	document.getElement('body.invite a.all');
+	if(all)
+	{
+		all.addEvent('click', function(e) {
+			if(e) e.stop();
+			var ul	=	document.getElement('body.invite .download ul.buttons');
+			if(!ul) return false;
+			ul.getElements('li').each(function(el) {
+				if(el.hasClass('div')) return;
+				el.setStyle('display', '');
+				all.dispose();
+			});
+		});
+	}
+
+	var complete	=	false;
+	var do_send		=	function()
+	{
+		if(complete) return;
+		var req			=	new Request.JSONP({
+			url: 'http://127.0.0.1:7471/invite',
+			callbackKey: 'callback',
+			data: {invite: invite},
+			timeout: 1000,
+			onComplete: function(res) {
+				complete	=	true;		// stop sending invites over
+				console.log('done! ', res);
+				if(code_el)
+				{
+					code_el.set('html', '<span class="success">Code successfully sent to app!</span>');
+				}
+			}
+		}).send();
+
+		do_send.delay(5000);
+	};
+	do_send();
+}
 

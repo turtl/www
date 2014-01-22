@@ -39,7 +39,7 @@
         <li class="extension" rel="firefox">
             <a href="/release/extension/firefox-{{extension-firefox-version}}.xpi">
                 <img src="/images/firefox-small.png" width="32" height="32" alt="firefox">
-                <h3>Firefox 21+<small>v{{extension-firefox-version}}</small></h3>
+                <h3>Firefox 21+<small>v{{extension-firefox-version}}-alpha</small></h3>
             </a>
         </li>
     </ul>
