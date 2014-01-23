@@ -1,4 +1,3 @@
 config.lisp
 new/*
-webroot/release
 views/modules/download.md
