@@ -40,6 +40,8 @@
               (setf (gethash (format nil "extension-~a-version" app) view-vars) version))))
         ;; get desktop versions
         (dolist (file (cl-fad:list-directory (format nil "~a/webroot/release/desktop/" *root*)))
+          (when (cl-ppcre:scan "\\.gitignore$" (namestring file))
+            (return))
           (let* ((filename (pathname-name file))
                  (version (cl-ppcre:regex-replace "^.*-(([0-9]+(-[a-z]+)?\.?)+).*?$" filename "\\1"))
                  (version (if (eq (aref version (1- (length version))) #\.)
