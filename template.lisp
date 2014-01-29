@@ -88,7 +88,7 @@
 
   (let* ((headers nil)
          (str (cl-ppcre:regex-replace-all
-                (cl-ppcre:create-scanner "^((#{1,3})\\s*(.*?)(\\s*#+)?)$" :multi-line-mode t)
+                (cl-ppcre:create-scanner "^((#{1,6})\\s*(.*?)(\\s*#+)?)$" :multi-line-mode t)
                 str
                 (lambda (match &rest regs)
                   (declare (ignore match))
