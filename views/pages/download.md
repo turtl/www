@@ -14,7 +14,7 @@ photos, but other than bookmarking, the extension and the desktop app both have
 the same features.
 
 One benefit of the desktop app is that it lets you run Turtl on most platforms,
-even if you don't use Chrome as your main browser.
+even if you don't use Chrome/Firefox as your main browser.
 
 ## [Turtl for Firefox is alpha](/faq#what-s-wrong-with-the-firefox-extension)
 
