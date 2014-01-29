@@ -9,3 +9,6 @@
 (defparameter *always-reload-views* nil
   "Reload views on every request? HUGE performance penalty!!!")
 
+(defparameter *allow-reload-views* nil
+  "Allow reloading the views by hitting /refresh-views. DoS waiting to happen.")
+
