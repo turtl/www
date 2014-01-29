@@ -90,6 +90,11 @@
     (load-views)
     (send-response res :body "Views refreshed!!")))
 
+(defroute (:get "/blog-jsonp") (req res)
+  (alet* ((url (format nil "http://turtlapp.tumblr.com/api/read?start=0&num=1&format=json&callback=~a" (get-var req "callback")))
+          (response (das:http-request url)))
+    (send-response res :body response)))
+
 ;(defroute (:get "/favicon.ico") (req res)
 ;  (send-response res :status 301 :headers '(:location "/favicon.png")))
 

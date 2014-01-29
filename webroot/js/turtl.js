@@ -110,7 +110,8 @@ var turtl	=	{
 		if(!tumblr_box) return false;
 
 		new Request.JSONP({
-			url: 'http://turtlapp.tumblr.com/api/read?start=0&num=1&format=json',
+			//url: 'http://turtlapp.tumblr.com/api/read?start=0&num=1&format=json',
+			url: '/blog-jsonp',
 			callbackKey: 'callback',
 			onComplete: function(data) {
 				var post	=	data.posts[0];
