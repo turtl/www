@@ -111,7 +111,7 @@
               (now (get-internal-real-time)))
           ;; send blog, even if stale
           (send-response res :body body)
-          (when (<= (/ (- now time) internal-time-units-per-second) 3600)
+          (when (<= 3600 (/ (- now time) internal-time-units-per-second))
             ;; cache is now stale, load and cache the blog in the background.
             ;; next request gets the new blog.
             (load-blog t)))
