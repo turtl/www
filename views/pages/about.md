@@ -41,3 +41,7 @@ supporting it have been evaluated by security professionals.
 
 *Please do not trust Turtl's security with your life*.
 
+Also, Turtl's file support is very new and may have unknown glitches. Please do
+not use Turtl as your primary storage for important documents or files until it
+has a chance to mature.
+
