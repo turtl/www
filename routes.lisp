@@ -90,10 +90,33 @@
     (load-views)
     (send-response res :body "Views refreshed!!")))
 
+(defparameter *blog-cache* nil
+  "Caches the blog response from Tumblr so we don't load it on each request.")
+
 (defroute (:get "/blog-jsonp") (req res)
-  (alet* ((url (format nil "http://turtlapp.tumblr.com/api/read?start=0&num=1&format=json&callback=~a" (get-var req "callback")))
-          (response (das:http-request url)))
-    (send-response res :body response)))
+  (flet ((load-blog (&optional skip-response)
+           ;; grab the blog
+           (alet* ((url (format nil "http://turtlapp.tumblr.com/api/read?start=0&num=1&format=json&callback=~a" (get-var req "callback")))
+                   (response (das:http-request url)))
+             ;; cache the blog post
+             (setf *blog-cache* (list :body response
+                                      :time (get-internal-real-time)))
+             ;; send a response, if needed
+             (unless skip-response
+               (send-response res :body response)))))
+    (if *blog-cache*
+        ;; we have a cached version! show it
+        (let ((body (getf *blog-cache* :body))
+              (time (getf *blog-cache* :time))
+              (now (get-internal-real-time)))
+          ;; send blog, even if stale
+          (send-response res :body body)
+          (when (<= (/ (- now time) internal-time-units-per-second) 3600)
+            ;; cache is now stale, load and cache the blog in the background.
+            ;; next request gets the new blog.
+            (load-blog t)))
+        ;; no cached version. load it and respond.
+        (load-blog))))
 
 ;(defroute (:get "/favicon.ico") (req res)
 ;  (send-response res :status 301 :headers '(:location "/favicon.png")))
