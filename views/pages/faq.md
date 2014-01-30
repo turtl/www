@@ -71,6 +71,29 @@ If at any point Bob no long wants Alice to have access to "Dog pics" he can
 easily remove her from the board, and she'll no longer have access (and Turtl
 will remove the board's key from her private data).
 
+# Where are files stored?
+
+Files are stored on Amazon's S3 service. 
+
+While some of you may cringe at this, remember that all Turtl data is encrypted
+*before* leaving your computer/device, including files. Also, there's absolutely
+no place in the world we can keep data that some third party won't have access
+to it.
+
+So while we may be able to rent our own datacenter and have armed guards posted
+around it 24/7, and while this may make you *feel* safer, someone besides you
+and me will *always* have physical access to the data. The amount of security
+Turtl's encryption provides is exponentially more than any security you'd get
+from armed guards and 8 digit door codes.
+
+Not only is using S3 just as safe as storing our data internally, it costs a
+lot less for both us and for you.
+
+Keep in mind that the [Turtl server](/docs/server/index) is open source, and if
+you don't like the way we run our server, you can [run your own](/docs/server/running)
+=]. There are even [open source S3 alternatives](http://basho.com/riak-cloud-storage/)
+you could run internally so you wouldn't have to change any code.
+
 # What's wrong with the Firefox extension?
 
 The Firefox Turtl extension generally works great most of the time. However,
