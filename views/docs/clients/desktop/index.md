@@ -21,6 +21,18 @@ Node-webkit also allows you to package and distribute your app for each platform
 it runs on without needing to actually have it installed on the user's computer.
 This allows us to provide one simple download that runs right out of the box.
 
+## Open port
+Turtl Desktop opens port 7471 (if it's available) to listen for invite
+notifications from the website via JSONP. This means that if the desktop app is
+open (it doesn't have to be logged in) it will catch any invites from invite
+links on the Turtl website. This makes the process of accepting invites as easy
+as possible.
+
+Currently, you can't disable this open port. In the next few releases, there
+will be an option to disable the invite listener and also accept invites by a
+code you can copy/paste instead of just automatic communication between the site
+and the app.
+
 ## Setup and running
 Unless using a packaged version, Turtl desktop requires you to have node-webkit
 installed. If you are running for the first time, you need to set up a symlink
