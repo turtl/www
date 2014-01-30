@@ -23,11 +23,11 @@ storage. This allows you to safely access your data from anywhere.
 
 ## Notes
 Notes are the containers that hold all your data. Notes can be any type of media
-be it an image, text, a bookmark, and once file support is completed, any type
-of attached file.
+be it an image, text, a bookmark, etc. Notes can also have files attached to
+them.
 
-Notes can also be tagged when creating (or editing) them. This allows you to
-easily filter notes when a board gets a large number of notes.
+Notes can be tagged when creating (or editing) them. This allows you to easily
+filter notes when a board gets a large number of notes.
 
 ## Boards
 A board is a container that holds notes. It's also the primary means of sharing
