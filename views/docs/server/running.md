@@ -42,9 +42,9 @@ There are some libraries the server uses that are not yet added to Quicklisp.
 Also, while these libraries may find their way into Quicklisp soon enough, it's
 much better to use the latest git versions:
 
-- [Wookie](https://github.com/orthcreedence/wookie)
-- [http-parse](https://github.com/orthcreedence/http-parse)
-- [cl-rethinkdb](https://github.com/orthcreedence/cl-rethinkdb)
+- [Wookie](https://github.com/orthecreedence/wookie)
+- [http-parse](https://github.com/orthecreedence/http-parse)
+- [cl-rethinkdb](https://github.com/orthecreedence/cl-rethinkdb)
 
 When you install Quicklisp for your implementation, you'll have a new folder in
 your home directory called `quicklisp`. Navigate to `~/quicklisp/local-projects/`
