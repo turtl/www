@@ -135,6 +135,7 @@ window.addEvent('domready', function() {
 	turtl.setup_modal();
 	turtl.setup_buttons();
 	turtl.show_tumblr();
+	hljs.initHighlightingOnLoad();
 });
 
 /**
