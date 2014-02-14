@@ -36,9 +36,10 @@
           (unless (cl-ppcre:scan "\\.gitignore$" (namestring file))
             (let* ((filename (pathname-name file))
                    (version (cl-ppcre:regex-replace "^.*-(([0-9]+(-[a-z]+)?\.?)+).*?$" filename "\\1"))
-                   (app (cl-ppcre:regex-replace "([a-z0-9]+)-.*?$" filename "\\1")))
-              (when (version-greater-p version (gethash app view-vars))
-                (setf (gethash (format nil "extension-~a-version" app) view-vars) version)))))
+                   (app (cl-ppcre:regex-replace "([a-z0-9]+)-.*?$" filename "\\1"))
+                   (key (format nil "extension-~a-version" app)))
+              (when (version-greater-p version (gethash key view-vars))
+                (setf (gethash key view-vars) version)))))
         ;; get desktop versions
         (dolist (file (cl-fad:list-directory (format nil "~a/webroot/release/desktop/" *root*)))
           (unless (cl-ppcre:scan "\\.gitignore$" (namestring file))
@@ -47,9 +48,10 @@
                    (version (if (eq (aref version (1- (length version))) #\.)
                                 (subseq version 0 (1- (length version)))
                                 version))
-                   (app (cl-ppcre:regex-replace "turtl-([a-z0-9]+)-.*?$" filename "\\1")))
-              (when (version-greater-p version (gethash app view-vars))
-                (setf (gethash (format nil "desktop-~a-version" app) view-vars) version)))))
+                   (app (cl-ppcre:regex-replace "turtl-([a-z0-9]+)-.*?$" filename "\\1"))
+                   (key (format nil "desktop-~a-version" app)))
+              (when (version-greater-p version (gethash key view-vars))
+                (setf (gethash key view-vars) version)))))
         (let* ((contents (file-contents (concatenate 'string file-str ".tpl")))
                (compiled (cl-ppcre:regex-replace-all
                            "\\{\\{([a-z0-9-]+)\\}\\}"
