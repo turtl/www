@@ -1,6 +1,6 @@
 (asdf:defsystem turtl-www
   :author "Andrew Danger Lyon <orthecreedence@gmail.com>"
-  :licence "MIT"
+  :licence "GPLv3"
   :version "0.0.2"
   :depends-on (#:cl-fad #:cl-who #:markdown.cl #:cl-ppcre #:wookie #:drakma-async)
   :components
