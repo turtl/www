@@ -88,24 +88,11 @@ The server uses the Common Lisp [cl-rethinkdb driver](https://github.com/orthecr
 an async driver (built by Andrew Lyon, a Turtl co-author).
 
 ## Analytics
-Turtl is set up to be fully anonymous (with the exception of personas and
-sharing). However, the API tracks anonymous analytics and certain metadata
-(the NSA kind of ruined that word, we know) about certain actions. Analytics are
-currently saved to the Mixpanel service. Here are some examples of the calls
-made to Mixpanel:
+Turtl logs analytics events to a separate database (`analytics`) in RethinkDB.
+This can be turned off by setting `:enabled nil` in the `*analytics*` config
+key in `config/config.lisp`.
 
-```javascript
-// note add
-{event: "note-add", properties: {shared: true}}
-
-// board edit
-{event: "board-edit"}
-
-// user join
-{event: "user-join"}
-```
-
-No other data is sent. Not the user's IP, not the user's auth or ID, not any
-identifying information whatsoever. Just the action that occured and specific
-metadata associated with it.
+Note that analytics data used to be collected via Mixpanel (anonymously) but in
+order to get better data *and* protect our users' privacy, Turtl now does all
+analytics tracking internally.
 
