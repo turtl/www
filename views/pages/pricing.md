@@ -20,14 +20,14 @@ title: Pricing
             <em>Store up to 1gb</em>
             <p><strong>$0</strong> / mo</p>
             <div class="button">
-                <a href="/download">Get started</a>
+                <a href="/download">Download now</a>
             </div>
         </li>
         <li>
             <h2>Standard</h2>
             <em>Store up to 50gb</em>
             <p><strong>$10</strong> / mo</p>
-            <div class="button">
+            <div class="button buy price-10">
                 <a href="/download">Sign up</a>
             </div>
         </li>
@@ -35,7 +35,7 @@ title: Pricing
             <h2>Pro</h2>
             <em>Store up to 500gb</em>
             <p><strong>$100</strong> / mo</p>
-            <div class="button">
+            <div class="button buy price-100">
                 <a href="/download">Sign up</a>
             </div>
         </li>

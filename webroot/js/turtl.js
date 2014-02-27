@@ -1,6 +1,29 @@
 var modal		=	null;
 var slideshow	=	null;
 
+// get the next tag of type "type" in the chain up the dom
+function next_tag_up(tag, element)
+{
+	return element.get('tag') == tag ? element : next_tag_up(tag, element.getParent());
+}
+
+function track_goal(id, price)
+{
+	var goals	=	JSON.parse(localStorage['goals'] || '[]');
+	goals.push([id, price]);
+	localStorage['goals']	=	JSON.stringify(goals);
+}
+
+function run_goals()
+{
+	var goals	=	JSON.parse(localStorage['goals'] || '[]');
+	goals.each(function(goal) {
+		console.log('tracking goal: ', goal);
+		_paq.push(['trackGoal', goal[0], goal[1]]);
+	});
+	delete localStorage['goals'];
+}
+
 var turtl	=	{
 	setup_header: function()
 	{
@@ -70,7 +93,7 @@ var turtl	=	{
 		});
 	},
 
-	setup_buttons: function()
+	setup_download_buttons: function()
 	{
 		var buttons	=	document.getElement('div:not(.download-page) .download ul.buttons');
 		if(!buttons) return false;
@@ -104,6 +127,15 @@ var turtl	=	{
 		});
 	},
 
+	setup_track_goals: function()
+	{
+		$(document.body).addEvent('click:relay(div.pricing .button.buy)', function(e) {
+			var div		=	next_tag_up('div', e.target);
+			var price	=	div.className.replace(/.*price-([0-9]+).*?$/, '$1');
+			track_goal(1, price);
+		});
+	},
+
 	show_tumblr: function()
 	{
 		var tumblr_box	=	document.getElement('.news .blog');
@@ -130,10 +162,12 @@ var turtl	=	{
 };
 
 window.addEvent('domready', function() {
+	run_goals();
 	turtl.setup_header();
 	turtl.setup_slideshow();
 	turtl.setup_modal();
-	turtl.setup_buttons();
+	turtl.setup_download_buttons();
+	turtl.setup_track_goals();
 	turtl.show_tumblr();
 	hljs.initHighlightingOnLoad();
 });
