@@ -11,7 +11,7 @@ markdown: off
         your data synced between your devices.<br>
         Keep in mind you are free to
         <a href="/docs/server/running">run your own Turtl server</a> if you need
-        more control. Yay open source!
+        more control (or if you're cheap like me). Yay open source!
     </p>
 
     <ul>

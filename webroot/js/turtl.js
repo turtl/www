@@ -95,6 +95,13 @@ var turtl	=	{
 
 	setup_download_buttons: function()
 	{
+		var using_chrome	=	!!(window.chrome && window.chrome.webstore);
+		document.body.addEvent('click:relay(.download .buttons li[rel=chrome] a)', function(e) {
+			if(!using_chrome) return;
+			if(e) e.stop();
+			chrome.webstore.install();
+		});
+
 		var buttons	=	document.getElement('div:not(.download-page) .download ul.buttons');
 		if(!buttons) return false;
 
@@ -117,13 +124,6 @@ var turtl	=	{
 			var rel	=	el.get('rel');
 			if(rel == 'chrome' && (!is_desktop || !window.chrome || !window.chrome.webstore)) el.hide();
 			if(rel == 'firefox' && (!is_desktop || !Browser.firefox)) el.hide();
-		});
-
-		var using_chrome	=	!!(window.chrome && window.chrome.webstore);
-		document.body.addEvent('click:relay(.download .buttons li[rel=chrome] a)', function(e) {
-			if(!using_chrome) return;
-			if(e) e.stop();
-			chrome.webstore.install();
 		});
 	},
 
