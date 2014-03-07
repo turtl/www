@@ -169,6 +169,9 @@ window.addEvent('domready', function() {
 	turtl.setup_download_buttons();
 	turtl.setup_track_goals();
 	turtl.show_tumblr();
+	hljs.configure({
+		classPrefix: ''
+	});
 	hljs.initHighlightingOnLoad();
 });
 

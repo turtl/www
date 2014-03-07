@@ -52,6 +52,13 @@ and `git clone` the projects listed above into that folder. This tells Quicklisp
 that you want it to use those specific versions over the ones it has in its
 index.
 
+## Getting the source
+The Turtl server is hosted on Github and can be grabbed via:
+
+```bash
+git clone https://github.com/turtl/api.git
+```
+
 ## Configuration
 The main configuration for the server lives in `config/config.default.lisp`.
 Before running you need to copy this file to `config/config.lisp` and change any
@@ -73,7 +80,7 @@ start the Turtl server, and kick back.
 
 ## Starting
 Starting the server is as easy as starting your lisp implemenation in the
-server's directory and doing the following:
+server's root directory and doing the following:
 
 ```lisp
 (ql:quickload :turtl)
