@@ -17,7 +17,7 @@ markdown: off
     <ul>
         <li>
             <h2>Free</h2>
-            <em>Notes only*</em>
+            <em>Notes + files: up to 200mb</em>
             <p><strong>$0</strong> / mo</p>
             <div class="button">
                 <a href="/download">Download now</a>
