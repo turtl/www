@@ -67,7 +67,7 @@ secret). Once Alice gets the invite, she accepts it, adding herself to the list
 of people allowed to access "Dog pics" and is now able to decrypt all the data
 in it because Bob sent her the key to the board.  
 
-If at any point Bob no long wants Alice to have access to "Dog pics" he can 
+If at any point Bob no longer wants Alice to have access to "Dog pics" he can 
 easily remove her from the board, and she'll no longer have access (and Turtl
 will remove the board's key from her private data).
 
