@@ -50,7 +50,7 @@ markdown: off
     </ul>
 
     <p class="note">
-        * All plans are currently free and allow file uploads while we are still in early beta.
+        * All plans are currently free while we are still in early beta.
     </p>
 </div>
 
