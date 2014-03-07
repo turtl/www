@@ -1,5 +1,5 @@
 ---
-title: Turtl: Secure file and note storage
+title: Turtl: Secure file and note syncing
 layout: default
 markdown: off
 pre-content: slideshow
