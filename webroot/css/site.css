@@ -71,6 +71,7 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .splash > section > .content {width: 1001px; margin: 0 auto; padding: 60px 0;}
 /*.splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; font-family: 'Roboto Condensed'; font-style: italic; font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; color: #888;}*/
 .splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #666;}
+.splash > section h2 {color: #666;}
 .splash .triplet {display: inline-block; vertical-align: top; width: 27.3%; margin: 0 8.5% 0 0; text-align: left;}
 .splash .triplet:last-child {margin-right: 0;}
 .splash .triplet p {padding: 0; color: #444;}
@@ -78,6 +79,7 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .splash .double {position: relative; float: left; width: 490px; margin: 0 0 0 0; line-height: 0;}
 .splash .double:nth-child(2n) {float: right;}
 .splash .double a h2 {position: absolute; bottom: 2px; left: 12px; font-size: 48px; font-family: 'Roboto Condensed'; font-weight: 400; color: #ededed; text-transform: uppercase;}
+.splash .mailing-list {padding: 0 0 64px 0;}
 .splash .bullets {margin: 0 0 0 0;}
 .splash .download {margin: 0 0 0 0;}
 .splash .imgnav {margin: 0 0 0 0;}
@@ -112,15 +114,17 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
  * pricing
  * -------------------------------------------------------------------------- */
 .pricing {margin: 24px 0 0 0; text-align: center;}
+.pricing h1 {}
 .pricing .update {width: 90%; margin: 0 auto 32px auto; padding: 16px; background: #fff; border-radius: 6px;}
 /*.pricing h1 {font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-transform: uppercase; font-style: italic; color: #bbb;}*/
-.pricing ul {list-style: none; text-align: left;}
-.pricing ul li {display: inline-block; width: 24%; margin: 0 2% 0 0%; padding: 32px 2% 32px 4%; text-align: center; border-left: 1px solid #ddd;}
-.pricing ul li:first-child {border-left: 0;}
+.pricing ul {margin: 32px auto 32px auto; list-style: none; text-align: center;}
+.pricing ul li {display: inline-block; width: 21%; margin: 0 .4% 0 .4%; padding: 28px 1% 28px 1%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
+.pricing ul li.emphasize {padding-top: 44px; padding-bottom: 44px;}
 .pricing ul li h2 {margin: 0 0 6px 0; font-size: 1.8em; color: #666;}
 .pricing ul li em {display: block; margin: 0 0 32px 0; color: #888; font-style: normal;}
 .pricing ul li p {margin: 0 0 32px 0; padding: 0; font-size: 1.6em;}
 .pricing ul li p strong {font-size: 2.0em; font-weight: normal;}
+.pricing p.note {font-size: .85em; color: #666; text-align: center;}
 
 /* --------------------------------------------------------------------------
  * docs
@@ -154,4 +158,12 @@ body.invite div.code strong {display: block; word-wrap: break-word; font-size: 1
 .news > .blog {float: left; width: 65%; padding: 0 10px;}
 .news > .twitter {float: right; width: 25%; padding: 0 10px 0 4.5%; border-left: 1px solid #eee;}
 .news h1 {margin: 0 0 .8em -10px;}
+
+/* --------------------------------------------------------------------------
+ * mailing list signup
+ * -------------------------------------------------------------------------- */
+.mailing-list {padding: 32px 0 32px 0; text-align: center;}
+.mailing-list input[type=email] {margin: 0 3px; font-size: 19px; color: #555;}
+.mailing-list input[type=submit] {margin: 0 3px; font-size: 19px; color: #777;}
+.mailing-list span.note {display: inline-block; margin: 10px 0 0 0; font-size: .8em; color: #666;}
 
