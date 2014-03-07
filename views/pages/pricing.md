@@ -11,18 +11,8 @@ markdown: off
         your data synced between your devices.<br>
         Keep in mind you are free to
         <a href="/docs/server/running">run your own Turtl server</a> if you need
-        more control (or are pinching pennies).
+        more control. Yay open source!
     </p>
-
-    <!--
-    <div class="update">
-        <h1>All plans are currently free</h1>
-        <p>
-            Lucky you, currently all plans are free. Enjoy! This page gives an
-            idea of what plans we'll have when we start charging.
-        </p>
-    </div>
-    -->
 
     <ul>
         <li>
