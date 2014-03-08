@@ -63,8 +63,7 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .slideshow #slide-2 ul.screenshots li.kofi {background-position: -480px 0;}
 .slideshow #slide-2 ul.screenshots li.bookmarks {background-position: -720px 0;}
 .slideshow #slide-3 .mailing-list {position: absolute; z-index: 3; bottom: 105px; width: 100%; text-align: center;}
-.slideshow #slide-3 .mailing-list input {padding: 6px 8px;}
-.slideshow #slide-3 .mailing-list .note {font-size: .85em; color: #fff;}
+.slideshow #slide-3 .mailing-list .note {color: #fff;}
 
 /* --------------------------------------------------------------------------
  * homepage
@@ -157,6 +156,7 @@ body.invite div.code strong {display: block; word-wrap: break-word; font-size: 1
  * -------------------------------------------------------------------------- */
 .contact.documentation {margin-top: 12px;}
 .contact.documentation .doc-sec:first-child {margin-left: 22px;}
+.contact.mailing {margin: 24px 0; padding-top: 10px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;}
 .news {margin: 32px 0 0 0;}
 .news > .blog {float: left; width: 65%; padding: 0 10px;}
 .news > .twitter {float: right; width: 25%; padding: 0 10px 0 4.5%; border-left: 1px solid #eee;}
@@ -166,7 +166,8 @@ body.invite div.code strong {display: block; word-wrap: break-word; font-size: 1
  * mailing list signup
  * -------------------------------------------------------------------------- */
 .mailing-list {padding: 32px 0 32px 0; text-align: center;}
+.mailing-list input {padding: 6px 8px;}
 .mailing-list input[type=email] {margin: 0 3px; font-size: 19px; color: #555;}
 .mailing-list input[type=submit] {margin: 0 3px; font-size: 19px; color: #777;}
-.mailing-list span.note {display: inline-block; margin: 10px 0 0 0; font-size: .8em; color: #666;}
+.mailing-list span.note {display: inline-block; margin: 10px 0 0 0; font-size: .85em; color: #666;}
 

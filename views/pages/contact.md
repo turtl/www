@@ -24,6 +24,10 @@ markdown: off
     </div>
 </div>
 
+<div class="contact mailing">
+    {{module:mailing}}
+</div>
+
 <div class="news clear">
     <div class="blog">
         <h1>
