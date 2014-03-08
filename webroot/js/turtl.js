@@ -119,6 +119,10 @@ var turtl	=	{
 			chrome.webstore.install();
 		});
 
+		document.body.addEvent('click:relay(.download ul.buttons li a)', function(e) {
+			_paq.push(['trackGoal', 2]);
+		});
+
 		var buttons	=	document.getElement('div:not(.download-page) .download ul.buttons');
 		if(!buttons) return false;
 
@@ -141,6 +145,13 @@ var turtl	=	{
 			var rel	=	el.get('rel');
 			if(rel == 'chrome' && (!is_desktop || !window.chrome || !window.chrome.webstore)) el.hide();
 			if(rel == 'firefox' && (!is_desktop || !Browser.firefox)) el.hide();
+		});
+	},
+
+	setup_newsletter: function()
+	{
+		document.body.addEvent('submit:relay(.mailing-list form)', function(e) {
+			_paq.push(['trackGoal', 3]);
 		});
 	},
 
@@ -184,6 +195,7 @@ window.addEvent('domready', function() {
 	turtl.setup_slideshow();
 	turtl.setup_modal();
 	turtl.setup_download_buttons();
+	turtl.setup_newsletter();
 	turtl.setup_track_goals();
 	turtl.show_tumblr();
 	hljs.initHighlightingOnLoad();
