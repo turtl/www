@@ -62,6 +62,9 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .slideshow #slide-2 ul.screenshots li.add {background-position: -480px 0;}
 .slideshow #slide-2 ul.screenshots li.kofi {background-position: -480px 0;}
 .slideshow #slide-2 ul.screenshots li.bookmarks {background-position: -720px 0;}
+.slideshow #slide-3 .mailing-list {position: absolute; z-index: 3; bottom: 105px; width: 100%; text-align: center;}
+.slideshow #slide-3 .mailing-list input {padding: 6px 8px;}
+.slideshow #slide-3 .mailing-list .note {font-size: .85em; color: #fff;}
 
 /* --------------------------------------------------------------------------
  * homepage

@@ -9,10 +9,10 @@ markdown: off
         <!-- prevents bot signups -->
         <div style="position: absolute; left: -5000px;"><input type="text" name="b_08e2e6f827378ac9d33dc70e8_6ec9573d84" value=""></div>
 
-        <input type="submit" value="Join mailing list">
+        <input type="submit" value="Join the list">
         <br>
         <span class="note">
-            Stay up to date on Turtl news. You can unsubscribe at any time. No spam.
+            Unsubscribe at any time. No spam.
         </span>
     </form>
 </div>
