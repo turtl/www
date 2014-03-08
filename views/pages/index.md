@@ -36,15 +36,17 @@ pre-content: slideshow
 </section>
 
 <section>
-    <div class="content download">
-        <h1>
-            Download Turtl
-            <!--<small><a href="/download">all downloads &raquo;</a></small>-->
-        </h1>
-        {{module:download}}
-        <p>
-            Get started by downloading Turtl for your platform. <a href="/download">See all downloads &raquo;</a>
-        </p>
+    <div class="content clear">
+        <div class="download">
+            <h1>
+                Download Turtl
+                <!--<small><a href="/download">all downloads &raquo;</a></small>-->
+            </h1>
+            {{module:download}}
+            <p>
+                Get started by downloading Turtl for your platform. <a href="/download">See all downloads &raquo;</a>
+            </p>
+        </div>
     </div>
 </section>
 
