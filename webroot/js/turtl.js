@@ -71,6 +71,23 @@ var turtl	=	{
 			el_prev: slide_main.getElement('.slide-lol.back'),
 			el_next: slide_main.getElement('.slide-lol.forward')
 		});
+
+		var slide_email_inp	=	$(document.body).getElement('.slideshow li.join input.email');
+		var was_running		=	false;
+		slide_email_inp.addEvent('focus', function() {
+			if(slideshow)
+			{
+				was_running	=	slideshow.state.started;
+				slideshow.stop();
+			}
+		});
+		slide_email_inp.addEvent('blur', function() {
+			if(slideshow && was_running) slideshow.start();
+		});
+		$(document.body).addEvent('click:relay(.slideshow li.slide.join a[href=#join])', function(e) {
+			if(e) e.stop();
+			if(slide_email_inp) slide_email_inp.focus();
+		});
 	},
 
 	setup_modal: function()
