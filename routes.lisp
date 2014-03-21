@@ -6,6 +6,18 @@
         (format nil "~a/views/pages/invites.md" *root*)) 
   "Lists all pages the download module is on.")
 
+(when *enable-hsts-header*
+  (add-hook :response-started
+    (lambda (res req &rest _)
+      (declare (ignore _))
+      (let ((invite-search "/invites")
+            (resource (request-resource req)))
+        (unless (string= (subseq resource 0 (min (length invite-search)
+                                                 (length resource)))
+                         invite-search)
+          (setf (getf (response-headers res) :strict-transport-security)
+                (format nil "max-age=~a" *enable-hsts-header*)))))))
+
 (when *always-reload-views*
   (add-hook :pre-route (lambda (req res)
                          (declare (ignore req res))
