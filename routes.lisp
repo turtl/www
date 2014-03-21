@@ -6,15 +6,53 @@
         (format nil "~a/views/pages/invites.md" *root*)) 
   "Lists all pages the download module is on.")
 
+(defun in-invite-site (req)
+  "Determine if we are in the invite site."
+  (let ((invite-search *invite-site-host*)
+        (host (getf (request-headers req) :host)))
+    (string= (subseq host 0 (min (length invite-search)
+                                 (length host)))
+             invite-search)))
+
+(defun on-invite-page (req)
+  "Determine if we're on an invite page (/invites/2134/1234/1234)"
+  (let ((invite-search "/invites/")
+        (resource (request-resource req)))
+    (string= (subseq resource 0 (min (length invite-search)
+                                     (length resource)))
+             invite-search)))
+
+;; add some invite site/main site cross redirecting
+(add-hook :pre-route
+  (lambda (req res)
+    (let ((future (make-future)))
+      (cond ((and (in-invite-site req)
+                  (not (on-invite-page req)))
+             (send-response res
+                            :status 301
+                            :headers (list :location
+                                           (format nil "~a~a" *site-url* (request-resource req)))
+                            :body "Moved.")
+             (signal-error future t))
+            ((and (not (in-invite-site req))
+                  (on-invite-page req))
+             (send-response res
+                            :status 301
+                            :headers (list :location
+                                           (format nil "http://~a~a" *invite-site-host* (request-resource req)))
+                            :body "Moved.")
+             (signal-error future t))
+            (t
+             (finish future)))
+      future)))
+
 (when *enable-hsts-header*
   (add-hook :response-started
     (lambda (res req &rest _)
       (declare (ignore _))
       (let ((invite-search *invite-site-host*)
             (host (getf (request-headers req) :host)))
-        (unless (string= (subseq host 0 (min (length invite-search)
-                                             (length host)))
-                         invite-search)
+        (unless (in-invite-site req)
           (setf (getf (response-headers res) :strict-transport-security)
                 (format nil "max-age=~a" *enable-hsts-header*)))))))
 
