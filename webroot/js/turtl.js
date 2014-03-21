@@ -247,6 +247,8 @@ function invite_comm()
 			timeout: 1000,
 			onComplete: function(res) {
 				complete	=	true;		// stop sending invites over
+				if(res.error) return false;
+
 				console.log('done! ', res);
 				if(code_el)
 				{
