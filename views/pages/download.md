@@ -7,22 +7,36 @@ title: Download Turtl
 {{module:download}}
 </div>
 
-# Which one do I pick?
+---
 
-The Turtl browser extension gives you a quick way to bookmark websites and
-photos, but other than bookmarking, the extension and the desktop app both have
-the same features.
+# Download Turtl
 
-One benefit of the desktop app is that it lets you run Turtl on most platforms,
-even if you don't use Chrome/Firefox as your main browser.
+The Turtl desktop app provides a secure and easy way to track the data you use
+throughout your day. Choose the download button for your operating system to
+start using Turtl!
 
-## [Turtl for Firefox is alpha](/faq#what-s-wrong-with-the-firefox-extension)
+<!--
+## Bookmarking
 
-While we currently release a Firefox extension, it has been known to have
-problems on some platforms due to [issues with Firefox itself](/faq#what-s-wrong-with-the-firefox-extension).
-We keep the extension up to date and released with the other clients in case it
-will work on your platform.
+Want to save the sites you browse into Turtl? Check out our bookmarking
+extensions:
 
-Although Turtl for Firefox is alpha, don't hesitate to [contact us](/contact)
-if you have problems with it. It may be something we can solve.
+<div class="download">
+    <ul class="buttons">
+        <li class="extension" rel="chrome">
+            <a href="https://chrome.google.com/webstore/category/apps">
+                <img src="/images/chrome-small.png" width="32" height="32" alt="chrome">
+                <h3>Chrome<small>&nbsp;</small></h3>
+            </a>
+        </li>
+        <li class="extension" rel="firefox">
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/turtl/">
+                <img src="/images/firefox-small.png" width="32" height="32" alt="firefox">
+                <h3>Firefox<small>&nbsp;</small></h3>
+            </a>
+        </li>
+    </ul>
+</div>
+
+-->
 
