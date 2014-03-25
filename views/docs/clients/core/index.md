@@ -59,7 +59,7 @@ point for various parts of the client.
 ### [Packaged libraries](/docs/clients/core/libraries)
 Explains the internals of the Turtl core and how it all fits together.
 
-- [Cowcrypt](/docs/clients/core/libraries#cowcrypt)
+- [SJCL](/docs/clients/core/libraries#sjcl)
 - [Mootools](/docs/clients/core/libraries#mootools)
 - [Composer.js](/docs/clients/core/libraries#composer-js)
 - [Full list &raquo;](/docs/clients/core/libraries)

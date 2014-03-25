@@ -78,7 +78,7 @@ this secret, anybody who intercepts the invite email *will gain full access to
 the board and its data*. If you want to share something but need it to be 
 secure, set the secret and communicate it (via phone, text message, etc) to the
 person you're inviting. Please note that the shared-secret method is not as
-secure as RSA encryption (RSA is used when inviting an *existing* user to a
+secure as ECC encryption (ECC is used when inviting an *existing* user to a
 board), but it's a lot better than not having the shared secret at all (if you
 care about privacy).
 - __When someone you shared data with is compromised.__ If you share

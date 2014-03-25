@@ -25,11 +25,8 @@ Note also that all included libraries have been carefully reviewed for any trace
 of data leakage (via JSONP, iframes, browser APIs, etc) before inclusion in the
 Turtl project.
 
-## [Cowcrypt](https://github.com/rubbingalcoholic/cowcrypt)
-The main crypto library used by Turtl. Provides AES, Twofish, RSA, hashers,
-HMAC, PBKDF2.
-
-Built by Jeff Lyon, co-author of Turtl.
+## [SJCL](http://bitwiseshiftleft.github.io/sjcl/)
+The main crypto library used by Turtl. Provides AES, ECC, hashers, HMAC, PBKDF2.
 
 ## [Mootools](http://mootools.net/)
 Turtl uses Mootools Core 1.4.5 and Mootools More 1.4.0.1. Core is used for the
