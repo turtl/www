@@ -41,10 +41,10 @@ website. It current provides a handful of functions:
   which is required to pass any data into the desktop app (aside from invites).
 - Accepting bookmarking data.
 
-Pairing is the process of sharing a cryptographic key between the desktop app
-and a browser extension in order to let them talk without fear of eavesdropping.
-The desktop app generates and displays an ECC public key which is then copied
-and pasted into the extension (by the user).
+Pairing is the process of sharing a cryptographic ECC (384 bit) public key
+between the desktop app and a browser extension in order to let them talk
+without fear of eavesdropping. The desktop app generates and displays the key
+which is then copied and pasted into the extension (by the user).
 
 ## Setup and running
 Unless using a packaged version, Turtl desktop requires you to have node-webkit

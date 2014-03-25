@@ -25,7 +25,7 @@ those changes to their background pages. Read more on [how extensions use the lo
 ## Local DB
 The local DB (IndexedDB to outsiders, but referred to as the "local DB" in case
 the storage mechanism is switched down the road) is used as a place to store
-the user's profile and also as a central syncing point.
+the user's profile.
 
 All data changes flow through the local DB. An in-memory model doesn't get saved
 to the API without first saving itself to the local DB, and vice versa, if a
@@ -39,7 +39,6 @@ gives us a performance boost while starting the client (no need to download the
 entire profile on each login), it also allows us some other significant
 advantages:
 
-- A central sync point (see [syncing](#syncing) below).
 - Ability to load/decrypt specific pieces of the profile, as opposed to
   decrypting the whole thing and holding it in memory. Note: the core currently
   *does* hold the entire profile in memory, but this is mainly vestigial and
@@ -53,43 +52,44 @@ corresponding local DB table. This makes it easy for a model to sync from the DB
 or sync changes to it (for instance, when a user edits a note).
 
 Currently, the [Turtl server](/docs/server/index) stores 30 days of sync data,
-and if the Turtl core detects that profile data in the local DB is older than
-30 days, the local DB will be wiped, and the profile as it exists on the server
-will be downloaded and placed in (this is what happens when a new client logs in
-for the first time as well). This is one of the main roadbloacks to supporting a
-true offline mode: what to do when the client gets too far out of sync?
+and if the Turtl core gets more than 30 days out of sync, it may lose data until
+the profile is wiped and re-downloaded. There are plans to detect the mitigate
+this, but they aren't implemented.
 
 ## Syncing
-There are three main processes in the core that handle syncing data. Before we
-go into them, let's break out our pieces into understandable chunks: we have our
-in-memory models, our local DB, and the API (the server). 
+Turtl syncs between the in-memory models, the database, and the API. This keeps
+all profile data consistent and persisted.
 
-Let's dive into our syncing processes:
+Syncing is accomplished using the amazing [Hustle](https://github.com/orthecreedence.hustle)
+library, a queuing and messaging system that persists to IndexedDB. Turtl makes
+an active effort to separate the portions of code that sync API <--> DB and
+DB <--> memory, and Hustle is what lets them talk to each other.
 
-### DB -> Memory
-Every second, the local sync process checks, for each profile collection set up
-to sync, its corresponding local DB table for data that has changed. If changed
-data is found, it is applied to the model in-memory that corresponds to that
-data. Everything is matched up using the "id" field.
+### Memory <--> DB
+When a note (or other model) is saved, it persists itself into its matching
+object in IndexedDB and also signals (via Hustle) that it has changed. This lets
+other components know that local data has changed and update accordingly if
+needed.
 
-This process allows in-memory models to stay tuned to remote changes, *but also
-allows different pieces of the extensions to stay tuned as well*. [More on that
-here](/docs/clients/extensions/index#architecture).
+On the flip side, when the syncing process changes data in the DB, it signals
+to Hustle that the data has changed, and any listeners will update themselves
+with the new changes.
 
-### DB -> API
-Every second, the remote sync process looks for items in the local DB that have
-been changed locally. If any are found, they are synced to the API. This allows
-changes in the local DB to be applied to the remote server, keeping the local
-profile in sync with the remote.
+### DB <--> API
+When a model saves in memory, it queues a remote sync (as well as signaling a
+local change). This tells the remote syncing system to save the data to the API
+(whether its creating, updating, or deleting a record). The data is sent to the
+API, and if needed, the response is saved back into the database (for instance,
+if a new record is added and the API responds with an object ID, that id will
+[replace the client-generated ID](#id-matching)).
 
 ### API -> DB
 Every ten seconds, the remote sync process grabs the `/sync` resource on the API
 via a POST, passing the ID of the last sync item. This returns all changes to
 the currently logged in user's profile since the given sync ID.
 
-These changes are them applied in order to the local DB. After this, the
-[DB -> Memory](#db-memory) process picks the changes up and syncs them to the
-in-memory models, keeping our API data, local DB, and in-memory models in sync.
+These changes are them applied in order to the local DB, each triggering a local
+sync via Hustle.
 
 ### ID matching
 When an item is added in the core, it get sa temporary id (a CID, or "client"
@@ -116,16 +116,15 @@ decrypted in a background thread to keep the main interface from getting choppy.
 When the encryption completes, the file is split up into two places:
 
 1. The note. Each note has a `file` object attached that, if a file is present,
-stores the file's post-encryption HMAC hash as well as the file's filename and
-type. The file contents are *never* stored in this object. This allows
-information about the file to be referenced without having to do further lookups
-in the local database. Note that the note's `file` object *always* uses the same
+stores the file's post-encryption hash as well as the file's filename and
+type. The file contents are not stored in this object. This allows information
+about the file to be referenced without having to do further lookups in the
+local database. Note that the note's `file` object *always* uses the same
 encryption key as the note.
 1. The `files` table. This is where the file's contents are stored (encrypted).
-The `id` field of each record in this table is the HMAC hash of the file's
+The `id` field of each record in this table is the hash of the file's
 post-encryption payload. This allows a note to easily reference the file's
-contents by the hash it has stored and avoids any strange id-generating schemes
-when we have an HMAC ID for free.
+contents by the hash it has stored and avoids any strange id-generating schemes.
 
 The `Files` collection is a lot like other syncing collections, however it only
 syncs remotely (there is no in-memory representation of a file record other than
