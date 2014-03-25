@@ -108,9 +108,8 @@ from the API syncing data to your profile.
 
 When you save a note (or other data) in the Turtl core interface, it triggers a
 `save()` on the corresponding model. The `save` method saves the model's data to
-the local DB, marking it as recently modified. This allows other parts of the
-core to locate data that has recently changed and apply those changes where
-needed (or sync the changes to the API).
+the local DB, and also triggers to the syncing system that data has changed,
+allowing changes made locally to be synced to the API.
 
 To read more about local storage, check out the [Local storage/syncing section](/docs/clients/core/local_db)
 of the docs.

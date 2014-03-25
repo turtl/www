@@ -87,14 +87,9 @@ ability to decrypt those pieces of your data. It's possible that the person you
 shared with isn't who you think they are, or they have a gun to their head and
 have no choice but to expose your data. Be very careful about who you share
 sensitive data with.
-- __When you use Turtl on a compromised browser__. When using Turtl as a browser
-extension, it's possible that other extensions may have access to your
-unencrypted data. This is mostly true for Firefox, which does not have extension
-sandboxing, but could be true of others through various security
-vulnerabilities.
 - __When you have malware installed__. When you're logged in to Turtl, all your
 unencrypted data is sitting in your computer's memory. It's possible that a
-malicious program could gain access to the browser's memory and read your data.
+malicious program could gain access to the app's memory and read your data.
 Note that most operating systems have protections against this, but that doesn't
 make it impossible.
 - __When your operating system is compromised__. Although this may sound far
@@ -114,5 +109,4 @@ another account. If you keep completely secret data in one account and *sort of*
 secret data in the other, it's plausible that you could fool the person holding
 the gun into thinking you've given them all your data. Just never tell anyone
 about your second account.
-
 

@@ -62,10 +62,10 @@ all profile data consistent and persisted.
 
 Syncing is accomplished using the amazing [Hustle](https://github.com/orthecreedence.hustle)
 library, a queuing and messaging system that persists to IndexedDB. Turtl makes
-an active effort to separate the portions of code that sync API <--> DB and
-DB <--> memory, and Hustle is what lets them talk to each other.
+an active effort to separate the portions of code that sync API &lt;--> DB and
+DB &lt;--> memory, and Hustle is what lets them talk to each other.
 
-### Memory <--> DB
+### Memory &lt;--&gt; DB
 When a note (or other model) is saved, it persists itself into its matching
 object in IndexedDB and also signals (via Hustle) that it has changed. This lets
 other components know that local data has changed and update accordingly if
@@ -75,7 +75,7 @@ On the flip side, when the syncing process changes data in the DB, it signals
 to Hustle that the data has changed, and any listeners will update themselves
 with the new changes.
 
-### DB <--> API
+### DB &lt;--&gt; API
 When a model saves in memory, it queues a remote sync (as well as signaling a
 local change). This tells the remote syncing system to save the data to the API
 (whether its creating, updating, or deleting a record). The data is sent to the
