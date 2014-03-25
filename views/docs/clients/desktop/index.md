@@ -14,24 +14,37 @@ layout: documentation
 
 Turtl's desktop app is comprised of the [Turtl core](/docs/clients/core/index)
 wrapped in a project called [node-webkit](https://github.com/rogerwang/node-webkit).
-Node-webkit takes an HTML5 web application, which is what Turtl core is, and
-allows it to run on different desktop environments (Windows, Linux, Mac).
+Node-webkit takes an HTML5 web application and allows it to run on different
+desktop environments (Windows, Linux, Mac).
 
 Node-webkit also allows you to package and distribute your app for each platform
 it runs on without needing to actually have it installed on the user's computer.
-This allows us to provide one simple download that runs right out of the box.
+This allows us to provide one simple download that runs Turtl right out of the
+box.
 
-## Open port
-Turtl Desktop opens port 7471 (if it's available) to listen for invite
-notifications from the website via JSONP. This means that if the desktop app is
-open (it doesn't have to be logged in) it will catch any invites from invite
-links on the Turtl website. This makes the process of accepting invites as easy
-as possible.
+## Architecture
+The desktop app runs [Turtl core](/docs/clients/core/index) wrapped in a few
+libraries that provide extra functionality. Because it enforces no separation
+between the core and the wrapping functionality, the architecture is fairly
+simple as all code shares a common namespace.
 
-Currently, you can't disable this open port. In the next few releases, there
-will be an option to disable the invite listener and also accept invites by a
-code you can copy/paste instead of just automatic communication between the site
-and the app.
+Turtl desktop provides its own notifications and modal interfaces built on top
+of the tools provided by node-webkit.
+
+## HTTP server
+Turtl's desktop app opens an HTTP server on port 7471 to listen for various
+commands from the browser extensions and accepting invites from the Turtl
+website. It current provides a handful of functions:
+
+- Accepting invite data from the Turtl website
+- Setting up pairing between the desktop app and the [bookmarking extensions](/docs/clients/extensions/index),
+  which is required to pass any data into the desktop app (aside from invites).
+- Accepting bookmarking data.
+
+Pairing is the process of sharing a cryptographic key between the desktop app
+and a browser extension in order to let them talk without fear of eavesdropping.
+The desktop app generates and displays an ECC public key which is then copied
+and pasted into the extension (by the user).
 
 ## Setup and running
 Unless using a packaged version, Turtl desktop requires you to have node-webkit
@@ -60,7 +73,8 @@ cd /path/to/turtl/desktop
 
 ## Building and packaging
 There is a bash script (`scripts/package`) which builds and packages the desktop
-app in its entirety. This creates `release/turtl.[exe|dmg]` file.
+app in its entirety. This creates the `release/package.nw` file which
+node-webkit can run directly.
 
 Note that the `package` script must be run in the main extension directory, not
 in the `scripts/` directory.

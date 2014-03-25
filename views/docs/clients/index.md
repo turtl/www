@@ -28,7 +28,7 @@ update your data, and is responsible for all encryption.
 {{{/div}}}
 
 {{{div.doc-sec}}}
-### [Browser extensions](/docs/clients/extensions/index)
+### [Browser bookmarking extensions](/docs/clients/extensions/index)
 The browser extensions wrap the [core](/docs/clients/core/index), making it
 possible to safely run Turtl in the browser.
 

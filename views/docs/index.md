@@ -47,7 +47,7 @@ instructions, and more.
 
 - [Turtl core](/docs/clients/core/index)
 - [Desktop](/docs/clients/desktop/index)
-- [Browser extensions](/docs/clients/extensions/index)
+- [Browser bookmarking extensions](/docs/clients/extensions/index)
 {{{/div}}}
 
 {{{div.doc-sec}}}
