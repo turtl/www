@@ -37,17 +37,19 @@ an easy way to collaborate on projects that you don't want the world seeing.
 
 # How does it work?
 
-Turtl is an installed app (either installed as a browser extension, a desktop
-app, or *soon* a mobile app).
+Turtl is an app you download to your computer (Windows, Mac, Linux). Once you
+download it, you sign up with a new account. Turtl keeps whatever you add to it
+synced to the Turtl servers so if you install Turtl on another computer, you'll
+have full access to your data from there.
 
 Whenever you add data, Turtl uses a cryptographic "key" generated from your
-username/password to encrypt your data before sending it off to the Turtl
+login information to encrypt your data before sending it off to the Turtl
 servers. Your data is stored encrypted and stays that way until you download it
 again via Turtl and decrypt it. The only time your data is ever readable is when
 you're logged in to Turtl.
 
 Only *you* hold the keys to your data. Not even the people running the Turtl
-servers have access to your data.
+servers have access to see your data.
 
 # How does sharing work?
 
@@ -93,25 +95,6 @@ Keep in mind that the [Turtl server](/docs/server/index) is open source, and if
 you don't like the way we run our server, you can [run your own](/docs/server/running)
 =]. There are even [open source S3 alternatives](http://basho.com/riak-cloud-storage/)
 you could run internally so you wouldn't have to change any code.
-
-# What's wrong with the Firefox extension?
-
-The Firefox Turtl extension generally works great most of the time. However,
-there are some unsolved issues with Firefox itself that make the extension less
-than ideal:
-
-1. Its IndexedDB implementation, which Turtl uses extensively, crashes a
-lot on some platforms (Windows, mainly). We have [an open bug report](https://bugzilla.mozilla.org/show_bug.cgi?id=943650)
-but until it is fixed, you'll have to put up with Firefox crashing.
-1. [You can't use IndexedDB in Private Browsing](https://bugzilla.mozilla.org/show_bug.cgi?id=781982).
-Turtl's focus on privacy and ease of bookmarking may come in handy when browsing
-the kinds of websites one generally browses when in Private Browsing mode, but
-Turtl won't run on Firefox's private mode =\[.
-1. It doesn't support sandboxing. Extensions can easily grab data from each
-other, which doesn't provide the private environment Turtl promotes.
-
-While we recommend against the Firefox extension, you can still download it from
-the [downloads page](/download) *at your own risk*.
 
 # Is it open source?
 
