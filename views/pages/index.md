@@ -20,7 +20,7 @@ pre-content: slideshow
                 <h2>Bookmark privately</h2>
                 <icon>&#9733;</icon>
                 <p>
-                    Use the <a href="/download#bookmarking">bookmarking extensions</a>
+                    Install the <a href="/download#bookmarking">bookmarking extension</a>
                     to save your favorite sites.
                 </p>
             </li>
