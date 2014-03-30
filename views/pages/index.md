@@ -6,31 +6,54 @@ pre-content: slideshow
 ---
 
     <div class="content">
-        <div class="bullets clear">
-            <div class="triplet">
-                <h1>Protect your data</h1>
+        <ul class="triplet">
+            <li>
+                <h2>Collaborate on stealth projects</h2>
+                <icon>&#59198;</icon>
                 <p>
-                    Turtl has a mantra: If it can be encrypted, it will be.
-                    No more sacrificing your privacy for convenience.
-                    <a href="/docs/security">Security basics &raquo;</a>
+                    Turtl allows multiple people to share ideas with each other
+                    securely.
                 </p>
-            </div>
-            <div class="triplet">
-                <h1>Share with others</h1>
+            </li>
+            <li>
+                <h2>Track sensitive research</h2>
+                <icon>&#59148;</icon>
                 <p>
-                    Collaborate on projects with friends or colleagues.
-                    Turtl makes it safe and easy to share with others.
-                    <a href="/download">Get started &raquo;</a>
+                    Use Turtl to track and organize research for sensitive
+                    topics.
                 </p>
-            </div>
-            <div class="triplet">
-                <h1>Open source</h1>
+            </li>
+            <li>
+                <h2>Securely share files</h2>
+                <icon>&#128229;</icon>
                 <p>
-                    Turtl is completely open source &ndash; both the client and server
-                    &ndash; under the GPLv3 license.
-                    <a href="https://github.com/turtl">Turtl Github &raquo;</a>
+                    No more uploading to "secure" file sharing services. Just
+                    put it in Turtl.
                 </p>
-            </div>
+            </li>
+            <li>
+                <h2>Bookmark privately</h2>
+                <icon>&#9733;</icon>
+                <p>
+                    Use the <a href="/download#bookmarking">bookmarking extensions</a>
+                    to save your favorite sites.
+                </p>
+            </li>
+            <li>
+                <h2>Stay synced</h2>
+                <icon>&#9729;</icon>
+                <p>
+                    Access your data from any of your computers, any time.
+                </p>
+            </li>
+            <li>
+                <h2>Open source</h2>
+                <icon>&#127810;</icon>
+                <p>
+                    We believe in transparency. Nearly all parts of Turtl are
+                    <a href="https://github.com/turtl">open source</a>.
+                </p>
+            </li>
         </div>
     </div>
 </section>
