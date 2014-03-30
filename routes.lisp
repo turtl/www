@@ -171,7 +171,7 @@
 ;(defroute (:get "/favicon.ico") (req res)
 ;  (send-response res :status 301 :headers '(:location "/favicon.png")))
 
-(def-directory-route "/" (format nil "~awebroot" *root*))
+(def-directory-route "/" (format nil "~awebroot" *root*) :disable-directory-listing t)
 
 (defroute (:get "/docs(/(.*))?") (req res args)
   (handler-case
