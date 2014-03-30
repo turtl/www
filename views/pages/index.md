@@ -5,30 +5,15 @@ markdown: off
 pre-content: slideshow
 ---
 
+    <a id="more-info"></a>
     <div class="content">
         <ul class="triplet">
-            <li>
-                <h2>Collaborate on stealth projects</h2>
-                <icon>&#59198;</icon>
-                <p>
-                    Turtl allows multiple people to share ideas with each other
-                    securely.
-                </p>
-            </li>
             <li>
                 <h2>Track sensitive research</h2>
                 <icon>&#59148;</icon>
                 <p>
                     Use Turtl to track and organize research for sensitive
-                    topics.
-                </p>
-            </li>
-            <li>
-                <h2>Securely share files</h2>
-                <icon>&#128229;</icon>
-                <p>
-                    No more uploading to "secure" file sharing services. Just
-                    put it in Turtl.
+                    projects.
                 </p>
             </li>
             <li>
@@ -40,6 +25,22 @@ pre-content: slideshow
                 </p>
             </li>
             <li>
+                <h2>Securely share files</h2>
+                <icon>&#128229;</icon>
+                <p>
+                    No more uploading to "secure" file sharing services. Just
+                    put it in Turtl.
+                </p>
+            </li>
+            <li>
+                <h2>Collaborate on stealth projects</h2>
+                <icon>&#59198;</icon>
+                <p>
+                    Turtl allows multiple people to share ideas with each other
+                    securely.
+                </p>
+            </li>
+            <li>
                 <h2>Stay synced</h2>
                 <icon>&#9729;</icon>
                 <p>
@@ -48,7 +49,7 @@ pre-content: slideshow
             </li>
             <li>
                 <h2>Open source</h2>
-                <icon>&#127810;</icon>
+                <icon>&#128214;</icon>
                 <p>
                     We believe in transparency. Nearly all parts of Turtl are
                     <a href="https://github.com/turtl">open source</a>.

@@ -6,8 +6,8 @@ markdown: off
     <div class="container">
         <ul>
             <li style="background-image: url('/images/home/slides/1.jpg');" id="slide-1" class="slide main">
-                <a href="/download" class="full"></a>
-                <a href="/download" class="button default">Get Started</a>
+                <!--<a href="/download" class="full"></a>-->
+                <a href="#more-info" class="button default smoooth">Read more</a>
             </li>
             <li style="background-image: url('/images/home/slides/2.jpg');" id="slide-2" class="slide screens">
                 <ul class="screenshots">

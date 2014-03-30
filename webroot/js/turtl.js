@@ -164,6 +164,14 @@ var turtl	=	{
 		});
 	},
 
+	setup_smoothscroll: function()
+	{
+		var smoothscroll	=	new Fx.SmoothScroll({
+			links: '.smoooth',
+			wheelStops: false
+		});
+	},
+
 	show_tumblr: function()
 	{
 		var tumblr_box	=	document.getElement('.news .blog');
@@ -197,6 +205,7 @@ window.addEvent('domready', function() {
 	turtl.setup_download_buttons();
 	turtl.setup_newsletter();
 	turtl.setup_track_goals();
+	turtl.setup_smoothscroll();
 	turtl.show_tumblr();
 	hljs.initHighlightingOnLoad();
 });

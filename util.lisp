@@ -25,21 +25,20 @@
       t))
 
 (defun generate-download-page (refresh-views)
+  "Regenerate both our download templates."
+  (generate-download-page-main refresh-views)
+  (generate-download-page-ext refresh-views))
+
+;; TODO: the main/ext template generators are horribly, terribly duplicated.
+;; need to split these into real functions
+
+(defun generate-download-page-main (refresh-views)
   "If a views/modules/download.md isn't present, generates one using values
    pulled from scraping the filesystem."
   (let* ((file-str (format nil "~a/views/modules/download.md" *root*))
          (view-directory (format nil "~a/views" *root*)))
     (unless (probe-file file-str)
       (let ((view-vars (make-hash-table :test #'equal)))
-        ;; get extension versions
-        (dolist (file (cl-fad:list-directory (format nil "~a/webroot/release/extension/" *root*)))
-          (unless (cl-ppcre:scan "\\.gitignore$" (namestring file))
-            (let* ((filename (pathname-name file))
-                   (version (cl-ppcre:regex-replace "^.*-(([0-9]+(-[a-z]+)?\.?)+).*?$" filename "\\1"))
-                   (app (cl-ppcre:regex-replace "([a-z0-9]+)-.*?$" filename "\\1"))
-                   (key (format nil "extension-~a-version" app)))
-              (when (version-greater-p version (gethash key view-vars))
-                (setf (gethash key view-vars) version)))))
         ;; get desktop versions
         (dolist (file (cl-fad:list-directory (format nil "~a/webroot/release/desktop/" *root*)))
           (unless (cl-ppcre:scan "\\.gitignore$" (namestring file))
@@ -50,6 +49,42 @@
                                 version))
                    (app (cl-ppcre:regex-replace "turtl-([a-z0-9]+)-.*?$" filename "\\1"))
                    (key (format nil "desktop-~a-version" app)))
+              (when (version-greater-p version (gethash key view-vars))
+                (setf (gethash key view-vars) version)))))
+        (let* ((contents (file-contents (concatenate 'string file-str ".tpl")))
+               (compiled (cl-ppcre:regex-replace-all
+                           "\\{\\{([a-z0-9-]+)\\}\\}"
+                           contents
+                           (lambda (match &rest regs)
+                             (let* ((regs (cddddr regs))
+                                    (rs (car regs))
+                                    (re (cadr regs))
+                                    (var (subseq match (aref rs 0) (aref re 0))))
+                               (or (gethash var view-vars) ""))))))
+          (with-open-file (fd file-str :direction :output :if-exists :supersede)
+            (write-sequence compiled fd))
+          (let* ((view-name (generate-view-name view-directory file-str)))
+            (save-view view-name file-str ".md")
+            (dolist (file-str refresh-views)
+              (let ((ext (subseq file-str (or (position #\. file-str :from-end t) (length file-str))))
+                    (view-name (generate-view-name view-directory file-str)))
+                (let ((view (save-view view-name file-str ext)))
+                  (setf (getf view :html) (inject-modules (getf view :html))))))))))))
+
+(defun generate-download-page-ext (refresh-views)
+  "If a views/modules/download.md isn't present, generates one using values
+   pulled from scraping the filesystem."
+  (let* ((file-str (format nil "~a/views/modules/download-ext.md" *root*))
+         (view-directory (format nil "~a/views" *root*)))
+    (unless (probe-file file-str)
+      (let ((view-vars (make-hash-table :test #'equal)))
+        ;; get extension versions
+        (dolist (file (cl-fad:list-directory (format nil "~a/webroot/release/extension/" *root*)))
+          (unless (cl-ppcre:scan "\\.gitignore$" (namestring file))
+            (let* ((filename (pathname-name file))
+                   (version (cl-ppcre:regex-replace "^.*-(([0-9]+(-[a-z]+)?\.?)+).*?$" filename "\\1"))
+                   (app (cl-ppcre:regex-replace "([a-z0-9]+)-.*?$" filename "\\1"))
+                   (key (format nil "extension-~a-version" app)))
               (when (version-greater-p version (gethash key view-vars))
                 (setf (gethash key view-vars) version)))))
         (let* ((contents (file-contents (concatenate 'string file-str ".tpl")))
