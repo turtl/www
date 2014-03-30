@@ -22,6 +22,7 @@ section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bo
 section .success {color: #0a0;}
 
 icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; font-weight: 400; font-size: 1.3em; color: #000; line-height: 1em; vertical-align: text-top; cursor: default;}
+a icon {cursor: pointer;}
 
 /* modalbox stuff */
 #modalbox {position: absolute; display: block; z-index: 2000;}
