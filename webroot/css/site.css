@@ -21,7 +21,7 @@ section em code, strong code {font-style: normal; font-weight: normal;}
 section hr {height: 0; margin: 20px auto; background: none; border: 0; border-bottom: 1px solid #ddd;}
 section .success {color: #0a0;}
 
-icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; font-weight: 400; font-size: 1.3em; color: #000; line-height: 1em; vertical-align: text-top;}
+icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; font-weight: 400; font-size: 1.3em; color: #000; line-height: 1em; vertical-align: text-top; cursor: default;}
 
 /* modalbox stuff */
 #modalbox {position: absolute; display: block; z-index: 2000;}
@@ -79,7 +79,8 @@ icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; f
 .splash ul.triplet li {display: inline-block; vertical-align: top; width: 27.4%; margin: 0 8.5% 0 0; text-align: left;}
 .splash ul.triplet li:nth-child(3n) {margin-right: 0; margin-bottom: 42px;}
 .splash ul.triplet li:last-child {margin-bottom: 0;}
-.splash ul.triplet icon {float: left; margin: 6px 8px 0 0; font-size: 2.3em; color: #555;}
+.splash ul.triplet icon {float: left; margin: 6px 8px 0 0; font-size: 2.3em; color: #555; transition: color .15s;}
+.splash ul.triplet li:hover icon {color: #79a758;}
 .splash ul.triplet h2 {font-size: 1.28em; color: #555;}
 .splash ul.triplet p {padding: 0; color: #444;}
 .splash .download h1 {margin: 0 0 38px 0; font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-align: center; text-transform: uppercase; font-style: italic; color: #bbb;}
