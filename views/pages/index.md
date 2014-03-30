@@ -5,7 +5,7 @@ markdown: off
 pre-content: slideshow
 ---
 
-    <a id="more-info"></a>
+    <a id="more-info" class="toc-anchor"></a>
     <div class="content">
         <ul class="triplet">
             <li>
