@@ -18,6 +18,30 @@ gibberish.
 
 We believe privacy is a civil right deserved by all.
 
+# Why build Turtl?
+
+There are many reasons, but the main one was there's no privacy-oriented tool
+out there that let's you easily track and share data securely. We wanted
+something that guaranteed information security outside of an easily-ignorable
+privacy policy. So we made Turtl and built in some of the best crypto
+technology around into its very core.
+
+This is especially useful in a time where the entire world is under complete
+electronic surveillance. Turtl provides a safe haven for those wanting to store
+and share data without having to worry about who's watching.
+
+# What can Turtl be used for?
+
+The goal of Turtl is to make it incredibly safe and easy to store data or files
+and to enable secure sharing between you and those you trust. Whether you're
+working on a stealth project with friends, you're a journalist who needs to
+gather research without fear of surveillance, or you need to securely share
+sensitive documents with your lawyer, Turtl is there for you.
+
+Note that Turtl is early beta and as such should *not* be used to store
+life-risking data. Our goal is absolute privacy and security, but Turtl needs to
+mature more before it's used for extremely sensitive data.
+
 # What makes Turtl special?
 
 Privacy and sharing.
@@ -37,16 +61,22 @@ an easy way to collaborate on projects that you don't want the world seeing.
 
 # How does it work?
 
-Turtl is an app you download to your computer (Windows, Mac, Linux). Once you
-download it, you sign up with a new account. Turtl keeps whatever you add to it
-synced to the Turtl servers so if you install Turtl on another computer, you'll
-have full access to your data from there.
+The core concept of Turtl is organized around notes. A note can be anything: a
+bookmark to a website, a password, a recipe, etc. A note can also have a file
+attached, making is easy to store and share documents, images, videos or other
+files. Notes are put into different "boards" to keep them organized. You could
+have a board for bookmarks, one for your passwords and banking information, one
+for your contacts, etc. Anything from quick pieces of data you want to keep
+track of to large documents can be stored in Turtl.
 
-Whenever you add data, Turtl uses a cryptographic "key" generated from your
-login information to encrypt your data before sending it off to the Turtl
-servers. Your data is stored encrypted and stays that way until you download it
-again via Turtl and decrypt it. The only time your data is ever readable is when
-you're logged in to Turtl.
+To get started, [download the Turtl app](/download). Once you open it up, you
+can either log in to an existing account or sign up for a new account. Once
+logged in, you can start adding notes to Turtl.
+
+Whenever you put anything in Turtl, a cryptographic "key" generated from your
+login information is used to encrypt your data before syncing it with the
+servers. Your data is stored encrypted and is only ever decrypted when you or
+someone you shared with is logged in to Turtl.
 
 Only *you* hold the keys to your data. Not even the people running the Turtl
 servers have access to see your data.
