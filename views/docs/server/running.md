@@ -40,7 +40,7 @@ assumes you have it.
 ### Libraries not in Quicklisp
 There are some libraries the server uses that are not yet added to Quicklisp.
 Also, while these libraries may find their way into Quicklisp soon enough, it's
-much better to use the latest git versions:
+much better to __use the latest git versions__:
 
 - [Wookie](https://github.com/orthecreedence/wookie)
 - [http-parse](https://github.com/orthecreedence/http-parse)
@@ -52,17 +52,32 @@ and `git clone` the projects listed above into that folder. This tells Quicklisp
 that you want it to use those specific versions over the ones it has in its
 index.
 
-## Getting the source
-The Turtl server is hosted on Github and can be grabbed via:
+## Getting the Turtl source
+The latest version of the Turtl server can be found on Github: [github.com/turtl/api](https://github.com/turtl/api).
+
+By default, the Turtl server tries to load the webapp version of Turtl ([core](/docs/clients/core/index))
+when it starts. This can be nice if you're running Turtl internally and need to
+load it up in a browser, but is a Terrible Idea &trade; if you're running the
+server publicly. In general, you *never, ever* want to serve code dynamically
+that does crypto. This is why Turtl is only officially provided in packaged app
+form.
+
+So not only will you want to grab the `api` project, you'll also want the core
+(named `js` on Github) to live next to it:
 
 ```bash
+mkdir /path/to/turtl
+cd /path/to/turtl
 git clone https://github.com/turtl/api.git
+git clone https://github.com/turtl/js.git
 ```
 
 ## Configuration
+Before running the server, you need to configure a handful of things.
+
 The main configuration for the server lives in `config/config.default.lisp`.
-Before running you need to copy this file to `config/config.lisp` and change any
-values to match your environment.
+You'll need to copy this file to `config/config.lisp` and change any values to
+match your environment.
 
 The variables are all self-documenting and the default values will give a good
 picture of how you to use them.
@@ -78,6 +93,10 @@ schema upgrades/downgrades and applying the initial schema to the database, so
 all you have to do is configure the server to point at the correct location,
 start the Turtl server, and kick back.
 
+Turtl is set up to use RethinkDB __v1.11.3__. Versions before this will almost
+certainly not work, versions after *may* work. So if you're trying to run Turtl,
+be sure to compile RethinkDB from the v1.11.3 tag on their Github.
+
 ## Starting
 Starting the server is as easy as starting your lisp implemenation in the
 server's root directory and doing the following:
@@ -91,6 +110,12 @@ server's root directory and doing the following:
 ;; &lt;INFO&gt; [18:57:14] wookie listener.lisp (start-server listener) - (start) Starting Wookie  0.0.0.0:6969
 ```
 
-Bada boom, your own Turtl server. If you have any issues/errors/problems running
-the server, please feel free to [get in touch](/contact).
+Bada boom, your own Turtl server. You can now build your client to point to
+`http://your-server:6969/api`. Also, if you have the webapp version of Turtl
+enabled, you can navigate your *modern* browser to `http://your-server:6969` and
+you'll be able to use Turtl from your browser. As mentioned, please don't use
+the web version of Turtl on a public-facing server.
+
+If you have any issues/errors/problems running the server, please feel free to
+[get in touch](/contact).
 
