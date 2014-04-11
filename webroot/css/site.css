@@ -48,11 +48,15 @@ a icon {cursor: pointer;}
 .slideshow .container a.slide-lol:hover {opacity: 1;}
 .slideshow .container a.back {left: 20px;}
 .slideshow .container a.forward {right: 20px; background-position: -129px 0;}
+.slideshow .standard {position: absolute; width: 100%; top: 217px;}
+.slideshow .standard h1 {display: inline-block; position: absolute; top: -9px; right: 50%; margin-right: 128px; font-family: 'roboto condensed'; font-size: 80px; font-weight: 100; color: #fff; line-height: 1em; letter-spacing: .05em;}
+.slideshow .standard p {display: inline-block; position: absolute; top: -10px; left: 50%; margin-left: -112px; font-family: 'roboto condensed'; font-size: 30px; font-weight: 100; line-height: 1.3em; color: #fff; letter-spacing: .045em; text-transform: lowercase;}
 .slideshow .pager {position: absolute; bottom: 68px; z-index: 20; left: 50%; width: 200px; margin-left: -100px; text-align: center;}
 .slideshow .pager a {display: inline-block; width: 16px; height: 16px; margin: 0 2px; padding: 0; background: url(/images/home/slide_controls.png) left bottom no-repeat;}
 .slideshow .pager a.active {background-position: -24px bottom;}
 .slideshow .pager a span {display: none;}
 /* per-slide styles */
+.slideshow #slide-1 p.note {position: absolute; bottom: 220px; width: 100%; margin: 0; padding: 0; font-family: 'Roboto Condensed'; font-size: 15px; word-spacing: .06em; letter-spacing: .01em; color: #fff; text-align: center; opacity: .9;}
 .slideshow #slide-2 ul.screenshots {position: absolute; z-index: 3; bottom: 110px; width: 100%; list-style: none; text-align: center; margin: 0 auto;}
 .slideshow #slide-2 ul.screenshots li {display: inline-block; opacity: .8; background: url(/images/home/screens/thumbs.png) 0 0 no-repeat; transition: opacity .15s;}
 .slideshow #slide-2 ul.screenshots li:hover {opacity: 1;}

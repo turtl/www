@@ -1,5 +1,5 @@
 ---
-title: Turtl: Secure file and note storage
+title: Turtl: A secure app for note-taking, research, and collaboration
 layout: default
 markdown: off
 pre-content: slideshow
