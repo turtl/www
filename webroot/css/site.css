@@ -56,7 +56,7 @@ a icon {cursor: pointer;}
 .slideshow .pager a.active {background-position: -24px bottom;}
 .slideshow .pager a span {display: none;}
 /* per-slide styles */
-.slideshow #slide-1 p.note {position: absolute; bottom: 220px; width: 100%; margin: 0; padding: 0; font-family: 'Roboto Condensed'; font-size: 15px; word-spacing: .06em; letter-spacing: .01em; color: #fff; text-align: center; opacity: .9;}
+.slideshow #slide-1 p.note {position: absolute; bottom: 220px; width: 100%; margin: 0; padding: 0; font-family: 'Roboto Condensed'; font-size: 15px; word-spacing: .06em; letter-spacing: .04em; color: #fff; text-align: center; opacity: .8;}
 .slideshow #slide-2 ul.screenshots {position: absolute; z-index: 3; bottom: 110px; width: 100%; list-style: none; text-align: center; margin: 0 auto;}
 .slideshow #slide-2 ul.screenshots li {display: inline-block; opacity: .8; background: url(/images/home/screens/thumbs.png) 0 0 no-repeat; transition: opacity .15s;}
 .slideshow #slide-2 ul.screenshots li:hover {opacity: 1;}
