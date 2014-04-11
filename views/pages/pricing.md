@@ -27,13 +27,13 @@ markdown: off
             <h2>Donor</h2>
             <em>Help keep Turtl going!</em>
             <p><strong class="heart">&lt;3</strong></p>
-            <div class="button buy price-5">
+            <div class="button buy price-donate">
                 <a href="/donate">Donate</a>
             </div>
         </li>
         <li>
             <h2>Premium</h2>
-            <em>Store up to 20gb</em>
+            <em>Store up to 40gb</em>
             <p><strong>$5</strong> / mo</p>
             <div class="button buy price-5">
                 <a href="/download">Get started*</a>
@@ -42,7 +42,7 @@ markdown: off
         <!--
         <li>
             <h2>Business</h2>
-            <em>Notes + files: up to 500gb</em>
+            <em>Store up to 1tb</em>
             <p><strong>$100</strong> / mo</p>
             <div class="button buy price-100">
                 <a href="/download">Get started*</a>
@@ -52,7 +52,8 @@ markdown: off
     </ul>
 
     <p class="note">
-        * All plans are currently free while we are still in early beta.
+        * All plans are currently free while we are still in early beta. We're
+        showing pricing to let people know we <em>will</em> be charging in the future.
     </p>
 
 </div>
