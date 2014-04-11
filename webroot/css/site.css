@@ -125,14 +125,29 @@ a icon {cursor: pointer;}
 .pricing h1 {}
 .pricing .update {width: 90%; margin: 0 auto 32px auto; padding: 16px; background: #fff; border-radius: 6px;}
 /*.pricing h1 {font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-transform: uppercase; font-style: italic; color: #bbb;}*/
-.pricing ul {margin: 32px auto 32px auto; list-style: none; text-align: center;}
-.pricing ul li {display: inline-block; width: 21%; margin: 0 .4% 0 .4%; padding: 28px 1% 28px 1%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
-.pricing ul li.emphasize {padding-top: 44px; padding-bottom: 44px;}
-.pricing ul li h2 {margin: 0 0 6px 0; font-size: 1.8em; color: #666;}
-.pricing ul li em {display: block; margin: 0 0 32px 0; color: #888; font-style: normal;}
-.pricing ul li p {margin: 0 0 32px 0; padding: 0; font-size: 1.6em;}
-.pricing ul li p strong {font-size: 2.0em; font-weight: normal;}
+.pricing ul.plans {margin: 32px auto 32px auto; list-style: none; text-align: center;}
+.pricing ul.plans li {display: inline-block; width: 21%; margin: 0 .4% 0 .4%; padding: 28px 1% 28px 1%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
+.pricing ul.plans li.emphasize {padding-top: 44px; padding-bottom: 44px;}
+.pricing ul.plans li h2 {margin: 0 0 6px 0; font-size: 1.8em; color: #666;}
+.pricing ul.plans li em {display: block; margin: 0 0 32px 0; color: #888; font-style: normal;}
+.pricing ul.plans li p {margin: 0 0 32px 0; padding: 0; font-size: 1.6em;}
+.pricing ul.plans li p strong {font-size: 2.0em; font-weight: normal;}
+.pricing ul.plans li p strong.heart {}
 .pricing p.note {font-size: .85em; color: #666; text-align: center;}
+
+/* --------------------------------------------------------------------------
+ * donate
+ * -------------------------------------------------------------------------- */
+.donate {}
+.donate ul {width: 90%; margin: 42px auto; list-style: none; text-align: left;}
+.donate ul li {display: inline-block; width: 46%; margin: 0 1% 16px 0; padding: 5px 1%; text-align: left; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
+.donate ul li img {float: left; margin: 0 6px 0 0;}
+.donate ul li h3 {padding: 0; margin: 0 0 0 0; font-weight: bold; text-decoration: none;}
+.donate ul li p {margin: 0; padding: 0; font-family: "Courier New", Courier, monospace;}
+.donate ul li.paypal {}
+.donate ul li.paypal h3 {display: inline-block; margin: 13px 0 0 0;}
+.donate ul li.paypal form {display: inline-block;}
+.donate ul li.paypal form input[type=image] {margin: 0 0 -6px 6px;}
 
 /* --------------------------------------------------------------------------
  * docs
