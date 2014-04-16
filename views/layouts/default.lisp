@@ -18,7 +18,9 @@
       (:script :src "/js/highlight.js/highlight.pack.js")
       (:script :src "/js/slideshow.js")
       (:script :src "/js/modal.js")
-      (:script :src "/js/turtl.js"))
+      (:script :src "/js/turtl.js")
+      
+      (:meta :name "google-site-verification" :content "bQuItGSUXJSmgvGivAK64EkYDKD_qK_jhd0rd2aH7Rk"))
     (:body :class (if (getf data :body-class)
                       (getf data :body-class)
                       "")
