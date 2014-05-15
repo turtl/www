@@ -51,6 +51,7 @@
         (:ul :class "nav"
           (:li (:a :href "/docs" "Documentation"))
           (:li (:a :href "/privacy" "Privacy"))
+          (:li (:a :href "/terms" "Terms"))
           (:li (:a :href "/contact" "Contact"))
           (:li (:a :href "http://groups.google.com/d/forum/turtl" "Discussion group"))
           (:li (:a :href "https://github.com/turtl" "Github"))
