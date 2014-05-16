@@ -33,7 +33,7 @@ markdown: off
         </li>
         <li>
             <h2>Premium</h2>
-            <em>Store up to 40gb</em>
+            <em>Store up to 20gb</em>
             <p><strong>$5</strong> / mo</p>
             <div class="button buy price-5">
                 <a href="/download">Get started*</a>

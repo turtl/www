@@ -25,6 +25,17 @@ function run_goals()
 }
 
 var turtl	=	{
+	// holds information about an actual board invite. as with invite_code, this
+	// is sent repeatedly until the desktop client gets it.
+	invite: null,
+
+	// if a user came here from an invite link, store the invite code here. it
+	// will be sent repeatedly to the desktop app until it responds
+	// affirmatively. this allows us to track invite referrals as long as the
+	// invitee opens the desktop app while the site is open in their browser
+	// (which is a fairly high likelyhood).
+	invite_code: null,
+
 	setup_header: function()
 	{
 		var header	=	document.getElement('header');
@@ -194,6 +205,73 @@ var turtl	=	{
 				body.inject(tumblr_box);
 			}
 		}).send();
+	},
+
+	/**
+	 * look for invite code cookies and send them to the desktop (if it's
+	 * available)
+	 */
+	setup_invite_comm: function()
+	{
+		// grab our invite/invite_code out of cookies
+		var invite		=	Cookie.read('inv');
+		var invite_code	=	Cookie.read('invc');
+		if(invite) turtl.invite = invite;
+		if(invite_code) turtl.invite_code = invite_code;
+
+		// send invite data to turtl client (if we have it)
+		var invite_complete	=	false;
+		var do_send_invite	=	function()
+		{
+			if(invite_complete) return;
+			if(turtl.invite)
+			{
+				var req			=	new Request.JSONP({
+					url: 'http://127.0.0.1:7471/invite',
+					callbackKey: 'callback',
+					data: {invite: turtl.invite},
+					timeout: 1000,
+					onComplete: function(res) {
+						invite_complete	=	true;		// stop sending invite over
+						if(res.error) return false;
+
+						// once the invite is used, wipe it out.
+						delete turtl.invite;
+						Cookie.dispose('inv');
+						console.log('done! ', res);
+					}
+				}).send();
+			}
+			do_send_invite.delay(2000);
+		};
+		do_send_invite();
+
+		// send invite code to turtl client (if we have it)
+		var code_complete	=	false;
+		var do_send_code	=	function()
+		{
+			if(code_complete) return;
+			if(turtl.invite_code)
+			{
+				var req			=	new Request.JSONP({
+					url: 'http://127.0.0.1:7471/invitecode',
+					callbackKey: 'callback',
+					data: {code: turtl.invite_code},
+					timeout: 1000,
+					onComplete: function(res) {
+						code_complete	=	true;		// stop sending invite code over
+						if(res.error) return false;
+
+						// once the invite code is used, wipe it out.
+						delete turtl.invite_code;
+						Cookie.dispose('invc');
+						console.log('done! ', res);
+					}
+				}).send();
+			}
+			do_send_code.delay(2000);
+		};
+		do_send_code();
 	}
 };
 
@@ -207,6 +285,7 @@ window.addEvent('domready', function() {
 	turtl.setup_track_goals();
 	turtl.setup_smoothscroll();
 	turtl.show_tumblr();
+	turtl.setup_invite_comm();
 	hljs.initHighlightingOnLoad();
 });
 
@@ -215,7 +294,7 @@ window.addEvent('domready', function() {
  * listen for invite codes from the client. So here we just jsonp endlessly to
  * that port on 127.0.0.1 until we get a response or the user leaves the page.
  */
-function invite_comm()
+function invite_scrape()
 {
 	var url			=	window.location.pathname;
 	var split		=	url.replace(/^\/?.*?\//, '').split(/\//);
@@ -230,44 +309,11 @@ function invite_comm()
 		code_el.set('html', '<strong>'+box_code+'</strong>');
 	}
 
-	var all	=	document.getElement('body.invite a.all');
-	if(all)
-	{
-		all.addEvent('click', function(e) {
-			if(e) e.stop();
-			var ul	=	document.getElement('body.invite .download ul.buttons');
-			if(!ul) return false;
-			ul.getElements('li').each(function(el) {
-				if(el.hasClass('div')) return;
-				el.setStyle('display', '');
-				all.dispose();
-			});
-		});
-	}
+	// save it so turtl can start blasting it around
+	turtl.invite	=	invite;
 
-	var complete	=	false;
-	var do_send		=	function()
-	{
-		if(complete) return;
-		var req			=	new Request.JSONP({
-			url: 'http://127.0.0.1:7471/invite',
-			callbackKey: 'callback',
-			data: {invite: invite},
-			timeout: 1000,
-			onComplete: function(res) {
-				complete	=	true;		// stop sending invites over
-				if(res.error) return false;
-
-				console.log('done! ', res);
-				if(code_el)
-				{
-					code_el.set('html', '<span class="success">Code successfully sent to app!</span>');
-				}
-			}
-		}).send();
-
-		do_send.delay(5000);
-	};
-	do_send();
+	// make the invite available from other pages
+	var domain	=	window.location.host.replace(/.*(turtl\.[a-z]+).*?$/, '$1');
+	Cookie.write('inv', invite, {duration: 30, path: '/', domain: domain});
 }
 

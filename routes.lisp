@@ -72,11 +72,13 @@
 ;; clear out all routes (start anew)
 (clear-routes)
 
-(defroute (:get "/") (req res)
+(defroute (:get "/([0-9a-f]{5,6})?") (req res args)
   (generate-download-page *download-pages*)
-  (let* ((slideshow (find-module :slideshow))
+  (let* ((invite-code (car args))
+         (slideshow (find-module :slideshow))
          (body (load-view :pages/index :data `(:body-class "splash"
                                                :pre-content ,slideshow))))
+    (set-cookie res "invc" invite-code :path "/" :max-age 2592000)
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/security") (req res)
@@ -110,6 +112,10 @@
 
 (defroute (:get "/privacy") (req res)
   (let ((body (load-view :pages/privacy)))
+    (send-response res :headers '(:content-type "text/html") :body body)))
+
+(defroute (:get "/terms") (req res)
+  (let ((body (load-view :pages/terms)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/contact") (req res)

@@ -31,7 +31,7 @@ Times when Turtl collects user information:
   Turtl asks for an email address (required), name (optional), and in the future
   possibly more optional fields (such as an avatar photo).
 - When you add data to your profile. The notes/bookmarks/files you add will all
-  be encrypted (in the browser) then sent to the Turtl service (where all your
+  be encrypted (in the client) then sent to the Turtl service (where all your
   data remains encrypted).
 
 ## Information sharing/disclosure
