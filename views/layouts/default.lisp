@@ -11,6 +11,8 @@
       (:link :rel "stylesheet" :href "/css/site.css")
       (:link :rel "stylesheet" :href "/js/highlight.js/styles/github.css")
       (:link :rel "shortcut icon" :href "/images/favicon.png" :type "image/x-icon")
+      (when (getf data :canonical)
+        (htm (:link :rel "canonical" :href "/")))
       ;; LOL GoOgLe is pretecting us!!!1
       (:link :rel "chrome-webstore-item" :href "https://chrome.google.com/webstore/detail/dgcojenhfdjhieoglmiaheihjadlpcml")
       (:script :src "/js/mootools-core-1.4.5.js")

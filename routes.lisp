@@ -77,9 +77,15 @@
   (let* ((invite-code (car args))
          (slideshow (find-module :slideshow))
          (body (load-view :pages/index :data `(:body-class "splash"
+                                               :canonical "/"
                                                :pre-content ,slideshow))))
     (set-cookie res "invc" invite-code :path "/" :max-age 2592000)
     (send-response res :headers '(:content-type "text/html") :body body)))
+
+(defroute (:get "/promo/([a-zA-Z0-9]+)") (req res args)
+  (let* ((promo-code (car args)))
+    (set-cookie res "promo" promo-code :path "/" :max-age 2592000)
+    (send-response res :status 301 :headers '(:location "/") :body "<a href=\"/\">home</a>")))
 
 (defroute (:get "/security") (req res)
   (send-response res

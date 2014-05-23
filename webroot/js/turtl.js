@@ -36,6 +36,10 @@ var turtl	=	{
 	// (which is a fairly high likelyhood).
 	invite_code: null,
 
+	// if a user comes here from a promo link, store the promo code here, and
+	// sent to the desktop app (just like invite_code, see above).
+	promo_code: null,
+
 	setup_header: function()
 	{
 		var header	=	document.getElement('header');
@@ -213,65 +217,43 @@ var turtl	=	{
 	 */
 	setup_invite_comm: function()
 	{
-		// grab our invite/invite_code out of cookies
-		var invite		=	Cookie.read('inv');
-		var invite_code	=	Cookie.read('invc');
-		if(invite) turtl.invite = invite;
-		if(invite_code) turtl.invite_code = invite_code;
-
-		// send invite data to turtl client (if we have it)
-		var invite_complete	=	false;
-		var do_send_invite	=	function()
+		var spawn_sender	=	function(type, cookie, param, url)
 		{
-			if(invite_complete) return;
-			if(turtl.invite)
+			var sent	=	false;
+			var value	=	Cookie.read(cookie);
+			if(value) turtl[type] = value;
+
+			var do_send	=	function()
 			{
-				var req			=	new Request.JSONP({
-					url: 'http://127.0.0.1:7471/invite',
-					callbackKey: 'callback',
-					data: {invite: turtl.invite},
-					timeout: 1000,
-					onComplete: function(res) {
-						invite_complete	=	true;		// stop sending invite over
-						if(res.error) return false;
+				if(sent) return;
+				if(turtl[type])
+				{
+					console.log('sending: ', type, turtl[type]);
+					var data	=	{};
+					data[param]	=	turtl[type];
+					var req		=	new Request.JSONP({
+						url: url,
+						callbackKey: 'callback',
+						data: data,
+						timeout: 1500,
+						onComplete: function(res) {
+							sent	=	true;		// stop sending
+							if(res.error) return false;
 
-						// once the invite is used, wipe it out.
-						delete turtl.invite;
-						Cookie.dispose('inv');
-						console.log('done! ', res);
-					}
-				}).send();
-			}
-			do_send_invite.delay(2000);
+							// once the value is used, wipe it out.
+							delete turtl[type];
+							Cookie.dispose(cookie);
+						}
+					}).send();
+				}
+				do_send.delay(2000);
+			};
+			do_send();
 		};
-		do_send_invite();
 
-		// send invite code to turtl client (if we have it)
-		var code_complete	=	false;
-		var do_send_code	=	function()
-		{
-			if(code_complete) return;
-			if(turtl.invite_code)
-			{
-				var req			=	new Request.JSONP({
-					url: 'http://127.0.0.1:7471/invitecode',
-					callbackKey: 'callback',
-					data: {code: turtl.invite_code},
-					timeout: 1000,
-					onComplete: function(res) {
-						code_complete	=	true;		// stop sending invite code over
-						if(res.error) return false;
-
-						// once the invite code is used, wipe it out.
-						delete turtl.invite_code;
-						Cookie.dispose('invc');
-						console.log('done! ', res);
-					}
-				}).send();
-			}
-			do_send_code.delay(2000);
-		};
-		do_send_code();
+		spawn_sender('invite', 'inv', 'invite', 'http://127.0.0.1:7471/invite');
+		spawn_sender('invite_code', 'invc', 'code', 'http://127.0.0.1:7471/invitecode');
+		spawn_sender('promo_code', 'promo', 'code', 'http://127.0.0.1:7471/promo');
 	}
 };
 
