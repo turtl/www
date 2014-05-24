@@ -21,7 +21,7 @@ We believe privacy is a civil right deserved by all.
 # Why build Turtl?
 
 There are many reasons, but the main one was there's no privacy-oriented tool
-out there that let's you easily track and share data securely. We wanted
+out there that lets you easily track and share data securely. We wanted
 something that guaranteed information security outside of an easily-ignorable
 privacy policy. So we made Turtl and built in some of the best crypto
 technology around into its very core.
@@ -105,30 +105,13 @@ will remove the board's key from her private data).
 
 # Where are files stored?
 
-Files are stored on Amazon's S3 service. 
-
-While some of you may cringe at this, remember that all Turtl data is encrypted
-*before* leaving your computer/device, including files. Also, there's absolutely
-no place in the world we can keep data that some third party won't have access
-to it.
-
-So while we may be able to rent our own datacenter and have armed guards posted
-around it 24/7, and while this may make you *feel* safer, someone besides you
-and me will *always* have physical access to the data. The amount of security
-Turtl's encryption provides is exponentially more than any security you'd get
-from armed guards and 8 digit door codes.
-
-Not only is using S3 just as safe as storing our data internally, it costs a
-lot less for both us and for you.
-
-Keep in mind that the [Turtl server](/docs/server/index) is open source, and if
-you don't like the way we run our server, you can [run your own](/docs/server/running)
-=]. There are even [open source S3 alternatives](http://basho.com/riak-cloud-storage/)
-you could run internally so you wouldn't have to change any code.
+Files are stored on Amazon's S3 service. This allows us to provide near-infinite
+storage at very cheap prices, and because all of your data is encrypted before
+it even leaves your computer, S3 storage is not a privacy issue.
 
 # Is it open source?
 
-Why, yes! We host all our code (clients *and* server) on [Github](https://github.com/turtl)
+Why, yes! We host our code (clients *and* server) on [Github](https://github.com/turtl)
 for the world to read.
 
 __If it's not open-source, it's not encrypted.__ Plain and simple. You cannot
@@ -136,6 +119,15 @@ both keep your code private and at the same time claim you are secure. Security
 comes from years of prying eyes reviewing your work and trying to find ways to
 break it. Although Turtl has not yet been vetted in this way, one of our main
 goals is to gain the trust of the crypto-security community.
+
+# What is not open source?
+
+Currently, the admin system we use to manage the database, our internal
+analytics system, and the payment system. Everything else (the clients, the API
+server, and everything in between) is open source.
+
+These tools are not necessary to run Turtl yourself, and as they only have
+access to encrypted data, they do not need to be peer reviewed.
 
 # Can I run my own Turtl server?
 
