@@ -85,7 +85,7 @@
 (defroute (:get "/promo/([a-zA-Z0-9]+)") (req res args)
   (let* ((promo-code (car args)))
     (set-cookie res "promo" promo-code :path "/" :max-age 2592000)
-    (send-response res :status 301 :headers '(:location "/") :body "<a href=\"/\">home</a>")))
+    (send-response res :status 307 :headers '(:location "/") :body "<a href=\"/\">home</a>")))
 
 (defroute (:get "/security") (req res)
   (send-response res
