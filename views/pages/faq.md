@@ -120,14 +120,14 @@ comes from years of prying eyes reviewing your work and trying to find ways to
 break it. Although Turtl has not yet been vetted in this way, one of our main
 goals is to gain the trust of the crypto-security community.
 
-# What is not open source?
+# What is *not* open source?
 
 Currently, the admin system we use to manage the database, our internal
-analytics system, and the payment system. Everything else (the clients, the API
-server, and everything in between) is open source.
+analytics system, and our payment system. These tools are not necessary to run
+Turtl yourself.
 
-These tools are not necessary to run Turtl yourself, and as they only have
-access to encrypted data, they do not need to be peer reviewed.
+Everything else (the clients, the API server, and everything in between) is open
+source.
 
 # Can I run my own Turtl server?
 

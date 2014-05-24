@@ -138,7 +138,7 @@ var turtl	=	{
 			_paq.push(['trackGoal', 2]);
 		});
 
-		var buttons	=	document.getElement('div:not(.download-page) .download ul.buttons');
+		var buttons	=	document.getElement('div:not(.download-page) > .download ul.buttons');
 		if(!buttons) return false;
 
 		var is_desktop	=	['win', 'linux', 'mac'].contains(Browser.Platform.name);

@@ -4,82 +4,76 @@ layout: default
 markdown: off
 ---
 
-    <a id="more-info" class="toc-anchor"></a>
-    <div class="content bullets">
-        <ul class="triplet">
-            <li>
-                <h2>Track research</h2>
+<a id="more-info" class="toc-anchor"></a>
+<div class="content">
+    <ul class="alternate">
+        <li class="research clear">
+            <div>
                 <icon>&#59148;</icon>
+            </div>
+            <div>
+                <h2>Track research</h2>
                 <p>
-                    Use Turtl to track and organize research for sensitive
-                    projects.
+                    Turtl makes it easy to organize research for your projects
+                    whether you're cataloging inspiration for your next design,
+                    tracking libraries and code snippets for the app you're
+                    building, or saving sources and ideas for the paper you're
+                    writing.
                 </p>
-            </li>
-            <li>
-                <h2>Bookmark privately</h2>
-                <icon>&#9733;</icon>
+            </div>
+        </li>
+        <li class="secure clear">
+            <div>
+                <icon>&#128274;</icon>
+            </div>
+            <div>
+                <h2>Stay secure</h2>
                 <p>
-                    Install the <a href="/download#bookmarking">bookmarking extension</a>
-                    to save your favorite sites.
+                    Everything you put into Turtl is encrypted before being
+                    saved. The only way to decrypt it is with your login info
+                    which only you know. Turtl takes your privacy seriously,
+                    making it a great for security-conscious individuals and
+                    small businesses.
+                    <a href="/docs/security">Read more about Turtl's security &raquo;</a>
                 </p>
-            </li>
-            <li>
-                <h2>Securely share files</h2>
-                <icon>&#128229;</icon>
-                <p>
-                    No more uploading to "secure" file sharing services. Just
-                    put it in Turtl.
-                </p>
-            </li>
-            <li>
-                <h2>Collaborate on projects</h2>
+            </div>
+        </li>
+        <li class="share clear">
+            <div>
                 <icon>&#59198;</icon>
+            </div>
+            <div>
+                <h2>Collaborate with others</h2>
                 <p>
-                    Turtl allows multiple people to share ideas with each other
-                    securely.
+                    Just because your data is private doesn't mean you can't
+                    share with others. Collaborate on stealth projects, share
+                    sensitive documents, or give your business
+                    a private space for people to work together. Turtl uses
+                    shared-key encryption to protect your data when
+                    collaborating.
                 </p>
-            </li>
-            <li>
-                <h2>Stay synced</h2>
-                <icon>&#9729;</icon>
-                <p>
-                    Access your data from any of your computers, any time.
-                </p>
-            </li>
-            <li>
-                <h2>Open source</h2>
+            </div>
+        </li>
+        <li class="open clear">
+            <div>
                 <icon>&#128214;</icon>
+            </div>
+            <div>
+                <h2>Open source</h2>
                 <p>
-                    We believe in transparency. Nearly all parts of Turtl are
-                    <a href="https://github.com/turtl">open source</a>.
+                    We believe in transparency. The Turtl source code, for both
+                    the clients and the server, is open source
+                    <a href="https://github.com/turtl">for anyone to view</a>.
+                    Not only does this make Turtl overall more secure, it allows
+                    you to run Turtl inside your organization.
                 </p>
-            </li>
-        </ul>
-        <p>
-            <a href="/about">Learn more about Turtl &raquo;</a>
-        </p>
+            </div>
+        </li>
+    </ul>
+
+    <div class="last">
+        <a class="button" href="/download">Get started for free &raquo;</a>
+        <a class="about" href="/about">Read more about Turtl</a>
     </div>
-</section>
-<section>
-    <div class="content newsletter">
-        <!--<icon>&#9993;</icon>-->
-        {{module:mailing}}
-    </div>
-</section>
-<section>
-    <div class="content beta">
-        <div class="extra clear">
-            <h2>Turtl is beta</h2>
-            <p>
-                It works well but may have bugs, annoyances, and security flaws as it finds its way in life.
-                Please feel free to discuss any problems you have via our <a href="http://groups.google.com/d/forum/turtl">discussion board</a>,
-                via <a href="https://twitter.com/turtlapp">our twitter</a>, or <a href="mailto:info@turtl.it">by email</a>.
-            </p>
-            <p>
-                <strong>Caution</strong>: Until Turtl is more stable, we're logging errors that occur in the clients to our servers. This allows us to
-                see what bugs need to be fixed. While unlikely, it's possible that an error logged to the server contains details about information
-                you've stored in Turtl.
-            </p>
-        </div>
-    </div>
+</div>
 

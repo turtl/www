@@ -31,7 +31,7 @@ html.callout, body.splash {width: 100%; height: 100%;}
 .clear {display: block;}
 /* */
 
-a {color: #5398d1; color: #79a758; color: #4f832a; outline: none; text-decoration: none;}
+a {color: #5398d1; color: #79a758; color: #4f832a; color: #337b00; outline: none; text-decoration: underline;}
 a:hover {text-decoration: underline;}
 
 header {position: fixed; z-index: 5; width: 100%; height: 48px; background: url(/images/template/header-back.png); box-shadow: 0 0 6px 0 #0c1d0e;}
@@ -41,7 +41,7 @@ header h1 a {display: inline-block; width: 128px; height: 31px; margin: 8px 0 0 
 header h1 a span {display: none;}
 header ul {float: right; margin: 13px 0 0 0; padding: 0; list-style: none;}
 header ul li {display: inline-block; margin-left: 28px;}
-header ul li a {font-family: arial; font-size: 0.9em; letter-spacing: 0.08em; color: #fff; opacity: .75; text-transform: uppercase;}
+header ul li a {font-family: arial; font-size: 0.9em; letter-spacing: 0.08em; color: #fff; opacity: .75; text-transform: uppercase; text-decoration: none;}
 header ul li a.strong {opacity: .88;}
 
 body > #outer > section {width: 880px; min-height: 400px; margin: 0 auto; padding: 80px 0;}
@@ -58,6 +58,6 @@ footer .social ul li a.tumblr icon {font-size: 24px;}
 footer ul.nav {float: right; list-style: none;}
 footer ul.nav li {display: inline-block; margin: 0 8px 0 0; padding: 0 10px 0 0; line-height: 1em; border-right: 1px solid #d5d5d5; }
 footer ul.nav li:last-child {margin-right: 0; padding-right: 0; border: 0;}
-footer ul.nav li a {text-transform: uppercase;}
+footer ul.nav li a {text-transform: uppercase; text-decoration: none;}
 footer ul.nav li.copy a {text-transform: none;}
 

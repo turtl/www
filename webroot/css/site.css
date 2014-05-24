@@ -38,7 +38,7 @@ a icon {cursor: pointer;}
 body.splash header {position: absolute; top: 0; background: none; box-shadow: none;}
 body.splash header h1 a {background-image: url(/images/template/logo-beta_blank.png);}
 body.splash header ul li a {color: #000;}
-.splash > #outer {width: 100%; height: 100%; min-height: 540px;}
+.splash > #outer {width: 100%; height: 100%; min-height: 560px;}
 section.callout {position: relative; width: 100%; height: 100%; padding-bottom: 6px; text-align: center; background: none !important; border-bottom: 1px solid #dadada;}
 section.callout .inner {position: absolute; top: 50%; width: 100%; height: 460px; margin-top: -230px;}
 section.callout .inner > img {margin: 0 0 40px 0; opacity: .9; transition: opacity .15s;}
@@ -89,28 +89,20 @@ section.callout a.info {position: absolute; right: 100px; margin: -24px 0 0 0; f
 .splash > #outer > section > .content {width: 1001px; margin: 0 auto; padding: 60px 0;}
 /*.splash > #outer > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; font-family: 'Roboto Condensed'; font-style: italic; font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; color: #888;}*/
 .splash #more-info {margin-top: 8px;}
-.splash > #outer > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #666;}
-.splash > #outer > section h2 {color: #666;}
-.splash ul.triplet {margin: 0; padding: 0; list-style: none;}
-.splash ul.triplet li {display: inline-block; vertical-align: top; width: 27.4%; margin: 0 8.5% 0 0; text-align: left;}
-.splash ul.triplet li:nth-child(3n) {margin-right: 0; margin-bottom: 42px;}
-.splash ul.triplet li:last-child {margin-bottom: 0;}
-.splash ul.triplet icon {float: left; margin: 6px 8px 0 0; font-size: 2.3em; color: #555; transition: color .15s;}
-.splash ul.triplet li:hover icon {color: #79a758;}
-.splash ul.triplet h2 {font-size: 1.28em; color: #555;}
-.splash ul.triplet p {padding: 0; color: #444;}
-.splash .content.bullets > p {position: relative; top: 42px; height: 0; padding: 0; text-align: right; font-size: 1.2em; line-height: 0;}
-.splash .double {position: relative; float: left; width: 490px; margin: 0 0 0 0; line-height: 0;}
-.splash .double:nth-child(2n) {float: right;}
-.splash .double a h2 {position: absolute; bottom: 2px; left: 12px; font-size: 48px; font-family: 'Roboto Condensed'; font-weight: 400; color: #ededed; text-transform: uppercase;}
-.splash .newsletter {text-align: center;}
-.splash .newsletter icon {font-size: 8em; color: #79a758; line-height: .5; margin: 0 0 32px 0;}
-.splash .newsletter .mailing-list {padding: 0 0 0 0;}
-.splash .bullets {margin: 0 0 0 0;}
-.splash .download {margin: 0 0 0 0;}
-.splash .imgnav {margin: 0 0 0 0;}
-.splash .extra {color: #444;}
-.splash .extra p {}
+/*.splash > #outer > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #666;}*/
+/*.splash > #outer > section h2 {color: #666;}*/
+ul.alternate {list-style: none; margin: 0 0 32px 0; padding: 0;}
+ul.alternate li {display: block; margin: 0 0 64px 0; padding: 0 0 56px 0; border-bottom: 0px solid #e9e9e9;}
+ul.alternate li div:first-child {float: left; width: 30%; text-align: right;}
+ul.alternate li div:nth-child(2) {float: right; width: 50%; margin-right: 10%;}
+ul.alternate li:nth-child(2n) div:first-child {float: right; text-align: left;}
+ul.alternate li:nth-child(2n) div:nth-child(2) {float: left; margin-left: 10%;}
+ul.alternate li icon {margin: 0 0 0 0; font-size: 8em; color: #555;}
+ul.alternate li h2 {font-size: 1.9em; font-family: 'Roboto condensed'; color: #8fc46a; /*color: #666;*/ letter-spacing: .04em;}
+ul.alternate li p {font-size: 1.1em; line-height: 1.9em;}
+.splash .last {width: 400px; margin: 0 auto; text-align: center;}
+.splash a.button {padding: 10px 24px; font-size: 1.3em; text-align: center; text-decoration: none; background: #f9f9f9; border: 1px solid #dadada;}
+.splash a.about {position: absolute; margin: 0 0 0 32px; padding: 0 0 0 32px; text-decoration: underline; border-left: 1px solid #dadada;}
 
 /* --------------------------------------------------------------------------
  * screenshots
@@ -183,11 +175,13 @@ ul.screenshots li.bookmarks {background-position: -720px 0;}
  * -------------------------------------------------------------------------- */
 div.toc {float: right; width: 25%; margin: 8px 0 16px 16px; padding: 10px 16px; background: #fff; border-radius: 6px; box-shadow: 0 0 10px 2px rgba(0,0,0,.08);}
 div.toc ul {color: #999; margin-left: 16px; margin-bottom: 0;}
+div.toc ul a {text-decoration: none;}
 a.toc-anchor {position: absolute; margin-top: -60px;}
 .documentation p:first-child {display: inline; padding: 0; margin: 0;}
 .documentation .breadcrumb {float: right; margin: 8px 0 0 0;}
 .documentation .breadcrumb a {margin: 0 3px;}
 .documentation .doc-sec {float: left; width: 41%; margin: 0 24px 24px 0; padding: 16px 2.5% 16px 2.5%; background: #fff; border-radius: 6px; box-shadow: 0 0 10px 2px rgba(0,0,0,.08);}
+.documentation .doc-sec a {text-decoration: none;}
 .documentation .doc-sec.main {float: none; width: auto; margin: 0 0 16px 0;}
 .documentation .doc-sec p {font-size: 13px; color: #555;}
 .documentation .doc-sec h3 {font-size: 18px; text-decoration: none; margin: 0; padding: 0;}

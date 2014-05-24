@@ -6,7 +6,7 @@ layout: default
 What is Turtl?
 ==============
 
-Turtl is an app you can use to store files and notes. It can help keep track of
+Turtl is an app you can use to store notes and files. It can help keep track of
 research, photos, bookmarks, playlists, and anything else you can think of.
 Turtl uses client-side encryption to keep everything you put into it private
 while still allowing you to access your data from anywhere.
@@ -51,12 +51,15 @@ Because it's nobody else's business but yours.
 Turtl is beta
 =============
 
-Turtl is __beta__. Neither its security architecture or the code
-supporting it have been evaluated by security professionals.
+It works well but may have bugs, annoyances, and security flaws as it finds its
+way in life.  Please feel free to discuss any problems you have via our
+[discussion board](http://groups.google.com/d/forum/turtl), [our twitter](https://twitter.com/turtlapp),
+or [by email](mailto:info@turtl.it).
 
 *Please do not trust Turtl's security with your life*.
 
-Also, Turtl's file support is very new and may have unknown glitches. Please do
-not use Turtl as your primary storage for important documents or files until it
-has a chance to mature.
+__Caution__: Until Turtl is more stable, we're logging errors that occur in the
+clients to our servers. This allows us to see what bugs need to be fixed. While
+unlikely, it's possible that an error logged to the server contains details
+about information you've stored in Turtl.
 
