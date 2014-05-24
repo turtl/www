@@ -17,6 +17,21 @@ to get a sense for what's to come.
 
 For more information, head over to the [Turtl documentation](/docs).
 
+<ul class="screenshots">
+    <li class="playlist">
+        <a rel="modal 800" target="_blank" title="Playlist board" href="/images/home/screens/playlist.jpg"><span>Playlists</span></a>
+    </li>
+    <li class="bookmarks">
+        <a rel="modal 800" target="_blank" title="Bookmarks" href="/images/home/screens/bookmarks.jpg"><span>Bookmarks</span></a>
+    </li>
+    <li class="kofi">
+        <a rel="modal 800" target="_blank" title="Kofi guarding a ball" href="/images/home/screens/kofi.jpg"><span>Kofi</span></a>
+    </li>
+    <li class="code">
+        <a rel="modal 800" target="_blank" title="Code snippets" href="/images/home/screens/code.jpg"><span>Code</span></a>
+    </li>
+</ul>
+
 The philosophy
 ==============
 
@@ -36,7 +51,7 @@ Because it's nobody else's business but yours.
 Turtl is beta
 =============
 
-Turtl is <strong>beta</strong>. Neither its security architecture or the code
+Turtl is __beta__. Neither its security architecture or the code
 supporting it have been evaluated by security professionals.
 
 *Please do not trust Turtl's security with your life*.

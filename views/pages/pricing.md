@@ -23,6 +23,7 @@ markdown: off
                 <a href="/download">Download now</a>
             </div>
         </li>
+        <!--
         <li class="emphasize">
             <h2>Donor</h2>
             <em>Help keep Turtl going!</em>
@@ -31,7 +32,8 @@ markdown: off
                 <a href="/donate">Donate</a>
             </div>
         </li>
-        <li>
+        -->
+        <li class="emphasize">
             <h2>Premium</h2>
             <em>Store up to 20gb</em>
             <p><strong>$5</strong> / mo</p>
