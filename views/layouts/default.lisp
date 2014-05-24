@@ -32,10 +32,10 @@
           (:ul
             (:li (:a :href "/download" :class "strong" "Download"))
             (:li (:a :href "/pricing" "Pricing"))
-            (:li (:a :href "/docs" "Docs"))
-            (:li (:a :href "/faq" "FAQ"))
             (:li (:a :href "/about" "About"))
             (:li (:a :href "/contact" "Contact"))
+            (:li (:a :href "/docs" "Docs"))
+            (:li (:a :href "/faq" "FAQ"))
             (:li (:a :href "http://turtlapp.tumblr.com/" "Blog")))))
 
       (str (if (getf data :pre-content)
@@ -49,6 +49,7 @@
         (:div :class "social"
           (:ul
             (:li "<a class=\"twitter\" href=\"https://twitter.com/turtlapp\" title=\"Follow us on twitter for news and updates\"><icon>&#62217;</icon></a>")
+            (:li "<a class=\"facebook\" href=\"https://www.facebook.com/turtlapp\" title=\"Check out our Facebook page\"><icon>&#62220;</icon></a>")
             (:li "<a class=\"tumblr\" href=\"http://turtlapp.tumblr.com\" title=\"Read about our development process on Tumblr\"><icon>&#62229;</icon></a>")))
         (:ul :class "nav"
           (:li (:a :href "/docs" "Documentation"))

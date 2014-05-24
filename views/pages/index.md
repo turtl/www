@@ -2,11 +2,10 @@
 title: Turtl: A secure app for note-taking, research, and collaboration
 layout: default
 markdown: off
-pre-content: slideshow
 ---
 
     <a id="more-info" class="toc-anchor"></a>
-    <div class="content">
+    <div class="content bullets">
         <ul class="triplet">
             <li>
                 <h2>Track sensitive research</h2>
@@ -55,34 +54,25 @@ pre-content: slideshow
                     <a href="https://github.com/turtl">open source</a>.
                 </p>
             </li>
-        </div>
+        </ul>
     </div>
 </section>
-
 <section>
-    <div class="content clear">
-        <div class="download">
-            <h1>
-                Download Turtl
-                <!--<small><a href="/download">all downloads &raquo;</a></small>-->
-            </h1>
-            {{module:download}}
-            <p>
-                Get started by downloading Turtl for your platform. <a href="/download">See all downloads &raquo;</a>
-            </p>
-        </div>
+    <div class="content newsletter">
+        <p>
+            Stay in the loop on our progress. Get exclusive offers and updates.
+        </p>
+        {{module:mailing}}
     </div>
 </section>
-
 <section>
-    <div class="content">
+    <div class="content beta">
         <div class="extra clear">
             <h2>Turtl is early beta</h2>
             <p>
-                It works well but may have issues, bugs, and security flaws as it finds its way in life.
+                It works well but may have bugs, annoyances, and security flaws as it finds its way in life.
                 Please feel free to discuss any problems you have via our <a href="http://groups.google.com/d/forum/turtl">discussion board</a>,
-                via <a href="https://twitter.com/turtlapp">our twitter</a>, or <a href="mailto:info@turtl.it">by email</a>. Note that file support is
-                also <em>very young</em> and needs a chance to mature before you use Turtl for important documents and files.
+                via <a href="https://twitter.com/turtlapp">our twitter</a>, or <a href="mailto:info@turtl.it">by email</a>.
             </p>
             <p>
                 <strong>Caution</strong>: Until Turtl is more stable, we're logging errors that occur in the clients to our servers. This allows us to
@@ -91,3 +81,4 @@ pre-content: slideshow
             </p>
         </div>
     </div>
+

@@ -32,6 +32,15 @@ a icon {cursor: pointer;}
 #modalbox .closelink {position: absolute; top: -5px; right: -12px; display: block; width: 40px; height: 40px; margin: 0; padding: 0; background: url(/images/modal/close.png) 0 0 no-repeat;}
 #modalbox-overlay {position: fixed; z-index: 100; top: 0; bottom: 0; left: 0; right: 0; margin: 0; padding: 0; opacity: .6; cursor: pointer; background: #000;}
 
+/* callout styles */
+section.callout {margin: 0 0 148px 0; padding: 0; text-align: center; background: none !important;}
+section.callout > img {padding: 50px 0 40px 0;}
+.splash > section.callout > h1 {margin: 0 0 20px 0; color: #8fc46a; font-size: 36px; font-family: 'Roboto condensed'; letter-spacing: .04em; line-height: 1;}
+section.callout p {margin: 0 0 9px 0; color: #222; line-height: 1;}
+section.callout > div.download {margin: 36px 0 0 0;}
+section.callout > div.download ul li {margin: 0;}
+section.callout > div.download + p a {color: #000; font-size: 12px; font-family: arial; text-decoration: underline;}
+
 /* slideshow styles (general) */
 .slideshow {width: 100%; height: 588px; padding: 0;}
 .slideshow .container {width: auto; height: 588px; position: relative; overflow: visible;}
@@ -75,7 +84,7 @@ a icon {cursor: pointer;}
  * -------------------------------------------------------------------------- */
 .splash > section {width: 100%; min-height: 0; padding: 0;}
 .splash > section:nth-child(2n) {background: #fff;}
-.splash > section > .content {width: 1001px; margin: 0 auto; padding: 60px 0;}
+.splash > section > .content {width: 1001px; margin: 0 auto; padding: 40px 0;}
 /*.splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; font-family: 'Roboto Condensed'; font-style: italic; font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; color: #888;}*/
 .splash #more-info {margin-top: -46px;}
 .splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #666;}
@@ -88,11 +97,12 @@ a icon {cursor: pointer;}
 .splash ul.triplet li:hover icon {color: #79a758;}
 .splash ul.triplet h2 {font-size: 1.28em; color: #555;}
 .splash ul.triplet p {padding: 0; color: #444;}
-.splash .download h1 {margin: 0 0 38px 0; font-family: 'roboto condensed'; font-size: 3em; font-weight: 200; letter-spacing: 0.02em; text-align: center; text-transform: uppercase; font-style: italic; color: #bbb;}
 .splash .double {position: relative; float: left; width: 490px; margin: 0 0 0 0; line-height: 0;}
 .splash .double:nth-child(2n) {float: right;}
 .splash .double a h2 {position: absolute; bottom: 2px; left: 12px; font-size: 48px; font-family: 'Roboto Condensed'; font-weight: 400; color: #ededed; text-transform: uppercase;}
-.splash .mailing-list {padding: 0 0 64px 0;}
+.splash .newsletter {text-align: center;}
+.splash .newsletter p {font-size: 1.2em;}
+.splash .newsletter .mailing-list {padding: 0 0 0 0;}
 .splash .bullets {margin: 0 0 0 0;}
 .splash .download {margin: 0 0 0 0;}
 .splash .imgnav {margin: 0 0 0 0;}

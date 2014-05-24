@@ -75,10 +75,10 @@
 (defroute (:get "/([0-9a-f]{5,6})?") (req res args)
   (generate-download-page *download-pages*)
   (let* ((invite-code (car args))
-         (slideshow (find-module :slideshow))
+         (callout (find-module :callout))
          (body (load-view :pages/index :data `(:body-class "splash"
                                                :canonical "/"
-                                               :pre-content ,slideshow))))
+                                               :pre-content ,callout))))
     (set-cookie res "invc" invite-code :path "/" :max-age 2592000)
     (send-response res :headers '(:content-type "text/html") :body body)))
 
