@@ -76,7 +76,8 @@
   (generate-download-page *download-pages*)
   (let* ((invite-code (car args))
          (callout (find-module :callout))
-         (body (load-view :pages/index :data `(:body-class "splash"
+         (body (load-view :pages/index :data `(:html-class "callout"
+                                               :body-class "splash"
                                                :canonical "/"
                                                :pre-content ,callout))))
     (set-cookie res "invc" invite-code :path "/" :max-age 2592000)

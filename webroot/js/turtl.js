@@ -51,7 +51,7 @@ var turtl	=	{
 			var coords	=	header.getCoordinates();
 			var scroll	=	window.getScroll().y;
 
-			if(scroll > coords.top && header.getStyle('position') == 'absolute')
+			if(scroll > coords.top && header.getStyle('position') != 'fixed')
 			{
 				header.setStyles({
 					position: 'fixed',
@@ -61,7 +61,7 @@ var turtl	=	{
 			else if(scroll < orig_top)
 			{
 				header.setStyles({
-					position: 'absolute',
+					position: '',
 					top: ''
 				});
 			}
@@ -259,8 +259,8 @@ var turtl	=	{
 
 window.addEvent('domready', function() {
 	run_goals();
-	turtl.setup_header();
-	turtl.setup_slideshow();
+	//turtl.setup_header();
+	//turtl.setup_slideshow();
 	turtl.setup_modal();
 	turtl.setup_download_buttons();
 	turtl.setup_newsletter();

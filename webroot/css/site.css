@@ -32,16 +32,27 @@ a icon {cursor: pointer;}
 #modalbox .closelink {position: absolute; top: -5px; right: -12px; display: block; width: 40px; height: 40px; margin: 0; padding: 0; background: url(/images/modal/close.png) 0 0 no-repeat;}
 #modalbox-overlay {position: fixed; z-index: 100; top: 0; bottom: 0; left: 0; right: 0; margin: 0; padding: 0; opacity: .6; cursor: pointer; background: #000;}
 
-/* callout styles */
-section.callout {margin: 0 0 148px 0; padding: 0; text-align: center; background: none !important;}
-section.callout > img {padding: 50px 0 40px 0;}
-.splash > section.callout > h1 {margin: 0 0 20px 0; color: #8fc46a; font-size: 36px; font-family: 'Roboto condensed'; letter-spacing: .04em; line-height: 1;}
+/* --------------------------------------------------------------------------
+ * main callout
+ * -------------------------------------------------------------------------- */
+body.splash header {position: absolute; top: 0; background: none; box-shadow: none;}
+body.splash header h1 a {background-image: url(/images/template/logo-beta_blank.png);}
+body.splash header ul li a {color: #000;}
+.splash > #outer {width: 100%; height: 100%; min-height: 540px;}
+section.callout {position: relative; width: 100%; height: 100%; padding-bottom: 6px; text-align: center; background: none !important; border-bottom: 1px solid #dadada;}
+section.callout .inner {position: absolute; top: 50%; width: 100%; height: 460px; margin-top: -230px;}
+section.callout .inner > img {margin: 0 0 40px 0; opacity: .9; transition: opacity .15s;}
+section.callout .inner > img:hover {opacity: 1;}
+.splash > #outer > section.callout h1 {margin: 0 0 20px 0; color: #8fc46a; font-size: 36px; font-family: 'Roboto condensed'; letter-spacing: .04em; line-height: 1;}
 section.callout p {margin: 0 0 9px 0; color: #222; line-height: 1;}
-section.callout > div.download {margin: 36px 0 0 0;}
-section.callout > div.download ul li {margin: 0;}
-section.callout > div.download + p a {color: #000; font-size: 12px; font-family: arial; text-decoration: underline;}
+section.callout > .inner > div.download {margin: 42px 0 0 0;}
+section.callout > .inner > div.download ul li {margin: 0;}
+section.callout > .inner > div.download + p a {color: #000; font-size: 12px; font-family: arial; text-decoration: underline;}
+section.callout a.info {position: absolute; right: 100px; margin: -24px 0 0 0; font-size: 1.2em;}
 
-/* slideshow styles (general) */
+/* --------------------------------------------------------------------------
+ * slideshow
+ * -------------------------------------------------------------------------- */
 .slideshow {width: 100%; height: 588px; padding: 0;}
 .slideshow .container {width: auto; height: 588px; position: relative; overflow: visible;}
 .slideshow .container > ul {height: 588px; overflow: hidden;}
@@ -73,13 +84,13 @@ section.callout > div.download + p a {color: #000; font-size: 12px; font-family:
 /* --------------------------------------------------------------------------
  * homepage
  * -------------------------------------------------------------------------- */
-.splash > section {width: 100%; min-height: 0; padding: 0;}
-.splash > section:nth-child(2n) {background: #fff;}
-.splash > section > .content {width: 1001px; margin: 0 auto; padding: 40px 0;}
-/*.splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; font-family: 'Roboto Condensed'; font-style: italic; font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; color: #888;}*/
-.splash #more-info {margin-top: -46px;}
-.splash > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #666;}
-.splash > section h2 {color: #666;}
+.splash > #outer > section {width: 100%; min-height: 0; padding: 0;}
+.splash > #outer > section:nth-child(2n) {background: #fff;}
+.splash > #outer > section > .content {width: 1001px; margin: 0 auto; padding: 60px 0;}
+/*.splash > #outer > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; font-family: 'Roboto Condensed'; font-style: italic; font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; color: #888;}*/
+.splash #more-info {margin-top: 8px;}
+.splash > #outer > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #666;}
+.splash > #outer > section h2 {color: #666;}
 .splash ul.triplet {margin: 0; padding: 0; list-style: none;}
 .splash ul.triplet li {display: inline-block; vertical-align: top; width: 27.4%; margin: 0 8.5% 0 0; text-align: left;}
 .splash ul.triplet li:nth-child(3n) {margin-right: 0; margin-bottom: 42px;}
@@ -88,11 +99,12 @@ section.callout > div.download + p a {color: #000; font-size: 12px; font-family:
 .splash ul.triplet li:hover icon {color: #79a758;}
 .splash ul.triplet h2 {font-size: 1.28em; color: #555;}
 .splash ul.triplet p {padding: 0; color: #444;}
+.splash .content.bullets > p {position: relative; top: 42px; height: 0; padding: 0; text-align: right; font-size: 1.2em; line-height: 0;}
 .splash .double {position: relative; float: left; width: 490px; margin: 0 0 0 0; line-height: 0;}
 .splash .double:nth-child(2n) {float: right;}
 .splash .double a h2 {position: absolute; bottom: 2px; left: 12px; font-size: 48px; font-family: 'Roboto Condensed'; font-weight: 400; color: #ededed; text-transform: uppercase;}
 .splash .newsletter {text-align: center;}
-.splash .newsletter p {font-size: 1.2em;}
+.splash .newsletter icon {font-size: 8em; color: #79a758; line-height: .5; margin: 0 0 32px 0;}
 .splash .newsletter .mailing-list {padding: 0 0 0 0;}
 .splash .bullets {margin: 0 0 0 0;}
 .splash .download {margin: 0 0 0 0;}
@@ -207,5 +219,6 @@ body.invite div.code strong {display: block; word-wrap: break-word; font-size: 1
 .mailing-list input {padding: 6px 8px;}
 .mailing-list input[type=email] {margin: 0 3px; font-size: 19px; color: #555;}
 .mailing-list input[type=submit] {margin: 0 3px; font-size: 19px; color: #777;}
-.mailing-list span.note {display: inline-block; margin: 10px 0 0 0; font-size: .85em; color: #666;}
+.mailing-list p {margin: 16px 0 0 0;}
+.mailing-list span.note {display: inline-block; margin: 0 0 0 0; font-size: .85em; color: #666;}
 

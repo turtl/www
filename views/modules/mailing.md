@@ -10,7 +10,9 @@ markdown: off
         <div style="position: absolute; left: -5000px;"><input type="text" name="b_f67321a76fcbf2bcc9012ff8f_c8d97a5c58" value=""></div>
 
         <input type="submit" value="Join the list">
-        <br>
+        <p>
+            Stay in the loop on our progress. Get exclusive offers and updates.
+        </p>
         <span class="note">
             Unsubscribe at any time. No spam.
         </span>

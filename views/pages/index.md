@@ -8,7 +8,7 @@ markdown: off
     <div class="content bullets">
         <ul class="triplet">
             <li>
-                <h2>Track sensitive research</h2>
+                <h2>Track research</h2>
                 <icon>&#59148;</icon>
                 <p>
                     Use Turtl to track and organize research for sensitive
@@ -32,7 +32,7 @@ markdown: off
                 </p>
             </li>
             <li>
-                <h2>Collaborate on stealth projects</h2>
+                <h2>Collaborate on projects</h2>
                 <icon>&#59198;</icon>
                 <p>
                     Turtl allows multiple people to share ideas with each other
@@ -55,20 +55,21 @@ markdown: off
                 </p>
             </li>
         </ul>
+        <p>
+            <a href="/about">Learn more about Turtl &raquo;</a>
+        </p>
     </div>
 </section>
 <section>
     <div class="content newsletter">
-        <p>
-            Stay in the loop on our progress. Get exclusive offers and updates.
-        </p>
+        <!--<icon>&#9993;</icon>-->
         {{module:mailing}}
     </div>
 </section>
 <section>
     <div class="content beta">
         <div class="extra clear">
-            <h2>Turtl is early beta</h2>
+            <h2>Turtl is beta</h2>
             <p>
                 It works well but may have bugs, annoyances, and security flaws as it finds its way in life.
                 Please feel free to discuss any problems you have via our <a href="http://groups.google.com/d/forum/turtl">discussion board</a>,

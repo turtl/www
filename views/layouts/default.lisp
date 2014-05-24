@@ -1,7 +1,7 @@
 (in-package :turtl-www)
 
 (deflayout default (data :top-level t)
-  (:html
+  (:html :class (getf data :html-class "")
     (:head
       (:meta :http-equiv "Content-type" :content "text/html; charset=utf-8")
       (:meta :http-equiv "Content-language" :content "en")
@@ -23,42 +23,40 @@
       (:script :src "/js/turtl.js")
       
       (:meta :name "google-site-verification" :content "bQuItGSUXJSmgvGivAK64EkYDKD_qK_jhd0rd2aH7Rk"))
-    (:body :class (if (getf data :body-class)
-                      (getf data :body-class)
-                      "")
-      (:header
-        (:div :class "inner"
-          (:h1 (:a :href "/" "<span>Turtl</span>"))
-          (:ul
-            (:li (:a :href "/download" :class "strong" "Download"))
-            (:li (:a :href "/pricing" "Pricing"))
-            (:li (:a :href "/about" "About"))
+    (:body :class (getf data :body-class "")
+
+      (:div :id "outer"
+        (str (getf data :pre-content ""))
+
+        (:header
+          (:div :class "inner"
+            (:h1 (:a :href "/" "<span>Turtl</span>"))
+            (:ul
+              (:li (:a :href "/download" :class "strong" "Download"))
+              (:li (:a :href "/pricing" "Pricing"))
+              (:li (:a :href "/about" "About"))
+              (:li (:a :href "/contact" "Contact"))
+              (:li (:a :href "/docs" "Docs"))
+              (:li (:a :href "/faq" "FAQ"))
+              (:li (:a :href "http://turtlapp.tumblr.com/" "Blog")))))
+
+        (:section
+          (str (getf data :content "")))
+        
+        (:footer
+          (:div :class "social"
+            (:ul
+              (:li "<a class=\"twitter\" href=\"https://twitter.com/turtlapp\" title=\"Follow us on twitter for news and updates\"><icon>&#62217;</icon></a>")
+              (:li "<a class=\"facebook\" href=\"https://www.facebook.com/turtlapp\" title=\"Check out our Facebook page\"><icon>&#62220;</icon></a>")
+              (:li "<a class=\"tumblr\" href=\"http://turtlapp.tumblr.com\" title=\"Read about our development process on Tumblr\"><icon>&#62229;</icon></a>")))
+          (:ul :class "nav"
+            (:li (:a :href "/docs" "Documentation"))
+            (:li (:a :href "/privacy" "Privacy"))
+            (:li (:a :href "/terms" "Terms"))
             (:li (:a :href "/contact" "Contact"))
-            (:li (:a :href "/docs" "Docs"))
-            (:li (:a :href "/faq" "FAQ"))
-            (:li (:a :href "http://turtlapp.tumblr.com/" "Blog")))))
-
-      (str (if (getf data :pre-content)
-               (getf data :pre-content)
-               ""))
-
-      (:section
-        (str (getf data :content)))
-      
-      (:footer
-        (:div :class "social"
-          (:ul
-            (:li "<a class=\"twitter\" href=\"https://twitter.com/turtlapp\" title=\"Follow us on twitter for news and updates\"><icon>&#62217;</icon></a>")
-            (:li "<a class=\"facebook\" href=\"https://www.facebook.com/turtlapp\" title=\"Check out our Facebook page\"><icon>&#62220;</icon></a>")
-            (:li "<a class=\"tumblr\" href=\"http://turtlapp.tumblr.com\" title=\"Read about our development process on Tumblr\"><icon>&#62229;</icon></a>")))
-        (:ul :class "nav"
-          (:li (:a :href "/docs" "Documentation"))
-          (:li (:a :href "/privacy" "Privacy"))
-          (:li (:a :href "/terms" "Terms"))
-          (:li (:a :href "/contact" "Contact"))
-          (:li (:a :href "http://groups.google.com/d/forum/turtl" "Discussion group"))
-          (:li (:a :href "https://github.com/turtl" "Github"))
-          (:li :class "copy" "&copy; " (:a :href "http://lyonbros.com" "Lyon Bros. Enterprises, LLC"))))
+            (:li (:a :href "http://groups.google.com/d/forum/turtl" "Discussion group"))
+            (:li (:a :href "https://github.com/turtl" "Github"))
+            (:li :class "copy" "&copy; " (:a :href "http://lyonbros.com" "Lyon Bros. Enterprises, LLC")))))
       (:script
         "
 var _paq = _paq || [];
