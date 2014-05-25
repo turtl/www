@@ -6,6 +6,10 @@
         (format nil "~a/views/pages/invites.md" *root*)) 
   "Lists all pages the download module is on.")
 
+(defparameter *cookie-domain*
+  (cl-ppcre:regex-replace ".*?//([^/:]+).*?$" *site-url* "\\1")
+  "Makes it easy to set cookies from the site url.")
+
 (defun in-invite-site (req)
   "Determine if we are in the invite site."
   (let ((invite-search *invite-site-host*)
@@ -80,12 +84,13 @@
                                                :body-class "splash"
                                                :canonical "/"
                                                :pre-content ,callout))))
-    (set-cookie res "invc" invite-code :path "/" :max-age 2592000)
+    (when invite-code
+      (set-cookie res "invc" invite-code :domain *cookie-domain* :path "/" :max-age 2592000))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/promo/([a-zA-Z0-9]+)") (req res args)
   (let* ((promo-code (car args)))
-    (set-cookie res "promo" promo-code :path "/" :max-age 2592000)
+    (set-cookie res "promo" promo-code :domain *cookie-domain* :path "/" :max-age 2592000)
     (send-response res :status 307 :headers '(:location "/") :body "<a href=\"/\">home</a>")))
 
 (defroute (:get "/security") (req res)
@@ -133,9 +138,12 @@
   (let ((body (load-view :pages/donate)))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
-(defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)/([0-9a-f-]+)") (req res args)
+(defroute (:get "/invites/([0-9a-f-]+)/([0-9a-f-]+)/([0-9a-f-]+)(/([0-9a-f]{5,6}))?") (req res args)
   (generate-download-page *download-pages*)
-  (let ((body (load-view :pages/invites :data '(:body-class "invite"))))
+  (let ((body (load-view :pages/invites :data '(:body-class "invite")))
+        (invite-code (nth 4 args)))
+    (when invite-code
+      (set-cookie res "invc" invite-code :domain *cookie-domain* :path "/" :max-age 2592000))
     (send-response res :headers '(:content-type "text/html") :body body)))
 
 (defroute (:get "/docs(/(.*))?") (req res args)
