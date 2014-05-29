@@ -15,7 +15,7 @@ markdown: off
             Remember ideas, track research, share documents, or bookmark your favorite sites.
         </p>
         <p>
-            Turtl makes it easy to organize your life and uses proven encryption to keep it all safe.
+            Turtl makes it easy to organize your life and uses solid encryption to keep it all safe.
         </p>
         {{module:download}}
         <p>
