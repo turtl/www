@@ -100,7 +100,7 @@ ul.alternate li icon {margin: 12px 0 0 0; font-size: 7em; color: #555;}
 ul.alternate li h2 {font-size: 1.9em; font-family: 'Roboto condensed'; color: #8fc46a; /*color: #666;*/ letter-spacing: .04em;}
 ul.alternate li p {font-size: 1.1em; line-height: 1.9em;}
 .splash .last {width: 400px; margin: 0 auto 64px auto; text-align: center;}
-.splash a.button {padding: 14px 32px; font-size: 1.3em; text-align: center; text-decoration: none; background: #fbfbfb; border: 1px solid #bbb; border-radius: 4px;}
+.splash a.button {padding: 14px 32px; font-size: 1.4em; text-align: center; text-decoration: none; background: #fbfbfb; border: 1px solid #bbb; border-radius: 4px;}
 .splash a.about {position: absolute; margin: 0 0 0 32px; padding: 0 0 0 32px; text-decoration: underline; border-left: 1px solid #dadada;}
 
 /* --------------------------------------------------------------------------
