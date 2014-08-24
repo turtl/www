@@ -5,7 +5,7 @@ markdown: off
 <section class="callout">
     <div class="inner">
         <img src="/images/home/turtl_big.png" width="200" height="200" alt="Turtl logo. Bigger than its ever been.">
-        <h1>Track and collaborate. Securely.</h1>
+        <h1>The best way to track research. Securely.</h1>
         <!--
         <p>
             Turtl makes it easy to store and organize information that you use on a daily basis.
