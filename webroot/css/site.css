@@ -35,13 +35,15 @@ a icon {cursor: pointer;}
 /* --------------------------------------------------------------------------
  * main callout
  * -------------------------------------------------------------------------- */
-body.splash header {position: absolute; top: 0; background: none; box-shadow: none;}
-body.splash header h1 a {background-image: url(/images/template/logo-beta_blank.png);}
-body.splash header ul li a {color: #000;}
+body.splash header {position: absolute; top: 0;}
+/*body.splash header {position: absolute; top: 0; background: none; box-shadow: none;}*/
+/*body.splash header h1 a {background-image: url(/images/template/logo-beta_blank.png);}*/
+/*body.splash header ul li a {color: #000;}*/
 section.callout {width: 1024px; margin: 0 auto;}
 section.callout .inner {text-align: center;}
 section.callout .inner > img {width: 100px; height: 100px; margin: 0 0 16px 0;}
-.splash > #outer > section.callout {padding-top: 120px; padding-bottom: 0;}
+.splash > #outer > section {padding-top: 32px;}
+.splash > #outer > section.callout {padding-top: 120px; padding-bottom: 0; margin-bottom: 32px; border-bottom: 1px solid #dcdcdc;}
 .splash > #outer > section.callout h1 {margin: 0 0 20px 0; color: #6FB44A; font-size: 2.0em; font-family: 'Roboto condensed'; letter-spacing: .02em; line-height: 1;}
 section.callout p {margin: 0 0 9px 0; color: #222; line-height: 1; font-size: 1.2em;}
 section.callout > .inner > div.download {margin: 42px 0 0 0;}
@@ -102,7 +104,7 @@ ul.alternate li icon {margin: 12px 0 0 0; font-size: 7em; color: #555;}
 ul.alternate li h2 {font-size: 1.9em; font-family: 'Roboto condensed'; color: #6FB44A; /*color: #666;*/ letter-spacing: .04em;}
 ul.alternate li p {font-size: 1.1em; line-height: 1.9em;}
 .splash .last {width: 400px; margin: 0 auto 64px auto; text-align: center;}
-.splash a.button {padding: 14px 32px; font-size: 1.4em; text-align: center; text-decoration: none; background: #fbfbfb; border: 1px solid #bbb; border-radius: 4px;}
+.splash a.button {padding: 10px 32px; font-size: 1.25em; text-align: center; text-decoration: none; background: #fbfbfb; border: 1px solid #bbb; border-radius: 4px;}
 .splash a.about {position: absolute; margin: 0 0 0 32px; padding: 0 0 0 32px; text-decoration: underline; border-left: 1px solid #dadada;}
 
 /* --------------------------------------------------------------------------
