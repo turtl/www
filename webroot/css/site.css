@@ -35,7 +35,7 @@ a icon {cursor: pointer;}
 /* --------------------------------------------------------------------------
  * main callout
  * -------------------------------------------------------------------------- */
-body.splash header {position: absolute; top: 0;}
+body.splash header {position: fixed; top: 0;}
 /*body.splash header {position: absolute; top: 0; background: none; box-shadow: none;}*/
 /*body.splash header h1 a {background-image: url(/images/template/logo-beta_blank.png);}*/
 /*body.splash header ul li a {color: #000;}*/
