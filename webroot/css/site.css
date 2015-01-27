@@ -38,16 +38,16 @@ a icon {cursor: pointer;}
 body.splash header {position: absolute; top: 0; background: none; box-shadow: none;}
 body.splash header h1 a {background-image: url(/images/template/logo-beta_blank.png);}
 body.splash header ul li a {color: #000;}
-.splash > #outer {width: 100%; height: 100%; min-height: 560px;}
-section.callout {position: relative; width: 100%; height: 100%; padding-bottom: 6px; text-align: center; background: none !important; border-bottom: 1px solid #dadada;}
-section.callout .inner {position: absolute; top: 50%; width: 100%; height: 460px; margin-top: -230px;}
-section.callout .inner > img {margin: 0 0 40px 0;}
-.splash > #outer > section.callout h1 {margin: 0 0 20px 0; color: #6FB44A; font-size: 3.0em; font-family: 'Roboto condensed'; letter-spacing: .02em; line-height: 1;}
+section.callout {width: 1024px; margin: 0 auto;}
+section.callout .inner {text-align: center;}
+section.callout .inner > img {width: 100px; height: 100px; margin: 0 0 16px 0;}
+.splash > #outer > section.callout {padding-top: 120px; padding-bottom: 0;}
+.splash > #outer > section.callout h1 {margin: 0 0 20px 0; color: #6FB44A; font-size: 2.0em; font-family: 'Roboto condensed'; letter-spacing: .02em; line-height: 1;}
 section.callout p {margin: 0 0 9px 0; color: #222; line-height: 1; font-size: 1.2em;}
 section.callout > .inner > div.download {margin: 42px 0 0 0;}
 section.callout > .inner > div.download ul li {margin: 0;}
+section.callout > .inner > div.download + p {text-align: center;}
 section.callout > .inner > div.download + p a {color: #000; font-size: 12px; font-family: arial; text-decoration: underline;}
-section.callout a.info {position: absolute; right: 100px; margin: 0 0 0 0; font-size: 1.2em;}
 
 /* --------------------------------------------------------------------------
  * slideshow
@@ -83,13 +83,15 @@ section.callout a.info {position: absolute; right: 100px; margin: 0 0 0 0; font-
 /* --------------------------------------------------------------------------
  * homepage
  * -------------------------------------------------------------------------- */
-.splash > #outer > section {width: 100%; min-height: 0; padding: 0;}
-.splash > #outer > section:nth-child(2n) {background: #fff;}
-.splash > #outer > section > .content {width: 1001px; margin: 0 auto; padding: 60px 0;}
-/*.splash > #outer > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; font-family: 'Roboto Condensed'; font-style: italic; font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; color: #888;}*/
-.splash #more-info {margin-top: 8px;}
-/*.splash > #outer > section h1 {margin: 0 0 0.55em 0; font-size: 1.7em; color: #666;}*/
-/*.splash > #outer > section h2 {color: #666;}*/
+ul.grid {list-style: none; margin: 0 0 32px 0; padding: 0; text-align: center;}
+ul.grid li {display: inline-block; width: 45%; margin: 0 0 64px 0; padding: 0 0 0 0; text-align: left; vertical-align: top;}
+ul.grid li:nth-child(2n) {margin-left: 4%;}
+ul.grid li:nth-child(2n+1) {margin-right: 4%;}
+ul.grid li div:first-child {float: left;}
+ul.grid li icon {margin: -8px 16px 0 0; font-size: 2.5em; color: #555;}
+ul.grid li h2 {font-size: 1.9em; font-family: 'Roboto condensed'; color: #6FB44A; /*color: #666;*/ letter-spacing: .04em;}
+ul.grid li p {font-size: 1.1em; line-height: 1.9em;}
+
 ul.alternate {list-style: none; margin: 0 0 32px 0; padding: 0;}
 ul.alternate li {display: block; margin: 0 0 64px 0; padding: 0 0 56px 0; border-bottom: 0px solid #e9e9e9;}
 ul.alternate li div:first-child {float: left; width: 30%; text-align: right;}

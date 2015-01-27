@@ -6,7 +6,7 @@ markdown: off
 
 <a id="more-info" class="toc-anchor"></a>
 <div class="content">
-    <ul class="alternate">
+    <ul class="grid">
         <li class="research clear">
             <div>
                 <icon>&#59148;</icon>
@@ -14,8 +14,8 @@ markdown: off
             <div>
                 <h2>Track research</h2>
                 <p>
-                    Turtl makes it easy to organize research for your projects
-                    whether you're cataloging inspiration for your next design,
+                    Turtl makes it easy to organize research for your projects.
+                    Whether you're cataloging inspiration for your next design,
                     tracking libraries and code snippets for the app you're
                     building, or saving sources and ideas for the paper you're
                     writing.
@@ -29,11 +29,10 @@ markdown: off
             <div>
                 <h2>Stay secure</h2>
                 <p>
-                    Everything you put into Turtl is encrypted before being
-                    saved. The only way to decrypt it is with your login info
-                    which only you know. Turtl takes your privacy seriously,
-                    making it a great for security-conscious individuals and
-                    small businesses.
+                    Everything you put into Turtl is encrypted, and only you
+                    hold the keys to unlock your data. Turtl takes your privacy
+                    seriously, making it a great for security-conscious
+                    individuals and small businesses.<br>
                     <a href="/docs/security">Read more about Turtl's security &raquo;</a>
                 </p>
             </div>
@@ -48,9 +47,7 @@ markdown: off
                     Just because your data is private doesn't mean you can't
                     share with others. Collaborate on stealth projects, share
                     sensitive documents, or give your business
-                    a private space for people to work together. Turtl uses
-                    shared-key encryption to protect your data when
-                    collaborating.
+                    a private space for people to work together.
                 </p>
             </div>
         </li>
@@ -61,11 +58,10 @@ markdown: off
             <div>
                 <h2>Open source</h2>
                 <p>
-                    We believe in transparency. The Turtl source code, for both
-                    the clients and the server, is open source
+                    We believe in transparency. Turtl's code is open source
                     <a href="https://github.com/turtl">for anyone to view</a>.
                     Not only does this make Turtl overall more secure, it allows
-                    you to run Turtl inside your organization.
+                    you to self-host Turtl inside your organization.
                 </p>
             </div>
         </li>

@@ -21,7 +21,7 @@ markdown: off
         <p>
             <a href="/download">See all downloads</a>
         </p>
-        <a class="info smoooth" href="#more-info">More info <icon>&#59228;</icon></a>
+        <!--<a class="info smoooth" href="#more-info">More info <icon>&#59228;</icon></a>-->
     </div>
 </section>
 
