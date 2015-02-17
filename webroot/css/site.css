@@ -139,8 +139,8 @@ ul.screenshots li.bookmarks {background-position: -720px 0;}
 .download ul.buttons li.extension a img {opacity: .85;}
 .download p {padding: 24px 0 0 0; font-size: .9em; line-height: .8em; text-align: center; color: #888;}
 .download-page {margin: 32px 0;}
-.button a {padding: 4px 16px; font-size: 1.2em; color: #fff;}
-.button a:hover {text-decoration: none;}
+.button a {padding: 4px 16px; font-size: 1.2em; color: #fff; text-decoration: none;}
+.button a:hover {}
 
 /* --------------------------------------------------------------------------
  * pricing

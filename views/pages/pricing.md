@@ -5,10 +5,11 @@ markdown: off
 ---
 
 <div class="pricing">
-    <h1>Plans and pricing</h1>
+    <!--<h1>Plans and pricing</h1>-->
+    <h1>Turtl is free until otherwise stated</h1>
     <p>
-        Pricing covers data storage on our servers, which is how Turtl keeps
-        your data synced between your devices.<br>
+        <em>What a deal.</em> Eventually, Turtl will charge for storage, most likely at
+        the amount quoted below.<br>
         Keep in mind you are free to
         <a href="/docs/server/running">run your own Turtl server</a> if you need
         more control (or if you're cheap like me). Yay open source!
