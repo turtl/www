@@ -1,5 +1,5 @@
 ---
-title: Turtl: A secure app for note-taking, research, and collaboration
+title: Turtl: A totally private personal database and note taking app
 layout: default
 markdown: off
 ---

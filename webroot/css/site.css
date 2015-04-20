@@ -39,7 +39,8 @@ body.splash header {position: fixed; top: 0;}
 /*body.splash header {position: absolute; top: 0; background: none; box-shadow: none;}*/
 /*body.splash header h1 a {background-image: url(/images/template/logo-beta_blank.png);}*/
 /*body.splash header ul li a {color: #000;}*/
-section.callout {width: 1024px; margin: 0 auto;}
+section.callout {position: relative; width: 1024px; margin: 0 auto;}
+section.callout .follow {position: absolute; right: 0; margin: -32px 0 0 0;}
 section.callout .inner {text-align: center;}
 section.callout .inner > img {width: 100px; height: 100px; margin: 0 0 16px 0;}
 .splash > #outer > section {padding-top: 32px;}
