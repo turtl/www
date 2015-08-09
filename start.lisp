@@ -1,3 +1,5 @@
-(ql:quickload '(:turtl-www))
-(turtl-www:start :port 8186 :debug t)
+(ql:quickload :turtl-www)
+(vom:config t :info)
+(vom:config :turtl-www :info)
+(turtl-www:start :port 8184)
 

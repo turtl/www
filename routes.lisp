@@ -13,7 +13,7 @@
 (defun in-invite-site (req)
   "Determine if we are in the invite site."
   (let ((invite-search *invite-site-host*)
-        (host (getf (request-headers req) :host)))
+        (host (get-header (request-headers req) :host)))
     (string= (subseq host 0 (min (length invite-search)
                                  (length host)))
              invite-search)))
@@ -55,7 +55,7 @@
     (lambda (res req &rest _)
       (declare (ignore _))
       (let ((invite-search *invite-site-host*)
-            (host (getf (request-headers req) :host)))
+            (host (get-header (request-headers req) :host)))
         (unless (in-invite-site req)
           (setf (getf (response-headers res) :strict-transport-security)
                 (format nil "max-age=~a" *enable-hsts-header*)))))))

@@ -31,13 +31,16 @@
   (unwind-protect
     (as:with-event-loop (:catch-app-errors t)
       (let* ((listener (make-instance 'listener :bind bind :port port))
-             (server (start-server listener)))
-        (as:signal-handler 2
-          (lambda (sig)
-            (declare (ignore sig))
-            (as:free-signal-handler 2)
-            (as:close-tcp-server server)
-            (as:exit-event-loop)))))
+             (server (start-server listener))
+             (sighandler (lambda (sig)
+                           (declare (ignore sig))
+                           (vom:notice "Stopping turtl-www")
+                           (as:clear-signal-handlers)
+                           (as:close-tcp-server server)
+                           (as:exit-event-loop))))
+
+        (as:signal-handler as:+sigint+ sighandler)
+        (as:signal-handler as:+sigterm+ sighandler)))
     (when *pid-file*
       (delete-file *pid-file*))))
 
