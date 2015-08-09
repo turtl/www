@@ -18,17 +18,7 @@ markdown: off
         <li>
             <img src="/images/site/coins/bitcoin.png" width="50" height="50" alt="Bitcoin" title="Bitcoin">
             <h3>Bitcoin</h3>
-            <p>1GZE5ZLqxR7YynJv1EgxRBFRwg2FNyCZ9o</p>
-        </li>
-        <li title="such appreciate. wow. much generous.">
-            <img src="/images/site/coins/dogecoin.png" width="50" height="50" alt="Dogecoin" title="Dogecoin">
-            <h3>Dogecoin</h3>
-            <p>DALdo9Q6MGwDziqLkXUW3SqvECke6S7zbi</p>
-        </li>
-        <li>
-            <img src="/images/site/coins/litecoin.png" width="50" height="50" alt="Litecoin" title="Litecoin">
-            <h3>Litecoin</h3>
-            <p>LKbLtLxWuT6DLvE8t7Ht34X22qb8g7NUyQ</p>
+            <p>1JiEvUYkj5uKWrdXWaTuaSYoz7PHUmYtba</p>
         </li>
         <li>
             <img src="/images/site/coins/namecoin.png" width="50" height="50" alt="Namecoin" title="Namecoin">
