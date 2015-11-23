@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function do_make () {
+	make \
+		| grep -v 'Nothing to be done' \
+		| grep -v '\(Entering\|Leaving\) directory'
+}
+
+function changes () {
+	inotifywait.exe -r --exclude='(\.git|node_modules|_site)' -q .
+}
+
+do_make
+while changes; do
+	do_make
+done
+

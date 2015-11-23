@@ -1,0 +1,252 @@
+// -----------------------------------------------------------------------------
+// vars
+// -----------------------------------------------------------------------------
+@textcolor: #222;
+@linkcolor: #337b00;
+@theme_primary: #79a758; //#8FC46A;
+@theme_secondary: #A5700D; // #D49621;
+//@linkcolor: #8abeb7;
+//@linkcolor: #b5bd68;
+@codebg: #ded;
+@codecolor: #000;
+@max_width: 960rem;
+@header_height: 42rem;
+
+// -----------------------------------------------------------------------------
+// helpers
+// -----------------------------------------------------------------------------
+@font-face { font-family: 'Entypo'; font-weight: 400; src: url(/images/font/fontello.ttf); }
+icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; font-weight: 400; font-size: 1.3em; color: #000; line-height: 1em; vertical-align: text-top; cursor: default;}
+a icon {cursor: pointer;}
+
+.clearMe {display: block; height: 0; clear: both; font-size: 0;}
+.clear:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.clear {display: inline-block;}
+/* hide IE mac \*/
+* html .clear {height: 1%;}
+.clear {display: block;}
+/* */
+
+.flex-center() {display: flex; align-items: center;}
+.button-inc() {display: flex; align-items: center; padding: 6rem 12rem; font-size: 16rem; color: #fff; text-decoration: none; background: rgba(0, 0, 0, 0.7); border-radius: 3rem;}
+
+@mobile: ~"only screen and (max-width: 640px)";
+
+// -----------------------------------------------------------------------------
+// template stuff
+// -----------------------------------------------------------------------------
+html {overflow-y: scroll; overflow-x: auto; font-size: 1px;}
+body {margin: 0; padding: 0; font-family: arial; font-size: 10rem; color: @textcolor; background: #f3f3f3;}
+
+@header_pad: 2rem;
+header {position: fixed; z-index: 5; top: 0; width: 100%; height: (@header_height - (@header_pad * 2)); padding: @header_pad 0; background: rgba(20, 20, 20, 0.97); box-shadow: 0 0 6rem 0 #0c1d0e; transition: background-color 0.3s;}
+header {
+	&, a, icon {color: #fff;}
+	.gutter {.flex-center(); max-width: @max_width; margin: 0 auto;}
+
+	a {text-decoration: none;}
+	h1 {.flex-center(); padding: 0 0 0 12rem;}
+	ul {.flex-center(); flex-direction: row; flex-basis: 90%; justify-content: flex-end; margin: 0; padding: 0; list-style: none;}
+	ul {
+		li {}
+		li {
+			a {display: block; padding: 12rem; font-size: 12rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; transition: opacity 0.3s;}
+			a:hover {opacity: 1;}
+		}
+	}
+
+	@media @mobile {
+		& {height: ((@header_height * 1.8) - (@header_pad * 2));}
+		.gutter {flex-direction: column; align-items: flex-start;}
+		h1 {padding: 6rem 0 0 6rem;}
+		ul {align-self: flex-end; margin-right: 6rem;}
+		ul {
+			li a {padding: 8rem;}
+			li:nth-last-child(1),
+			li:nth-last-child(2) {display: none;}
+		}
+	}
+}
+body.home {
+	header:not(.scrolled) {background-color: rgba(20, 20, 20, 0); box-shadow: none;}
+	#container {padding-top: 0;}
+}
+
+#container {padding-top: @header_height;}
+@media @mobile {
+	#container {padding-top: (@header_height * 1.8); }
+}
+
+footer {min-height: @header_height; padding: 16rem 0; font-size: 14rem; line-height: 20rem; color: #fff; background: #111;}
+footer {
+	.gutter {display: flex; align-items: center; justify-content: space-around; max-width: 800px; margin: 0 auto;}
+	a {color: @theme_primary; text-decoration: none;}
+	div {flex-basis: 50%; padding: 0 12rem;}
+	div {
+		p {padding: 0 0 12rem 0;}
+		ul {list-style: none; margin: 0 0 12rem 0;}
+		ul {
+			li {display: inline-block; margin: 0 6rem 0 0;}
+			li {
+				icon {color: @theme_primary; opacity: 0.8; transition: opacity 0.3s;}
+				a:hover icon {opacity: 1;}
+			}
+		}
+		small {display: block; font-size: 11rem; color: #ddd;}
+	}
+	ul.nav {flex-basis: 50%; padding: 0 12rem;}
+	ul.nav {
+		li {display: block;}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// general
+// -----------------------------------------------------------------------------
+a {color: @linkcolor; outline: none; text-decoration: underline;}
+.page-content {max-width: 780rem; min-height: 75vh; margin: 0 auto; padding: 40rem 10rem; font-family: 'roboto condensed'; font-size: 16rem; line-height: 1.6em;}
+.page-content {
+	h1 {margin: 0 0 20rem 0; font-size: 32rem; line-height: 1.1em;}
+	h2 {margin: 0 0 16rem 0; font-size: 28rem; line-height: 1.1em;}
+	h3 {margin: 0 0 16rem 0; font-size: 20rem; line-height: 1.1em;}
+	h4 {margin: 0 0 16rem 0; font-size: 18rem; line-height: 1.1em;}
+	p {margin: 0 0 16rem 0;}
+	p + h1 {margin-top: 32rem;}
+	em {color: @theme_secondary;}
+	pre {margin-bottom: 16rem;}
+	ul, ol {margin: 0 0 16rem 32rem;}
+}
+
+ul.download {margin: 0; padding: 0; list-style: none;}
+ul.download {
+	&.hide {display: none;}
+	li {display: block; float: left; margin: 0 12rem 12rem 0;}
+	li {
+		a, span {.button-inc();}
+		small {display: block; margin: 0 0 0 4rem;}
+	}
+	li.all {
+		a {height: 32px; background: none;}
+	}
+	li:nth-child(4) {clear: both;}
+	li.hide {display: none;}
+}
+
+.button {.button-inc(); justify-content: center; font-size: 18rem; background: @theme_primary;}
+.button {
+	a {color: #fff; text-decoration: none;}
+}
+
+// code
+pre, code {color: @codecolor; font-family: Consolas, "Liberation Mono", Courier, monospace; background: @codebg; border-radius: 3rem;}
+code {margin: 0 2rem; padding: 0 5rem; white-space: nowrap;}
+pre {padding: 2rem 8rem; overflow-x: auto; background: @codebg;}
+pre code {margin: 0; padding: 0; color: @codecolor; white-space: pre; background: none;}
+em code, strong code {font-style: normal; font-weight: normal;}
+
+
+// -----------------------------------------------------------------------------
+// splash
+// -----------------------------------------------------------------------------
+.splash {position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: 100vh; padding: 0 0 0 0; overflow: hidden; color: #fff; background: url(/images/home/overlook.jpg) no-repeat; background-attachment: fixed; background-position: 16% 50%; background-size: cover;}
+.splash {
+	.app {display: flex; justify-content: center; align-items: center; padding: @header_height 0 32rem 0;}
+	.app {
+		.img {box-sizing: border-box; width: 100%; padding-top: 90vh; max-width: 322px; max-height: 502px; margin: 0 24rem; background: url(/images/home/app_phone.png) center center no-repeat; background-size: contain;}
+		.img img {max-width: 100%; height: auto;}
+		.info {flex-basis: 40%; font-size: 20rem; padding: 0 12rem; font-family: 'roboto condensed';}
+		.info {
+			h1 {margin: 0 0 24rem 0; padding: 0; font-size: 36rem; font-family: 'roboto condensed'; letter-spacing: 0.03em;}
+			p {margin: 0 0 32rem 0; padding: 0; line-height: 1.3em;}
+		}
+		@media @mobile {
+			& {padding-top: (@header_height * 2);}
+			.img {display: none;}
+			.info {flex-basis: 90%; font-size: 18rem;}
+			.info {
+				h1 {margin-bottom: 16rem; font-size: 30rem;}
+				p {margin-bottom: 24rem;}
+				ul.download {
+					li {margin: 0 6rem 6rem 0;}
+					li {
+						a, span {font-size: 14rem;}
+					}
+				}
+			}
+		}
+	}
+	.more {position: absolute; bottom: 12rem; left: 50%; width: 100rem; margin: 0 0 0 -50rem; text-align: center;}
+	.more {
+		icon {font-size: 32rem; color: #fff;}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// download page
+// -----------------------------------------------------------------------------
+.download-section {margin-bottom: 24rem;}
+
+// -----------------------------------------------------------------------------
+// pricing page
+// -----------------------------------------------------------------------------
+.pricing {text-align: center;}
+.pricing {
+	ul.plans {display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin: 32px 0; list-style: none; text-align: center;}
+	ul.plans {
+		li {display: inline-block; flex-basis: 50%; max-width: 208rem; margin: 0 2% 32rem 2%; padding: 28px 1% 28px 1%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
+		li.emphasize {padding-top: 44px; padding-bottom: 44px;}
+		li {
+			h2 {margin: 0 0 6px 0; font-size: 1.8em; color: #666;}
+			em {display: block; margin: 0 0 32px 0; color: #888; font-style: normal;}
+			p {margin: 0 0 32px 0; padding: 0; font-size: 1.6em;}
+			p strong {font-size: 2.0em; font-weight: normal;}
+			.button {width: 70%; margin: 0 auto;}
+		}
+		@media @mobile {
+			li {flex-basis: 100%;}
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// contact page
+// -----------------------------------------------------------------------------
+.contact.documentation {margin-top: 12px;}
+.contact.mailing {margin: 24px 0; padding-top: 10px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;}
+
+// -----------------------------------------------------------------------------
+// docs
+// -----------------------------------------------------------------------------
+div.toc {float: right; width: 25%; margin: 8px 0 16px 16px; padding: 10px 16px; background: #fff; border-radius: 6px; box-shadow: 0 0 10px 2px rgba(0,0,0,.08);}
+div.toc ul {color: #999; margin-left: 16px; margin-bottom: 0;}
+div.toc ul a {text-decoration: none;}
+a.toc-anchor {position: absolute; margin-top: -(@header_height * 2);}
+.documentation {
+	p:first-child {display: inline; padding: 0; margin: 0;}
+	.breadcrumb {float: right; margin: 8px 0 0 0;}
+	.breadcrumb a {margin: 0 3px;}
+	.doc-row {display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; margin: 0 0 16rem 0;}
+	.doc-row {
+		.doc-sec {flex-basis: 41%; min-width: 224rem; margin: 0 0 24rem 0; padding: 16rem 2.5% 16rem 2.5%; background: #fff; border-radius: 6px; box-shadow: 0 0 10px 2px rgba(0,0,0,.08);}
+		.doc-sec {
+			&.main {float: none; width: auto; margin: 0 0 16px 0;}
+			a {text-decoration: none;}
+			p {font-size: 16rem; color: #555;}
+			h3 {font-size: 20rem; text-decoration: none; margin: 0; padding: 0;}
+			ul {color: #999; margin-left: 24rem;}
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// mailing
+// -----------------------------------------------------------------------------
+.mailing-list {padding: 32px 0 32px 0; text-align: center;}
+.mailing-list {
+	input {padding: 6px 8px;}
+	input[type=email] {margin: 0 3px; font-size: 19px; color: #555;}
+	input[type=submit] {margin: 0 3px; font-size: 19px; color: #777;}
+	p {margin: 16px 0 0 0;}
+	span.note {display: inline-block; margin: 0 0 0 0; font-size: .85em; color: #666;}
+}
+

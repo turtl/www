@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule ^([a-z-]+)/page/[0-9]+ /$1 [L,R=301]
+	RewriteRule ^(.*\.)v[0-9.]+\.(css|js|gif|png|jpg)$ $1$2 [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|js|woff)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+</IfModule>
+
