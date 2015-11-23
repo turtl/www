@@ -59,7 +59,19 @@ padding method, the key derivation method, and possibly more. These are just
 array indexes of the items at the top of [tcrypt.js](https://github.com/turtl/js/blob/master/library/tcrypt.js),
 with the `*_index` key names.
 1. __Initial vector__ - The IV this payload uses.
-1. __Payload data__ - Our actual encrypted data, in binary form.
+1. __Payload data__ - Our actual encrypted data, in binary form. Note that before
+encryption, the payload as a UTF8 byte prepended to it. This byte is random, but
+if `u <= 128` then the payload is binary, and if `u > 128` then the payload is
+UTF8 encoded and needs to be decoded post-decryption. This allows us to NOT
+blanket encode things, which in the case of files, can sometimes double the size
+of the payload.
+
+## Authentication
+
+The authentication string given to GCM consists of `version`, `payload description`,
+and `iv`. If any of these pieces of data are changed between encrypt and decrypt,
+or the payload itself is changed in any way, the decryption fails and we throw
+a `TcryptAuthFailed` exception.
 
 ## Asymmetric serialization format
 
