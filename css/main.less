@@ -11,6 +11,7 @@
 @codecolor: #000;
 @max_width: 960rem;
 @header_height: 42rem;
+@main_font: 'roboto condensed';
 
 // -----------------------------------------------------------------------------
 // helpers
@@ -107,7 +108,7 @@ footer {
 // general
 // -----------------------------------------------------------------------------
 a {color: @linkcolor; outline: none; text-decoration: underline;}
-.page-content {max-width: 780rem; min-height: 75vh; margin: 0 auto; padding: 40rem 10rem; font-family: 'roboto condensed'; font-size: 16rem; line-height: 1.6em;}
+.page-content {max-width: 780rem; min-height: 75vh; margin: 0 auto; padding: 40rem 10rem; font-family: @main_font; font-size: 16rem; line-height: 1.6em;}
 .page-content {
 	h1 {margin: 0 0 20rem 0; font-size: 32rem;}
 	h2 {margin: 0 0 16rem 0; font-size: 28rem;}
@@ -162,9 +163,9 @@ em code, strong code {font-style: normal; font-weight: normal;}
 	.app {
 		.img {box-sizing: border-box; width: 100%; padding-top: 90vh; max-width: 322px; max-height: 502px; margin: 0 24rem; background: url(/images/home/app_phone.png) center center no-repeat; background-size: contain;}
 		.img img {max-width: 100%; height: auto;}
-		.info {flex-basis: 40%; font-size: 20rem; padding: 0 12rem; font-family: 'roboto condensed';}
+		.info {flex-basis: 40%; font-size: 20rem; padding: 0 12rem; font-family: @main_font;}
 		.info {
-			h1 {margin: 0 0 24rem 0; padding: 0; font-size: 36rem; font-family: 'roboto condensed'; letter-spacing: 0.03em;}
+			h1 {margin: 0 0 24rem 0; padding: 0; font-size: 36rem; font-family: @main_font; letter-spacing: 0.03em;}
 			p {margin: 0 0 32rem 0; padding: 0; line-height: 1.3em;}
 		}
 		@media @mobile {
