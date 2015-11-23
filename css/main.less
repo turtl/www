@@ -28,7 +28,10 @@ a icon {cursor: pointer;}
 /* */
 
 .flex-center() {display: flex; align-items: center;}
-.button-inc() {display: flex; align-items: center; padding: 6rem 12rem; font-size: 16rem; color: #fff; text-decoration: none; background: rgba(0, 0, 0, 0.7); border-radius: 3rem;}
+.button-inc() {
+	& {display: flex; align-items: center; padding: 6rem 12rem; font-size: 16rem; color: #fff; text-decoration: none; background: rgba(0, 0, 0, 0.7); border-radius: 3rem; transition: background-color 0.3s;}
+	&:hover {background-color: rgba(0, 0, 0, 0.9);}
+}
 
 @mobile: ~"only screen and (max-width: 640px)";
 
@@ -106,10 +109,15 @@ footer {
 a {color: @linkcolor; outline: none; text-decoration: underline;}
 .page-content {max-width: 780rem; min-height: 75vh; margin: 0 auto; padding: 40rem 10rem; font-family: 'roboto condensed'; font-size: 16rem; line-height: 1.6em;}
 .page-content {
-	h1 {margin: 0 0 20rem 0; font-size: 32rem; line-height: 1.1em;}
-	h2 {margin: 0 0 16rem 0; font-size: 28rem; line-height: 1.1em;}
-	h3 {margin: 0 0 16rem 0; font-size: 20rem; line-height: 1.1em;}
-	h4 {margin: 0 0 16rem 0; font-size: 18rem; line-height: 1.1em;}
+	h1 {margin: 0 0 20rem 0; font-size: 32rem;}
+	h2 {margin: 0 0 16rem 0; font-size: 28rem;}
+	h3 {margin: 0 0 16rem 0; font-size: 22rem;}
+	h4 {margin: 0 0 16rem 0; font-size: 18rem;}
+	h1, h2 {margin-left: -6rem;}
+	h1, h2, h3, h4 {
+		& {line-height: 1.1em;}
+		a {text-decoration: none;}
+	}
 	p {margin: 0 0 16rem 0;}
 	p + h1 {margin-top: 32rem;}
 	em {color: @theme_secondary;}
@@ -128,7 +136,7 @@ ul.download {
 	li.all {
 		a {height: 32px; background: none;}
 	}
-	li:nth-child(4) {clear: both;}
+	li:nth-child(5) {clear: both;}
 	li.hide {display: none;}
 }
 
