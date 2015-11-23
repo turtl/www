@@ -1,3 +1,5 @@
 _site
 .sass-cache
+css/*.css
+!css/reset.css
 node_modules
