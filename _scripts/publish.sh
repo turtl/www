@@ -7,6 +7,7 @@ if [ "$DEST" == "" ]; then
 	echo "Usage: $0 <destination>"
 	echo ""
 	echo "  Example $0 jo@mama.com:/tmp/turtl-site"
+	exit 1
 fi
 
 rsync \
