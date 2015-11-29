@@ -1,4 +1,4 @@
-.PHONY: all clean watch
+.PHONY: all clean watch copy
 
 JEKYLL := $(shell which jekyll)
 NODE := $(shell which node)
@@ -21,6 +21,10 @@ build:
 	@echo "- postcss:" $?
 	@$(NODE) $(POSTCSS) --use autoprefixer --replace $?
 	@touch $@
+
+copy:
+	@echo "- Copying desktop releases, remember to version them."
+	@cp ../desktop/release/turtl-* ./releases/desktop
 
 clean:
 	rm $(allcss)
