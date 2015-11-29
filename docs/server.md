@@ -17,7 +17,7 @@ so be sure to read this guide carefully.
 
 ## Prerequisites 
 
-Let's go ove rthe software you need to get started.
+Let's go over the software you need to get started.
 
 ### Common lisp
 

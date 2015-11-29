@@ -1,0 +1,8 @@
+{% if include.hide %}
+	{% include download.html class="detect" %}
+	<noscript>{% include download.html %}</noscript>
+	<script>app.init_splash_downloads();</script>
+{% else %}
+	{% include download.html %}
+{% endif %}
+

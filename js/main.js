@@ -2,7 +2,9 @@ var app = {
 	init: function()
 	{
 		app.init_home_header();
-		app.init_splash_downloads();
+		// NOTE: this is called directly by the download-detect include
+		// for faster processing
+		//app.init_splash_downloads();
 		app.init_splash_more();
 		app.init_doc_anchors();
 		//app.init_splash_parallax();
@@ -48,7 +50,7 @@ var app = {
 
 	init_splash_downloads: function()
 	{
-		var ul = document.getElement('.splash ul.download');
+		var ul = document.getElement('.splash ul.detect.download');
 		if(!ul) return;
 
 		var fam = platform.os.family;
@@ -66,7 +68,7 @@ var app = {
 
 		ul.getElements('> li').each(function(el) { el.addClass('hide'); });
 		li.removeClass('hide');
-		ul.removeClass('hide');
+		ul.removeClass('detect');
 		var all = new Element('li')
 			.addClass('all')
 			.set('html', '<a href="#all" title="Show all downloads">All platforms &raquo;</a>');

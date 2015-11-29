@@ -1,7 +1,7 @@
 ---
 layout: documentation
 title: 'Encryption specifics | Documentation'
-permalink: 'docs/encryption-specifics/'
+permalink: 'docs/security/encryption-specifics/'
 ---
 
 <div class="breadcrumb">
@@ -13,17 +13,32 @@ Encryption specifics
 # Encryption specifics
 {% include toc.md %}
 
-Behind the scenes, all encryption goes through the [Tcrypt library](https://github.com/turtl/js/blob/master/library/tcrypt.js),
-which is the static class responsible for actually encrypting/decrypting data,
-serialization into the standard format, data authentication, etc.
+This page will explain the apecific algorithms and methods Turtl uses to encrypt,
+decrypt, (de)serialize, and authenticate data.
 
-## Key generation
+## Methodology
 
-When you log in, Turtl takes your username (as a salt) and your password (as the
-main input) and runs them through PBKDF2. It generates a 256-bit key using
-100K iterations of SHA256.
+Every encrypted object in Turtl has its own key. This goes for both boards
+and notes. This means that every object can be decrypted independently of the
+profile's master key (generated from the user's authentication info).
 
-This acts as your master key.
+Encrypted objects have the ability to store their own key in their data,
+encrypted via another object's key. Sounds confusing, so the primary example
+would be this: Note A has its own key that will decrypt its data. Note A is in
+Board B. Note A's data contains Note A's key encrypted with Board B's key. So
+if Alice shares Board B with Bob, she can share Board B's key, and now Bob has
+the ability to decrypt any note in Board B (including Note A).
+
+This is what allows objects to be sharable in Turtl without compromising the
+master key...sharing can be done granularly and on a per-object basis. That said
+the only objects that are currently sharable in Turtl are boards.
+
+It's important to note that as of v0.6.0, all encrypted objects put their key
+in the user's keychain, whether they can be decrypted by a parent object or not.
+This allows notes to be in zero boards and still be decryptable. On top of this,
+the keychain gives top-level objects a place to store their key outside of their
+own data. This makes it easy to change a user's password: all that's required is
+to regenerate their key and re-encrypt and save their keychain entries.
 
 ## Protected model
 All models that use encryption extend the [Protected model](https://github.com/turtl/js/blob/master/models/_protected.js)
@@ -32,9 +47,33 @@ in the code for encryption/decryption/serialization/deserialization to occur.
 
 The Protected model not only handles the encryption/decryption of data, but
 also the encoding of key data into models and/or the finding of keys from the
-user's keychain.
+user's keychain (or from parent objects).
 
-## Ciphers and modes
+## Tcrypt
+
+Short for TurtlCrypt, [Tcrypt is the main encryption library](https://github.com/turtl/js/blob/master/library/tcrypt.js)
+is the main encryption library for the app. It provides a standard interface for
+encrypting/decrypting objects and keys, and manages the versioning of previous
+data.
+
+All encryption, decryption, hashing, key generation, and random number
+generation go through Tcrypt.
+
+## Algorithms
+
+Turtl uses all standard algorithms for key generation, encryption, and
+decryption: PBKDF2 for key generation, AES-GCM for encryption/decryption, and
+OpenPGP for asymmetric crypto and sharing. Let's get in for a closer look!!
+
+### Key generation
+
+When you log in, Turtl takes your username (as a salt) and your password (as the
+main input) and runs them through PBKDF2. It generates a 256-bit key using
+100K iterations of SHA256.
+
+This acts as your master key.
+
+### Ciphers and modes
 Turtl uses [SJCL](http://bitwiseshiftleft.github.io/sjcl/) for all low
 level encryption.
 
@@ -43,7 +82,7 @@ used is [GCM](http://en.wikipedia.org/wiki/Galois/Counter_Mode).
 When encrypting data via the Protected model (and by default otherwise), Turtl
 always uses a random Initial Vector, generated via [crypto.getRandomValues()](https://developer.mozilla.org/en-US/docs/Web/API/window.crypto.getRandomValues).
 
-## Symmetric Serialization format
+### Symmetric Serialization format
 Tcrypt packs data in the following binary format:
 
 ~~~
@@ -66,27 +105,16 @@ UTF8 encoded and needs to be decoded post-decryption. This allows us to NOT
 blanket encode things, which in the case of files, can sometimes double the size
 of the payload.
 
-## Authentication
+### Authentication
 
 The authentication string given to GCM consists of `version`, `payload description`,
 and `iv`. If any of these pieces of data are changed between encrypt and decrypt,
 or the payload itself is changed in any way, the decryption fails and we throw
 a `TcryptAuthFailed` exception.
 
-## Asymmetric serialization format
+### Asymmetric serialization format
 
 Turtl now uses [OpenPGP.js](https://github.com/openpgpjs/openpgpjs) for all
 asymmetric crypto, and relies on that library's key generation and crypto
 methods.
-
-## Asynchronous/queued crypto
-
-Almost all crypto in Turtl is asynchronous and runs through a queue. This queue
-allows several hundred items to be decrypted simultaneously without overloading
-the processor(s) running the app.
-
-If the data having crypto applied is below a size threshold, the queue runs the
-crypto job on the main thread. If the data is above a certain size, then the job
-is farmed off to a background thread and run there. This works great in the case
-of files, which often require long periods of time to encrypt/decrypt.
 

@@ -51,11 +51,11 @@ note in that board.
 
 ## Encryption specifics
 If you're looking for a more comprehensive look at how Turtl does encryption,
-[check out the encryption specifics page](/docs/encryption-specifics) of the docs
+[check out the encryption specifics page](/docs/security/encryption-specifics) of the docs
 which goes over the ciphers, block modes, and other methods Turtl uses when
 handling your data.
 
-[Encryption specifics &raquo;](/docs/encryption-specifics)
+[Encryption specifics &raquo;](/docs/security/encryption-specifics)
 
 ## When is Turtl *not* secure?
 
