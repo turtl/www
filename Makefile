@@ -1,9 +1,17 @@
-.PHONY: all clean watch copy
+.PHONY: all clean watch release-all
 
 JEKYLL := $(shell which jekyll)
 NODE := $(shell which node)
 LESSC := node_modules/.bin/lessc
 POSTCSS := _scripts/postcss.js
+VERSION_SCRIPT := _scripts/version
+
+DESKTOP_VERSION = $(shell cat ../desktop/package.json \
+					| grep '"version"' \
+					| sed 's|.*: \+"\([^"]\+\)".*|\1|')
+MOBILE_VERSION = $(shell cat ../mobile/config.xml \
+					| grep '^<widget' \
+					| sed 's|^.*version="\([^"]\+\)".*|\1|')
 
 lessfiles := $(shell find css/ -name "*.less")
 cssfiles := $(lessfiles:%.less=%.css)
@@ -22,9 +30,21 @@ build:
 	@$(NODE) $(POSTCSS) --use autoprefixer --replace $?
 	@touch $@
 
-copy:
-	@echo "- Copying desktop releases, remember to version them."
+release-all:
+	@echo -ne "\n\n--- Building desktop release $(DESKTOP_VERSION) ---\n\n"
+	@sleep 2
+	cd ../desktop && make release
 	@cp ../desktop/release/turtl-* ./releases/desktop
+	$(VERSION_SCRIPT) desktop $(DESKTOP_VERSION)
+
+	@echo -ne "\n\n--- Building mobile release $(MOBILE_VERSION) ---\n\n"
+	@sleep 2
+	cd ../mobile && make release-android
+	@cp ../mobile/platforms/android/build/outputs/apk/android-armv7-debug.apk ./releases/mobile/turtl-android.apk
+	$(VERSION_SCRIPT) mobile $(MOBILE_VERSION)
+
+	@echo -ne "\n\n--- Building jekyl site ---\n\n"
+	@make
 
 clean:
 	rm $(allcss)
