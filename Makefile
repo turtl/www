@@ -1,4 +1,7 @@
-.PHONY: all clean watch release-all
+PUBLISH_TARGET = 
+
+# non-versioned include
+-include vars.mk
 
 JEKYLL := $(shell which jekyll)
 NODE := $(shell which node)
@@ -15,6 +18,8 @@ MOBILE_VERSION = $(shell cat ../mobile/config.xml \
 
 lessfiles := $(shell find css/ -name "*.less")
 cssfiles := $(lessfiles:%.less=%.css)
+
+.PHONY: all clean watch release-all
 
 all: $(cssfiles) .build/postcss build
 
@@ -40,11 +45,14 @@ release-all:
 	@echo -ne "\n\n--- Building mobile release $(MOBILE_VERSION) ---\n\n"
 	@sleep 2
 	cd ../mobile && make release-android
-	@cp ../mobile/platforms/android/build/outputs/apk/android-armv7-debug.apk ./releases/mobile/turtl-android.apk
+	@cp ../mobile/platforms/android/build/outputs/apk/android-armv7-release.apk ./releases/mobile/turtl-android.apk
 	$(VERSION_SCRIPT) mobile $(MOBILE_VERSION)
 
 	@echo -ne "\n\n--- Building jekyl site ---\n\n"
 	@make
+
+publish:
+	_scripts/publish.sh $(PUBLISH_TARGET)
 
 clean:
 	rm $(allcss)

@@ -1,5 +1,6 @@
+/vars.mk
 _site
 .sass-cache
 css/*.css
 !css/reset.css
-node_modules
+/node_modules
