@@ -28,7 +28,7 @@ var app = {
 
 		var scroller = function()
 		{
-			var scroll = window.scrollY;
+			var scroll = window.scrollY || window.pageYOffset;
 			var top_cutoff = 10;
 			if(scroll < top_cutoff && header.className.match(/scrolled/))
 			{
