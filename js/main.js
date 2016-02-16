@@ -57,7 +57,8 @@ var app = {
 		var os = null;
 		if(fam.match(/windows(?!.*phone)/i)) os = 'desktop-windows';
 		else if(fam.match(/os ?x/i)) os = 'desktop-osx';
-		else if(fam.match(/linux/i)) os = 'desktop-linux';
+		else if(fam.match(/mac/i)) os = 'desktop-osx';
+		else if(fam.match(/(linux|centos|debian|fedora|gentoo|red hat|suse|ubuntu|xubuntu)/i)) os = 'desktop-linux';
 		else if(fam.match(/android/i)) os = 'mobile-android';
 		else if(fam.match(/ios/i)) os = 'mobile-ios';
 
