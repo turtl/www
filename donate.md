@@ -5,8 +5,8 @@ permalink: "donate/"
 body_class: 'donate'
 ---
 
-Donate
-======
+Donate to the Turtl project
+===========================
 
 Until we are able to support ourselves by providing a Turtl Premium service, any
 and all donations help further continuing development. If you like
