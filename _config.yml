@@ -23,4 +23,5 @@ exclude:
   - Makefile
   - package.json
   - node_modules/
+  - "*.less"
 

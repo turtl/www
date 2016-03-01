@@ -108,7 +108,6 @@ var app = {
 		var splash_end;
 		var setup_static = function()
 		{
-			console.log('setup');
 			splash_end = splash.getCoordinates().bottom;
 		};
 		setup_static();
@@ -117,10 +116,10 @@ var app = {
 		{
 			var scroll = window.scrollY;
 			var ratio = scroll / splash_end;
-			var travel = 500;
-			var position = initial[1] + (ratio * travel);
-			console.log('scroll: ', position);
-			splash.setStyle('background-position', initial[0]+'% '+position+'%');
+			var travel = 1;
+			var position = (initial[1] + (100 * ratio * travel));
+			var style = initial[0]+'% '+position+'%';
+			splash.setStyle('background-position', style);
 		};
 		window.addEvent('scroll', scroller);
 		window.addEvent('resize', function() {

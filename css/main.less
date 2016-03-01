@@ -54,6 +54,7 @@ header {
 	ul {
 		li {}
 		li {
+			&.highlight a {opacity: 0.95;}
 			a {display: block; padding: 12rem; font-size: 12rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; transition: opacity 0.3s;}
 			a:hover {opacity: 1;}
 		}
@@ -108,6 +109,7 @@ footer {
 // general
 // -----------------------------------------------------------------------------
 a {color: @linkcolor; outline: none; text-decoration: underline;}
+strong {font-weight: bold;}
 .page-content {max-width: 780rem; min-height: 85vh; margin: 0 auto; padding: 40rem 10rem; font-size: 14rem; line-height: 1.6em;}
 .page-content {
 	h1 {margin: 0 0 20rem 0; font-size: 28rem;}
@@ -163,11 +165,11 @@ em code, strong code {font-style: normal; font-weight: normal;}
 // -----------------------------------------------------------------------------
 // splash
 // -----------------------------------------------------------------------------
-.splash {position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: 100vh; padding: 0 0 0 0; overflow: hidden; color: #fff; background: url(/images/home/overlook.jpg) no-repeat; background-attachment: fixed; background-position: 16% 50%; background-size: cover;}
+.splash {position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: 80vh; padding: 0 0 0 0; overflow: hidden; color: #fff; background: url(/images/home/overlook.jpg) no-repeat; background-attachment: fixed; background-position: 16% 50%; background-size: cover;}
 .splash {
 	.app {display: flex; width: 100%; justify-content: center; align-items: center; padding: @header_height 0 32rem 0;}
 	.app {
-		.img {box-sizing: border-box; width: 100%; padding-top: 90vh; max-width: 322px; max-height: 502px; margin: 0 24rem; background: url(/images/home/app_phone.v2.png) center center no-repeat; background-size: contain;}
+		.img {box-sizing: border-box; width: 100%; padding-top: 72vh; max-width: 322px; max-height: 502px; margin: 0 24rem; background: url(/images/home/app_phone.v2.png) center center no-repeat; background-size: contain;}
 		.img img {max-width: 100%; height: auto;}
 		.info {flex-basis: 40%; font-size: 20rem; padding: 0 12rem; font-family: @accent_font;}
 		.info {
@@ -204,8 +206,8 @@ em code, strong code {font-style: normal; font-weight: normal;}
 // -----------------------------------------------------------------------------
 // pricing page
 // -----------------------------------------------------------------------------
-.pricing {text-align: center;}
-.pricing {
+.premium {}
+.premium {
 	ul.plans {display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin: 32px 0; list-style: none; text-align: center;}
 	ul.plans {
 		li {display: inline-block; flex-basis: 50%; max-width: 208rem; margin: 0 2% 32rem 2%; padding: 28px 1% 28px 1%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
@@ -228,7 +230,7 @@ em code, strong code {font-style: normal; font-weight: normal;}
 // -----------------------------------------------------------------------------
 .donate {
 	.page-content {
-		ul {display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; margin: 0; padding: 0; list-style: none;}
+		ul {display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; margin: 0 0 32px 0; padding: 0; list-style: none;}
 		ul {
 			li {min-width: 30%; padding: 10px 2%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
 			li {
