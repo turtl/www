@@ -9,8 +9,8 @@
 //@linkcolor: #b5bd68;
 @codebg: #ded;
 @codecolor: #000;
-@max_width: 960rem;
-@header_height: 42rem;
+@max_width: 960px;
+@header_height: 42px;
 @accent_font: 'roboto condensed';
 
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ a icon {cursor: pointer;}
 
 .flex-center() {display: flex; align-items: center;}
 .button-inc() {
-	& {display: flex; align-items: center; padding: 6rem 12rem; font-size: 16rem; color: #fff; text-decoration: none; background: rgba(0, 0, 0, 0.7); border-radius: 3rem; transition: background-color 0.3s;}
+	& {display: flex; align-items: center; padding: 6px 12px; font-size: 16px; color: #fff; text-decoration: none; background: rgba(0, 0, 0, 0.7); border-radius: 3px; transition: background-color 0.3s;}
 	&:hover {background-color: rgba(0, 0, 0, 0.9);}
 }
 
@@ -40,22 +40,22 @@ a icon {cursor: pointer;}
 // template stuff
 // -----------------------------------------------------------------------------
 html {overflow-y: scroll; overflow-x: auto; font-size: 1px;}
-body {margin: 0; padding: 0; font-family: arial; font-size: 10rem; color: @textcolor; background: #f3f3f3;}
+body {margin: 0; padding: 0; font-family: arial; font-size: 10px; color: @textcolor; background: #f3f3f3;}
 
-@header_pad: 2rem;
-header {position: fixed; z-index: 5; top: 0; width: 100%; height: (@header_height - (@header_pad * 2)); padding: @header_pad 0; background: rgba(20, 20, 20, 0.97); box-shadow: 0 0 6rem 0 #0c1d0e; transition: background-color 0.3s;}
+@header_pad: 2px;
+header {position: fixed; z-index: 5; top: 0; width: 100%; height: (@header_height - (@header_pad * 2)); padding: @header_pad 0; background: rgba(20, 20, 20, 0.97); box-shadow: 0 0 6px 0 #0c1d0e; transition: background-color 0.3s;}
 header {
 	&, a, icon {color: #fff;}
 	.gutter {.flex-center(); max-width: @max_width; margin: 0 auto;}
 
 	a {text-decoration: none;}
-	h1 {.flex-center(); padding: 0 0 0 12rem;}
+	h1 {.flex-center(); padding: 0 0 0 12px;}
 	ul {.flex-center(); flex-direction: row; flex-basis: 90%; justify-content: flex-end; margin: 0; padding: 0; list-style: none;}
 	ul {
 		li {}
 		li {
 			&.highlight a {opacity: 0.95;}
-			a {display: block; padding: 12rem; font-size: 12rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; transition: opacity 0.3s;}
+			a {display: block; padding: 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; transition: opacity 0.3s;}
 			a:hover {opacity: 1;}
 		}
 	}
@@ -63,10 +63,10 @@ header {
 	@media @mobile {
 		& {height: ((@header_height * 1.8) - (@header_pad * 2));}
 		.gutter {flex-direction: column; align-items: flex-start;}
-		h1 {padding: 6rem 0 0 6rem;}
-		ul {align-self: flex-end; margin-right: 6rem;}
+		h1 {padding: 6px 0 0 6px;}
+		ul {align-self: flex-end; margin-right: 6px;}
 		ul {
-			li a {padding: 8rem;}
+			li a {padding: 8px;}
 			li:nth-last-child(1),
 			li:nth-last-child(2) {display: none;}
 		}
@@ -82,24 +82,24 @@ body.home {
 	#container {padding-top: (@header_height * 1.8); }
 }
 
-footer {min-height: @header_height; padding: 16rem 0; font-size: 14rem; line-height: 20rem; color: #fff; background: #111;}
+footer {min-height: @header_height; padding: 16px 0; font-size: 14px; line-height: 20px; color: #fff; background: #111;}
 footer {
 	.gutter {display: flex; align-items: center; justify-content: space-around; max-width: 800px; margin: 0 auto;}
 	a {color: @theme_primary; text-decoration: none;}
-	div {flex-basis: 50%; padding: 0 12rem;}
+	div {flex-basis: 50%; padding: 0 12px;}
 	div {
-		p {padding: 0 0 12rem 0;}
-		ul {list-style: none; margin: 0 0 12rem 0;}
+		p {padding: 0 0 12px 0;}
+		ul {list-style: none; margin: 0 0 12px 0;}
 		ul {
-			li {display: inline-block; margin: 0 6rem 0 0;}
+			li {display: inline-block; margin: 0 6px 0 0;}
 			li {
 				icon {color: @theme_primary; opacity: 0.8; transition: opacity 0.3s;}
 				a:hover icon {opacity: 1;}
 			}
 		}
-		small {display: block; font-size: 11rem; color: #ddd;}
+		small {display: block; font-size: 11px; color: #ddd;}
 	}
-	ul.nav {flex-basis: 50%; padding: 0 12rem;}
+	ul.nav {flex-basis: 50%; padding: 0 12px;}
 	ul.nav {
 		li {display: block;}
 	}
@@ -110,25 +110,25 @@ footer {
 // -----------------------------------------------------------------------------
 a {color: @linkcolor; outline: none; text-decoration: underline;}
 strong {font-weight: bold;}
-.page-content {max-width: 780rem; min-height: 85vh; margin: 0 auto; padding: 40rem 10rem; font-size: 14rem; line-height: 1.6em;}
+.page-content {max-width: 780px; min-height: 85vh; margin: 0 auto; padding: 40px 10px; font-size: 14px; line-height: 1.6em;}
 .page-content {
-	h1 {margin: 0 0 20rem 0; font-size: 28rem;}
-	h2 {margin: 0 0 16rem 0; font-size: 24rem;}
-	h3 {margin: 0 0 16rem 0; font-size: 20rem;}
-	h4 {margin: 0 0 16rem 0; font-size: 16rem;}
-	h1, h2 {margin-left: -6rem;}
+	h1 {margin: 0 0 20px 0; font-size: 28px;}
+	h2 {margin: 0 0 16px 0; font-size: 24px;}
+	h3 {margin: 0 0 16px 0; font-size: 20px;}
+	h4 {margin: 0 0 16px 0; font-size: 16px;}
+	h1, h2 {margin-left: -6px;}
 	h1, h2, h3, h4 {
 		& {line-height: 1.1em;}
 		a {text-decoration: none;}
 	}
-	p {margin: 0 0 16rem 0;}
+	p {margin: 0 0 16px 0;}
 	p + h1,
 	p + h2,
 	p + a.toc-anchor + h1,
-	p + a.toc-anchor + h2 {margin-top: 32rem;}
+	p + a.toc-anchor + h2 {margin-top: 32px;}
 	em {color: @theme_secondary;}
-	pre {margin-bottom: 16rem;}
-	ul, ol {margin: 0 0 16rem 32rem;}
+	pre {margin-bottom: 16px;}
+	ul, ol {margin: 0 0 16px 32px;}
 }
 
 ul.download {margin: 0; padding: 0; list-style: none;}
@@ -137,10 +137,10 @@ ul.download {
 		li {display: none;}
 		li:first-child {display: block;}
 	}
-	li {display: block; float: left; margin: 0 12rem 12rem 0;}
+	li {display: block; float: left; margin: 0 12px 12px 0;}
 	li {
 		a, span {.button-inc();}
-		small {display: block; margin: 0 0 0 4rem;}
+		small {display: block; margin: 0 0 0 4px;}
 	}
 	li.all {
 		a {height: 32px; background: none;}
@@ -149,15 +149,15 @@ ul.download {
 	li.hide {display: none;}
 }
 
-.button {.button-inc(); justify-content: center; font-size: 18rem; background: @theme_primary;}
+.button {.button-inc(); justify-content: center; font-size: 18px; background: @theme_primary;}
 .button {
 	a {color: #fff; text-decoration: none;}
 }
 
 // code
-pre, code {color: @codecolor; font-family: Consolas, "Liberation Mono", Courier, monospace; background: @codebg; border-radius: 3rem;}
-code {margin: 0 2rem; padding: 0 5rem; white-space: nowrap;}
-pre {padding: 2rem 8rem; overflow-x: auto; background: @codebg;}
+pre, code {color: @codecolor; font-family: Consolas, "Liberation Mono", Courier, monospace; background: @codebg; border-radius: 3px;}
+code {margin: 0 2px; padding: 0 5px; white-space: nowrap;}
+pre {padding: 2px 8px; overflow-x: auto; background: @codebg;}
 pre code {margin: 0; padding: 0; color: @codecolor; white-space: pre; background: none;}
 em code, strong code {font-style: normal; font-weight: normal;}
 
@@ -167,50 +167,50 @@ em code, strong code {font-style: normal; font-weight: normal;}
 // -----------------------------------------------------------------------------
 .splash {position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: 80vh; padding: 0 0 0 0; overflow: hidden; color: #fff; background: url(/images/home/overlook.jpg) no-repeat; background-attachment: fixed; background-position: 16% 50%; background-size: cover;}
 .splash {
-	.app {display: flex; width: 100%; max-width: 1440rem; justify-content: center; align-items: center; padding: (@header_height * 1.25) 0 40rem 0;}
+	.app {display: flex; width: 100%; max-width: 1440px; justify-content: center; align-items: center; padding: (@header_height * 1.25) 0 40px 0;}
 	.app {
-		.img {box-sizing: border-box; width: 100%; padding-top: 72vh; max-width: 322px; max-height: 502px; margin: 0 24rem; background: url(/images/home/app_phone.v2.png) center center no-repeat; background-size: contain;}
+		.img {box-sizing: border-box; width: 100%; padding-top: 72vh; max-width: 322px; max-height: 502px; margin: 0 24px; background: url(/images/home/app_phone.v2.png) center center no-repeat; background-size: contain;}
 		.img img {max-width: 100%; height: auto;}
-		.info {flex-basis: 40%; font-size: 20rem; padding: 0 12rem; font-family: @accent_font;}
+		.info {flex-basis: 40%; font-size: 20px; padding: 0 12px; font-family: @accent_font;}
 		.info {
-			h1 {margin: 0 0 24rem 0; padding: 0; font-size: 36rem; font-family: @accent_font; letter-spacing: 0.03em;}
-			p {margin: 0 0 32rem 0; padding: 0; line-height: 1.3em;}
+			h1 {margin: 0 0 24px 0; padding: 0; font-size: 36px; font-family: @accent_font; letter-spacing: 0.03em;}
+			p {margin: 0 0 32px 0; padding: 0; line-height: 1.3em;}
 		}
 		@media @mobile {
 			& {padding-top: (@header_height * 2);}
 			.img {display: none;}
-			.info {flex-basis: 90%; font-size: 18rem;}
+			.info {flex-basis: 90%; font-size: 18px;}
 			.info {
-				h1 {margin-bottom: 16rem; font-size: 30rem;}
-				p {margin-bottom: 24rem;}
+				h1 {margin-bottom: 16px; font-size: 30px;}
+				p {margin-bottom: 24px;}
 				ul.download {
-					li {margin: 0 6rem 6rem 0;}
+					li {margin: 0 6px 6px 0;}
 					li {
-						a, span {font-size: 14rem;}
+						a, span {font-size: 14px;}
 					}
 				}
 			}
 		}
 	}
-	.more {position: absolute; bottom: 12rem; left: 50%; width: 100rem; margin: 0 0 0 -50rem; text-align: center;}
+	.more {position: absolute; bottom: 12px; left: 50%; width: 100px; margin: 0 0 0 -50px; text-align: center;}
 	.more {
-		icon {font-size: 32rem; color: #fff;}
+		icon {font-size: 32px; color: #fff;}
 	}
 }
 
 // -----------------------------------------------------------------------------
 // download page
 // -----------------------------------------------------------------------------
-.download-section {margin-bottom: 24rem;}
+.download-section {margin-bottom: 24px;}
 
 // -----------------------------------------------------------------------------
 // pricing page
 // -----------------------------------------------------------------------------
-.premium {}
-.premium {
+.ppxium {}
+.ppxium {
 	ul.plans {display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin: 32px 0; list-style: none; text-align: center;}
 	ul.plans {
-		li {display: inline-block; flex-basis: 50%; max-width: 208rem; margin: 0 2% 32rem 2%; padding: 28px 1% 28px 1%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
+		li {display: inline-block; flex-basis: 50%; max-width: 208px; margin: 0 2% 32px 2%; padding: 28px 1% 28px 1%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
 		li.emphasize {padding-top: 44px; padding-bottom: 44px;}
 		li {
 			h2 {margin: 0 0 6px 0; font-size: 1.8em; color: #666;}
@@ -259,16 +259,16 @@ a.toc-anchor {position: absolute; margin-top: -(@header_height * 2);}
 	p:first-child {display: inline; padding: 0; margin: 0;}
 	.breadcrumb {float: right; margin: 8px 0 0 0;}
 	.breadcrumb a {margin: 0 3px;}
-	.doc-row {display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; margin: 0 0 16rem 0;}
+	.doc-row {display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; margin: 0 0 16px 0;}
 	.doc-row {
-		.doc-sec {flex-basis: 41%; min-width: 224rem; margin: 0 0 24rem 0; padding: 16rem 2.5% 16rem 2.5%; background: #fff; border-radius: 6px; box-shadow: 0 0 10px 2px rgba(0,0,0,.08);}
+		.doc-sec {flex-basis: 41%; min-width: 224px; margin: 0 0 24px 0; padding: 16px 2.5% 16px 2.5%; background: #fff; border-radius: 6px; box-shadow: 0 0 10px 2px rgba(0,0,0,.08);}
 		.doc-sec {
 			&.main {float: none; width: auto; margin: 0 0 16px 0;}
 			a {text-decoration: none;}
-			p {font-size: 14rem; color: #555;}
+			p {font-size: 14px; color: #555;}
 			h2 {margin-left: 0;}
-			h3 {font-size: 20rem; text-decoration: none; margin-bottom: 6rem; padding: 0;}
-			ul {color: #999; margin-left: 24rem;}
+			h3 {font-size: 20px; text-decoration: none; margin-bottom: 6px; padding: 0;}
+			ul {color: #999; margin-left: 24px;}
 		}
 	}
 }
