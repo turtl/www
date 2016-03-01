@@ -167,7 +167,7 @@ em code, strong code {font-style: normal; font-weight: normal;}
 // -----------------------------------------------------------------------------
 .splash {position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: 80vh; padding: 0 0 0 0; overflow: hidden; color: #fff; background: url(/images/home/overlook.jpg) no-repeat; background-attachment: fixed; background-position: 16% 50%; background-size: cover;}
 .splash {
-	.app {display: flex; width: 100%; justify-content: center; align-items: center; padding: @header_height 0 32rem 0;}
+	.app {display: flex; width: 100%; max-width: 1440rem; justify-content: center; align-items: center; padding: (@header_height * 1.25) 0 40rem 0;}
 	.app {
 		.img {box-sizing: border-box; width: 100%; padding-top: 72vh; max-width: 322px; max-height: 502px; margin: 0 24rem; background: url(/images/home/app_phone.v2.png) center center no-repeat; background-size: contain;}
 		.img img {max-width: 100%; height: auto;}
