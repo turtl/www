@@ -54,9 +54,16 @@ header {
 	ul {
 		li {}
 		li {
-			&.highlight a {opacity: 0.95;}
-			a {display: block; padding: 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; transition: opacity 0.3s;}
-			a:hover {opacity: 1;}
+			@tw-blue: #1b95e0;
+			@gp-red: #d62222;
+			a {display: block; padding: 12px; font-size: 12px; color: #ddd; letter-spacing: 0.08em; text-transform: uppercase;}
+			a, icon {transition: color 0.3s;}
+			a:hover {color: #fff;}
+			&.highlight a {color: #eee;}
+			&.twitter icon {color: lighten(@tw-blue, 10%);}
+			&.twitter:hover icon {color: @tw-blue;}
+			&.google-plus icon {color: lighten(@gp-red, 25%);}
+			&.google-plus:hover icon {color: lighten(@gp-red, 15%);}
 		}
 	}
 
