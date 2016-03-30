@@ -1,5 +1,5 @@
 # Site settings
-version: 5
+asset_version: 6
 title: Turtl
 email: andrew@turtl.it
 description: The safe way to remember everything. Take all your important data with you.
