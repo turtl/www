@@ -9,7 +9,7 @@ paginate: 20
 paginate_path: "/page/:num"
 permalink: "/:categories/:title/"
 
-turtl_version: "0.6.2"
+turtl_version: "0.6.3"
 ext_version: "0.5.1"
 
 # Build settings
