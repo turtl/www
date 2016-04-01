@@ -4,3 +4,4 @@ _site
 css/*.css
 !css/reset.css
 /node_modules
+/google*.html

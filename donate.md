@@ -66,7 +66,7 @@ can. Thank you!
 
 - **Paypal**
   
-  <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=andrew@turtl.it" data-button="donate" data-name="Turtl donation" data-callback="https://turtl.it/donate/thanks" ></script>
+  <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=andrew@turtl.it" data-button="donate" data-name="Turtl donation" data-return="https://turtl.it/donate/thanks"></script>
 
 - **Bitcoin**
   
