@@ -72,3 +72,14 @@ If all goes well, Turtl will create the schema it needs and open on port 8181!
 You can now point your clients at this port on your server, although it's
 recommended to run it behind a proxy like Apache or Nginx.
 
+## Docker containers
+
+There are a set of community-built docker containers available (no official
+containers *yet*):
+
+- [ArthurGarnier/turtl-docker](https://github.com/ArthurGarnier/turtl-docker)  
+Based on ubuntu + Clozure CL. Includes RethinkDB.
+- [celaus/docker-turtl](https://github.com/celaus/docker-turtl)  
+Based on archi-mini + SBCL. Requires separate RethinkDB container.
+
+
