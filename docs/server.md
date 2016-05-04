@@ -74,8 +74,8 @@ recommended to run it behind a proxy like Apache or Nginx.
 
 ## Docker containers
 
-There are a set of community-built docker containers available (no official
-containers *yet*):
+Here are a set of community-built docker containers available for running the
+Turtl API (no official containers *yet*):
 
 - [ArthurGarnier/turtl-docker](https://github.com/ArthurGarnier/turtl-docker)  
 Based on ubuntu + Clozure CL. Includes RethinkDB.
