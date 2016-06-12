@@ -10,14 +10,18 @@ permalink: "contributing/"
 Thanks for your interest in helping build Turtl! Turtl is an open-source project
 owned and operated by [Lyon Bros. Enterprises, LLC.](https://lyonbros.com).
 
-## Sign the CLA
+## Sign the Contributor License Agreement
 
 In order for us to accept your contributions to the Turtl project, you need to
 read and agree to the Contributor License Agreement. You can find the agreements
 here:
 
-- [Individual Contributor License Agreement](/contributing/icla)
-- [Entity Contributor License Agreement](/contributing/ecla)
+- [Individual Contributor License Agreement](/contributing/icla)  
+  For individuals wanting to contribute
+- [Entity Contributor License Agreement](/contributing/ecla)  
+  If you are contributing code as a member of a company, organization, or other
+  entity, have someone from your organization who makes legal decisions sign
+  this form.
 
 ## Project conventions
 
@@ -105,6 +109,35 @@ them.
   writing functions that take a `function(err, res) {}` callback, please make
   use of a promise instead, unless there is a specific documented reason for not
   doing so.
+
+#### Third-party libraries
+
+Turtl strives to use *as little third-party code as possible* in its front-end
+clients. The reason for this is that each library that *is* included has to be
+vetted for possible security leaks.
+
+For this reason, if you do feel a third-party library would suit the project,
+please note this in your pull request. Put your third-party libraries directly
+into the source tree and version them. If the third-party library makes any
+kind of AJAX calls, form posts, writes any scripts to &lt;head&gt;, or makes
+any other outbound connection, there is a very good chance your changes will not
+be merged.
+
+Dependency management tools like bower/npm/etc are not to be used or included
+in the javascript-based projects.
+Note that we do use npm to power some aspects of the build system (lessc,
+handlebars, postcss, etc) but under no cirumcstances does it download code to
+be included in the app itself.
+
+Please note that third-party libraries included in Turtl cannot be licensed
+copyleft (eg, GPLv3). This prevents us from relicensing Turtl, for instance
+if we want to release an app in the Apple iOS store. MIT/BSD
+licenses are strongly favored, but others will be considered on a case-by-case
+basis.
+
+Please make sure any third-party code you include contains the license it uses
+in its source file(s).
+
 
 ### Common lisp
 
