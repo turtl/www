@@ -7,6 +7,7 @@ var app = {
 		//app.init_splash_downloads();
 		app.init_splash_more();
 		app.init_doc_anchors();
+		app.init_signature();
 		//app.init_splash_parallax();
 	},
 
@@ -141,6 +142,13 @@ var app = {
 				.addClass('toc-anchor')
 				.set('name', id)
 				.inject(el, 'before');
+		});
+	},
+
+	init_signature: function()
+	{
+		document.getElements('.sign-cla').forEach(function(el) {
+			new CLASigController({el: el});
 		});
 	}
 };

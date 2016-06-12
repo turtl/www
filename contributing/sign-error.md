@@ -1,0 +1,12 @@
+---
+layout: default
+title: "There was an error processing your signature"
+permalink: "contributing/sign-error/"
+---
+
+# There was an error processing your signature
+
+Sorry, but we ran into a problem processing your electronic signature. Please
+contact us at [info@turtl.it](mailto:info@turtl.it), or hit the back button and
+try to submit the form again.
+

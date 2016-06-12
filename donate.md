@@ -65,8 +65,14 @@ can. Thank you!
   -->
 
 - **Paypal**
-  
-  <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=andrew@turtl.it" data-button="donate" data-name="Turtl donation" data-return="https://turtl.it/donate/thanks"></script>
+  <script
+    src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=andrew@turtl.it"
+    data-button="donate"
+    data-name="Turtl project donation"
+    data-return="https://turtl.it/donate/thanks"
+    data-size="large"
+    data-type="button"
+    async></script>
 
 - **Bitcoin**
   

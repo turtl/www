@@ -15,7 +15,8 @@
 
 	<script src="{{ "/js/mootools-core-1.5.2.js" | prepend: site.baseurl }}"></script>
 	<script src="{{ "/js/mootools-more-1.5.1.js" | prepend: site.baseurl }}"></script>
-	<script src="{{ "/js/composer-1.1.15.js" | prepend: site.baseurl }}"></script>
+	<script src="{{ "/js/composer.js" | prepend: site.baseurl | replace:'.js','' | append: '.v' | append: site.asset_version | append: '.js' }}"></script>
 	<script src="{{ "/js/platform.js" | prepend: site.baseurl | replace:'.js','' | append: '.v' | append: site.asset_version | append: '.js' }}"></script>
 	<script src="{{ "/js/main.js" | prepend: site.baseurl | replace:'.js','' | append: '.v' | append: site.asset_version | append: '.js' }}"></script>
+	<script src="{{ "/js/controller-sig.js" | prepend: site.baseurl | replace:'.js','' | append: '.v' | append: site.asset_version | append: '.js' }}"></script>
 </head>

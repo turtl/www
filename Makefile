@@ -44,7 +44,7 @@ release-all:
 
 	@echo -ne "\n\n--- Building mobile release $(MOBILE_VERSION) ---\n\n"
 	@sleep 2
-	cd ../mobile && make release-android
+	cd ../mobile && make release-android && make release-fdroid
 	@cp ../mobile/platforms/android/build/outputs/apk/android-armv7-release.apk ./releases/mobile/turtl-android.apk
 	$(VERSION_SCRIPT) mobile $(MOBILE_VERSION)
 

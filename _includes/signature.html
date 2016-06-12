@@ -1,0 +1,93 @@
+<div markdown="0" class="sign-cla">
+	<form class="signature" method="post" action="https://api.turtl.it/cla/sign">
+		<input type="hidden" name="type" value="{{include.sigtype}}">
+
+		<table>
+			{% if include.sigtype == "ecla" %}
+				<tr>
+					<td><em>*</em>Company/Organization/Entity name</td>
+					<td>
+						<div class="fr">
+							<input tabindex="1" type="text" name="entity" placeholder="Company/Organization/Entity name">
+						</div>
+					</td>
+				</tr>
+			{% endif %}
+			<tr>
+				<td><em>*</em>Full name</td>
+				<td>
+					<div class="fr">
+						<input tabindex="1" type="text" name="fullname" placeholder="Your full name">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td><em>*</em>Email</td>
+				<td>
+					<div class="fr">
+						<input tabindex="2" type="email" name="email" placeholder="Your email">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td><em>*</em>Mailing address</td>
+				<td>
+					<div class="fr">
+						<input tabindex="3" type="text" name="address1" placeholder="Street address">
+					</div>
+					<div class="fr">
+						<input tabindex="4" type="text" name="address2" placeholder="Address line 2">
+					</div>
+					<div class="fr">
+						<input tabindex="5" type="text" name="city" placeholder="City">
+						<input tabindex="6" type="text" name="state" placeholder="State (if applicable)">
+						<input tabindex="7" type="text" name="zip" placeholder="Zip (if applicable)">
+					</div>
+					<div class="fr">
+						{% include select_country.html tabindex=8 %}
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td><em>*</em>Phone number</td>
+				<td>
+					<div class="fr">
+						<input tabindex="9" type="text" name="phone" placeholder="Phone number">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td><em>*</em>Github username</td>
+				<td>
+					<div class="fr">
+						<input tabindex="10" type="text" name="github" placeholder="Github username">
+					</div>
+				</td>
+			</tr>
+			<tr class="website">
+				<td>Website (please leave this field blank)</td>
+				<td>
+					<div class="fr">
+						<input tabindex="999" type="text" name="website" placeholder="Your website">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td><em>*</em>Electronic signature: Type "I AGREE" to accept the terms above</td>
+				<td>
+					<div class="fr">
+						<input tabindex="11" type="text" name="sign" placeholder="I AGREE">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input tabindex="12" type="submit" value="Submit">
+				</td>
+			</tr>
+		</table>
+		<ul class="error hide"></ul>
+	</form>
+</div>
+

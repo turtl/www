@@ -135,7 +135,7 @@ strong {font-weight: bold;}
 	p + h2,
 	p + a.toc-anchor + h1,
 	p + a.toc-anchor + h2 {margin-top: 32px;}
-	em {color: @theme_secondary;}
+	em {font-style: italic;}
 	pre {margin-bottom: 16px;}
 	ul, ol {margin: 0 0 16px 32px;}
 }
@@ -295,3 +295,27 @@ a.toc-anchor {position: absolute; margin-top: -(@header_height * 2);}
 	span.note {display: inline-block; margin: 0 0 0 0; font-size: .85em; color: #666;}
 }
 
+// -----------------------------------------------------------------------------
+// CLA
+// -----------------------------------------------------------------------------
+.signature {}
+.signature {
+	table {}
+	table {
+		tr.website {position: absolute; right: 2000%;}
+		td {
+			&:first-child {width: 25%; padding: 0 4px 0 0; font-weight: bold;}
+			em {position: absolute; margin: 0 0 0 -10px; display: inline-block; padding: 0 2px; color: red;}
+			input[type=text],
+			input[type=email],
+			select {
+				& {margin: 0 0 4px 0; padding: 2px; background: #fff; border: 1px solid #777;}
+				&.error-field {border-bottom: 1px solid red;}
+			}
+		}
+	}
+	ul.error {margin: 16px 0; padding: 12px; list-style: none; color: #f44; background: #222;}
+	ul.error {
+		&.hide {display: none;}
+	}
+}

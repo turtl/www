@@ -5,8 +5,6 @@ email: andrew@turtl.it
 description: The safe way to remember everything. Take all your important data with you.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://turtl.it"
-paginate: 20
-paginate_path: "/page/:num"
 permalink: "/:categories/:title/"
 
 turtl_version: "0.6.3"
