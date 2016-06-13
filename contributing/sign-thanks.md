@@ -13,5 +13,6 @@ contributions to the Turtl project.
 Happy hacking =]
 
 - [Back to the Turtl homepage](/)
+- [Go to our Trello &raquo;](http://trello.turtl.it/)
 - [Go to the Turtl Github &raquo;](https://github.com/turtl)
 

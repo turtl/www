@@ -38,7 +38,7 @@ Learn about how Turtl uses encryption to protect your data.
 Want to run Turtl internally? Head over to the [section about running
 your own Turtl server](/docs/server).
 
-## Turtl's development: [Trello](https://trello.com/b/yIQGkHia/turtl-product-dev) | [Github](https://github.com/turtl)
+## Turtl's development: [Trello](http://trello.turtl.it/) | [Github](https://github.com/turtl)
 Follow along with Turtl's development! You can check out our planned list of
 features on [our trello](https://trello.com/b/yIQGkHia/turtl-product-dev) or
 if you're really nerdy, you can follow our commits on [Github](https://github.com/turtl).
