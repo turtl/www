@@ -187,10 +187,15 @@ The conventions for common lisp largely follow the community standard:
 ## Trello
 
 Need something to do? [Check out our Trello list](https://trello.com/b/yIQGkHia/turtl-product-dev).
-You can pick anything off any of the lists you'd like to tackle (besides,
-obviously, the "Complete" list :)). Keep in mind that the Turtl team may be
-working on items in the "Dev" list, so reach out to us before grabbing any items
-from Dev.
+Specifically, look at the "Roadmap" list and find something you think might be
+a good fit your you. Each item is categorized by the project it affects
+(js/desktop/android/etc) and also what kind of item it is (Feature, Bug, etc).
+
+Try to avoid items in the "Current development" and "Ideas" lists. Current dev
+is for items being built by the core Turtl team, and Ideas are items we want to
+track but haven't been properly thought out and might not have a place on the
+roadmap. If you find something in "Ideas" you really want to work on, reach out
+to us before you start.
 
 ## Questions
 
