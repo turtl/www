@@ -60,6 +60,7 @@ header {
 			a, icon {color: #ddd; transition: color 0.3s;}
 			a:hover, icon:hover {color: #fff;}
 			&.highlight a {color: #eee;}
+
 			/*
 			&.twitter icon {color: lighten(@tw-blue, 10%);}
 			&.twitter:hover icon {color: @tw-blue;}
@@ -76,8 +77,7 @@ header {
 		ul {align-self: flex-end; margin-right: 6px;}
 		ul {
 			li a {padding: 8px;}
-			li:nth-last-child(1),
-			li:nth-last-child(2) {display: none;}
+			li.docs, li.social {display: none;}
 		}
 	}
 }
@@ -264,6 +264,9 @@ em code, strong code {font-style: normal; font-weight: normal;}
 div.toc {float: right; width: 25%; margin: 8px 0 16px 16px; padding: 10px 16px; background: #fff; border-radius: 6px; box-shadow: 0 0 10px 2px rgba(0,0,0,.08);}
 div.toc ul {color: #999; margin-left: 16px; margin-bottom: 0;}
 div.toc ul a {text-decoration: none;}
+@media @mobile {
+	div.toc {float: none; width: auto; margin: 16px 8px;}
+}
 a.toc-anchor {position: absolute; margin-top: -(@header_height * 2);}
 .documentation {
 	p:first-child {display: inline; padding: 0; margin: 0;}
