@@ -1,5 +1,5 @@
 # Site settings
-asset_version: 7
+asset_version: 8
 title: Turtl
 email: andrew@turtl.it
 description: The safe way to remember everything. Take all your important data with you.
@@ -7,7 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://turtl.it"
 permalink: "/:categories/:title/"
 
-turtl_version: "0.6.3"
+turtl_version: "0.6.4"
 ext_version: "0.5.1"
 
 # Build settings

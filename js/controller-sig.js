@@ -12,7 +12,7 @@ var CLASigController = Composer.Controller.extend({
 		'input[name=state]': 'inp_state',
 		'input[name=zip]': 'inp_zip',
 		'select[name=country]': 'inp_country',
-		'input[name=phone]': 'inp_phone',
+		//'input[name=phone]': 'inp_phone',
 		'input[name=github]': 'inp_github',
 		'input[name=website]': 'inp_website',
 		'input[name=sign]': 'inp_sign',
@@ -68,7 +68,7 @@ var CLASigController = Composer.Controller.extend({
 			{field: 'address1', name: 'address'},
 			{field: 'city', name: 'city'},
 			{field: 'country', name: 'country'},
-			{field: 'phone', name: 'phone number'},
+			//{field: 'phone', name: 'phone number'},
 			{field: 'github', name: 'github username'},
 		];
 		if(this.inp_type.get('value') == 'ecla')
