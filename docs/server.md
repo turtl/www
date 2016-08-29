@@ -22,9 +22,8 @@ Let's go over the software you need to get started.
 ### Common lisp
 
 Common Lisp is a language, and has many different implementations. Turtl is known
-to run fine on either [SBCL](http://www.sbcl.org/) or [CCL](http://ccl.clozure.com/).
-
-I recommend CCL for Windows/OSx and SBCL for linux.
+to run well on [CCL](http://ccl.clozure.com/) ([SBCL](http://www.sbcl.org/) has
+problems currently) for all/most platforms.
 
 #### Quicklisp
 

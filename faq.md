@@ -32,10 +32,11 @@ gratitude.
 
 People have issues with the Turtl server a lot. It's best to hop onto the
 [discussion board](https://groups.google.com/forum/#!forum/turtl) and ask there.
-Lots of people have had issues and are available to help.
+Lots of people have asked for and received help on running the server on the
+discussion board.
 
 Keep in mind by running your own server you're going off the supported path.
-The maintainers of the project can't go out of there way to help you if
+The maintainers of the project can't go out of their way to help you if
 you run into problems. The bulk of the work for the project happens on the
 clients (desktop, mobile) and fixing platform-specific server issues is not a
 priority.
