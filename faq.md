@@ -78,14 +78,14 @@ codebases.
 
 ### Why does the note editor use Markdown?
 
-Turtl makes use of Markdown becaues it's a fairly easy format to learn and to
+Turtl makes use of Markdown because it's a fairly easy format to learn and to
 write. Another big reason is that most rich text editors that are able to run
 inside of Turtl are horrible, buggy messes that would make the editing process
 a lot more painful.
 
 We're always looking for ways to improve the app, though. If you run across an
-HTML5 text editor that doesn't make you want to blow your brains out and think
-we'd be interested, [let us know](/contact).
+HTML5 text editor that is clean, simple, mobile-friendly, and doesn't make you
+want to blow your brains out whenever you use it then [let us know](/contact).
 
 ### Can I contribute?
 
