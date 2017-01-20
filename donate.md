@@ -58,18 +58,18 @@ can. Thank you!
     .xl.rtl.hcount .count-o u {margin-right:-4px}
     .xl #count {padding:0 7px}
   </style>
-  <p class="tw-widget"><a target="_blank" href="https://twitter.com/intent/tweet?text=Turtl:%20keep%20your%20data%20private!&tw_p=tweetbutton&url=https%3A%2F%2Fturtl.it%2F&via=turtlapp" class="btn" id="b"><i></i><span class="label" id="l">Tweet Turtl</span></a></p>
+  <p class="tw-widget"><a target="_blank" href="https://twitter.com/intent/tweet?text=Turtl:%20keep%20your%20data%20private!&tw_p=tweetbutton&url=https%3A%2F%2Fturtlapp.com%2F&via=turtlapp" class="btn" id="b"><i></i><span class="label" id="l">Tweet Turtl</span></a></p>
   <!--
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://turtl.it/" data-text="Found a great app for keeping my data private!" data-via="turtlapp" data-size="large" data-dnt="true">Tweet</a>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://turtlapp.com/" data-text="Found a great app for keeping my data private!" data-via="turtlapp" data-size="large" data-dnt="true">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   -->
 
 - **Paypal**
   <script
-    src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=andrew@turtl.it"
+    src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=andrew@turtlapp.com"
     data-button="donate"
     data-name="Turtl project donation"
-    data-return="https://turtl.it/donate/thanks"
+    data-return="https://turtlapp.com/donate/thanks"
     data-size="large"
     data-type="button"
     async></script>

@@ -186,7 +186,7 @@ The conventions for common lisp largely follow the community standard:
 
 ## Trello
 
-Need something to do? [Check out our Trello list](http://trello.turtl.it/).
+Need something to do? [Check out our Trello list](http://trello.turtlapp.com/).
 Specifically, look at the "Roadmap" list and find something you think might be
 a good fit your you. Each item is categorized by the project it affects
 (js/desktop/android/etc) and also what kind of item it is (Feature, Bug, etc).

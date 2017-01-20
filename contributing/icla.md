@@ -8,13 +8,13 @@ permalink: "contributing/icla/"
 
 Thank you for your interest in contributing to Lyon Bros. Enterprises, LLC's "Turtl" project ("We" or "Us").
 
-This contributor agreement ("Agreement") documents the rights granted by contributors to Us. To make this document effective, please sign it and send it to Us by electronic submission, following the instructions at https://turtl.it/contributing/. This is a legally binding document, so please read it carefully before agreeing to it. The Agreement may cover more than one software project managed by Us.
+This contributor agreement ("Agreement") documents the rights granted by contributors to Us. To make this document effective, please sign it and send it to Us by electronic submission, following the instructions at https://turtlapp.com/contributing/. This is a legally binding document, so please read it carefully before agreeing to it. The Agreement may cover more than one software project managed by Us.
 
 ## 1. Definitions
 
 "You" means the individual who Submits a Contribution to Us.
 
-"Contribution" means any work of authorship that is Submitted by You to Us in which You own or assert ownership of the Copyright. If You do not own the Copyright in the entire work of authorship, please follow the instructions in https://turtl.it/contributing/.
+"Contribution" means any work of authorship that is Submitted by You to Us in which You own or assert ownership of the Copyright. If You do not own the Copyright in the entire work of authorship, please follow the instructions in https://turtlapp.com/contributing/.
 
 "Copyright" means all rights protecting works of authorship owned or controlled by You, including copyright, moral and neighboring rights, as appropriate, for the full term of their existence including any extensions by You.
 
@@ -66,7 +66,7 @@ You confirm that:
 
 (c) The grant of rights under Section 2 does not violate any grant of rights which You have made to third parties, including Your employer.  If You are an employee, You have had Your employer approve this Agreement or sign the Entity version of this document.  If You are less than eighteen years old, please have Your parents or guardian sign the Agreement.
 
-(d) You have followed the instructions in https://turtl.it/contributing/, if You do not own the Copyright in the entire work of authorship Submitted.
+(d) You have followed the instructions in https://turtlapp.com/contributing/, if You do not own the Copyright in the entire work of authorship Submitted.
 
 ## 4. Disclaimer
 
