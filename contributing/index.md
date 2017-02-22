@@ -104,6 +104,49 @@ them.
   }
   ```
 
+- __Variable declarations__: Use a `var` for each variable.
+
+  Examples:
+
+  ```js
+  // good
+  var my_data = get_some_data();
+  var success = send_some_data(data);
+
+  // very, very bad. please, no.
+  var my_data = get_some_data(),
+      success = send_some_data(data);
+
+  // especially bad (leading commas, ugh)
+  var my_data = get_some_data()
+    , success = send_some_data(data);
+  ```
+- __Trailing commas__: Either leave them at the end of the line on the last item
+  or take the trailing comma off. Do *NOT* put the comma before the item.
+
+  Examples:
+
+  ```js
+  // good (no trailing comma on last item)
+  var obj = {
+      name: 'slappy',
+      friends: 0
+  };
+
+  // good (trailing comma on last item is ok)
+  var obj = {
+      name: 'andrew',
+      hates: 'leading commas',
+      seriously: 'do not do it',
+  };
+
+  // NO. never.
+  var obj = {
+        name: 'andrew'
+      , hates: 'leading commas'
+      , seriously: 'your code will be roundly rejected'
+  };
+  ```
 - __Promises__: Turtl makes heavy use of Promises (specifically, the [Bluebird](http://bluebirdjs.com/)
   library) for just about all asynchronous processing. If you find yourself
   writing functions that take a `function(err, res) {}` callback, please make
