@@ -231,7 +231,7 @@ The conventions for common lisp largely follow the community standard:
 
 Need something to do? [Check out our Trello list](http://trello.turtlapp.com/).
 Specifically, look at the "Roadmap" list and find something you think might be
-a good fit your you. Each item is categorized by the project it affects
+a good fit for you. Each item is categorized by the project it affects
 (js/desktop/android/etc) and also what kind of item it is (Feature, Bug, etc).
 
 Try to avoid items in the "Current development" and "Ideas" lists. Current dev
