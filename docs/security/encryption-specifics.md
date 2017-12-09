@@ -13,7 +13,7 @@ Encryption specifics
 # Encryption specifics
 {% include toc.md %}
 
-This page will explain the apecific algorithms and methods Turtl uses to encrypt,
+This page will explain the specific algorithms and methods Turtl uses to encrypt,
 decrypt, (de)serialize, and authenticate data.
 
 ## Methodology
