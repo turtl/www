@@ -76,5 +76,9 @@ can. Thank you!
 
 - **Bitcoin**
   
-  `1BfaXDbM98mg34DybqjgA7tHyx48g1Bztq`
+  `1FXpcXhdiurerBjLm47YE6PemMxdFtcQt1`
+
+- **Ethereum**
+  
+  `0x8738DaE708A23845f686B586cAcAC9C30f17b0dA`
 
