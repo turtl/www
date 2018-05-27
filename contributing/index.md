@@ -23,7 +23,27 @@ here:
   entity, have someone from your organization who makes legal decisions sign
   this form.
 
-## Project conventions
+## Translations
+
+Would you like to translate Turtl to your language? Thanks for helping out! We
+love being multi-lingual.
+
+First, check if someone has already started translating in your language by
+looking through the [existing translations](https://github.com/turtl/js/tree/master/locales).
+
+If there's one for your language/locale already, feel free to make any updates
+to the file and submit a pull request.
+
+If you language/locale isn't there, copy the [latest language template file](https://github.com/turtl/js/blob/master/locales/locale.js.template)
+to a new file witht he format `<language code>_<locale code>.js` (if your
+language doesn't have a specific locale code, just use the language code again).
+For example, a Spanish translation in the Mexican locale would be `es_mx.js`.
+
+Now just fill in what you can and submit a pull request on Github! Keep in mind
+that translations are significant contributions, and therefor you must [sign the CLA](#sign-the-contributor-license-agreement)
+before new translations can be accepted.
+
+## Project coding conventions
 
 Please review the programming conventions used for Turtl's various projects
 before you spend time writing code.
@@ -35,8 +55,7 @@ These conventions apply to the following projects:
 - [js](https://github.com/turtl/js)
 - [mobile](https://github.com/turtl/mobile)
 - [desktop](https://github.com/turtl/desktop)
-- [chrome-bookmarker](https://github.com/turtl/chrome-bookmarker)
-- [firefox-bookmarker](https://github.com/turtl/firefox-bookmarker)
+- [browser-extension](https://github.com/turtl/browser-extension)
 
 You will find these conventions draconian and upsetting, but please adhere to
 them.
@@ -104,7 +123,9 @@ them.
   }
   ```
 
-- __Variable declarations__: Use a `var` for each variable.
+- __Variable declarations__: `var`-per-declaration is the preferred method, but
+if this is against your normal style, that's ok. One thing that will not be
+tolerated is leading commas.
 
   Examples:
 
@@ -113,11 +134,11 @@ them.
   var my_data = get_some_data();
   var success = send_some_data(data);
 
-  // very, very bad. please, no.
+  // if you must.
   var my_data = get_some_data(),
       success = send_some_data(data);
 
-  // especially bad (leading commas, ugh)
+  // Not allowed (leading commas, ugh)
   var my_data = get_some_data()
     , success = send_some_data(data);
   ```
@@ -147,11 +168,6 @@ them.
       , seriously: 'your code will be roundly rejected'
   };
   ```
-- __Promises__: Turtl makes heavy use of Promises (specifically, the [Bluebird](http://bluebirdjs.com/)
-  library) for just about all asynchronous processing. If you find yourself
-  writing functions that take a `function(err, res) {}` callback, please make
-  use of a promise instead, unless there is a specific documented reason for not
-  doing so.
 
 #### Third-party libraries
 
@@ -181,67 +197,53 @@ basis.
 Please make sure any third-party code you include contains the license it uses
 in its source file(s).
 
+### Rust
 
-### Common lisp
+Our Rust code follows the standard Rust conventions, but I'll list some of the
+bigger ones here:
 
-These conventions apply to the following projects:
+- __Indent with two spaces__: Please follow this. All of our code uses two-space
+indendation and if you use tabs or four spaces or anything else, you will be
+asked to re-tab.
+- __Use underscores__: No camelCase. This is a hard rule.
+  
+  Examples:
 
-- [api](https://github.com/turtl/api)
+  ```rust
+  // good
+  fn get_data() -> u32 {
+    0
+  }
 
-The conventions for common lisp largely follow the community standard:
-
-- __Spaces__: indent code with two spaces.
-
-- __Parens__: Don't close parens on a different line, close them on the last
-  line they apply to:
-
-  ```lisp
-  ;; good
-  (defun test ()
-    (run-test))
-
-  ;; bad
-  (defun test ()
-    (run-test)
-    )
+  // bad
+  fn thisIsNotJava(orCSharp: u32) -> { ... }
   ```
 
-- __Dashes__: Don't use camelCasing or\_underscores in your function or variable
-  names. Please use-dashes:
+## Issue tracker
 
-  ```lisp
-  ;; good
-  (defun my-function ()
-    ...)
+Our [Github issue tracker](https://github.com/turtl/tracker/issues) covers all
+of the Turtl projects. We used to have a tracker-per-project, but this was
+confusing to users and difficult for us to manage. Now everything lives in one
+place.
 
-  ;; good
-  (let ((my-var 69))
-    (process-var my-var))
+### Looking to contribute?
 
-  ;; bad
-  (defun doStuff ()
-    ...)
+We have marked [a list of items in our issue tracker you can help with](https://github.com/turtl/tracker/issues?q=is%3Aissue+is%3Aopen+milestone%3A%2A+label%3Astatus%3Ahelp-wanted)!
 
-  ;; bad
-  (defun hai_there ()
-    (say_hai))
-  ```
+This includes all items with the `help-wanted` tag that are a part of one of
+our milestones. There are some issues that are very core to the app and
+require intimate knowledge of its inner workings, and these are generally not
+marked with `help-wanted`.
 
-## Trello
+Please ask before working on issues that do not have a milestone as these are
+generally meant to track ideas that haven't been fully realized or "maybe"
+features that we want to consider but haven't decided to include yet.
 
-Need something to do? [Check out our Trello list](http://trello.turtlapp.com/).
-Specifically, look at the "Roadmap" list and find something you think might be
-a good fit for you. Each item is categorized by the project it affects
-(js/desktop/android/etc) and also what kind of item it is (Feature, Bug, etc).
-
-Try to avoid items in the "Current development" and "Ideas" lists. Current dev
-is for items being built by the core Turtl team, and Ideas are items we want to
-track but haven't been properly thought out and might not have a place on the
-roadmap. If you find something in "Ideas" you really want to work on, reach out
-to us before you start.
+Once again, *if you work on issues that are not part of a milestone, chances are
+your PR will be rejected*. When in doubt, pull issues off the [help wanted list](https://github.com/turtl/tracker/issues?q=is%3Aissue+is%3Aopen+milestone%3A%2A+label%3Astatus%3Ahelp-wanted)!
 
 ## Questions
 
 If you have questions on any of the above, or run into a situtation that isn't
-covered, please [reach out to us](/contact)! We're here to help.
+covered, please [reach out to us](/contact)!
 
