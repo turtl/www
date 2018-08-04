@@ -137,7 +137,11 @@ strong {font-weight: bold;}
 	p + a.toc-anchor + h2 {margin-top: 32px;}
 	em {font-style: italic;}
 	pre {margin-bottom: 16px;}
-	ul, ol {margin: 0 0 16px 32px;}
+	ul, ol {
+		& {margin: 0 0 16px 32px;}
+		ul, ol {margin-bottom: 0;}
+		pre {margin-top: 8px; margin-bottom: 8px;}
+	}
 }
 
 ul.download {margin: 0; padding: 0; list-style: none;}

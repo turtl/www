@@ -73,13 +73,8 @@ var app = {
 		ul.removeClass('detect');
 		var all = new Element('li')
 			.addClass('all')
-			.set('html', '<a href="#all" title="Show all downloads">All platforms &raquo;</a>');
+			.set('html', '<a href="/download" title="All downloads">All downloads &raquo;</a>');
 		all.inject(ul, 'bottom');
-		all.getElement('a').addEvent('click', function(e) {
-			if(e) e.stop();
-			all.destroy();
-			ul.getElements('> li').each(function(el) { el.removeClass('hide'); });
-		});
 	},
 
 	init_splash_more: function()

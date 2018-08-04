@@ -1,14 +1,11 @@
 # Site settings
-asset_version: 8
+asset_version: 9
 title: Turtl
 email: andrew@turtlapp.com
 description: The safe way to remember everything. Take all your important data with you.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://turtlapp.com"
 permalink: "/:categories/:title/"
-
-turtl_version: "0.6.4"
-ext_version: "0.5.1"
 
 # Build settings
 markdown: kramdown
@@ -22,4 +19,14 @@ exclude:
   - package.json
   - node_modules/
   - "*.less"
+
+################################################################################
+# this section is auto-generated. please use megarelease.
+################################################################################
+releases:
+  core: '0.1.1'
+  desktop: '0.7.0-rc2'
+  android: '0.7.0-rc2'
+  ext: '0.7.0'
+################################################################################
 
