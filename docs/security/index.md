@@ -10,6 +10,7 @@ Security and encryption
 </div>
 
 # Security and encryption
+
 {% include toc.md %}
 
 Turtl uses encryption to protect your data in such a way that only you, and
@@ -17,6 +18,7 @@ those you choose, are able to view your data. Keep reading for a high-level
 overview of Turt's encryption and how it protects you.
 
 ## Encryption explained
+
 Simply put, encryption is the process of scrambling data. Generally, this is
 done using a "key" which is usually a passphrase. The only way to de-scramble
 the data is using that passphrase.
@@ -31,6 +33,7 @@ is just gibberish to them.
 Without the keys that only you hold, your data is useless.
 
 ### Keys and sharing
+
 As mentioned, Turtl creates a key for you when you log in based on your email
 and password. It wouldn't be very useful if you had to give people this key when
 you shared data with them because it would give them access to all your data.
@@ -40,16 +43,17 @@ send them and nothing else.
 
 Keys are stored one of two ways:
 
-1. __Boards__. Board keys are stored in your "keychain" which is a collection of
+1. __Spaces__. Space keys are stored in your "keychain" which is a collection of
 keys stored with your profile. These keys are all encrypted using your master
 key so *only you* are able to read your keychain.
-1. __Notes__. Notes store their key in their own data, encrypted with the key of
-the board they belong to. What this means is that once a user has access to a
-board (and the board's key) they can also decrypt all the notes in that board.
-This allows sharing of entire boards *without* having to share the key of each
-note in that board.
+1. __Notes/boards__. Notes and boards store their key in their own data, encrypted with the key of
+the space they belong to. What this means is that once a user has access to a
+space (and the space's key) they can also decrypt all the notes and boards in that space.
+This allows sharing of entire spaces *without* having to share the key of each
+note in that space.
 
 ## Encryption specifics
+
 If you're looking for a more comprehensive look at how Turtl does encryption,
 [check out the encryption specifics page](/docs/security/encryption-specifics) of the docs
 which goes over the ciphers, block modes, and other methods Turtl uses when
@@ -72,20 +76,20 @@ your email and password. If you choose a password that's
 short, predictable, easy to guess, etc then your data is *not safe*. Choose a
 good password. Turtl has no restrictions on password length, we suggest
 you take advantage of this.
-- __When you invite someone to a board over email.__ Turtl has a feature that
-allows you to invite someone to share one of your boards via email. Before
+- __When you invite someone to a space over email.__ Turtl has a feature that
+allows you to invite someone to share one of your spaces via email. Before
 sending, you are able to set a shared secret for the invite, which makes the
 invite useless unless the invitee enters the secret when they accept the invite
 (this secret must be communicated to the invitee separately). Without setting
-this secret, anybody who intercepts the invite email *will gain full access to
-the board and its data*. If you want to share something but need it to be 
+this secret, anybody who intercepts the invite email *can gain full access to
+the space and its data*. If you want to share something but need it to be 
 secure, set the secret and communicate it (via phone, text message, etc) to the
 person you're inviting. Please note that the shared-secret method is not as
-secure as ECC encryption (ECC is used when inviting an *existing* user to a
-board), but it's a lot better than not having the shared secret at all (if you
+secure as asymmetric encryption (used when inviting an *existing* user to a
+space), but it's a lot better than not having the shared secret at all (if you
 care about privacy).
 - __When someone you shared data with is compromised.__ If you share
-notes, boards, or any other data with other Turtl users, you are giving them the
+notes, spaces, or any other data with other Turtl users, you are giving them the
 ability to decrypt those pieces of your data. It's possible that the person you
 shared with isn't who you think they are, or they have a gun to their head and
 have no choice but to expose your data. Be very careful about who you share

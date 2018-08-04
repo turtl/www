@@ -18,31 +18,23 @@ Let's go over the basics of how Turtl works.
 
 Your profile in Turtl is made of two main things: boards and notes.
 
+### Spaces
+
+Spaces are containers for everything. Spaces store boards and notes, and most
+importantly, spaces are shareable. You might have a "Home" space shared with
+your family, or a "Work" space shared with your colleagues.
+
+### Boards
+
+A board is a container of notes. It's a way organize notes within a space. You
+might have a board for each client under your "Work" space.
+
 ### Notes
 
 A note is fairly simple: it's a title, some text, a link, and/or a set of tags.
 A note can have a file attached to it, whether that's a photo or a document. A
-note can be in zero or more boards. A note that is not in any boards will only
-show up under "All notes."
-
-### Boards
-
-A board is
-a container of notes. It is a way to segment one set of notes from another, and
-make your notes easier to manage. A board can contain not only notes, but also
-nested boards under it. This means that you could have a board layout like:
-
-~~~
-My company
-  Shared docs
-  Passwords
-  Accounting
-~~~
-
-If you open "My company" you will be able to view and search all notes under
-that board, but also all the notes in any nested boards under it. Opening any
-of the nested boards under "My company" will only show the notes directly in
-that board.
+note can be in one board (and also be in no boards). A note that is not in any
+boards will only show up under "All notes" in each space.
 
 ### Other types
 
@@ -56,14 +48,14 @@ from your email/password combo). [Learn more about Turtl's crypto](/docs/securit
 
 Sharing allows you to collaborate on a board with someone else. The general
 idea is this: each note has a unique key that decrypts it. This key is
-encrypted with the key of any board the note is in, and this encrypted key is
+encrypted with the key of any space the note is in, and this encrypted key is
 stored in the note's data. So if you have an encrypted note, and you have the
-key of a board that note is in, you can decrypt the note. Giving each object
+key of a space that note is in, you can decrypt the note. Giving each object
 in Turtl a unique key allows sharing only specific data with any set of people
 without compromising the master key of your account.
 
-Sharing is done only on a board basis. You cannot share single notes. You can,
-however, put a single note into a board and share that board.
+Sharing is done only on a space basis. You cannot share single notes. You can,
+however, put a single note into a space and share that space.
 
 ## Syncing
 

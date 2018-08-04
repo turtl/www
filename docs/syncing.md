@@ -13,7 +13,7 @@ Syncing
 # Syncing
 {% include toc.md %}
 
-Let's div into what makes Turtl's syncing system work.
+Let's dive into what makes Turtl's syncing system work.
 
 ## Client IDs (or the "cid")
 
@@ -22,14 +22,9 @@ syncing painless. We do this using a few methods, some of which are actually
 borrowed from [MongoDB's Object ID schema](http://docs.mongodb.org/manual/reference/object-id/).
 
 Every client that runs the Turtl app creates and saves a client hash if it
-doesn't have one. This hash is a SHA256 hash of some (cryptographically secure)
-random data (current time + random uuid).
+doesn't have one. This is the hex representation of 32 bytes of random data.
 
-This client hash is then baked into every id of every object created from then on.
-Turtl uses the [composer.js](https://lyonbros.github.io/composer.js/) framework
-(somewhat similar to Backbone) which gives every object a unique ID ("cid") when
-created. Turtl replaces Composer's cid generator with its own that creates IDs
-like so:
+The client id is formatted like this:
 
 ~~~
 12 bytes hex timestamp | 64 bytes client hash | 4 bytes hex counter
@@ -51,7 +46,7 @@ breaks down as:
  |- 1438213039488                     |- unique hash                           |- 18
 ~~~
 
-The timestamp is a `new Date().getTime()` value (with leading 0s to support
+The timestamp is a unix millisecond timestamp value (with leading 0s to support
 longer times eventually). The client hash we already went over, and the counter
 is a value tracked in-memory that increments each time a cid is generated. The
 counter has a max value of 65535, meaning that the only way a client can produce
@@ -124,7 +119,7 @@ syncs come in later so we don't double-apply data changes.
 ### Why not use deltas?
 
 Wouldn't it be better to pass diffs/deltas around than full objects? If two
-people edit the same note in a shared board at the same time, then the
+people edit the same note in a shared space at the same time, then the
 last-write-wins architecture would overwrite data!
 
 Yes, diffs would be wonderful. However, consider this: at some point, an object
@@ -154,15 +149,6 @@ profile or to shared resources). This means that the API call used holds the
 connection open until either a) a certain amount of time passes or b) new sync
 records come in.
 
-The API uses [RethinkDB's changefeeds](http://rethinkdb.com/docs/changefeeds/javascript/)
-to detect new data by watching the API's sync table. This means that changes
-coming in are very fast (usually within a second of being logged in the API).
-RethinkDB's changefeeds are terrific, and eliminate the need to poll your
-database endlessly. They collapse changes up to one second, meaning it doesn't
-return immediately after a new sync record comes in, it waits a second for more
-records. This is mainly because syncs happen in bulk and it's easier to wait a
-bit for a few of them than make five API calls.
-
 For each sync record that comes in, it's linked against the actual data stored
 in the corresponding table (so a sync record describing an edited note will pull
 out that note, in its current form, from the "notes" table). Each sync record is
@@ -170,7 +156,7 @@ then handed back to the client, in order of occurence, so it can be applied to
 the local profile.
 
 The result is that changes to a local profile are applied to all connected
-clients within a few seconds. This also works for shared boards, which are
+clients within a few seconds. This also works for shared spaces, which are
 included in the sync record searches when polling for changes.
 
 ## File handling
@@ -183,38 +169,11 @@ Instead, the following happens:
 
 ### Outgoing syncs (client -> API)
 
-Then a new file is attached to a note and saved, a "file" sync item is created
-and passed into the ougoing sync queue *without the content body*. Keep in mind
-that at this point, the file contents are already safe (in encrypted binary
-form) in the files table of the local DB. The sync system notices the outgoing
-file sync record (sans file body) and pulls it aside. Once the normal sync has
-completed, the sync system adds the file record(s) it found to a file upload
-queue (after which the outgoing "file" sync record is removed). The upload queue
-(using [Hustle](https://github.com/orthecreedence/hustle)) grabs the encrypted
-file contents from the local files table uploads it to the API's attachement
-endpoint.
-
-Attaching a file to a note creates a "file" sync record in the API, which alerts
-clients that there's a file change on that note they should download.
-
-It's important to note that file uploads happen after all other syncs in that
-bulk request are handled, which means that the note will always exist before the
-file even starts uploading.
-
-Encrypted file contents are stored on S3.
+TODO: update for v0.7 (core).
 
 ### Incoming syncs (API -> client)
 
-When the client sees an incoming "file" sync come through, much like with outgoing
-file syncs, it pulls the record aside and adds it to a file download queue instead
-of processing it normally. The download queue grabs the file via the note
-attachment API call and, once downloaded, saves it into the local files database
-table.
-
-After this is all done, if the note that the file is attached to is in memory
-(decrypted and in the user's profile) it is notified of the new file contents
-and will re-render itself. In the case of an image attachment, a preview is
-generated and displayed via a Blob URL.
+TODO: update for v0.7 (core).
 
 ## What's not in offline mode?
 
@@ -222,7 +181,7 @@ All actions work in offline mode, except for a few that require server approval:
 
 - login (requires checking your auth against the API's auth database)
 - joining (creating an account)
-- creating a persona (requires a connection to see if the email is already taken)
 - changing your password
+- sharing a space
 - deleting your account
 
