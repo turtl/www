@@ -57,7 +57,7 @@ But really, Apple wants you to pay them money to release software on their
 mediocre platform, and they want you prove that you payed them by signing your
 app with a certificate they have blessed.
 
-We've payed the $100, and now just need a Mac build machine to do the signing
+We've paid the $100, and now just need a Mac build machine to do the signing
 stuff.
 
 ### Why isn't Turtl a native app?
