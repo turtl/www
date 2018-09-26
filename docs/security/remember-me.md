@@ -12,7 +12,7 @@ login and logs you in automatically when opening the app. This feature trades
 security for convenience for people with longer passwords who don't want to log
 in by hand each time.
 
-Stay logged in uses the concept of login tokens: an object that store's the user's
+Stay logged in uses the concept of login tokens: an object that stores the user's
 id, master key, auth token, and username. This is essentially a "key" to log in.
 It does not include the user's password, but it can be used to log in to the
 user's account.
@@ -39,7 +39,7 @@ If you value the security of your account, **it is recommended *not* to use
 
 ## Android
 
-On desktop, when the user logs in (and has "Stay logged in" checked) the user's
+On Android, when the user logs in (and has "Stay logged in" checked) the user's
 login token is encrypted and saved to disk. The key that encrypts the login
 token is handed back to the Android app, and it encrypts this key using the
 [Android Keystore](https://developer.android.com/training/articles/keystore)
