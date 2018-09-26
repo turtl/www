@@ -53,7 +53,7 @@ before you spend time writing code.
 These conventions apply to the following projects:
 
 - [js](https://github.com/turtl/js)
-- [mobile](https://github.com/turtl/mobile)
+- [android](https://github.com/turtl/android)
 - [desktop](https://github.com/turtl/desktop)
 - [browser-extension](https://github.com/turtl/browser-extension)
 
@@ -79,7 +79,8 @@ them.
   function getAllNotes() ...
   ```
 
-- __Tabs__: use `[tabs]` instead of `[spaces]`. Seriously, use tabs.
+- __Tabs__: use `[tabs]` instead of `[spaces]`. If you are using Sublime Text,
+  you are most likely not using tabs, even if you think you are.
   If you have to drop an `if` into multiple lines, do it like so:
 
   ```js
@@ -96,10 +97,7 @@ them.
 
   where `condition1` would have a `[tab]` between it and the opening paren.
 
-- __Braces__: Braces can be on the same line as your `if`/`function`/etc
-  definitions. We drop them on the line below, but you are free do it as you
-  please *as long as there is some kind of whitespace between the closing paren
-  and the brace*.
+- __Whitespace__: Please use readable whitespace.
 
   Examples:
 
@@ -109,18 +107,24 @@ them.
       ...
   }
 
-  // fine
+  // fine (dropped braces are OK)
   if(condition)
   {
       ...
   }
 
-  // one-line functions are fine
+  // one-line functions are also fine
   var cb = function(err, res) { ... };
 
   // nope. please use readable whitespace
   function test(arg1,arg2){
   }
+
+  // nope. use whitespace!
+  var obj = {
+      key:val1,
+      key:val2,
+  };
   ```
 
 - __Variable declarations__: `var`-per-declaration is the preferred method, but
@@ -148,17 +152,17 @@ tolerated is leading commas.
   Examples:
 
   ```js
-  // good (no trailing comma on last item)
-  var obj = {
-      name: 'slappy',
-      friends: 0
-  };
-
-  // good (trailing comma on last item is ok)
+  // good (trailing comma on last item is great A+++)
   var obj = {
       name: 'andrew',
       hates: 'leading commas',
       seriously: 'do not do it',
+  };
+
+  // good (no trailing comma on last item also fine)
+  var obj = {
+      name: 'slappy',
+      friends: 0
   };
 
   // NO. never.
@@ -205,6 +209,7 @@ bigger ones here:
 - __Indent with two spaces__: Please follow this. All of our code uses two-space
 indendation and if you use tabs or four spaces or anything else, you will be
 asked to re-tab.
+
 - __Use underscores__: No camelCase. This is a hard rule.
   
   Examples:
