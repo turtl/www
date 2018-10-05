@@ -28,7 +28,7 @@ build:
 
 %.css: %.less
 	@echo "- LESS:" $< "->" $@
-	@$(LESSC) --include-path=css/ $< > $@
+	@$(LESSC) --include-path='css/:node_modules/uikit/src/less/components' $< > $@
 
 .build/postcss: $(allcss) $(cssfiles)
 	@echo "- postcss:" $?

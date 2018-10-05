@@ -1,19 +1,56 @@
-<header>
-	<div class="gutter">
-		<h1>
-			<a href="/">
-				<img src="/images/logo-beta.png" width="128" height="30">
-			</a>
-		</h1>
-		<ul>
-			<li class="download"><a href="/download">Download</a></li>
-			<li class="highlight premium"><a href="/premium">Premium</a></li>
-			<li class="faq"><a href="/faq">FAQ</a></li>
-			<li class="docs"><a href="/docs">Docs</a></li>
-			<li class="contact"><a href="/contact">Contact</a></li>
-			<li class="social twitter"><a href="https://twitter.com/turtlapp"><icon>&#xE800;</icon></a></li>
-			<li class="social google-plus"><a href="https://plus.google.com/communities/105901682343154191710"><icon>&#xE801;</icon></a></li>
-		</ul>
+<div class="main-nav-container">
+	<div class="uk-container">
+		<nav class="main" uk-navbar>
+			<a class="uk-navbar-item uk-logo uk-margin-right" href="/"><img src="/images/logo.svg">Turtl<sup class="uk-margin-small-left uk-text-warning">beta</sup></a>
+			<ul class="uk-navbar-nav uk-visible@s">
+				<li><a href="/download">Download</a></li>
+				<li><a href="/premium">Premium</a></li>
+				<li>
+					<a href="#">About<span uk-icon="icon: triangle-down; ratio: 0.75"></span></a>
+					<div class="uk-navbar-dropdown">
+						<ul class="uk-nav uk-navbar-dropdown-nav">
+							<li><a href="/docs">Documentation</a></li>
+							<li><a href="/faq">FAQ</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+			<div class="uk-navbar-right uk-visible@m">
+				<ul class="uk-navbar-nav">
+					<li><a title="Twitter" href="https://twitter.com/turtlapp" uk-icon="icon: twitter"></a></li>
+					<li><a title="Google+" href="https://plus.google.com/communities/105901682343154191710" uk-icon="icon: google-plus"></a></li>
+					<li><a title="Github" href="https://github.com/turtl" uk-icon="icon: github"></a></li>
+				</ul>
+			</div>
+			<div class="uk-navbar-right uk-hidden@s">
+				<a class="uk-navbar-item" href="#mobile-nav" uk-toggle><span uk-icon="icon: menu"></span></a>
+			</div>
+
+			<div id="mobile-nav" uk-offcanvas>
+				<div class="uk-offcanvas-bar">
+					<a class="uk-offcanvas-close"><span uk-icon="icon: close"></span></a>
+					<ul class="uk-nav">
+						<li><a href="/">Home</a></li>
+						<li><a href="/download">Download</a></li>
+						<li><a href="/premium">Premium</a></li>
+						<li class="uk-parent">
+							About
+							<ul class="uk-nav-sub">
+								<li><a href="/docs">Documentation</a></li>
+								<li><a href="/faq">FAQ</a></li>
+							</ul>
+						</li>
+						<li><a href="/contact">Contact</a></li>
+					</ul>
+					<ul class="uk-iconnav uk-flex-center uk-padding-small">
+						<li><a title="Twitter" href="https://twitter.com/turtlapp" uk-icon="icon: twitter; ratio: 1.5"></a></li>
+						<li><a title="Google+" href="https://plus.google.com/communities/105901682343154191710" uk-icon="icon: google-plus; ratio: 1.5"></a></li>
+						<li><a title="Github" href="https://github.com/turtl" uk-icon="icon: github; ratio: 1.5"></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 	</div>
-</header>
+</div>
 

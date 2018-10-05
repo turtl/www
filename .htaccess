@@ -1,6 +1,7 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine on
 	RewriteRule ^([a-z-]+)/page/[0-9]+ /$1 [L,R=301]
+	RewriteRule ^docs/security/remember-me /docs/security/stay-logged-in/ [L,R=301]
 	RewriteRule ^(.*\.)v[0-9.]+\.(css|js|gif|png|jpg)$ $1$2 [L]
 </IfModule>
 

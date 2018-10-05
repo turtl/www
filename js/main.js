@@ -6,7 +6,6 @@ var app = {
 		// for faster processing
 		//app.init_splash_downloads();
 		app.init_splash_more();
-		app.init_doc_anchors();
 		app.init_signature();
 		//app.init_splash_parallax();
 	},
@@ -123,21 +122,6 @@ var app = {
 			scroller();
 		});
 		scroller();
-	},
-
-	init_doc_anchors: function()
-	{
-		var doc = document.getElement('.documentation');
-		if(!doc) return;
-		var htags = doc.getElements('h1[id],h2[id],h3[id],h4[id]');
-		htags.forEach(function(el) {
-			var id = el.get('id');
-			el.set('id', null);
-			new Element('a')
-				.addClass('toc-anchor')
-				.set('name', id)
-				.inject(el, 'before');
-		});
 	},
 
 	init_signature: function()

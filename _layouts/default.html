@@ -3,15 +3,12 @@
 	{% include head.html %}
 	<body class="{{page.body_class}}">
 		{% include header.html %}
-		<div id="container">
-			{% if page.show_splash %}
-				{% include splash.html %}
-			{% endif %}
-			<div class="page-content clear">
-				{{ content }}
-			</div>
-			{% include footer.html %}
+		<div id="container" class="uk-offcanvas-content">
+
+{{ content }}
+
 		</div>
+		{% include footer.html %}
 
 		{% include piwik.html %}
 

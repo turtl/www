@@ -4,45 +4,15 @@ layout: documentation
 permalink: 'docs/architecture/'
 ---
 
-<div class="breadcrumb">
-<a href="/docs">Documentation</a> &raquo;
-App architecture
-</div>
-
 # App architecture
 {% include toc.md %}
 
+<ul class="uk-breadcrumb uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+<li><a href="/docs">Documentation</a></li>
+<li>App architecture</li>
+</ul>
+
 Let's go over the basics of how Turtl works.
-
-## Data types
-
-Your profile in Turtl is made of two main things: boards and notes.
-
-### Spaces
-
-Spaces are containers for everything. Spaces store boards and notes, and most
-importantly, spaces are shareable. You might have a "Home" space shared with
-your family, or a "Work" space shared with your colleagues.
-
-### Boards
-
-A board is a container of notes. It's a way organize notes within a space. You
-might have a board for each client under your "Work" space.
-
-### Notes
-
-A note is fairly simple: it's a title, some text, a link, and/or a set of tags.
-A note can have a file attached to it, whether that's a photo or a document. A
-note can be in one board (and also be in no boards). A note that is not in any
-boards will only show up under "All notes" in each space.
-
-### Other types
-
-Your profile has a few other things in it that you don't have to think about,
-mainly your keychain. Anything in your profile that is encrypted (a note, a
-board, etc) has an entry on your keychain which allows that item to be
-decrypted properly. Your keychain is encrypted with your master key (generated
-from your email/password combo). [Learn more about Turtl's crypto](/docs/security).
 
 ## Sharing
 
@@ -60,14 +30,14 @@ however, put a single note into a space and share that space.
 ## Syncing
 
 Whenever you change data in your profile, the changed objects are encrypted,
-saved to local storage (IndexedDB), and the syncing system is notified of the
-change. All changed objects are saved in an outgoing syncing table, which the
+saved to local storage, and the syncing system is notified of the
+change. All changed objects are saved in a local syncing table, which the
 sync system periodically reads. If it finds changes, it sends them up to the
-Turtl API server, in order, using a bulk send (all items are sent at once).
+Turtl server, in order, using a bulk send (all items are sent at once).
 
-At the same time, the sync system long-polls the API for incoming changes to
+At the same time, the sync system polls the API for incoming changes to
 your profile. This can happen when you use Turtl on another device, or if a
-shared board you're a member of has changes on it. Then the reverse happens:
+shared space you're a member of has changes on it. Then the reverse happens:
 the changes are pulled down, saved (encrypted) to the local storage, and the
 app is notified of the changes (at which point it loads the changes into
 memory, decrypted, if it needs to).

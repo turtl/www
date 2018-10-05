@@ -1,16 +1,11 @@
-<ul class="download {% if include.hide %}hide{% endif %}">
-	<li rel="ext-chrome">
-		<a href="https://chrome.google.com/webstore/detail/turtl/dgcojenhfdjhieoglmiaheihjadlpcml" title="Chrome extension v{{site.ext_version}}">
-			<img src="/images/site/chrome-small.png" width="32" height="32" alt="chrome">
-			<small>Chrome</small>
-		</a>
-	</li>
-	<li rel="ext-firefox">
-		<!--<a href="/releases/extension/turtl-firefox-{{site.ext_version}}.xpi" title="Firefox extension v{{site.ext_version}}">-->
-		<a href="https://addons.mozilla.org/en-US/firefox/addon/turtl-bookmarking/" title="Firefox extension v{{site.ext_version}}">
-			<img src="/images/site/firefox-small.png" width="32" height="32" alt="firefox">
-			<small>Firefox</small>
-		</a>
-	</li>
-</ul>
+<div class="download {% if include.hide %}hide{% endif %}">
+	<a class="uk-button uk-button-secondary" href="https://chrome.google.com/webstore/detail/turtl/dgcojenhfdjhieoglmiaheihjadlpcml" title="Chrome extension v{{site.ext_version}}">
+		<img src="/images/site/chrome-small.png" width="32" height="32" alt="chrome">
+		<small>Chrome</small>
+	</a>
+	<a class="uk-button uk-button-secondary" href="https://addons.mozilla.org/en-US/firefox/addon/turtl-bookmarking/" title="Firefox extension v{{site.ext_version}}">
+		<img src="/images/site/firefox-small.png" width="32" height="32" alt="firefox">
+		<small>Firefox</small>
+	</a>
+</div>
 

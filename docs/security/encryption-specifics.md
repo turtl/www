@@ -4,14 +4,14 @@ title: 'Encryption specifics | Documentation'
 permalink: 'docs/security/encryption-specifics/'
 ---
 
-<div class="breadcrumb">
-<a href="/docs">Documentation</a> &raquo;
-<a href="/docs/security">Security and encryption</a> &raquo;
-Encryption specifics
-</div>
-
 # Encryption specifics
 {% include toc.md %}
+
+<ul class="uk-breadcrumb uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+<li><a href="/docs">Documentation</a></li>
+<li><a href="/docs/security">Security and encryption</a></li>
+<li>Encryption specifics</li>
+</ul>
 
 This page will explain the specific algorithms and methods Turtl uses to encrypt,
 decrypt, (de)serialize, and authenticate data.
