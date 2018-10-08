@@ -13,6 +13,10 @@ fi
 rsync \
 	-avz \
 	--delete \
+	--no-perms --no-owner --no-group \
+	--delete \
+	--delete-excluded \
+	--filter 'protect .well-known' \
 	--checksum \
 	_site/ \
 	${DEST}
