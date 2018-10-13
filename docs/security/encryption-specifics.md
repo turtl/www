@@ -76,7 +76,7 @@ modified in any way.
 
 ### Asymmetric serialization format
 
-Data encrypted with the sealed box algorithm is int he following format:
+Data encrypted with the sealed box algorithm is in the following format:
 ~~~
 |-1 byte--| |-N bytes--|
 | version | |ciphertext|
