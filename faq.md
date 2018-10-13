@@ -24,8 +24,8 @@ discussion board.
 Keep in mind by running your own server you're going off the supported path.
 The maintainers of the project can't go out of their way to help you if
 you run into problems. The bulk of the work for the project happens on the
-clients (desktop, mobile) and fixing platform-specific server issues is not a
-priority.
+clients (desktop, mobile) and helping with platform-specific server issues is
+not a priority.
 
 ### Why isn't Turtl a native app?
 
