@@ -57,45 +57,36 @@ These conventions apply to the following projects:
 - [desktop](https://github.com/turtl/desktop)
 - [browser-extension](https://github.com/turtl/browser-extension)
 
-You will find these conventions draconian and upsetting, but please adhere to
-them.
+Let's go over the basics. Note that some of these rules are more loosely
+enforced than others. If you make a significant contribution that works
+beautifully but you used `camelCasing` it's probably not going to be a big deal.
 
-- __Underscores__: `use_underscores` instead of `camelCasing`. The exception is
-  when defining top-level classes, which use `CapitalCamelCasing`.
+- __Localized string literals__: Turtl is a multi-lingual application, and uses
+  user-submitted translations. We build the localization template by parsing our
+  own UI code. What this means is that we specifically look for `i18next.t("Delete")`
+  in javascript and {% raw %}`{{t "Delete"}}`{% endraw %} in our templates, and
+  we add the string "Delete" to the translation template.
 
-  Example:
-  
-  ```js
-  // good
-  var user_settings = (new User()).get_settings();
-
-  // good (defining a top-level class)
-  var User = Composer.Model.extend({...});
-
-  // nope
-  var userSettings = ...;
-
-  // nope
-  function getAllNotes() ...
-  ```
-
-- __Tabs__: use `[tabs]` instead of `[spaces]`. If you are using Sublime Text,
-  you are most likely not using tabs, even if you think you are.
-  If you have to drop an `if` into multiple lines, do it like so:
+  This means that you cannot put the string literals into variables! For
+  instance:
 
   ```js
   // good
-  if(
-      condition1 &&
-      condition2
-  ) { ... }
+  var title = i18next.t('Edit note');
 
   // good
-  if( condition1 &&
-      confition2 ) { ... }
+  var title = action == 'add' ? i18next.t('Add note') : i18next.t('Edit note');
+
+  // bad! we won't be able to parse this
+  var key = 'Edit note';
+  var title = i18next.t(key);
+
+  // bad! we won't be able to parse this
+  var title = i18next.t(action == 'add' ? 'Add note' : 'Edit note');
   ```
 
-  where `condition1` would have a `[tab]` between it and the opening paren.
+  In other words, when calling `i18next.t()` in javascript or {% raw %}`{{t ...}}`{% endraw %}
+  in handlebars, *please only use literal strings*!
 
 - __Whitespace__: Please use readable whitespace.
 
@@ -172,6 +163,45 @@ tolerated is leading commas.
       , seriously: 'your code will be roundly rejected'
   };
   ```
+
+- __Underscores__: `use_underscores` instead of `camelCasing`. The exception is
+  when defining top-level classes, which use `CapitalCamelCasing`.
+
+  Example:
+  
+  ```js
+  // good
+  var user_settings = (new User()).get_settings();
+
+  // good (defining a top-level class)
+  const User = Composer.Model.extend({...});
+
+  // nope
+  var userSettings = ...;
+
+  // nope
+  function getAllNotes() ...
+  ```
+
+{% comment %}
+- __Tabs__: use `[tabs]` instead of `[spaces]`. If you are using Sublime Text,
+  you are most likely not using tabs, even if you think you are.
+  If you have to drop an `if` into multiple lines, do it like so:
+
+  ```js
+  // good
+  if(
+      condition1 &&
+      condition2
+  ) { ... }
+
+  // good
+  if( condition1 &&
+      confition2 ) { ... }
+  ```
+
+  where `condition1` would have a `[tab]` between it and the opening paren.
+{% endcomment %}
 
 #### Third-party libraries
 
