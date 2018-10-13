@@ -12,11 +12,11 @@ fi
 
 rsync \
 	-avz \
-	--delete \
 	--no-perms --no-owner --no-group \
 	--delete \
 	--delete-excluded \
 	--filter 'protect .well-known' \
+	--filter 'protect releases' \
 	--checksum \
 	_site/ \
 	${DEST}

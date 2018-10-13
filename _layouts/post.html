@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<div class="blog-post">
+	<div class="post-title">
+		<h1><a href="{{ page.permalink }}">{{ page.title }}</a></h1>
+		<div class="date" title="{{ page.date }}">
+			{{ page.date | date: '%B %d, %Y' }}
+		</div>
+	</div>
+	{% if page.post_header %}
+		<div class="post-header">
+			<img src="/images/posts/{{ page.post_header }}">
+		</div>
+	{% endif %}
+
+	{{content}}
+</div>
+
