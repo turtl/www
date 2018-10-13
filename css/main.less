@@ -211,10 +211,36 @@ em code, strong code {font-style: normal; font-weight: normal;}
 	}
 }
 
+.announcement {}
+.announcement {
+	h1 {font-size: 24px;}
+	a {display: block; padding: 24px 0; color: #000; text-align: center; text-decoration: none; background: #8FC46A; transition: background-color 0.3s;}
+	a:hover {background-color: darken(#8FC46A, 5%);}
+}
+
 // -----------------------------------------------------------------------------
 // download page
 // -----------------------------------------------------------------------------
 .download-section {margin-bottom: 24px;}
+
+// -----------------------------------------------------------------------------
+// posts
+// -----------------------------------------------------------------------------
+.blog-post {}
+.blog-post {
+	.post-title {display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;}
+	.post-title {
+		h1 {margin-bottom: 0;}
+	}
+	.post-header {margin-bottom: 24px;}
+	.post-header {
+		img {max-width: 100%; height: auto;}
+	}
+	@media @mobile {
+		.post-title {flex-direction: column;}
+	}
+	credit {display: block; font-size: 0.9em; text-align: center;}
+}
 
 // -----------------------------------------------------------------------------
 // pricing page
