@@ -5,7 +5,7 @@ email: andrew@turtlapp.com
 description: The safe way to remember everything. Take all your important data with you.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://turtlapp.com"
-permalink: "/:categories/:title/"
+permalink: "/:year/:month/:title/"
 
 # Build settings
 markdown: kramdown
