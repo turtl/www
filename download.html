@@ -69,12 +69,13 @@ Primary key fingerprint: DEDF 113E 5424 8344 1637  16B5 5C66 FAD1 3222 D757
 	<li>
 		If verification succeeded, now you can compare the SHA256 sum of the download you made to that file's entry in the SHA256 file:
 
-		<pre><code>$ wget https://github.com/turtl/desktop/releases/download/v0.7.0-rc2/turtl-windows64.msi
-$ sha256sum turtl-windows64.msi
-e08fdab5ee12ba8b9a955728b2d8bbe3f5f13139156a385fc2001637c87ceb3a *turtl-windows64.msi
-$ cat desktop.sha256sums | grep turtl-windows64.msi
-e08fdab5ee12ba8b9a955728b2d8bbe3f5f13139156a385fc2001637c87ceb3a *turtl-windows64.msi</code></pre>
-		It matches! Horray. Your Turtl build has not been tampered with. If the two hashes above do not match, then do NOT install Turtl!
+		<pre><code>$ wget https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-windows64.msi
+$ sha256sum turtl-{{site.releases.desktop}}-windows64.msi
+fb57740d84e6838d83035949477c061cc4d1879074ffb05a336a22cb37f8eb9b *turtl-{{site.releases.desktop}}-windows64.msi
+$ cat desktop.sha256sums | grep windows64
+fb57740d84e6838d83035949477c061cc4d1879074ffb05a336a22cb37f8eb9b *turtl-{{site.releases.desktop}}-windows64.msi</code></pre>
+		If those two hashes (<code>fb57740...</code>) match, your Turtl build has not been tampered with.
+		If the two hashes above do not match, then do NOT install Turtl!
 	</li>
 </ol>
 
