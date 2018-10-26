@@ -48,12 +48,12 @@ launching the new version, some people are experiencing problems:
 
 - Some users are experiencing a problem logging in with their old credentials
 ([#190](https://github.com/turtl/tracker/issues/190))
-- Some users are experiencing an issue where migration is not moving any of
-their data over ([#192](https://github.com/turtl/tracker/issues/192))
+- ~~Some users are experiencing an issue where migration is not moving any of
+their data over ([#192](https://github.com/turtl/tracker/issues/192))~~
 
 If you have a problem with migration, don't worry, your data is safe on the old
 servers. The migration process *copies* your old data, it doesn't actually
-change it. Pleaase bear with us as we fix these problems.
+change it. Please bear with us as we fix these problems.
 
 Also, feel free to install the old version of Turtl until we have everything
 sorted out:
