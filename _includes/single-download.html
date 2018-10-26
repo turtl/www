@@ -1,0 +1,7 @@
+<div class="download-item">
+	{% if include.disable %}<button disabled{% else %}<a href="{{include.link}}"{% endif %} class="uk-button uk-button-large uk-button-secondary" title="{{include.title}}">
+		<icon>&#x{{include.icon}};</icon>
+		<small>{{include.text}}</small>
+	{% if include.disable %}</button>{% else %}</a>{% endif %}
+</div>
+
