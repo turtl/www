@@ -8,6 +8,10 @@ Hi, everyone. We're excited to announce the release of Turtl v0.7. We've been
 slowly testing and tuning it for many months now with the help of some dedicated
 contributors, and it's finally ready for launch!
 
+<div class="uk-text-center">
+<a href="/download/" class="uk-button uk-button-primary">Download Turtl v0.7</a>
+</div>
+
 This is a really big update to Turtl, and deserves some explanation.
 
 We've comletely rebuilt the server from scratch. What was once Common Lisp is
