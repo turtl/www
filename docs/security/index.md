@@ -4,14 +4,14 @@ layout: documentation
 permalink: 'docs/security/'
 ---
 
-<div class="breadcrumb">
-<a href="/docs">Documentation</a> &raquo;
-Security and encryption
-</div>
-
 # Security and encryption
-
 {% include toc.md %}
+
+<ul class="uk-breadcrumb uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+<li><a href="/docs">Documentation</a></li>
+<li>Security and encryption</li>
+</ul>
+
 
 Turtl uses encryption to protect your data in such a way that only you, and
 those you choose, are able to view your data. Keep reading for a high-level
@@ -60,6 +60,12 @@ which goes over the ciphers, block modes, and other methods Turtl uses when
 handling your data.
 
 [Encryption specifics &raquo;](/docs/security/encryption-specifics)
+
+## Stay logged in
+
+Turtl has a feature that keeps you logged in if the app is closed and reopened.
+This feature may have security implications. [Read more about the "Stay logged in"
+feature](/docs/security/stay-logged-in).
 
 ## When is Turtl *not* secure?
 

@@ -23,6 +23,25 @@ here:
   entity, have someone from your organization who makes legal decisions sign
   this form.
 
+## Help us code
+
+Our central [Github issue tracker](https://github.com/turtl/tracker/issues)
+covers all of the Turtl projects.
+
+We have marked [**a list of items in our issue tracker you can help with**](https://github.com/turtl/tracker/issues?q=is%3Aissue+is%3Aopen+milestone%3A%2A+label%3Astatus%3Ahelp-wanted)!
+
+This includes all items with the `help-wanted` tag that are a part of one of
+our milestones. There are some issues that are very core to the app and
+require intimate knowledge of its inner workings, and these are generally not
+marked with `help-wanted`.
+
+Please ask before working on issues that do not have a milestone as these are
+generally meant to track ideas that haven't been fully realized or "maybe"
+features that we want to consider but haven't decided to include yet.
+
+Once again, *if you work on issues that are not part of a milestone, chances are
+your PR will be rejected*. When in doubt, pull issues off the [help wanted list](https://github.com/turtl/tracker/issues?q=is%3Aissue+is%3Aopen+milestone%3A%2A+label%3Astatus%3Ahelp-wanted)!
+
 ## Translations
 
 Would you like to translate Turtl to your language? Thanks for helping out! We
@@ -35,7 +54,7 @@ If there's one for your language/locale already, feel free to make any updates
 to the file and submit a pull request.
 
 If you language/locale isn't there, copy the [latest language template file](https://github.com/turtl/js/blob/master/locales/locale.js.template)
-to a new file witht he format `<language code>_<locale code>.js` (if your
+to a new file with the format `<language code>_<locale code>.js` (if your
 language doesn't have a specific locale code, just use the language code again).
 For example, a Spanish translation in the Mexican locale would be `es_mx.js`.
 
@@ -253,29 +272,6 @@ asked to re-tab.
   // bad
   fn thisIsNotJava(orCSharp: u32) -> { ... }
   ```
-
-## Issue tracker
-
-Our [Github issue tracker](https://github.com/turtl/tracker/issues) covers all
-of the Turtl projects. We used to have a tracker-per-project, but this was
-confusing to users and difficult for us to manage. Now everything lives in one
-place.
-
-### Looking to contribute?
-
-We have marked [a list of items in our issue tracker you can help with](https://github.com/turtl/tracker/issues?q=is%3Aissue+is%3Aopen+milestone%3A%2A+label%3Astatus%3Ahelp-wanted)!
-
-This includes all items with the `help-wanted` tag that are a part of one of
-our milestones. There are some issues that are very core to the app and
-require intimate knowledge of its inner workings, and these are generally not
-marked with `help-wanted`.
-
-Please ask before working on issues that do not have a milestone as these are
-generally meant to track ideas that haven't been fully realized or "maybe"
-features that we want to consider but haven't decided to include yet.
-
-Once again, *if you work on issues that are not part of a milestone, chances are
-your PR will be rejected*. When in doubt, pull issues off the [help wanted list](https://github.com/turtl/tracker/issues?q=is%3Aissue+is%3Aopen+milestone%3A%2A+label%3Astatus%3Ahelp-wanted)!
 
 ## Questions
 

@@ -1,46 +1,29 @@
-<ul class="download clear {{include.class}}">
-	<li rel="desktop-windows">
-		<a href="https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-windows64.msi" title="Windows desktop v{{site.releases.desktop}}">
-			<img src="/images/site/windows-small.png" width="32" height="32" alt="windows">
-			<small>Windows x64</small>
-		</a>
-	</li>
-	<li rel="desktop-osx">
-		<a href="https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-osx.zip" title="OSx desktop v{{site.releases.desktop}}">
-			<img src="/images/site/osx-small.png" width="32" height="32" alt="osx">
-			<small>OSx x64</small>
-		</a>
-	</li>
-	<li rel="desktop-linux">
-		<a href="https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-linux64.tar.bz2" title="Linux 64-bit desktop v{{site.releases.desktop}}">
-			<img src="/images/site/linux-small.png" width="32" height="32" alt="linux">
-			<small>Linux x64</small>
-		</a>
-	</li>
-	<li rel="desktop-linux">
-		<a href="https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-linux32.tar.bz2" title="Linux 32-bit desktop v{{site.releases.desktop}}">
-			<img src="/images/site/linux-small.png" width="32" height="32" alt="linux">
-			<small>Linux x32</small>
-		</a>
-	</li>
+<div uk-grid class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-4@m download {{include.class}}">
+	{% capture link %}https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-windows64.msi{% endcapture %}
+	{% capture title %}Windows desktop v{{site.releases.desktop}}{% endcapture %}
+	{% include single-download.html link=link title=title icon="F17A" text="Windows x64" %}
 
-	<li rel="mobile-android">
-		<a href="https://play.google.com/store/apps/details?id=com.lyonbros.turtl" title="Android v{{site.releases.desktop}}">
-			<img src="/images/site/android-small.png" width="32" height="32" alt="android">
-			<small>Android</small>
-		</a>
-	</li>
-	<li rel="mobile-android">
-		<a href="https://github.com/turtl/android/releases/download/v{{site.releases.android}}/turtl-{{site.releases.desktop}}-android.apk" title="Android v{{site.releases.android}} (.apk)">
-			<img src="/images/site/android-small.png" width="32" height="32" alt="android">
-			<small>Android (.apk)</small>
-		</a>
-	</li>
-	<li rel="mobile-ios">
-		<span title="iOS v{{site.releases.desktop}}">
-			<img src="/images/site/ios-small.png" width="32" height="32" alt="ios">
-			<small>iOS (Coming soon)</small>
-		</span>
-	</li>
-</ul>
+	{% capture link %}https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-osx.zip{% endcapture %}
+	{% capture title %}OSx desktop v{{site.releases.desktop}}{% endcapture %}
+	{% include single-download.html link=link title=title icon="F179" text="OSx x64" %}
+
+	{% capture link %}https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-linux64.tar.bz2{% endcapture %}
+	{% capture title %}Linux 64-bit desktop v{{site.releases.desktop}}{% endcapture %}
+	{% include single-download.html link=link title=title icon="F17C" text="Linux x64" %}
+
+	{% capture link %}https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-linux32.tar.bz2{% endcapture %}
+	{% capture title %}Linux 32-bit desktop v{{site.releases.desktop}}{% endcapture %}
+	{% include single-download.html link=link title=title icon="F17C" text="Linux x32" %}
+
+	{% capture link %}https://play.google.com/store/apps/details?id=com.lyonbros.turtl{% endcapture %}
+	{% capture title %}Android v{{site.releases.desktop}}{% endcapture %}
+	{% include single-download.html link=link title=title icon="F17B" text="Android" %}
+
+	{% capture link %}https://github.com/turtl/android/releases/download/v{{site.releases.android}}/turtl-{{site.releases.desktop}}-android.apk{% endcapture %}
+	{% capture title %}Android v{{site.releases.android}} (.apk){% endcapture %}
+	{% include single-download.html link=link title=title icon="F17B" text="Android (.apk)" %}
+
+	{% capture title %}iOS v{{site.releases.desktop}}{% endcapture %}
+	{% include single-download.html disable=1 title=title icon="E840" text="iOS (Coming soon)" %}
+</div>
 

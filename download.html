@@ -4,78 +4,82 @@ title: "Download Turtl"
 permalink: "download/"
 ---
 
-<h1>Download Turtl</h1>
+<div class="uk-section uk-section-primary">
+	<div class="uk-container uk-container-small">
 
-<div class="download-section">
-    <p>
-        The desktop and mobile apps give you access to your data from any
-        device.
-    </p>
-    {% include download.html %}
+		<h1>Download Turtl</h1>
+		<p>
+			The desktop and mobile apps give you access to your data from any
+			device.
+		</p>
+		{% include download.html %}
+
+		<h2>Bookmarking extensions</h2>
+
+		<p>
+			The bookmarking extensions put a button in your browser that makes it easy to
+			bookmark the current page you're on. This is great for *quickly* saving sites
+			to read later or for creating a list of pages you frequently visit.
+		</p>
+
+		<div class="download-page clear">
+		{% include extensions.html %}
+		</div>
+	</div>
 </div>
 
-<h2>Bookmarking extensions</h2>
+<div class="uk-section uk-section-muted">
+	<div class="uk-container uk-container-small">
+		<h2>Verification of downloaded files</h2>
+		<p>
+			Want to verify your Turtl download? Follow these instructions:
+		</p>
+		<ol>
+			<li>
+				Import <a href="https://keybase.io/orthecreedence/pgp_keys.asc?fingerprint=dedf113e54248344163716b55c66fad13222d757">our public signing key</a> into your GPG (key signature <code>DEDF113E54248344163716B55C66FAD13222D757</code>).
 
-<p>
-	The bookmarking extensions put a button in your browser that makes it easy to
-	bookmark the current page you're on. This is great for *quickly* saving sites
-	to read later or for creating a list of pages you frequently visit.
-</p>
-
-<div class="download-page clear">
-{% include extensions.html %}
-</div>
-
-<br>
-<h2>Verification of downloaded files</h2>
-<p>
-	Want to verify your Turtl download? Follow these instructions:
-</p>
-<ol>
-	<li>
-		Import <a href="https://keybase.io/orthecreedence/pgp_keys.asc?fingerprint=dedf113e54248344163716b55c66fad13222d757">our public signing key</a> into your GPG (key signature <code>DEDF113E54248344163716B55C66FAD13222D757</code>).
-
-		<pre><code>$ wget https://keybase.io/orthecreedence/pgp_keys.asc?fingerprint=dedf113e54248344163716b55c66fad13222d757 -O turtl.asc
+				<pre><code>$ wget https://keybase.io/orthecreedence/pgp_keys.asc?fingerprint=dedf113e54248344163716b55c66fad13222d757 -O turtl.asc
 $ gpg --import turtl.asc</code></pre>
-	</li>
-	<li>
-		Grab the SHA256 signature file and signature file for the platform you want:
-		<ul>
-			<li>
-				<strong>Desktop</strong> -
-				<a href="https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/desktop.sha256sums">SHA256 file</a> |
-				<a href="https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/desktop.sha256sums.sig">SHA256 file signature</a> |
-				<a href="https://github.com/turtl/desktop/releases">All desktop releases</a>
 			</li>
 			<li>
-				<strong>Android</strong> -
-				<a href="https://github.com/turtl/android/releases/download/v{{site.releases.android}}/android.sha256sums">SHA256 file</a> |
-				<a href="https://github.com/turtl/android/releases/download/v{{site.releases.android}}/android.sha256sums.sig">SHA256 file signature</a> |
-				<a href="https://github.com/turtl/android/releases">All android releases</a>
+				Grab the SHA256 signature file and signature file for the platform you want:
+				<ul>
+					<li>
+						<strong>Desktop</strong> -
+						<a href="https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/desktop.sha256sums">SHA256 file</a> |
+						<a href="https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/desktop.sha256sums.sig">SHA256 file signature</a> |
+						<a href="https://github.com/turtl/desktop/releases">All desktop releases</a>
+					</li>
+					<li>
+						<strong>Android</strong> -
+						<a href="https://github.com/turtl/android/releases/download/v{{site.releases.android}}/android.sha256sums">SHA256 file</a> |
+						<a href="https://github.com/turtl/android/releases/download/v{{site.releases.android}}/android.sha256sums.sig">SHA256 file signature</a> |
+						<a href="https://github.com/turtl/android/releases">All android releases</a>
+					</li>
+				</ul>
 			</li>
-		</ul>
-	</li>
-	<li>
-		Verify the GPG signature of the SHA256 file.
+			<li>
+				Verify the GPG signature of the SHA256 file.
 
-		<pre><code>$ gpg --verify desktop.sha256sums.sig desktop.sha256sums
+				<pre><code>$ gpg --verify desktop.sha256sums.sig desktop.sha256sums
 gpg: Signature made Tue, Jul 24, 2018  9:12:17 PM CDT
 gpg:                using RSA key 57CE4D9CD8D276B4
 gpg: Good signature from "Andrew Lyon <orthecreedence@gmail.com>"
 Primary key fingerprint: DEDF 113E 5424 8344 1637  16B5 5C66 FAD1 3222 D757
-     Subkey fingerprint: B25B DF8F 8BB7 7454 ACFF  BA84 57CE 4D9C D8D2 76B4
-</code></pre>
-	</li>
-	<li>
-		If verification succeeded, now you can compare the SHA256 sum of the download you made to that file's entry in the SHA256 file:
+     Subkey fingerprint: B25B DF8F 8BB7 7454 ACFF  BA84 57CE 4D9C D8D2 76B4</code></pre>
+			</li>
+			<li>
+				If verification succeeded, now you can compare the SHA256 sum of the download you made to that file's entry in the SHA256 file:
 
-		<pre><code>$ wget https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-windows64.msi
+				<pre><code>$ wget https://github.com/turtl/desktop/releases/download/v{{site.releases.desktop}}/turtl-{{site.releases.desktop}}-windows64.msi
 $ sha256sum turtl-{{site.releases.desktop}}-windows64.msi
 fb57740d84e6838d83035949477c061cc4d1879074ffb05a336a22cb37f8eb9b *turtl-{{site.releases.desktop}}-windows64.msi
 $ cat desktop.sha256sums | grep windows64
 fb57740d84e6838d83035949477c061cc4d1879074ffb05a336a22cb37f8eb9b *turtl-{{site.releases.desktop}}-windows64.msi</code></pre>
-		If those two hashes (<code>fb57740...</code>) match, your Turtl build has not been tampered with.
-		If the two hashes above do not match, then do NOT install Turtl!
-	</li>
-</ol>
+				If those two hashes (<code>fb57740...</code>) match, your Turtl build has not been tampered with.
+				If the two hashes above do not match, then do NOT install Turtl!
+			</li>
+		</ol>
+	</div>
+</div>
 

@@ -1,10 +1,10 @@
 ---
-layout: default
+layout: page
 ---
 <div class="blog-post">
-	<div class="post-title">
-		<h1><a href="{{ page.permalink }}">{{ page.title }}</a></h1>
-		<div class="date" title="{{ page.date }}">
+	<div uk-grid class="uk-flex uk-flex-between uk-flex-middle uk-child-width-1-2@s uk-margin-bottom">
+		<h1 class="uk-text-center uk-text-left@s"><a href="{{ page.permalink }}">{{ page.title }}</a></h1>
+		<div class="uk-text-center uk-text-right@s" title="{{ page.date }}">
 			{{ page.date | date: '%B %d, %Y' }}
 		</div>
 	</div>

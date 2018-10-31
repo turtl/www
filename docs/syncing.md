@@ -4,14 +4,15 @@ layout: documentation
 permalink: 'docs/syncing/'
 ---
 
-<div class="breadcrumb">
-<a href="/docs">Documentation</a> &raquo;
-<a href="/docs/architecture">App architecture</a> &raquo;
-Syncing
-</div>
-
 # Syncing
 {% include toc.md %}
+
+<ul class="uk-breadcrumb uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+<li><a href="/docs">Documentation</a></li>
+<li><a href="/docs/architecture">App architecture</a></li>
+<li>Syncing</li>
+</ul>
+
 
 Let's dive into what makes Turtl's syncing system work.
 

@@ -1,336 +1,97 @@
+@import '../node_modules/uikit/src/less/uikit.theme.less';
+
 // -----------------------------------------------------------------------------
 // vars
 // -----------------------------------------------------------------------------
-@textcolor: #222;
-@linkcolor: #337b00;
-@theme_primary: #79a758; //#8FC46A;
-@theme_secondary: #0083C3; // #D49621;
-//@linkcolor: #8abeb7;
-//@linkcolor: #b5bd68;
-@codebg: #ded;
-@codecolor: #000;
-@max_width: 960px;
-@header_height: 42px;
-@accent_font: 'roboto condensed';
+@font-accent: "Noto serif", "Times New Roman", Times, serif;
+@theme-background: #ededed;
+@font-color: #333;
 
 // -----------------------------------------------------------------------------
-// helpers
+// some uikit overrides
 // -----------------------------------------------------------------------------
-@font-face { font-family: 'Entypo'; font-weight: 400; src: url(/images/font/fontello.ttf); }
-icon {display: inline-block; margin: 0 0 0 0; padding: 0; font-family: Entypo; font-weight: 400; font-size: 1.3em; color: #000; line-height: 1em; vertical-align: text-top; cursor: default;}
-a icon {cursor: pointer;}
-
-.clearMe {display: block; height: 0; clear: both; font-size: 0;}
-.clear:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
-.clear {display: inline-block;}
-/* hide IE mac \*/
-* html .clear {height: 1%;}
-.clear {display: block;}
-/* */
-
-.flex-center() {display: flex; align-items: center;}
-.button-inc() {
-	& {display: flex; align-items: center; padding: 6px 12px; font-size: 16px; color: #fff; text-decoration: none; background: rgba(0, 0, 0, 0.7); border-radius: 3px; transition: background-color 0.3s;}
-	&:hover {background-color: rgba(0, 0, 0, 0.9);}
-}
-
-@mobile: ~"only screen and (max-width: 640px)";
+@global-font-family: 'Lato', sans-serif;
+@global-primary-background: #83b362;
+@breadcrumb-divider-margin-horizontal: 10px;
+@base-em-color: inherit;
 
 // -----------------------------------------------------------------------------
-// template stuff
+// base styles
 // -----------------------------------------------------------------------------
-html {overflow-y: scroll; overflow-x: auto; font-size: 1px;}
-body {margin: 0; padding: 0; font-family: arial; font-size: 10px; color: @textcolor; background: #f3f3f3;}
+html {color: @font-color;}
+body {background: @theme-background;}
 
-@header_pad: 2px;
-header {position: fixed; z-index: 5; top: 0; width: 100%; height: (@header_height - (@header_pad * 2)); padding: @header_pad 0; background: rgba(20, 20, 20, 0.97); box-shadow: 0 0 6px 0 #0c1d0e; transition: background-color 0.3s;}
-header {
-	&, a, icon {color: #fff;}
-	.gutter {.flex-center(); max-width: @max_width; margin: 0 auto;}
+@font-face {font-family: 'Fontello'; src: url('/images/font/fontello.woff2');}
+icon {font-family: 'Fontello';}
 
-	a {text-decoration: none;}
-	h1 {.flex-center(); padding: 0 0 0 12px;}
-	ul {.flex-center(); flex-direction: row; flex-basis: 90%; justify-content: flex-end; margin: 0; padding: 0; list-style: none;}
-	ul {
-		li {}
-		li {
-			@tw-blue: #1b95e0;
-			@gp-red: #d62222;
-			a {display: block; padding: 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;}
-			a, icon {color: #ddd; transition: color 0.3s;}
-			a:hover, icon:hover {color: #fff;}
-			&.highlight a {color: #eee;}
+a, .uk-link {color: saturate(darken(@global-primary-background, 8%), 10%);}
 
-			/*
-			&.twitter icon {color: lighten(@tw-blue, 10%);}
-			&.twitter:hover icon {color: @tw-blue;}
-			&.google-plus icon {color: lighten(@gp-red, 25%);}
-			&.google-plus:hover icon {color: lighten(@gp-red, 15%);}
-			*/
-		}
+#container {min-height: 500px;}
+.main-nav-container {background: #fff; box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.07);}
+
+nav.main {
+	.uk-logo {color: #000; font-size: 32px; font-family: @font-accent;}
+	.uk-logo {
+		img {max-width: 1.4em; max-height: 1.4em; margin-right: 0.46em;}
+		sup {font-size: 12px; transition: transform 0.3s;}
+		&:hover sup {transform: translate(0, -3px);}
 	}
-
-	@media @mobile {
-		& {height: ((@header_height * 1.8) - (@header_pad * 2));}
-		.gutter {flex-direction: column; align-items: flex-start;}
-		h1 {padding: 6px 0 0 6px;}
-		ul {align-self: flex-end; margin-right: 6px;}
-		ul {
-			li a {padding: 8px;}
-			li.docs, li.social {display: none;}
-		}
-	}
-}
-body.home {
-	header:not(.scrolled) {background-color: rgba(20, 20, 20, 0); box-shadow: none;}
-	#container {padding-top: 0;}
+	ul.uk-navbar-nav {flex-wrap: wrap;}
 }
 
-#container {padding-top: @header_height;}
-@media @mobile {
-	#container {padding-top: (@header_height * 1.8); }
-}
-
-footer {min-height: @header_height; padding: 16px 0; font-size: 14px; line-height: 20px; color: #fff; background: #111;}
 footer {
-	.gutter {display: flex; align-items: center; justify-content: space-around; max-width: 800px; margin: 0 auto;}
-	a {color: @theme_primary; text-decoration: none;}
-	div {flex-basis: 50%; padding: 0 12px;}
-	div {
-		p {padding: 0 0 12px 0;}
-		ul {list-style: none; margin: 0 0 12px 0;}
-		ul {
-			li {display: inline-block; margin: 0 6px 0 0;}
-			li {
-				icon {color: @theme_primary; opacity: 0.8; transition: opacity 0.3s;}
-				a:hover icon {opacity: 1;}
-			}
-		}
-		small {display: block; font-size: 11px; color: #ddd;}
-	}
-	ul.nav {flex-basis: 50%; padding: 0 12px;}
-	ul.nav {
-		li {display: block;}
-	}
+	ul {list-style: none; margin: 0; padding: 0;}
 }
 
-// -----------------------------------------------------------------------------
-// general
-// -----------------------------------------------------------------------------
-a {color: @linkcolor; outline: none; text-decoration: underline;}
-strong {font-weight: bold;}
-.page-content {max-width: 780px; min-height: 85vh; margin: 0 auto; padding: 40px 10px; font-size: 14px; line-height: 1.6em;}
-.page-content {
-	h1 {margin: 0 0 20px 0; font-size: 28px;}
-	h2 {margin: 0 0 16px 0; font-size: 24px;}
-	h3 {margin: 0 0 16px 0; font-size: 20px;}
-	h4 {margin: 0 0 16px 0; font-size: 16px;}
-	h1, h2 {margin-left: -6px;}
-	h1, h2, h3, h4 {
-		& {line-height: 1.1em;}
-		a {text-decoration: none;}
-	}
-	p {margin: 0 0 16px 0;}
-	p + h1,
-	p + h2,
-	p + a.toc-anchor + h1,
-	p + a.toc-anchor + h2 {margin-top: 32px;}
-	em {font-style: italic;}
-	pre {margin-bottom: 16px;}
-	ul, ol {
-		& {margin: 0 0 16px 32px;}
-		ul, ol {margin-bottom: 0;}
-		pre {margin-top: 8px; margin-bottom: 8px;}
-	}
-}
-
-ul.download {margin: 0; padding: 0; list-style: none;}
-ul.download {
-	&.detect {
-		li {display: none;}
-		li:first-child {display: block;}
-	}
-	li {display: block; float: left; margin: 0 12px 12px 0;}
-	li {
-		a, span {.button-inc();}
-		small {display: block; margin: 0 0 0 4px;}
-	}
-	li.all {
-		a {height: 32px; background: none;}
-	}
-	li:nth-child(5) {clear: both;}
-	li.hide {display: none;}
-}
-
-.button {.button-inc(); justify-content: center; font-size: 18px; background: @theme_primary;}
-.button {
-	a {color: #fff; text-decoration: none;}
-}
-
-// code
-pre, code {color: @codecolor; font-family: Consolas, "Liberation Mono", Courier, monospace; background: @codebg; border-radius: 3px;}
-code {margin: 0 2px; padding: 0 5px; white-space: nowrap;}
-pre {padding: 2px 8px; overflow-x: auto; background: @codebg;}
-pre code {margin: 0; padding: 0; color: @codecolor; white-space: pre; background: none;}
-em code, strong code {font-style: normal; font-weight: normal;}
-
-
-// -----------------------------------------------------------------------------
-// splash
-// -----------------------------------------------------------------------------
-.splash {position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: 80vh; padding: 0 0 0 0; overflow: hidden; color: #fff; background: url(/images/home/overlook.jpg) no-repeat; background-attachment: fixed; background-position: 16% 50%; background-size: cover;}
-.splash {
-	.app {display: flex; width: 100%; max-width: 1440px; justify-content: center; align-items: center; padding: (@header_height * 1.25) 0 40px 0;}
-	.app {
-		.img {box-sizing: border-box; width: 100%; padding-top: 72vh; max-width: 322px; max-height: 502px; margin: 0 24px; background: url(/images/home/app_phone.v2.png) center center no-repeat; background-size: contain;}
-		.img img {max-width: 100%; height: auto;}
-		.info {flex-basis: 40%; font-size: 20px; padding: 0 12px; font-family: @accent_font;}
+body.home {
+	.hero {position: relative; background-image: url(/images/home/notebook.jpg);}
+	.hero {
+		.overlay {position: absolute; z-index: 0; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7);}
+		.hero-container {position: relative;}
 		.info {
-			h1 {margin: 0 0 24px 0; padding: 0; font-size: 36px; font-family: @accent_font; letter-spacing: 0.03em;}
-			p {margin: 0 0 32px 0; padding: 0; line-height: 1.3em;}
-		}
-		@media @mobile {
-			& {padding-top: (@header_height * 2);}
-			.img {display: none;}
-			.info {flex-basis: 90%; font-size: 18px;}
-			.info {
-				h1 {margin-bottom: 16px; font-size: 30px;}
-				p {margin-bottom: 24px;}
-				ul.download {
-					li {margin: 0 6px 6px 0;}
-					li {
-						a, span {font-size: 14px;}
-					}
-				}
+			h1 {font-family: 'Slabo 13px', serif; font-weight: bold; color: #fff;}
+			@media only screen and (min-width: @breakpoint-medium) {
+				& {padding-left: 60px;}
 			}
 		}
-	}
-	.more {position: absolute; bottom: 12px; left: 50%; width: 100px; margin: 0 0 0 -50px; text-align: center;}
-	.more {
-		icon {font-size: 32px; color: #fff;}
-	}
-}
-
-.announcement {}
-.announcement {
-	h1 {font-size: 24px;}
-	a {display: block; padding: 24px 0; color: #000; text-align: center; text-decoration: none; background: #8FC46A; transition: background-color 0.3s;}
-	a:hover {background-color: darken(#8FC46A, 5%);}
-}
-
-// -----------------------------------------------------------------------------
-// download page
-// -----------------------------------------------------------------------------
-.download-section {margin-bottom: 24px;}
-
-// -----------------------------------------------------------------------------
-// posts
-// -----------------------------------------------------------------------------
-.blog-post {}
-.blog-post {
-	.post-title {display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;}
-	.post-title {
-		h1 {margin-bottom: 0;}
-	}
-	.post-header {margin-bottom: 24px;}
-	.post-header {
-		img {max-width: 100%; height: auto;}
-	}
-	@media @mobile {
-		.post-title {flex-direction: column;}
-	}
-	credit {display: block; font-size: 0.9em; text-align: center;}
-}
-
-// -----------------------------------------------------------------------------
-// pricing page
-// -----------------------------------------------------------------------------
-.ppxium {}
-.ppxium {
-	ul.plans {display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin: 32px 0; list-style: none; text-align: center;}
-	ul.plans {
-		li {display: inline-block; flex-basis: 50%; max-width: 208px; margin: 0 2% 32px 2%; padding: 28px 1% 28px 1%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
-		li.emphasize {padding-top: 44px; padding-bottom: 44px;}
-		li {
-			h2 {margin: 0 0 6px 0; font-size: 1.8em; color: #666;}
-			em {display: block; margin: 0 0 32px 0; color: #888; font-style: normal;}
-			p {margin: 0 0 32px 0; padding: 0; font-size: 1.6em;}
-			p strong {font-size: 2.0em; font-weight: normal;}
-			.button {width: 70%; margin: 0 auto;}
-		}
-		@media @mobile {
-			li {flex-basis: 100%;}
+		.devices {
+			img {max-height: 400px;}
 		}
 	}
+
+	.turtl-cover {
+		&:before {content: ' '; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: #000;}
+		&.turtl-cover-light {
+			&:before {background: #fff;}
+			.uk-cover {opacity: 0.2;}
+		}
+		.uk-cover {opacity: 0.3;}
+		p {font-size: 1.2em;}
+	}
+
+	.more-features {font-size: 1.2em;}
 }
 
-// -----------------------------------------------------------------------------
-// donate page
-// -----------------------------------------------------------------------------
-.donate {
-	.page-content {
-		ul {display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; margin: 0 0 32px 0; padding: 0; list-style: none;}
-		ul {
-			li {min-width: 10%; height: 58px; margin: 0 0 6px 0; padding: 10px 2%; text-align: center; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.08);}
-			li {
-				p {margin: 0; padding: 0;}
-				strong {display: block; margin: 0 0 8px 0; font-weight: bold; font-size: 20px;}
-				code {background: none;}
-				.tw-widget, code, form {display: inline-block; height: 24px;}
-			}
-		}
+.feature-screenshots {
+	img {box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.2);}
+}
+
+.download {
+	.uk-button {width: 100%;}
+	.uk-button {
+		icon {margin-right: 4px; font-size: 1.2em;}
 	}
 }
 
-// -----------------------------------------------------------------------------
-// contact page
-// -----------------------------------------------------------------------------
-.contact.documentation {margin-top: 12px;}
-.contact.mailing {margin: 24px 0; padding-top: 10px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;}
-
-// -----------------------------------------------------------------------------
-// docs
-// -----------------------------------------------------------------------------
-div.toc {float: right; width: 25%; margin: 8px 0 16px 16px; padding: 10px 16px; background: #fff; border-radius: 6px; box-shadow: 0 0 10px 2px rgba(0,0,0,.08);}
-div.toc ul {color: #999; margin-left: 16px; margin-bottom: 0;}
-div.toc ul a {text-decoration: none;}
-@media @mobile {
-	div.toc {float: none; width: auto; margin: 16px 8px;}
-}
-a.toc-anchor {position: absolute; margin-top: -(@header_height * 2);}
 .documentation {
-	p:first-child {display: inline; padding: 0; margin: 0;}
-	.breadcrumb {float: right; margin: 8px 0 0 0;}
-	.breadcrumb a {margin: 0 3px;}
-	.doc-row {display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; margin: 0 0 16px 0;}
-	.doc-row {
-		.doc-sec {flex-basis: 41%; min-width: 224px; margin: 0 0 24px 0; padding: 16px 2.5% 16px 2.5%; background: #fff; border-radius: 6px; box-shadow: 0 0 10px 2px rgba(0,0,0,.08);}
-		.doc-sec {
-			&.main {float: none; width: auto; margin: 0 0 16px 0;}
-			a {text-decoration: none;}
-			p {font-size: 14px; color: #555;}
-			h2 {margin-left: 0;}
-			h3 {font-size: 20px; text-decoration: none; margin-bottom: 6px; padding: 0;}
-			ul {color: #999; margin-left: 24px;}
-		}
-	}
+	.uk-breadcrumb {border-left: 3px solid @global-primary-background;}
 }
 
-// -----------------------------------------------------------------------------
-// mailing
-// -----------------------------------------------------------------------------
-.mailing-list {padding: 32px 0 32px 0; text-align: center;}
-.mailing-list {
-	input {padding: 6px 8px;}
-	input[type=email] {margin: 0 3px; font-size: 19px; color: #555;}
-	input[type=submit] {margin: 0 3px; font-size: 19px; color: #777;}
-	p {margin: 16px 0 0 0;}
-	span.note {display: inline-block; margin: 0 0 0 0; font-size: .85em; color: #666;}
+.donate {
+	code {max-width: 100%; word-wrap: break-word; white-space: pre-wrap;}
 }
 
-// -----------------------------------------------------------------------------
-// CLA
-// -----------------------------------------------------------------------------
+// CLA. could prob use uikit but just want to get this out the door
 .signature {}
 .signature {
 	table {}
@@ -352,3 +113,13 @@ a.toc-anchor {position: absolute; margin-top: -(@header_height * 2);}
 		&.hide {display: none;}
 	}
 }
+
+.announcement {}
+.announcement {
+	h1 {margin: 0; padding: 0; font-size: 24px;}
+	a {display: block; padding: 12px 0; color: #fff; text-align: center; text-decoration: none; background: #8FC46A; transition: background-color 0.3s;}
+	a:hover {background-color: darken(#8FC46A, 5%);}
+}
+
+credit {display: block; .uk-text-small(); .uk-text-center();}
+

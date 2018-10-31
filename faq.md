@@ -10,23 +10,9 @@ Frequently Asked Questions
 
 ### When is Turtl for iOS coming?
 
-Good question. For this to get done, the project needs a macbook of some kind,
-which the maintainer does not currently have. The VM we use to run Mavericks
-just doesn't run XCode. Sure, there are online options for running Mac VMs, but
-this project is on a shoestring budget and spinning up more servers isn't an
-option at the moment.
-
-That said, on top of just using XCode to run our Cordova build (Turtl on mobile
-is a webview), we need to do a number of integrations and testing to make it
-actually usable.
-
-Fortunately, it looks like we'll have a Macbook soon and the work that needs to
-be done to port Turtl to iOS can start.
-
-All that said, __the answer to the question is__: "I don't know." There is no
-deadline or roadmap for iOS. If anyone who is familiar with Cordova apps and has
-a Macbook wants to take a crack at it, Turtl would owe you a large debt of
-gratitude.
+A lot of the background work for Turtl iOS is now complete, and it's a matter
+of putting in the time. Hopefully by 2019, Turtl will have an iOS app.
+[Track the feature here](https://github.com/turtl/tracker/issues/96)!
 
 ### How do I get the server running?
 
@@ -38,27 +24,8 @@ discussion board.
 Keep in mind by running your own server you're going off the supported path.
 The maintainers of the project can't go out of their way to help you if
 you run into problems. The bulk of the work for the project happens on the
-clients (desktop, mobile) and fixing platform-specific server issues is not a
-priority.
-
-### Why isn't Turtl on FDroid?
-
-Turtl is not on FDroid because it uses the Crosswalk project, which is not
-currently compatible with FDroid (see <https://crosswalk-project.org/jira/browse/XWALK-5164>).
-
-There is an [open submission](https://f-droid.org/forums/topic/turtl/) but it
-probably won't go anywhere until Crosswalk and FDroid kiss and make up.
-
-### Why isn't the code signed on Mac or in the Mac store?
-
-For a lot of the same reasons in [this question](#when-is-turtl-for-ios-coming).
-
-But really, Apple wants you to pay them money to release software on their
-mediocre platform, and they want you prove that you payed them by signing your
-app with a certificate they have blessed.
-
-We've paid the $100, and now just need a Mac build machine to do the signing
-stuff.
+clients (desktop, mobile) and helping with platform-specific server issues is
+not a priority.
 
 ### Why isn't Turtl a native app?
 

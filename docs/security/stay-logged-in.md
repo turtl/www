@@ -4,14 +4,14 @@ title: 'Stay logged in | Documentation'
 permalink: 'docs/security/stay-logged-in/'
 ---
 
-<div class="breadcrumb">
-<a href="/docs">Documentation</a> &raquo;
-<a href="/docs/security">Security and encryption</a> &raquo;
-Stay logged in
-</div>
-
 # Stay logged in
 {% include toc.md %}
+
+<ul class="uk-breadcrumb uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+<li><a href="/docs">Documentation</a></li>
+<li><a href="/docs/security">Security and encryption</a></li>
+<li>Stay logged in</li>
+</ul>
 
 The Turtl app has a feature called "Stay logged in" that remembers your previous
 login and logs you in automatically when opening the app. This feature trades
