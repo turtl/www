@@ -1,15 +1,15 @@
 ---
 layout: documentation
-title: 'Logging in | Troubleshooting | Documentation'
+title: 'Troubleshooting: Logging in | Documentation'
 permalink: 'docs/troubleshooting/logging-in/'
 ---
 
-# Logging in
+# Troubleshooting: Logging in
 {% include toc.md %}
 
 <ul class="uk-breadcrumb uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
 <li><a href="/docs">Documentation</a></li>
-<li>Logging in</li>
+<li>Troubleshooting: Logging in</li>
 </ul>
 
 There are a number of problems that can keep you from logging into your account.
