@@ -22,10 +22,8 @@ servers you use again.
 
 ### Framanotes
 
-The most common non-default server is Framanotes.
-
-Please try [connecting to Framanotes](https://framanotes.org/) if you are having
-problems logging in!
+The most common non-default server is Framanotes. Please try [connecting to Framanotes](https://framanotes.org/)
+if you are having problems logging in!
 
 ## Forgot password
 
