@@ -50,10 +50,12 @@ to be on the new version of Turtl and you must re-share with them.
 Migration is a complicated process and while we did a lot of testing before
 launching the new version, some people are experiencing problems:
 
-- Some users are experiencing a problem logging in with their old credentials
-([#190](https://github.com/turtl/tracker/issues/190))
+- ~~Some users are experiencing a problem logging in with their old credentials
+([#190](https://github.com/turtl/tracker/issues/190))~~
 - ~~Some users are experiencing an issue where migration is not moving any of
 their data over ([#192](https://github.com/turtl/tracker/issues/192))~~
+- Your saved servers are lost when upgrading. If you were connecting to a
+non-default server, [you will have to enter it again](/docs/troubleshooting/logging-in#custom-servers).
 
 If you have a problem with migration, don't worry, your data is safe on the old
 servers. The migration process *copies* your old data, it doesn't actually
