@@ -15,23 +15,29 @@ permalink: "premium/"
 						<ul class="uk-list uk-list-divider uk-margin-medium">
 							<li>Store up to 1GB of note data</li>
 							<li>Collaborate with up to 20 people on each space</li>
+							<li>Dedicated support</li>
 						</ul>
 						<div class="uk-text-center">
-							<a class="uk-button uk-button-secondary" href="">Get started</a>
+							<a id="turtl-premium-button" class="uk-button uk-button-secondary" href="#">Get Premium</a>
+							<script src="https://checkout.stripe.com/checkout.js"></script>
+							<script>stripe_handler('#turtl-premium-button', 'premium');</script>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="uk-flex-first@s">
 				<div class="uk-card uk-card-default uk-card-body">
-					<div class="name uk-text-emphasis">Basic</div>
-					<h2 class="uk-margin-small">Free</h2>
-					<ul class="uk-list uk-list-divider uk-margin-medium">
-						<li>Store up to 50MB of note data</li>
-						<li>Collaborate with up to three people on each space</li>
-					</ul>
-					<div class="uk-text-center">
-						<a class="uk-button uk-button-default" href="/download/">Download Turtl</a>
+					<div class="card-inner">
+						<div class="name uk-text-emphasis">Basic</div>
+						<h2 class="uk-margin-small">Free</h2>
+						<ul class="uk-list uk-list-divider uk-margin-medium">
+							<li>Store up to 50MB of note data</li>
+							<li>Collaborate with up to three people on each space</li>
+							<li>Community support</li>
+						</ul>
+						<div class="uk-text-center">
+							<a class="uk-button uk-button-default" href="/download/">Download Turtl</a>
+						</div>
 					</div>
 				</div>
 			</div>
