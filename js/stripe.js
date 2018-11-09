@@ -12,7 +12,7 @@ const stripe_handler = function(btnsel, type) {
 
 	var handler = StripeCheckout.configure({
 		key: "pk_test_VZ4KZj7x2unpKJNG0ytfh9uI",
-		image: "/images/favicon.128.png",
+		image: "/images/logo.svg",
 		name: "Turtl",
 		description: payment_title,
 		amount: amount,
@@ -31,10 +31,6 @@ const stripe_handler = function(btnsel, type) {
 				url: url,
 				method: 'POST',
 				data: JSON.stringify(paymentinfo),
-				onSuccess: function(res) {
-				},
-				onFailure: function(xhr) {
-				},
 			};
 			Sexhr(req)
 				.spread(function(res, xhr) {
