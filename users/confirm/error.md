@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: "Error confirming your account"
 permalink: "users/confirm/error/"
 ---

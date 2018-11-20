@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: "Donate to the Turtl project"
 permalink: "donate/thanks/"
 body_class: 'donate-thanks'
