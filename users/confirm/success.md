@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: "Confirmation succeeded"
 permalink: "users/confirm/success/"
 ---

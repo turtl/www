@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: "There was an error processing your signature"
 permalink: "contributing/sign-error/"
 ---
