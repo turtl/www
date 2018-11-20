@@ -1,3 +1,27 @@
+const load_modal_template = function(modal, template_data) {
+	template_data || (template_data = {});
+	var copy = modal.clone();
+	copy.set('html', copy.get('html').replace(/\[\[([a-z0-9_-]+)\]\]/gi, function(_, match) {
+		return template_data[match] || '';
+	}));
+	UIkit.modal(copy).show();
+};
+
+const stripe_success = function(res) {
+	if(!res) return;
+	load_modal_template($('payment-success-modal'), res);
+};
+
+const stripe_error = function(errobj) {
+	var errormsg = errobj.msg;
+	try { var jsonerr = JSON.parse(errormsg); } catch(_) {}
+	var msg = jsonerr ? jsonerr.error.message : errormsg;
+	var tpl = {
+		error: msg,
+	}
+	load_modal_template($('payment-error-modal'), tpl);
+};
+
 const stripe_handler = function(btnsel, type) {
 	const payment_types = {
 		'premium': {
@@ -31,13 +55,16 @@ const stripe_handler = function(btnsel, type) {
 				url: url,
 				method: 'POST',
 				data: JSON.stringify(paymentinfo),
+				headers: {
+					'Content-Type': 'application/json',
+				},
 			};
 			Sexhr(req)
 				.spread(function(res, xhr) {
-					console.log('gffft: ', res);
+					stripe_success(JSON.parse(res));
 				})
-				.catch(function(obj) {
-					console.log('oh noo: ', obj);
+				.catch(function(err) {
+					stripe_error(err);
 				});
 		},
 	});

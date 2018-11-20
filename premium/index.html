@@ -52,3 +52,38 @@ permalink: "premium/"
 	</div>
 </div>
 
+<div id="payment-success-modal" uk-modal>
+	<div class="uk-modal-dialog uk-margin-auto-vertical">
+		<button uk-close class="uk-modal-close-default"></button>
+		<div class="uk-padding">
+			<h2>Thank you!</h2>
+			<p>
+				Your payment information was successfully processed.
+			</p>
+			<p>
+				<em>Please save this link</em>, which will allow you to manage your Turtl
+				subscription:
+			</p>
+			<pre><a target="_blank" href="[[manage_url]]">[[manage_url]]</a></pre>
+			<p>
+				This link has also been emailed to you at <code>[[email]]</code>!
+			</p>
+		</div>
+	</div>
+</div>
+
+<div id="payment-error-modal" uk-modal>
+	<div class="uk-modal-dialog uk-margin-auto-vertical">
+		<button uk-close class="uk-modal-close-default"></button>
+		<div class="uk-padding">
+			<h2>There was a problem with your payment</h2>
+			<p>
+				Unfortunately, it looks like there was a problem processing your
+				payment:
+			</p>
+			<pre><code>[[error]]</code></pre>
+			<p>Please try again, or email us at <a href="mailto:info@turtlapp.com">info@turtlapp.com</a> for help.</p>
+		</div>
+	</div>
+</div>
+
