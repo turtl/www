@@ -1,10 +1,29 @@
 const load_modal_template = function(modal, template_data) {
 	template_data || (template_data = {});
-	var copy = modal.clone();
+	const get_modals = function() { return document.body.getElements('.active-payment-modal'); };
+	get_modals().forEach(function(el) {
+		if(el.getStyle('display') == 'none') {
+			el.destroy();
+		}
+	});
+
+	var copy = modal.clone()
+		.addClass('active-payment-modal');
 	copy.set('html', copy.get('html').replace(/\[\[([a-z0-9_-]+)\]\]/gi, function(_, match) {
 		return template_data[match] || '';
 	}));
-	UIkit.modal(copy).show();
+	var active_modal = get_modals()[0];
+	if(active_modal && active_modal.getStyle('display') != 'none') {
+		active_modal.set('html', copy.get('html'));
+	} else {
+		copy.addEvent('click:relay(.close-modal)', function(e) {
+			get_modals().map(function(el) {
+				UIkit.modal(el).hide();
+				el.destroy();
+			});
+		});
+		UIkit.modal(copy).show();
+	}
 };
 
 const stripe_success = function(res) {
@@ -59,6 +78,7 @@ const stripe_handler = function(btnsel, type) {
 					'Content-Type': 'application/json',
 				},
 			};
+			load_modal_template($('payment-loading-modal'));
 			Sexhr(req)
 				.spread(function(res, xhr) {
 					stripe_success(JSON.parse(res));

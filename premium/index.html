@@ -46,15 +46,22 @@ permalink: "premium/"
 		<div class="uk-margin-large">
 			<h2>Custom plans</h2>
 			<p>
-			Need something more than what we offer above? <a href="mailto:sales@turtlapp">Get in touch</a> and we'll figure out a plan for you!
+				Need something more than what we offer above? <a href="mailto:sales@turtlapp">Get in touch</a> and we'll figure out a plan for you!
 			</p>
 		</div>
 	</div>
 </div>
 
-<div id="payment-success-modal" uk-modal>
+<div id="payment-loading-modal" uk-modal="esc-close: false; bg-close: false">
 	<div class="uk-modal-dialog uk-margin-auto-vertical">
-		<button uk-close class="uk-modal-close-default"></button>
+		<div class="uk-padding uk-text-center">
+			<div uk-spinner></div>
+		</div>
+	</div>
+</div>
+
+<div id="payment-success-modal" uk-modal="esc-close: false; bg-close: false">
+	<div class="uk-modal-dialog uk-margin-auto-vertical">
 		<div class="uk-padding">
 			<h2>Thank you!</h2>
 			<p>
@@ -68,13 +75,15 @@ permalink: "premium/"
 			<p>
 				This link has also been emailed to you at <code>[[email]]</code>!
 			</p>
+			<div class="uk-text-center uk-margin-top">
+				<button class="uk-button uk-button-primary close-modal">Done!</button>
+			</div>
 		</div>
 	</div>
 </div>
 
-<div id="payment-error-modal" uk-modal>
+<div id="payment-error-modal" uk-modal="esc-close: false; bg-close: false">
 	<div class="uk-modal-dialog uk-margin-auto-vertical">
-		<button uk-close class="uk-modal-close-default"></button>
 		<div class="uk-padding">
 			<h2>There was a problem with your payment</h2>
 			<p>
@@ -83,6 +92,9 @@ permalink: "premium/"
 			</p>
 			<pre><code>[[error]]</code></pre>
 			<p>Please try again, or email us at <a href="mailto:info@turtlapp.com">info@turtlapp.com</a> for help.</p>
+			<div class="uk-text-center uk-margin-top">
+				<button class="uk-button uk-button-primary close-modal">Okay</button>
+			</div>
 		</div>
 	</div>
 </div>

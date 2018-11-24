@@ -1,6 +1,6 @@
-/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-2015 [Valerio Proietti](http://mad4milk.net/).*/ 
+/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-2018 [Valerio Proietti](https://mootools.net/).*/ 
 /*!
-Web Build: http://mootools.net/core/builder/c1a6c6b8c2b00d139f3bb7269be9a2e6
+Web Build: https://mootools.net/core/builder/0672966a6051c19db7bc7ca79ea64700
 */
 /*
 ---
@@ -11,7 +11,7 @@ description: The heart of MooTools.
 
 license: MIT-style license.
 
-copyright: Copyright (c) 2006-2015 [Valerio Proietti](http://mad4milk.net/).
+copyright: Copyright (c) 2006-2015 [Valerio Proietti](https://github.com/kamicane/).
 
 authors: The MooTools production team (http://mootools.net/developers/)
 
@@ -23,12 +23,12 @@ provides: [Core, MooTools, Type, typeOf, instanceOf, Native]
 
 ...
 */
-/*! MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-2015 [Valerio Proietti](http://mad4milk.net/).*/
+/*! MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-2015 [Valerio Proietti](https://github.com/kamicane/).*/
 (function(){
 
 this.MooTools = {
-	version: '1.5.2',
-	build: 'ed01297a1a19de0675404640e7377cf97694e131'
+	version: '1.6.0',
+	build: '529422872adfff401b901b8b6c7ca5114ee95e2b'
 };
 
 // typeOf, instanceOf
@@ -67,7 +67,7 @@ var hasOwnProperty = Object.prototype.hasOwnProperty;
 var enumerables = true;
 for (var i in {toString: 1}) enumerables = null;
 if (enumerables) enumerables = ['hasOwnProperty', 'valueOf', 'isPrototypeOf', 'propertyIsEnumerable', 'toLocaleString', 'toString', 'constructor'];
-function forEachObjectEnumberableKey(object, fn, bind) {
+function forEachObjectEnumberableKey(object, fn, bind){
 	if (enumerables) for (var i = enumerables.length; i--;){
 		var k = enumerables[i];
 		// signature has key-value, so overloadSetter can directly pass the
@@ -126,25 +126,32 @@ Function.prototype.implement = function(key, value){
 
 var slice = Array.prototype.slice;
 
-Function.from = function(item){
+Array.convert = function(item){
+	if (item == null) return [];
+	return (Type.isEnumerable(item) && typeof item != 'string') ? (typeOf(item) == 'array') ? item : slice.call(item) : [item];
+};
+
+Function.convert = function(item){
 	return (typeOf(item) == 'function') ? item : function(){
 		return item;
 	};
 };
 
-Array.from = function(item){
-	if (item == null) return [];
-	return (Type.isEnumerable(item) && typeof item != 'string') ? (typeOf(item) == 'array') ? item : slice.call(item) : [item];
-};
 
-Number.from = function(item){
+Number.convert = function(item){
 	var number = parseFloat(item);
 	return isFinite(number) ? number : null;
 };
 
-String.from = function(item){
+String.convert = function(item){
 	return item + '';
 };
+
+
+
+Function.from = Function.convert;
+Number.from = Number.convert;
+String.from = String.convert;
 
 // hide, protect
 
@@ -380,7 +387,7 @@ var mergeOne = function(source, key, current){
 		case 'object':
 			if (typeOf(source[key]) == 'object') Object.merge(source[key], current);
 			else source[key] = Object.clone(current);
-		break;
+			break;
 		case 'array': source[key] = current.clone(); break;
 		default: source[key] = current;
 	}
@@ -607,139 +614,6 @@ Array.implement({
 /*
 ---
 
-name: Function
-
-description: Contains Function Prototypes like create, bind, pass, and delay.
-
-license: MIT-style license.
-
-requires: Type
-
-provides: Function
-
-...
-*/
-
-Function.extend({
-
-	attempt: function(){
-		for (var i = 0, l = arguments.length; i < l; i++){
-			try {
-				return arguments[i]();
-			} catch (e){}
-		}
-		return null;
-	}
-
-});
-
-Function.implement({
-
-	attempt: function(args, bind){
-		try {
-			return this.apply(bind, Array.from(args));
-		} catch (e){}
-
-		return null;
-	},
-
-	/*<!ES5-bind>*/
-	bind: function(that){
-		var self = this,
-			args = arguments.length > 1 ? Array.slice(arguments, 1) : null,
-			F = function(){};
-
-		var bound = function(){
-			var context = that, length = arguments.length;
-			if (this instanceof bound){
-				F.prototype = self.prototype;
-				context = new F;
-			}
-			var result = (!args && !length)
-				? self.call(context)
-				: self.apply(context, args && length ? args.concat(Array.slice(arguments)) : args || arguments);
-			return context == that ? result : context;
-		};
-		return bound;
-	},
-	/*</!ES5-bind>*/
-
-	pass: function(args, bind){
-		var self = this;
-		if (args != null) args = Array.from(args);
-		return function(){
-			return self.apply(bind, args || arguments);
-		};
-	},
-
-	delay: function(delay, bind, args){
-		return setTimeout(this.pass((args == null ? [] : args), bind), delay);
-	},
-
-	periodical: function(periodical, bind, args){
-		return setInterval(this.pass((args == null ? [] : args), bind), periodical);
-	}
-
-});
-
-
-
-/*
----
-
-name: Number
-
-description: Contains Number Prototypes like limit, round, times, and ceil.
-
-license: MIT-style license.
-
-requires: Type
-
-provides: Number
-
-...
-*/
-
-Number.implement({
-
-	limit: function(min, max){
-		return Math.min(max, Math.max(min, this));
-	},
-
-	round: function(precision){
-		precision = Math.pow(10, precision || 0).toFixed(precision < 0 ? -precision : 0);
-		return Math.round(this * precision) / precision;
-	},
-
-	times: function(fn, bind){
-		for (var i = 0; i < this; i++) fn.call(bind, i, this);
-	},
-
-	toFloat: function(){
-		return parseFloat(this);
-	},
-
-	toInt: function(base){
-		return parseInt(this, base || 10);
-	}
-
-});
-
-Number.alias('each', 'times');
-
-(function(math){
-	var methods = {};
-	math.each(function(name){
-		if (!Number[name]) methods[name] = function(){
-			return Math[name].apply(null, [this].concat(Array.from(arguments)));
-		};
-	});
-	Number.implement(methods);
-})(['abs', 'acos', 'asin', 'atan', 'atan2', 'ceil', 'cos', 'exp', 'floor', 'log', 'max', 'min', 'pow', 'sin', 'sqrt', 'tan']);
-
-/*
----
-
 name: String
 
 description: Contains String Prototypes like camelCase, capitalize, test, and toInt.
@@ -823,6 +697,380 @@ String.implement({
 });
 
 
+
+/*
+---
+
+name: Function
+
+description: Contains Function Prototypes like create, bind, pass, and delay.
+
+license: MIT-style license.
+
+requires: Type
+
+provides: Function
+
+...
+*/
+
+Function.extend({
+
+	attempt: function(){
+		for (var i = 0, l = arguments.length; i < l; i++){
+			try {
+				return arguments[i]();
+			} catch (e){}
+		}
+		return null;
+	}
+
+});
+
+Function.implement({
+
+	attempt: function(args, bind){
+		try {
+			return this.apply(bind, Array.convert(args));
+		} catch (e){}
+
+		return null;
+	},
+
+	/*<!ES5-bind>*/
+	bind: function(that){
+		var self = this,
+			args = arguments.length > 1 ? Array.slice(arguments, 1) : null,
+			F = function(){};
+
+		var bound = function(){
+			var context = that, length = arguments.length;
+			if (this instanceof bound){
+				F.prototype = self.prototype;
+				context = new F;
+			}
+			var result = (!args && !length)
+				? self.call(context)
+				: self.apply(context, args && length ? args.concat(Array.slice(arguments)) : args || arguments);
+			return context == that ? result : context;
+		};
+		return bound;
+	},
+	/*</!ES5-bind>*/
+
+	pass: function(args, bind){
+		var self = this;
+		if (args != null) args = Array.convert(args);
+		return function(){
+			return self.apply(bind, args || arguments);
+		};
+	},
+
+	delay: function(delay, bind, args){
+		return setTimeout(this.pass((args == null ? [] : args), bind), delay);
+	},
+
+	periodical: function(periodical, bind, args){
+		return setInterval(this.pass((args == null ? [] : args), bind), periodical);
+	}
+
+});
+
+
+
+/*
+---
+
+name: Number
+
+description: Contains Number Prototypes like limit, round, times, and ceil.
+
+license: MIT-style license.
+
+requires: Type
+
+provides: Number
+
+...
+*/
+
+Number.implement({
+
+	limit: function(min, max){
+		return Math.min(max, Math.max(min, this));
+	},
+
+	round: function(precision){
+		precision = Math.pow(10, precision || 0).toFixed(precision < 0 ? -precision : 0);
+		return Math.round(this * precision) / precision;
+	},
+
+	times: function(fn, bind){
+		for (var i = 0; i < this; i++) fn.call(bind, i, this);
+	},
+
+	toFloat: function(){
+		return parseFloat(this);
+	},
+
+	toInt: function(base){
+		return parseInt(this, base || 10);
+	}
+
+});
+
+Number.alias('each', 'times');
+
+(function(math){
+
+var methods = {};
+
+math.each(function(name){
+	if (!Number[name]) methods[name] = function(){
+		return Math[name].apply(null, [this].concat(Array.convert(arguments)));
+	};
+});
+
+Number.implement(methods);
+
+})(['abs', 'acos', 'asin', 'atan', 'atan2', 'ceil', 'cos', 'exp', 'floor', 'log', 'max', 'min', 'pow', 'sin', 'sqrt', 'tan']);
+
+/*
+---
+
+name: Class
+
+description: Contains the Class Function for easily creating, extending, and implementing reusable Classes.
+
+license: MIT-style license.
+
+requires: [Array, String, Function, Number]
+
+provides: Class
+
+...
+*/
+
+(function(){
+
+var Class = this.Class = new Type('Class', function(params){
+	if (instanceOf(params, Function)) params = {initialize: params};
+
+	var newClass = function(){
+		reset(this);
+		if (newClass.$prototyping) return this;
+		this.$caller = null;
+		this.$family = null;
+		var value = (this.initialize) ? this.initialize.apply(this, arguments) : this;
+		this.$caller = this.caller = null;
+		return value;
+	}.extend(this).implement(params);
+
+	newClass.$constructor = Class;
+	newClass.prototype.$constructor = newClass;
+	newClass.prototype.parent = parent;
+
+	return newClass;
+});
+
+var parent = function(){
+	if (!this.$caller) throw new Error('The method "parent" cannot be called.');
+	var name = this.$caller.$name,
+		parent = this.$caller.$owner.parent,
+		previous = (parent) ? parent.prototype[name] : null;
+	if (!previous) throw new Error('The method "' + name + '" has no parent.');
+	return previous.apply(this, arguments);
+};
+
+var reset = function(object){
+	for (var key in object){
+		var value = object[key];
+		switch (typeOf(value)){
+			case 'object':
+				var F = function(){};
+				F.prototype = value;
+				object[key] = reset(new F);
+				break;
+			case 'array': object[key] = value.clone(); break;
+		}
+	}
+	return object;
+};
+
+var wrap = function(self, key, method){
+	if (method.$origin) method = method.$origin;
+	var wrapper = function(){
+		if (method.$protected && this.$caller == null) throw new Error('The method "' + key + '" cannot be called.');
+		var caller = this.caller, current = this.$caller;
+		this.caller = current; this.$caller = wrapper;
+		var result = method.apply(this, arguments);
+		this.$caller = current; this.caller = caller;
+		return result;
+	}.extend({$owner: self, $origin: method, $name: key});
+	return wrapper;
+};
+
+var implement = function(key, value, retain){
+	if (Class.Mutators.hasOwnProperty(key)){
+		value = Class.Mutators[key].call(this, value);
+		if (value == null) return this;
+	}
+
+	if (typeOf(value) == 'function'){
+		if (value.$hidden) return this;
+		this.prototype[key] = (retain) ? value : wrap(this, key, value);
+	} else {
+		Object.merge(this.prototype, key, value);
+	}
+
+	return this;
+};
+
+var getInstance = function(klass){
+	klass.$prototyping = true;
+	var proto = new klass;
+	delete klass.$prototyping;
+	return proto;
+};
+
+Class.implement('implement', implement.overloadSetter());
+
+Class.Mutators = {
+
+	Extends: function(parent){
+		this.parent = parent;
+		this.prototype = getInstance(parent);
+	},
+
+	Implements: function(items){
+		Array.convert(items).each(function(item){
+			var instance = new item;
+			for (var key in instance) implement.call(this, key, instance[key], true);
+		}, this);
+	}
+};
+
+})();
+
+/*
+---
+
+name: Class.Extras
+
+description: Contains Utility Classes that can be implemented into your own Classes to ease the execution of many common tasks.
+
+license: MIT-style license.
+
+requires: Class
+
+provides: [Class.Extras, Chain, Events, Options]
+
+...
+*/
+
+(function(){
+
+this.Chain = new Class({
+
+	$chain: [],
+
+	chain: function(){
+		this.$chain.append(Array.flatten(arguments));
+		return this;
+	},
+
+	callChain: function(){
+		return (this.$chain.length) ? this.$chain.shift().apply(this, arguments) : false;
+	},
+
+	clearChain: function(){
+		this.$chain.empty();
+		return this;
+	}
+
+});
+
+var removeOn = function(string){
+	return string.replace(/^on([A-Z])/, function(full, first){
+		return first.toLowerCase();
+	});
+};
+
+this.Events = new Class({
+
+	$events: {},
+
+	addEvent: function(type, fn, internal){
+		type = removeOn(type);
+
+		
+
+		this.$events[type] = (this.$events[type] || []).include(fn);
+		if (internal) fn.internal = true;
+		return this;
+	},
+
+	addEvents: function(events){
+		for (var type in events) this.addEvent(type, events[type]);
+		return this;
+	},
+
+	fireEvent: function(type, args, delay){
+		type = removeOn(type);
+		var events = this.$events[type];
+		if (!events) return this;
+		args = Array.convert(args);
+		events.each(function(fn){
+			if (delay) fn.delay(delay, this, args);
+			else fn.apply(this, args);
+		}, this);
+		return this;
+	},
+
+	removeEvent: function(type, fn){
+		type = removeOn(type);
+		var events = this.$events[type];
+		if (events && !fn.internal){
+			var index = events.indexOf(fn);
+			if (index != -1) delete events[index];
+		}
+		return this;
+	},
+
+	removeEvents: function(events){
+		var type;
+		if (typeOf(events) == 'object'){
+			for (type in events) this.removeEvent(type, events[type]);
+			return this;
+		}
+		if (events) events = removeOn(events);
+		for (type in this.$events){
+			if (events && events != type) continue;
+			var fns = this.$events[type];
+			for (var i = fns.length; i--;) if (i in fns){
+				this.removeEvent(type, fns[i]);
+			}
+		}
+		return this;
+	}
+
+});
+
+this.Options = new Class({
+
+	setOptions: function(){
+		var options = this.options = Object.merge.apply(null, [{}, this.options].append(arguments));
+		if (this.addEvent) for (var option in options){
+			if (typeOf(options[option]) != 'function' || !(/^on[A-Z]/).test(option)) continue;
+			this.addEvent(option, options[option]);
+			delete options[option];
+		}
+		return this;
+	}
+
+});
+
+})();
 
 /*
 ---
@@ -963,7 +1211,7 @@ Browser.extend({
 
 this.Window = this.$constructor = new Type('Window', function(){});
 
-this.$family = Function.from('window').hide();
+this.$family = Function.convert('window').hide();
 
 Window.mirror(function(name, method){
 	window[name] = method;
@@ -971,7 +1219,7 @@ Window.mirror(function(name, method){
 
 this.Document = document.$constructor = new Type('Document', function(){});
 
-document.$family = Function.from('document').hide();
+document.$family = Function.convert('document').hide();
 
 Document.mirror(function(name, method){
 	document[name] = method;
@@ -981,7 +1229,7 @@ document.html = document.documentElement;
 if (!document.head) document.head = document.getElementsByTagName('head')[0];
 
 if (document.execCommand) try {
-	document.execCommand("BackgroundImageCache", false, true);
+	document.execCommand('BackgroundImageCache', false, true);
 } catch (e){}
 
 /*<ltIE9>*/
@@ -995,11 +1243,11 @@ if (this.attachEvent && !this.addEventListener){
 }
 
 // IE fails on collections and <select>.options (refers to <select>)
-var arrayFrom = Array.from;
+var arrayFrom = Array.convert;
 try {
 	arrayFrom(document.html.childNodes);
-} catch(e){
-	Array.from = function(item){
+} catch (e){
+	Array.convert = function(item){
 		if (typeof item != 'string' && Type.isEnumerable(item) && typeOf(item) != 'array'){
 			var i = item.length, array = new Array(i);
 			while (i--) array[i] = item[i];
@@ -1013,7 +1261,7 @@ try {
 	['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift', 'concat', 'join', 'slice'].each(function(name){
 		var method = prototype[name];
 		Array[name] = function(item){
-			return method.apply(Array.from(item), slice.call(arguments, 1));
+			return method.apply(Array.convert(item), slice.call(arguments, 1));
 		};
 	});
 }
@@ -1040,8 +1288,6 @@ provides: [Object, Hash]
 */
 
 (function(){
-
-var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 Object.extend({
 
@@ -1133,7 +1379,7 @@ Object.extend({
 						qs[i] = val;
 					});
 					result = Object.toQueryString(qs, key);
-				break;
+					break;
 				default: result = key + '=' + encodeURIComponent(value);
 			}
 			if (value != null) queryString.push(result);
@@ -1248,7 +1494,7 @@ __END__
 	)"
 */
 	"^(?:\\s*(,)\\s*|\\s*(<combinator>+)\\s*|(\\s+)|(<unicode>+|\\*)|\\#(<unicode>+)|\\.(<unicode>+)|\\[\\s*(<unicode1>+)(?:\\s*([*^$!~|]?=)(?:\\s*(?:([\"']?)(.*?)\\9)))?\\s*\\](?!\\])|(:+)(<unicode>+)(?:\\((?:(?:([\"'])([^\\13]*)\\13)|((?:\\([^)]+\\)|[^()]*)+))\\))?)"
-	.replace(/<combinator>/, '[' + escapeRegExp(">+~`!@$%^&={}\\;</") + ']')
+	.replace(/<combinator>/, '[' + escapeRegExp('>+~`!@$%^&={}\\;</') + ']')
 	.replace(/<unicode>/g, '(?:[\\w\\u00a1-\\uFFFF-]|\\\\[^\\s0-9a-f])')
 	.replace(/<unicode1>/g, '(?:[:\\w\\u00a1-\\uFFFF-]|\\\\[^\\s0-9a-f])')
 );
@@ -1463,7 +1709,7 @@ local.setDocument = function(document){
 	try {
 		testNode.innerHTML = '<a id="'+id+'"></a>';
 		features.isHTMLDocument = !!document.getElementById(id);
-	} catch(e){}
+	} catch (e){}
 
 	if (features.isHTMLDocument){
 
@@ -1478,7 +1724,7 @@ local.setDocument = function(document){
 			testNode.innerHTML = 'foo</foo>';
 			selected = testNode.getElementsByTagName('*');
 			starSelectsClosed = (selected && !!selected.length && selected[0].nodeName.charAt(0) == '/');
-		} catch(e){};
+		} catch (e){};
 
 		features.brokenStarGEBTN = starSelectsComments || starSelectsClosed;
 
@@ -1486,7 +1732,7 @@ local.setDocument = function(document){
 		try {
 			testNode.innerHTML = '<a name="'+ id +'"></a><b id="'+ id +'"></b>';
 			features.idGetsName = document.getElementById(id) === testNode.firstChild;
-		} catch(e){}
+		} catch (e){}
 
 		if (testNode.getElementsByClassName){
 
@@ -1496,13 +1742,13 @@ local.setDocument = function(document){
 				testNode.getElementsByClassName('b').length;
 				testNode.firstChild.className = 'b';
 				cachedGetElementsByClassName = (testNode.getElementsByClassName('b').length != 2);
-			} catch(e){};
+			} catch (e){};
 
 			// Opera 9.6 getElementsByClassName doesnt detects the class if its not the first one
 			try {
 				testNode.innerHTML = '<a class="a"></a><a class="f b a"></a>';
 				brokenSecondClassNameGEBCN = (testNode.getElementsByClassName('a').length != 2);
-			} catch(e){}
+			} catch (e){}
 
 			features.brokenGEBCN = cachedGetElementsByClassName || brokenSecondClassNameGEBCN;
 		}
@@ -1513,25 +1759,25 @@ local.setDocument = function(document){
 				testNode.innerHTML = 'foo</foo>';
 				selected = testNode.querySelectorAll('*');
 				features.starSelectsClosedQSA = (selected && !!selected.length && selected[0].nodeName.charAt(0) == '/');
-			} catch(e){}
+			} catch (e){}
 
 			// Safari 3.2 querySelectorAll doesnt work with mixedcase on quirksmode
 			try {
 				testNode.innerHTML = '<a class="MiX"></a>';
 				features.brokenMixedCaseQSA = !testNode.querySelectorAll('.MiX').length;
-			} catch(e){}
+			} catch (e){}
 
 			// Webkit and Opera dont return selected options on querySelectorAll
 			try {
 				testNode.innerHTML = '<select><option selected="selected">a</option></select>';
 				features.brokenCheckedQSA = (testNode.querySelectorAll(':checked').length == 0);
-			} catch(e){};
+			} catch (e){};
 
 			// IE returns incorrect results for attr[*^$]="" selectors on querySelectorAll
 			try {
 				testNode.innerHTML = '<a class=""></a>';
 				features.brokenEmptyAttributeQSA = (testNode.querySelectorAll('[class*=""]').length != 0);
-			} catch(e){}
+			} catch (e){}
 
 		}
 
@@ -1539,7 +1785,7 @@ local.setDocument = function(document){
 		try {
 			testNode.innerHTML = '<form action="s"><input id="action"/></form>';
 			brokenFormAttributeGetter = (testNode.firstChild.getAttribute('action') != 's');
-		} catch(e){}
+		} catch (e){}
 
 		// native matchesSelector function
 
@@ -1548,7 +1794,7 @@ local.setDocument = function(document){
 			// if matchesSelector trows errors on incorrect sintaxes we can use it
 			features.nativeMatchesSelector.call(root, ':slick');
 			features.nativeMatchesSelector = null;
-		} catch(e){}
+		} catch (e){}
 
 	}
 
@@ -1556,7 +1802,7 @@ local.setDocument = function(document){
 		root.slick_expando = 1;
 		delete root.slick_expando;
 		features.getUID = this.getUIDHTML;
-	} catch(e){
+	} catch (e){
 		features.getUID = this.getUIDXML;
 	}
 
@@ -1620,7 +1866,7 @@ local.setDocument = function(document){
 		bRange.setStart(b, 0);
 		bRange.setEnd(b, 0);
 		return aRange.compareBoundaryPoints(Range.START_TO_END, bRange);
-	} : null ;
+	} : null;
 
 	root = null;
 
@@ -1645,7 +1891,7 @@ local.search = function(context, expression, append, first){
 
 	// setup
 
-	var parsed, i,
+	var parsed, i, node, nodes,
 		uniques = this.uniques = {},
 		hasOthers = !!(append && append.length),
 		contextIsDocument = (context.nodeType == 9);
@@ -1664,8 +1910,7 @@ local.search = function(context, expression, append, first){
 		simpleSelectors: if (simpleSelector){
 
 			var symbol = simpleSelector[1],
-				name = simpleSelector[2],
-				node, nodes;
+				name = simpleSelector[2];
 
 			if (!symbol){
 
@@ -1730,11 +1975,11 @@ local.search = function(context, expression, append, first){
 				|| Slick.disableQSA
 			) break querySelector;
 
-			var _expression = expression, _context = context;
+			var _expression = expression, _context = context, currentId;
 			if (!contextIsDocument){
 				// non-document rooted QSA
 				// credits to Andrew Dupont
-				var currentId = _context.getAttribute('id'), slickid = 'slickid__';
+				currentId = _context.getAttribute('id'), slickid = 'slickid__';
 				_context.setAttribute('id', slickid);
 				_expression = '#' + slickid + ' ' + _expression;
 				context = _context.parentNode;
@@ -1743,7 +1988,7 @@ local.search = function(context, expression, append, first){
 			try {
 				if (first) return context.querySelector(_expression) || null;
 				else nodes = context.querySelectorAll(_expression);
-			} catch(e){
+			} catch (e){
 				qsaFailExpCache[expression] = 1;
 				break querySelector;
 			} finally {
@@ -1942,7 +2187,7 @@ local.matchNode = function(node, selector){
 	if (this.isHTMLDocument && this.nativeMatchesSelector){
 		try {
 			return this.nativeMatchesSelector.call(node, selector.replace(/\[([^=]+)=\s*([^'"\]]+?)\s*\]/g, '[$1="$2"]'));
-		} catch(matchError){}
+		} catch (matchError){}
 	}
 
 	var parsed = this.Slick.parse(selector);
@@ -2440,7 +2685,7 @@ if (!Browser.Element){
 
 	Element.Prototype = {
 		'$constructor': Element,
-		'$family': Function.from('element').hide()
+		'$family': Function.convert('element').hide()
 	};
 
 	Element.mirror(function(name, method){
@@ -2576,13 +2821,13 @@ var escapeQuotes = function(html){
 /*<ltIE9>*/
 // #2479 - IE8 Cannot set HTML of style element
 var canChangeStyleHTML = (function(){
-    var div = document.createElement('style'),
-        flag = false;
-    try {
-        div.innerHTML = '#justTesing{margin: 0px;}';
-        flag = !!div.innerHTML;
-    } catch(e){}
-    return flag;
+	var div = document.createElement('style'),
+		flag = false;
+	try {
+		div.innerHTML = '#justTesing{margin: 0px;}';
+		flag = !!div.innerHTML;
+	} catch (e){}
+	return flag;
 })();
 /*</ltIE9>*/
 
@@ -2591,7 +2836,7 @@ Document.implement({
 	newElement: function(tag, props){
 		if (props){
 			if (props.checked != null) props.defaultChecked = props.checked;
-			if ((props.type == 'checkbox' || props.type == 'radio') && props.value == null) props.value = 'on'; 
+			if ((props.type == 'checkbox' || props.type == 'radio') && props.value == null) props.value = 'on';
 			/*<ltIE9>*/ // IE needs the type to be set before changing content of style element
 			if (!canChangeStyleHTML && tag == 'style'){
 				var styleElement = document.createElement('style');
@@ -2846,7 +3091,7 @@ Object.forEach(properties, function(real, key){
 });
 
 /*<ltIE9>*/
-propertySetters.text = (function(setter){
+propertySetters.text = (function(){
 	return function(node, value){
 		if (node.get('tag') == 'style') node.set('html', value);
 		else node[properties.text] = value;
@@ -2910,7 +3155,7 @@ propertyGetters['class'] = function(node){
 /* <webkit> */
 var el = document.createElement('button');
 // IE sets type as readonly and throws
-try { el.type = 'button'; } catch(e){}
+try { el.type = 'button'; } catch (e){}
 if (el.type != 'button') propertySetters.type = function(node, value){
 	node.setAttribute('type', value);
 };
@@ -2922,13 +3167,13 @@ el = null;
 /*<ltIE9>*/
 // #2479 - IE8 Cannot set HTML of style element
 var canChangeStyleHTML = (function(){
-    var div = document.createElement('style'),
-        flag = false;
-    try {
-        div.innerHTML = '#justTesing{margin: 0px;}';
-        flag = !!div.innerHTML;
-    } catch(e){}
-    return flag;
+	var div = document.createElement('style'),
+		flag = false;
+	try {
+		div.innerHTML = '#justTesing{margin: 0px;}';
+		flag = !!div.innerHTML;
+	} catch (e){}
+	return flag;
 })();
 /*</ltIE9>*/
 
@@ -2944,7 +3189,7 @@ try {
 	input.value = '';
 	input.type = 'email';
 	html5InputSupport = input.type == 'email';
-} catch(e){}
+} catch (e){}
 
 input = null;
 
@@ -2974,9 +3219,9 @@ var hasCloneBug = (function(test){
 var hasClassList = !!document.createElement('div').classList;
 
 var classes = function(className){
-	var classNames = (className || '').clean().split(" "), uniques = {};
+	var classNames = (className || '').clean().split(' '), uniques = {};
 	return classNames.filter(function(className){
-		if (className !== "" && !uniques[className]) return uniques[className] = className;
+		if (className !== '' && !uniques[className]) return uniques[className] = className;
 	});
 };
 
@@ -3040,7 +3285,7 @@ Element.implement({
 	},
 
 	getProperties: function(){
-		var args = Array.from(arguments);
+		var args = Array.convert(arguments);
 		return args.map(this.getProperty, this).associate(args);
 	},
 
@@ -3139,7 +3384,7 @@ Element.implement({
 
 	getSelected: function(){
 		this.selectedIndex; // Safari 3.2.1
-		return new Elements(Array.from(this.options).filter(function(option){
+		return new Elements(Array.convert(this.options).filter(function(option){
 			return option.selected;
 		}));
 	},
@@ -3155,7 +3400,7 @@ Element.implement({
 				return document.id(opt).get('value');
 			}) : ((type == 'radio' || type == 'checkbox') && !el.checked) ? null : el.get('value');
 
-			Array.from(value).each(function(val){
+			Array.convert(value).each(function(val){
 				if (typeof val != 'undefined') queryString.push(encodeURIComponent(el.name) + '=' + encodeURIComponent(val));
 			});
 		});
@@ -3224,7 +3469,7 @@ Element.implement({
 	},
 
 	empty: function(){
-		Array.from(this.childNodes).each(Element.dispose);
+		Array.convert(this.childNodes).each(Element.dispose);
 		return this;
 	},
 
@@ -3237,8 +3482,8 @@ Element.implement({
 		var clone = this.cloneNode(contents), ce = [clone], te = [this], i;
 
 		if (contents){
-			ce.append(Array.from(clone.getElementsByTagName('*')));
-			te.append(Array.from(this.getElementsByTagName('*')));
+			ce.append(Array.convert(clone.getElementsByTagName('*')));
+			te.append(Array.convert(this.getElementsByTagName('*')));
 		}
 
 		for (i = ce.length; i--;){
@@ -3367,11 +3612,12 @@ var supportsHTML5Elements = true, supportsTableInnerHTML = true, supportsTRInner
 /*<ltIE9>*/
 // technique by jdbarlett - http://jdbartlett.com/innershiv/
 var div = document.createElement('div');
+var fragment;
 div.innerHTML = '<nav></nav>';
 supportsHTML5Elements = (div.childNodes.length == 1);
 if (!supportsHTML5Elements){
-	var tags = 'abbr article aside audio canvas datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' '),
-		fragment = document.createDocumentFragment(), l = tags.length;
+	var tags = 'abbr article aside audio canvas datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' ');
+	fragment = document.createDocumentFragment(), l = tags.length;
 	while (l--) fragment.createElement(tags[l]);
 }
 div = null;
@@ -3479,1262 +3725,6 @@ if (document.createElement('div').getAttributeNode('id')) Element.Properties.id 
 /*
 ---
 
-name: Element.Style
-
-description: Contains methods for interacting with the styles of Elements in a fashionable way.
-
-license: MIT-style license.
-
-requires: Element
-
-provides: Element.Style
-
-...
-*/
-
-(function(){
-
-var html = document.html, el;
-
-//<ltIE9>
-// Check for oldIE, which does not remove styles when they're set to null
-el = document.createElement('div');
-el.style.color = 'red';
-el.style.color = null;
-var doesNotRemoveStyles = el.style.color == 'red';
-
-// check for oldIE, which returns border* shorthand styles in the wrong order (color-width-style instead of width-style-color)
-var border = '1px solid #123abc';
-el.style.border = border;
-var returnsBordersInWrongOrder = el.style.border != border;
-el = null;
-//</ltIE9>
-
-var hasGetComputedStyle = !!window.getComputedStyle,
-	supportBorderRadius = document.createElement('div').style.borderRadius != null;
-
-Element.Properties.styles = {set: function(styles){
-	this.setStyles(styles);
-}};
-
-var hasOpacity = (html.style.opacity != null),
-	hasFilter = (html.style.filter != null),
-	reAlpha = /alpha\(opacity=([\d.]+)\)/i;
-
-var setVisibility = function(element, opacity){
-	element.store('$opacity', opacity);
-	element.style.visibility = opacity > 0 || opacity == null ? 'visible' : 'hidden';
-};
-
-//<ltIE9>
-var setFilter = function(element, regexp, value){
-	var style = element.style,
-		filter = style.filter || element.getComputedStyle('filter') || '';
-	style.filter = (regexp.test(filter) ? filter.replace(regexp, value) : filter + ' ' + value).trim();
-	if (!style.filter) style.removeAttribute('filter');
-};
-//</ltIE9>
-
-var setOpacity = (hasOpacity ? function(element, opacity){
-	element.style.opacity = opacity;
-} : (hasFilter ? function(element, opacity){
-	if (!element.currentStyle || !element.currentStyle.hasLayout) element.style.zoom = 1;
-	if (opacity == null || opacity == 1){
-		setFilter(element, reAlpha, '');
-		if (opacity == 1 && getOpacity(element) != 1) setFilter(element, reAlpha, 'alpha(opacity=100)');
-	} else {
-		setFilter(element, reAlpha, 'alpha(opacity=' + (opacity * 100).limit(0, 100).round() + ')');
-	}
-} : setVisibility));
-
-var getOpacity = (hasOpacity ? function(element){
-	var opacity = element.style.opacity || element.getComputedStyle('opacity');
-	return (opacity == '') ? 1 : opacity.toFloat();
-} : (hasFilter ? function(element){
-	var filter = (element.style.filter || element.getComputedStyle('filter')),
-		opacity;
-	if (filter) opacity = filter.match(reAlpha);
-	return (opacity == null || filter == null) ? 1 : (opacity[1] / 100);
-} : function(element){
-	var opacity = element.retrieve('$opacity');
-	if (opacity == null) opacity = (element.style.visibility == 'hidden' ? 0 : 1);
-	return opacity;
-}));
-
-var floatName = (html.style.cssFloat == null) ? 'styleFloat' : 'cssFloat',
-	namedPositions = {left: '0%', top: '0%', center: '50%', right: '100%', bottom: '100%'},
-	hasBackgroundPositionXY = (html.style.backgroundPositionX != null),
-	prefixPattern = /^-(ms)-/;
-
-var camelCase = function(property){
-	return property.replace(prefixPattern, '$1-').camelCase();
-}
-
-//<ltIE9>
-var removeStyle = function(style, property){
-	if (property == 'backgroundPosition'){
-		style.removeAttribute(property + 'X');
-		property += 'Y';
-	}
-	style.removeAttribute(property);
-};
-//</ltIE9>
-
-Element.implement({
-
-	getComputedStyle: function(property){
-		if (!hasGetComputedStyle && this.currentStyle) return this.currentStyle[camelCase(property)];
-		var defaultView = Element.getDocument(this).defaultView,
-			computed = defaultView ? defaultView.getComputedStyle(this, null) : null;
-		return (computed) ? computed.getPropertyValue((property == floatName) ? 'float' : property.hyphenate()) : '';
-	},
-
-	setStyle: function(property, value){
-		if (property == 'opacity'){
-			if (value != null) value = parseFloat(value);
-			setOpacity(this, value);
-			return this;
-		}
-		property = camelCase(property == 'float' ? floatName : property);
-		if (typeOf(value) != 'string'){
-			var map = (Element.Styles[property] || '@').split(' ');
-			value = Array.from(value).map(function(val, i){
-				if (!map[i]) return '';
-				return (typeOf(val) == 'number') ? map[i].replace('@', Math.round(val)) : val;
-			}).join(' ');
-		} else if (value == String(Number(value))){
-			value = Math.round(value);
-		}
-		this.style[property] = value;
-		//<ltIE9>
-		if ((value == '' || value == null) && doesNotRemoveStyles && this.style.removeAttribute){
-			removeStyle(this.style, property);
-		}
-		//</ltIE9>
-		return this;
-	},
-
-	getStyle: function(property){
-		if (property == 'opacity') return getOpacity(this);
-		property = camelCase(property == 'float' ? floatName : property);
-		if (supportBorderRadius && property.indexOf('borderRadius') != -1){
-			return ['borderTopLeftRadius', 'borderTopRightRadius', 'borderBottomRightRadius', 'borderBottomLeftRadius'].map(function(corner){
-				return this.style[corner] || '0px';
-			}, this).join(' ');
-		}
-		var result = this.style[property];
-		if (!result || property == 'zIndex'){
-			if (Element.ShortStyles.hasOwnProperty(property)){
-				result = [];
-				for (var s in Element.ShortStyles[property]) result.push(this.getStyle(s));
-				return result.join(' ');
-			}
-			result = this.getComputedStyle(property);
-		}
-		if (hasBackgroundPositionXY && /^backgroundPosition[XY]?$/.test(property)){
-			return result.replace(/(top|right|bottom|left)/g, function(position){
-				return namedPositions[position];
-			}) || '0px';
-		}
-		if (!result && property == 'backgroundPosition') return '0px 0px';
-		if (result){
-			result = String(result);
-			var color = result.match(/rgba?\([\d\s,]+\)/);
-			if (color) result = result.replace(color[0], color[0].rgbToHex());
-		}
-		if (!hasGetComputedStyle && !this.style[property]){
-			if ((/^(height|width)$/).test(property) && !(/px$/.test(result))){
-				var values = (property == 'width') ? ['left', 'right'] : ['top', 'bottom'], size = 0;
-				values.each(function(value){
-					size += this.getStyle('border-' + value + '-width').toInt() + this.getStyle('padding-' + value).toInt();
-				}, this);
-				return this['offset' + property.capitalize()] - size + 'px';
-			}
-			if ((/^border(.+)Width|margin|padding/).test(property) && isNaN(parseFloat(result))){
-				return '0px';
-			}
-		}
-		//<ltIE9>
-		if (returnsBordersInWrongOrder && /^border(Top|Right|Bottom|Left)?$/.test(property) && /^#/.test(result)){
-			return result.replace(/^(.+)\s(.+)\s(.+)$/, '$2 $3 $1');
-		}
-		//</ltIE9>
-
-		return result;
-	},
-
-	setStyles: function(styles){
-		for (var style in styles) this.setStyle(style, styles[style]);
-		return this;
-	},
-
-	getStyles: function(){
-		var result = {};
-		Array.flatten(arguments).each(function(key){
-			result[key] = this.getStyle(key);
-		}, this);
-		return result;
-	}
-
-});
-
-Element.Styles = {
-	left: '@px', top: '@px', bottom: '@px', right: '@px',
-	width: '@px', height: '@px', maxWidth: '@px', maxHeight: '@px', minWidth: '@px', minHeight: '@px',
-	backgroundColor: 'rgb(@, @, @)', backgroundSize: '@px', backgroundPosition: '@px @px', color: 'rgb(@, @, @)',
-	fontSize: '@px', letterSpacing: '@px', lineHeight: '@px', clip: 'rect(@px @px @px @px)',
-	margin: '@px @px @px @px', padding: '@px @px @px @px', border: '@px @ rgb(@, @, @) @px @ rgb(@, @, @) @px @ rgb(@, @, @)',
-	borderWidth: '@px @px @px @px', borderStyle: '@ @ @ @', borderColor: 'rgb(@, @, @) rgb(@, @, @) rgb(@, @, @) rgb(@, @, @)',
-	zIndex: '@', 'zoom': '@', fontWeight: '@', textIndent: '@px', opacity: '@', borderRadius: '@px @px @px @px'
-};
-
-
-
-
-
-Element.ShortStyles = {margin: {}, padding: {}, border: {}, borderWidth: {}, borderStyle: {}, borderColor: {}};
-
-['Top', 'Right', 'Bottom', 'Left'].each(function(direction){
-	var Short = Element.ShortStyles;
-	var All = Element.Styles;
-	['margin', 'padding'].each(function(style){
-		var sd = style + direction;
-		Short[style][sd] = All[sd] = '@px';
-	});
-	var bd = 'border' + direction;
-	Short.border[bd] = All[bd] = '@px @ rgb(@, @, @)';
-	var bdw = bd + 'Width', bds = bd + 'Style', bdc = bd + 'Color';
-	Short[bd] = {};
-	Short.borderWidth[bdw] = Short[bd][bdw] = All[bdw] = '@px';
-	Short.borderStyle[bds] = Short[bd][bds] = All[bds] = '@';
-	Short.borderColor[bdc] = Short[bd][bdc] = All[bdc] = 'rgb(@, @, @)';
-});
-
-if (hasBackgroundPositionXY) Element.ShortStyles.backgroundPosition = {backgroundPositionX: '@', backgroundPositionY: '@'};
-})();
-
-/*
----
-
-name: Element.Dimensions
-
-description: Contains methods to work with size, scroll, or positioning of Elements and the window object.
-
-license: MIT-style license.
-
-credits:
-  - Element positioning based on the [qooxdoo](http://qooxdoo.org/) code and smart browser fixes, [LGPL License](http://www.gnu.org/licenses/lgpl.html).
-  - Viewport dimensions based on [YUI](http://developer.yahoo.com/yui/) code, [BSD License](http://developer.yahoo.com/yui/license.html).
-
-requires: [Element, Element.Style]
-
-provides: [Element.Dimensions]
-
-...
-*/
-
-(function(){
-
-var element = document.createElement('div'),
-	child = document.createElement('div');
-element.style.height = '0';
-element.appendChild(child);
-var brokenOffsetParent = (child.offsetParent === element);
-element = child = null;
-
-var heightComponents = ['height', 'paddingTop', 'paddingBottom', 'borderTopWidth', 'borderBottomWidth'],
-	widthComponents = ['width', 'paddingLeft', 'paddingRight', 'borderLeftWidth', 'borderRightWidth'];
-
-var svgCalculateSize = function(el){
-
-	var gCS = window.getComputedStyle(el),
-		bounds = {x: 0, y: 0};
-
-	heightComponents.each(function(css){
-		bounds.y += parseFloat(gCS[css]);
-	});
-	widthComponents.each(function(css){
-		bounds.x += parseFloat(gCS[css]);
-	});
-	return bounds;
-};
-
-var isOffset = function(el){
-	return styleString(el, 'position') != 'static' || isBody(el);
-};
-
-var isOffsetStatic = function(el){
-	return isOffset(el) || (/^(?:table|td|th)$/i).test(el.tagName);
-};
-
-Element.implement({
-
-	scrollTo: function(x, y){
-		if (isBody(this)){
-			this.getWindow().scrollTo(x, y);
-		} else {
-			this.scrollLeft = x;
-			this.scrollTop = y;
-		}
-		return this;
-	},
-
-	getSize: function(){
-		if (isBody(this)) return this.getWindow().getSize();
-
-		//<ltIE9>
-		// This if clause is because IE8- cannot calculate getBoundingClientRect of elements with visibility hidden.
-		if (!window.getComputedStyle) return {x: this.offsetWidth, y: this.offsetHeight};
-		//</ltIE9>
-
-		// This svg section under, calling `svgCalculateSize()`, can be removed when FF fixed the svg size bug.
-		// Bug info: https://bugzilla.mozilla.org/show_bug.cgi?id=530985
-		if (this.get('tag') == 'svg') return svgCalculateSize(this);
-		
-		try {
-			var bounds = this.getBoundingClientRect();
-			return {x: bounds.width, y: bounds.height};
-		} catch(e) {
-			return {x: 0, y: 0};
-		}
-	},
-
-	getScrollSize: function(){
-		if (isBody(this)) return this.getWindow().getScrollSize();
-		return {x: this.scrollWidth, y: this.scrollHeight};
-	},
-
-	getScroll: function(){
-		if (isBody(this)) return this.getWindow().getScroll();
-		return {x: this.scrollLeft, y: this.scrollTop};
-	},
-
-	getScrolls: function(){
-		var element = this.parentNode, position = {x: 0, y: 0};
-		while (element && !isBody(element)){
-			position.x += element.scrollLeft;
-			position.y += element.scrollTop;
-			element = element.parentNode;
-		}
-		return position;
-	},
-
-	getOffsetParent: brokenOffsetParent ? function(){
-		var element = this;
-		if (isBody(element) || styleString(element, 'position') == 'fixed') return null;
-
-		var isOffsetCheck = (styleString(element, 'position') == 'static') ? isOffsetStatic : isOffset;
-		while ((element = element.parentNode)){
-			if (isOffsetCheck(element)) return element;
-		}
-		return null;
-	} : function(){
-		var element = this;
-		if (isBody(element) || styleString(element, 'position') == 'fixed') return null;
-
-		try {
-			return element.offsetParent;
-		} catch(e){}
-		return null;
-	},
-
-	getOffsets: function(){
-		var hasGetBoundingClientRect = this.getBoundingClientRect;
-
-		if (hasGetBoundingClientRect){
-			var bound = this.getBoundingClientRect(),
-				html = document.id(this.getDocument().documentElement),
-				htmlScroll = html.getScroll(),
-				elemScrolls = this.getScrolls(),
-				isFixed = (styleString(this, 'position') == 'fixed');
-
-			return {
-				x: bound.left.toFloat() + elemScrolls.x + ((isFixed) ? 0 : htmlScroll.x) - html.clientLeft,
-				y: bound.top.toFloat() + elemScrolls.y + ((isFixed) ? 0 : htmlScroll.y) - html.clientTop
-			};
-		}
-
-		var element = this, position = {x: 0, y: 0};
-		if (isBody(this)) return position;
-
-		while (element && !isBody(element)){
-			position.x += element.offsetLeft;
-			position.y += element.offsetTop;
-
-			element = element.offsetParent;
-		}
-
-		return position;
-	},
-
-	getPosition: function(relative){
-		var offset = this.getOffsets(),
-			scroll = this.getScrolls();
-		var position = {
-			x: offset.x - scroll.x,
-			y: offset.y - scroll.y
-		};
-
-		if (relative && (relative = document.id(relative))){
-			var relativePosition = relative.getPosition();
-			return {x: position.x - relativePosition.x - leftBorder(relative), y: position.y - relativePosition.y - topBorder(relative)};
-		}
-		return position;
-	},
-
-	getCoordinates: function(element){
-		if (isBody(this)) return this.getWindow().getCoordinates();
-		var position = this.getPosition(element),
-			size = this.getSize();
-		var obj = {
-			left: position.x,
-			top: position.y,
-			width: size.x,
-			height: size.y
-		};
-		obj.right = obj.left + obj.width;
-		obj.bottom = obj.top + obj.height;
-		return obj;
-	},
-
-	computePosition: function(obj){
-		return {
-			left: obj.x - styleNumber(this, 'margin-left'),
-			top: obj.y - styleNumber(this, 'margin-top')
-		};
-	},
-
-	setPosition: function(obj){
-		return this.setStyles(this.computePosition(obj));
-	}
-
-});
-
-
-[Document, Window].invoke('implement', {
-
-	getSize: function(){
-		var doc = getCompatElement(this);
-		return {x: doc.clientWidth, y: doc.clientHeight};
-	},
-
-	getScroll: function(){
-		var win = this.getWindow(), doc = getCompatElement(this);
-		return {x: win.pageXOffset || doc.scrollLeft, y: win.pageYOffset || doc.scrollTop};
-	},
-
-	getScrollSize: function(){
-		var doc = getCompatElement(this),
-			min = this.getSize(),
-			body = this.getDocument().body;
-
-		return {x: Math.max(doc.scrollWidth, body.scrollWidth, min.x), y: Math.max(doc.scrollHeight, body.scrollHeight, min.y)};
-	},
-
-	getPosition: function(){
-		return {x: 0, y: 0};
-	},
-
-	getCoordinates: function(){
-		var size = this.getSize();
-		return {top: 0, left: 0, bottom: size.y, right: size.x, height: size.y, width: size.x};
-	}
-
-});
-
-// private methods
-
-var styleString = Element.getComputedStyle;
-
-function styleNumber(element, style){
-	return styleString(element, style).toInt() || 0;
-}
-
-
-
-function topBorder(element){
-	return styleNumber(element, 'border-top-width');
-}
-
-function leftBorder(element){
-	return styleNumber(element, 'border-left-width');
-}
-
-function isBody(element){
-	return (/^(?:body|html)$/i).test(element.tagName);
-}
-
-function getCompatElement(element){
-	var doc = element.getDocument();
-	return (!doc.compatMode || doc.compatMode == 'CSS1Compat') ? doc.html : doc.body;
-}
-
-})();
-
-//aliases
-Element.alias({position: 'setPosition'}); //compatability
-
-[Window, Document, Element].invoke('implement', {
-
-	getHeight: function(){
-		return this.getSize().y;
-	},
-
-	getWidth: function(){
-		return this.getSize().x;
-	},
-
-	getScrollTop: function(){
-		return this.getScroll().y;
-	},
-
-	getScrollLeft: function(){
-		return this.getScroll().x;
-	},
-
-	getScrollHeight: function(){
-		return this.getScrollSize().y;
-	},
-
-	getScrollWidth: function(){
-		return this.getScrollSize().x;
-	},
-
-	getTop: function(){
-		return this.getPosition().y;
-	},
-
-	getLeft: function(){
-		return this.getPosition().x;
-	}
-
-});
-
-/*
----
-
-name: Class
-
-description: Contains the Class Function for easily creating, extending, and implementing reusable Classes.
-
-license: MIT-style license.
-
-requires: [Array, String, Function, Number]
-
-provides: Class
-
-...
-*/
-
-(function(){
-
-var Class = this.Class = new Type('Class', function(params){
-	if (instanceOf(params, Function)) params = {initialize: params};
-
-	var newClass = function(){
-		reset(this);
-		if (newClass.$prototyping) return this;
-		this.$caller = null;
-		this.$family = null;
-		var value = (this.initialize) ? this.initialize.apply(this, arguments) : this;
-		this.$caller = this.caller = null;
-		return value;
-	}.extend(this).implement(params);
-
-	newClass.$constructor = Class;
-	newClass.prototype.$constructor = newClass;
-	newClass.prototype.parent = parent;
-
-	return newClass;
-});
-
-var parent = function(){
-	if (!this.$caller) throw new Error('The method "parent" cannot be called.');
-	var name = this.$caller.$name,
-		parent = this.$caller.$owner.parent,
-		previous = (parent) ? parent.prototype[name] : null;
-	if (!previous) throw new Error('The method "' + name + '" has no parent.');
-	return previous.apply(this, arguments);
-};
-
-var reset = function(object){
-	for (var key in object){
-		var value = object[key];
-		switch (typeOf(value)){
-			case 'object':
-				var F = function(){};
-				F.prototype = value;
-				object[key] = reset(new F);
-			break;
-			case 'array': object[key] = value.clone(); break;
-		}
-	}
-	return object;
-};
-
-var wrap = function(self, key, method){
-	if (method.$origin) method = method.$origin;
-	var wrapper = function(){
-		if (method.$protected && this.$caller == null) throw new Error('The method "' + key + '" cannot be called.');
-		var caller = this.caller, current = this.$caller;
-		this.caller = current; this.$caller = wrapper;
-		var result = method.apply(this, arguments);
-		this.$caller = current; this.caller = caller;
-		return result;
-	}.extend({$owner: self, $origin: method, $name: key});
-	return wrapper;
-};
-
-var implement = function(key, value, retain){
-	if (Class.Mutators.hasOwnProperty(key)){
-		value = Class.Mutators[key].call(this, value);
-		if (value == null) return this;
-	}
-
-	if (typeOf(value) == 'function'){
-		if (value.$hidden) return this;
-		this.prototype[key] = (retain) ? value : wrap(this, key, value);
-	} else {
-		Object.merge(this.prototype, key, value);
-	}
-
-	return this;
-};
-
-var getInstance = function(klass){
-	klass.$prototyping = true;
-	var proto = new klass;
-	delete klass.$prototyping;
-	return proto;
-};
-
-Class.implement('implement', implement.overloadSetter());
-
-Class.Mutators = {
-
-	Extends: function(parent){
-		this.parent = parent;
-		this.prototype = getInstance(parent);
-	},
-
-	Implements: function(items){
-		Array.from(items).each(function(item){
-			var instance = new item;
-			for (var key in instance) implement.call(this, key, instance[key], true);
-		}, this);
-	}
-};
-
-})();
-
-/*
----
-
-name: Class.Extras
-
-description: Contains Utility Classes that can be implemented into your own Classes to ease the execution of many common tasks.
-
-license: MIT-style license.
-
-requires: Class
-
-provides: [Class.Extras, Chain, Events, Options]
-
-...
-*/
-
-(function(){
-
-this.Chain = new Class({
-
-	$chain: [],
-
-	chain: function(){
-		this.$chain.append(Array.flatten(arguments));
-		return this;
-	},
-
-	callChain: function(){
-		return (this.$chain.length) ? this.$chain.shift().apply(this, arguments) : false;
-	},
-
-	clearChain: function(){
-		this.$chain.empty();
-		return this;
-	}
-
-});
-
-var removeOn = function(string){
-	return string.replace(/^on([A-Z])/, function(full, first){
-		return first.toLowerCase();
-	});
-};
-
-this.Events = new Class({
-
-	$events: {},
-
-	addEvent: function(type, fn, internal){
-		type = removeOn(type);
-
-		
-
-		this.$events[type] = (this.$events[type] || []).include(fn);
-		if (internal) fn.internal = true;
-		return this;
-	},
-
-	addEvents: function(events){
-		for (var type in events) this.addEvent(type, events[type]);
-		return this;
-	},
-
-	fireEvent: function(type, args, delay){
-		type = removeOn(type);
-		var events = this.$events[type];
-		if (!events) return this;
-		args = Array.from(args);
-		events.each(function(fn){
-			if (delay) fn.delay(delay, this, args);
-			else fn.apply(this, args);
-		}, this);
-		return this;
-	},
-
-	removeEvent: function(type, fn){
-		type = removeOn(type);
-		var events = this.$events[type];
-		if (events && !fn.internal){
-			var index = events.indexOf(fn);
-			if (index != -1) delete events[index];
-		}
-		return this;
-	},
-
-	removeEvents: function(events){
-		var type;
-		if (typeOf(events) == 'object'){
-			for (type in events) this.removeEvent(type, events[type]);
-			return this;
-		}
-		if (events) events = removeOn(events);
-		for (type in this.$events){
-			if (events && events != type) continue;
-			var fns = this.$events[type];
-			for (var i = fns.length; i--;) if (i in fns){
-				this.removeEvent(type, fns[i]);
-			}
-		}
-		return this;
-	}
-
-});
-
-this.Options = new Class({
-
-	setOptions: function(){
-		var options = this.options = Object.merge.apply(null, [{}, this.options].append(arguments));
-		if (this.addEvent) for (var option in options){
-			if (typeOf(options[option]) != 'function' || !(/^on[A-Z]/).test(option)) continue;
-			this.addEvent(option, options[option]);
-			delete options[option];
-		}
-		return this;
-	}
-
-});
-
-})();
-
-/*
----
-
-name: Fx
-
-description: Contains the basic animation logic to be extended by all other Fx Classes.
-
-license: MIT-style license.
-
-requires: [Chain, Events, Options]
-
-provides: Fx
-
-...
-*/
-
-(function(){
-
-var Fx = this.Fx = new Class({
-
-	Implements: [Chain, Events, Options],
-
-	options: {
-		/*
-		onStart: nil,
-		onCancel: nil,
-		onComplete: nil,
-		*/
-		fps: 60,
-		unit: false,
-		duration: 500,
-		frames: null,
-		frameSkip: true,
-		link: 'ignore'
-	},
-
-	initialize: function(options){
-		this.subject = this.subject || this;
-		this.setOptions(options);
-	},
-
-	getTransition: function(){
-		return function(p){
-			return -(Math.cos(Math.PI * p) - 1) / 2;
-		};
-	},
-
-	step: function(now){
-		if (this.options.frameSkip){
-			var diff = (this.time != null) ? (now - this.time) : 0, frames = diff / this.frameInterval;
-			this.time = now;
-			this.frame += frames;
-		} else {
-			this.frame++;
-		}
-
-		if (this.frame < this.frames){
-			var delta = this.transition(this.frame / this.frames);
-			this.set(this.compute(this.from, this.to, delta));
-		} else {
-			this.frame = this.frames;
-			this.set(this.compute(this.from, this.to, 1));
-			this.stop();
-		}
-	},
-
-	set: function(now){
-		return now;
-	},
-
-	compute: function(from, to, delta){
-		return Fx.compute(from, to, delta);
-	},
-
-	check: function(){
-		if (!this.isRunning()) return true;
-		switch (this.options.link){
-			case 'cancel': this.cancel(); return true;
-			case 'chain': this.chain(this.caller.pass(arguments, this)); return false;
-		}
-		return false;
-	},
-
-	start: function(from, to){
-		if (!this.check(from, to)) return this;
-		this.from = from;
-		this.to = to;
-		this.frame = (this.options.frameSkip) ? 0 : -1;
-		this.time = null;
-		this.transition = this.getTransition();
-		var frames = this.options.frames, fps = this.options.fps, duration = this.options.duration;
-		this.duration = Fx.Durations[duration] || duration.toInt();
-		this.frameInterval = 1000 / fps;
-		this.frames = frames || Math.round(this.duration / this.frameInterval);
-		this.fireEvent('start', this.subject);
-		pushInstance.call(this, fps);
-		return this;
-	},
-
-	stop: function(){
-		if (this.isRunning()){
-			this.time = null;
-			pullInstance.call(this, this.options.fps);
-			if (this.frames == this.frame){
-				this.fireEvent('complete', this.subject);
-				if (!this.callChain()) this.fireEvent('chainComplete', this.subject);
-			} else {
-				this.fireEvent('stop', this.subject);
-			}
-		}
-		return this;
-	},
-
-	cancel: function(){
-		if (this.isRunning()){
-			this.time = null;
-			pullInstance.call(this, this.options.fps);
-			this.frame = this.frames;
-			this.fireEvent('cancel', this.subject).clearChain();
-		}
-		return this;
-	},
-
-	pause: function(){
-		if (this.isRunning()){
-			this.time = null;
-			pullInstance.call(this, this.options.fps);
-		}
-		return this;
-	},
-
-	resume: function(){
-		if (this.isPaused()) pushInstance.call(this, this.options.fps);
-		return this;
-	},
-
-	isRunning: function(){
-		var list = instances[this.options.fps];
-		return list && list.contains(this);
-	},
-
-	isPaused: function(){
-		return (this.frame < this.frames) && !this.isRunning();
-	}
-
-});
-
-Fx.compute = function(from, to, delta){
-	return (to - from) * delta + from;
-};
-
-Fx.Durations = {'short': 250, 'normal': 500, 'long': 1000};
-
-// global timers
-
-var instances = {}, timers = {};
-
-var loop = function(){
-	var now = Date.now();
-	for (var i = this.length; i--;){
-		var instance = this[i];
-		if (instance) instance.step(now);
-	}
-};
-
-var pushInstance = function(fps){
-	var list = instances[fps] || (instances[fps] = []);
-	list.push(this);
-	if (!timers[fps]) timers[fps] = loop.periodical(Math.round(1000 / fps), list);
-};
-
-var pullInstance = function(fps){
-	var list = instances[fps];
-	if (list){
-		list.erase(this);
-		if (!list.length && timers[fps]){
-			delete instances[fps];
-			timers[fps] = clearInterval(timers[fps]);
-		}
-	}
-};
-
-})();
-
-/*
----
-
-name: Fx.CSS
-
-description: Contains the CSS animation logic. Used by Fx.Tween, Fx.Morph, Fx.Elements.
-
-license: MIT-style license.
-
-requires: [Fx, Element.Style]
-
-provides: Fx.CSS
-
-...
-*/
-
-Fx.CSS = new Class({
-
-	Extends: Fx,
-
-	//prepares the base from/to object
-
-	prepare: function(element, property, values){
-		values = Array.from(values);
-		var from = values[0], to = values[1];
-		if (to == null){
-			to = from;
-			from = element.getStyle(property);
-			var unit = this.options.unit;
-			// adapted from: https://github.com/ryanmorr/fx/blob/master/fx.js#L299
-			if (unit && from && typeof from == 'string' && from.slice(-unit.length) != unit && parseFloat(from) != 0){
-				element.setStyle(property, to + unit);
-				var value = element.getComputedStyle(property);
-				// IE and Opera support pixelLeft or pixelWidth
-				if (!(/px$/.test(value))){
-					value = element.style[('pixel-' + property).camelCase()];
-					if (value == null){
-						// adapted from Dean Edwards' http://erik.eae.net/archives/2007/07/27/18.54.15/#comment-102291
-						var left = element.style.left;
-						element.style.left = to + unit;
-						value = element.style.pixelLeft;
-						element.style.left = left;
-					}
-				}
-				from = (to || 1) / (parseFloat(value) || 1) * (parseFloat(from) || 0);
-				element.setStyle(property, from + unit);
-			}
-		}
-		return {from: this.parse(from), to: this.parse(to)};
-	},
-
-	//parses a value into an array
-
-	parse: function(value){
-		value = Function.from(value)();
-		value = (typeof value == 'string') ? value.split(' ') : Array.from(value);
-		return value.map(function(val){
-			val = String(val);
-			var found = false;
-			Object.each(Fx.CSS.Parsers, function(parser, key){
-				if (found) return;
-				var parsed = parser.parse(val);
-				if (parsed || parsed === 0) found = {value: parsed, parser: parser};
-			});
-			found = found || {value: val, parser: Fx.CSS.Parsers.String};
-			return found;
-		});
-	},
-
-	//computes by a from and to prepared objects, using their parsers.
-
-	compute: function(from, to, delta){
-		var computed = [];
-		(Math.min(from.length, to.length)).times(function(i){
-			computed.push({value: from[i].parser.compute(from[i].value, to[i].value, delta), parser: from[i].parser});
-		});
-		computed.$family = Function.from('fx:css:value');
-		return computed;
-	},
-
-	//serves the value as settable
-
-	serve: function(value, unit){
-		if (typeOf(value) != 'fx:css:value') value = this.parse(value);
-		var returned = [];
-		value.each(function(bit){
-			returned = returned.concat(bit.parser.serve(bit.value, unit));
-		});
-		return returned;
-	},
-
-	//renders the change to an element
-
-	render: function(element, property, value, unit){
-		element.setStyle(property, this.serve(value, unit));
-	},
-
-	//searches inside the page css to find the values for a selector
-
-	search: function(selector){
-		if (Fx.CSS.Cache[selector]) return Fx.CSS.Cache[selector];
-		var to = {}, selectorTest = new RegExp('^' + selector.escapeRegExp() + '$');
-
-		var searchStyles = function(rules){
-			Array.each(rules, function(rule, i){
-				if (rule.media){
-					searchStyles(rule.rules || rule.cssRules);
-					return;
-				}
-				if (!rule.style) return;
-				var selectorText = (rule.selectorText) ? rule.selectorText.replace(/^\w+/, function(m){
-					return m.toLowerCase();
-				}) : null;
-				if (!selectorText || !selectorTest.test(selectorText)) return;
-				Object.each(Element.Styles, function(value, style){
-					if (!rule.style[style] || Element.ShortStyles[style]) return;
-					value = String(rule.style[style]);
-					to[style] = ((/^rgb/).test(value)) ? value.rgbToHex() : value;
-				});
-			});
-		};
-
-		Array.each(document.styleSheets, function(sheet, j){
-			var href = sheet.href;
-			if (href && href.indexOf('://') > -1 && href.indexOf(document.domain) == -1) return;
-			var rules = sheet.rules || sheet.cssRules;
-			searchStyles(rules);
-		});
-		return Fx.CSS.Cache[selector] = to;
-	}
-
-});
-
-Fx.CSS.Cache = {};
-
-Fx.CSS.Parsers = {
-
-	Color: {
-		parse: function(value){
-			if (value.match(/^#[0-9a-f]{3,6}$/i)) return value.hexToRgb(true);
-			return ((value = value.match(/(\d+),\s*(\d+),\s*(\d+)/))) ? [value[1], value[2], value[3]] : false;
-		},
-		compute: function(from, to, delta){
-			return from.map(function(value, i){
-				return Math.round(Fx.compute(from[i], to[i], delta));
-			});
-		},
-		serve: function(value){
-			return value.map(Number);
-		}
-	},
-
-	Number: {
-		parse: parseFloat,
-		compute: Fx.compute,
-		serve: function(value, unit){
-			return (unit) ? value + unit : value;
-		}
-	},
-
-	String: {
-		parse: Function.from(false),
-		compute: function(zero, one){
-			return one;
-		},
-		serve: function(zero){
-			return zero;
-		}
-	}
-
-};
-
-
-
-/*
----
-
-name: Fx.Tween
-
-description: Formerly Fx.Style, effect to transition any CSS property for an element.
-
-license: MIT-style license.
-
-requires: Fx.CSS
-
-provides: [Fx.Tween, Element.fade, Element.highlight]
-
-...
-*/
-
-Fx.Tween = new Class({
-
-	Extends: Fx.CSS,
-
-	initialize: function(element, options){
-		this.element = this.subject = document.id(element);
-		this.parent(options);
-	},
-
-	set: function(property, now){
-		if (arguments.length == 1){
-			now = property;
-			property = this.property || this.options.property;
-		}
-		this.render(this.element, property, now, this.options.unit);
-		return this;
-	},
-
-	start: function(property, from, to){
-		if (!this.check(property, from, to)) return this;
-		var args = Array.flatten(arguments);
-		this.property = this.options.property || args.shift();
-		var parsed = this.prepare(this.element, this.property, args);
-		return this.parent(parsed.from, parsed.to);
-	}
-
-});
-
-Element.Properties.tween = {
-
-	set: function(options){
-		this.get('tween').cancel().setOptions(options);
-		return this;
-	},
-
-	get: function(){
-		var tween = this.retrieve('tween');
-		if (!tween){
-			tween = new Fx.Tween(this, {link: 'cancel'});
-			this.store('tween', tween);
-		}
-		return tween;
-	}
-
-};
-
-Element.implement({
-
-	tween: function(property, from, to){
-		this.get('tween').start(property, from, to);
-		return this;
-	},
-
-	fade: function(how){
-		var fade = this.get('tween'), method, args = ['opacity'].append(arguments), toggle;
-		if (args[1] == null) args[1] = 'toggle';
-		switch (args[1]){
-			case 'in': method = 'start'; args[1] = 1; break;
-			case 'out': method = 'start'; args[1] = 0; break;
-			case 'show': method = 'set'; args[1] = 1; break;
-			case 'hide': method = 'set'; args[1] = 0; break;
-			case 'toggle':
-				var flag = this.retrieve('fade:flag', this.getStyle('opacity') == 1);
-				method = 'start';
-				args[1] = flag ? 0 : 1;
-				this.store('fade:flag', !flag);
-				toggle = true;
-			break;
-			default: method = 'start';
-		}
-		if (!toggle) this.eliminate('fade:flag');
-		fade[method].apply(fade, args);
-		var to = args[args.length - 1];
-		
-		if (method == 'set'){
-			this.setStyle('visibility', to == 0 ? 'hidden' : 'visible');
-		} else if (to != 0){
-			if (fade.$chain.length){
-				fade.chain(function(){
-					this.element.setStyle('visibility', 'visible');
-					this.callChain();
-				});
-			} else {
-				this.setStyle('visibility', 'visible');
-			}
-		} else {
-			fade.chain(function(){
-				if (this.element.getStyle('opacity')) return;
-				this.element.setStyle('visibility', 'hidden');
-				this.callChain();
-			});
-		}
-
-		return this;
-	},
-
-	highlight: function(start, end){
-		if (!end){
-			end = this.retrieve('highlight:original', this.getStyle('background-color'));
-			end = (end == 'transparent') ? '#fff' : end;
-		}
-		var tween = this.get('tween');
-		tween.start('background-color', start || '#ffff88', end).chain(function(){
-			this.setStyle('background-color', this.retrieve('highlight:original'));
-			tween.callChain();
-		}.bind(this));
-		return this;
-	}
-
-});
-
-/*
----
-
 name: Event
 
 description: Contains the Event Type, to make the event object cross-browser.
@@ -4752,15 +3742,15 @@ provides: Event
 
 var _keys = {};
 var normalizeWheelSpeed = function(event){
-    var normalized;
-    if (event.wheelDelta){
-        normalized = event.wheelDelta % 120 == 0 ? event.wheelDelta / 120 : event.wheelDelta / 12;
-    } else {
-        var rawAmount = event.deltaY || event.detail || 0;
-        normalized = -(rawAmount % 3 == 0 ? rawAmount / 3 : rawAmount * 10);
-    }
-    return normalized;
-}
+	var normalized;
+	if (event.wheelDelta){
+		normalized = event.wheelDelta % 120 == 0 ? event.wheelDelta / 120 : event.wheelDelta / 12;
+	} else {
+		var rawAmount = event.deltaY || event.detail || 0;
+		normalized = -(rawAmount % 3 == 0 ? rawAmount / 3 : rawAmount * 10);
+	}
+	return normalized;
+};
 
 var DOMEvent = this.DOMEvent = new Type('DOMEvent', function(event, win){
 	if (!win) win = window;
@@ -4901,7 +3891,7 @@ Element.Properties.events = {set: function(events){
 					return true;
 				};
 			}
-			if (custom.base) realType = Function.from(custom.base).call(this, type);
+			if (custom.base) realType = Function.convert(custom.base).call(this, type);
 		}
 		var defn = function(){
 			return fn.call(self);
@@ -4932,7 +3922,7 @@ Element.Properties.events = {set: function(events){
 		var custom = Element.Events[type];
 		if (custom){
 			if (custom.onRemove) custom.onRemove.call(this, fn, type);
-			if (custom.base) type = Function.from(custom.base).call(this, type);
+			if (custom.base) type = Function.convert(custom.base).call(this, type);
 		}
 		return (Element.NativeEvents[type]) ? this.removeListener(type, value, arguments[2]) : this;
 	},
@@ -4965,7 +3955,7 @@ Element.Properties.events = {set: function(events){
 	fireEvent: function(type, args, delay){
 		var events = this.retrieve('events');
 		if (!events || !events[type]) return this;
-		args = Array.from(args);
+		args = Array.convert(args);
 
 		events[type].keys.each(function(fn){
 			if (delay) fn.delay(delay, this, args);
@@ -5054,6 +4044,1162 @@ if (!window.addEventListener){
 /*
 ---
 
+name: Element.Delegation
+
+description: Extends the Element native object to include the delegate method for more efficient event management.
+
+license: MIT-style license.
+
+requires: [Element.Event]
+
+provides: [Element.Delegation]
+
+...
+*/
+
+(function(){
+
+var eventListenerSupport = !!window.addEventListener;
+
+Element.NativeEvents.focusin = Element.NativeEvents.focusout = 2;
+
+var bubbleUp = function(self, match, fn, event, target){
+	while (target && target != self){
+		if (match(target, event)) return fn.call(target, event, target);
+		target = document.id(target.parentNode);
+	}
+};
+
+var map = {
+	mouseenter: {
+		base: 'mouseover',
+		condition: Element.MouseenterCheck
+	},
+	mouseleave: {
+		base: 'mouseout',
+		condition: Element.MouseenterCheck
+	},
+	focus: {
+		base: 'focus' + (eventListenerSupport ? '' : 'in'),
+		capture: true
+	},
+	blur: {
+		base: eventListenerSupport ? 'blur' : 'focusout',
+		capture: true
+	}
+};
+
+/*<ltIE9>*/
+var _key = '$delegation:';
+var formObserver = function(type){
+
+	return {
+
+		base: 'focusin',
+
+		remove: function(self, uid){
+			var list = self.retrieve(_key + type + 'listeners', {})[uid];
+			if (list && list.forms) for (var i = list.forms.length; i--;){
+				// the form may have been destroyed, so it won't have the
+				// removeEvent method anymore. In that case the event was
+				// removed as well.
+				if (list.forms[i].removeEvent) list.forms[i].removeEvent(type, list.fns[i]);
+			}
+		},
+
+		listen: function(self, match, fn, event, target, uid){
+			var form = (target.get('tag') == 'form') ? target : event.target.getParent('form');
+			if (!form) return;
+
+			var listeners = self.retrieve(_key + type + 'listeners', {}),
+				listener = listeners[uid] || {forms: [], fns: []},
+				forms = listener.forms, fns = listener.fns;
+
+			if (forms.indexOf(form) != -1) return;
+			forms.push(form);
+
+			var _fn = function(event){
+				bubbleUp(self, match, fn, event, target);
+			};
+			form.addEvent(type, _fn);
+			fns.push(_fn);
+
+			listeners[uid] = listener;
+			self.store(_key + type + 'listeners', listeners);
+		}
+	};
+};
+
+var inputObserver = function(type){
+	return {
+		base: 'focusin',
+		listen: function(self, match, fn, event, target){
+			var events = {blur: function(){
+				this.removeEvents(events);
+			}};
+			events[type] = function(event){
+				bubbleUp(self, match, fn, event, target);
+			};
+			event.target.addEvents(events);
+		}
+	};
+};
+
+if (!eventListenerSupport) Object.append(map, {
+	submit: formObserver('submit'),
+	reset: formObserver('reset'),
+	change: inputObserver('change'),
+	select: inputObserver('select')
+});
+/*</ltIE9>*/
+
+var proto = Element.prototype,
+	addEvent = proto.addEvent,
+	removeEvent = proto.removeEvent;
+
+var relay = function(old, method){
+	return function(type, fn, useCapture){
+		if (type.indexOf(':relay') == -1) return old.call(this, type, fn, useCapture);
+		var parsed = Slick.parse(type).expressions[0][0];
+		if (parsed.pseudos[0].key != 'relay') return old.call(this, type, fn, useCapture);
+		var newType = parsed.tag;
+		parsed.pseudos.slice(1).each(function(pseudo){
+			newType += ':' + pseudo.key + (pseudo.value ? '(' + pseudo.value + ')' : '');
+		});
+		old.call(this, type, fn);
+		return method.call(this, newType, parsed.pseudos[0].value, fn);
+	};
+};
+
+var delegation = {
+
+	addEvent: function(type, match, fn){
+		var storage = this.retrieve('$delegates', {}), stored = storage[type];
+		if (stored) for (var _uid in stored){
+			if (stored[_uid].fn == fn && stored[_uid].match == match) return this;
+		}
+
+		var _type = type, _match = match, _fn = fn, _map = map[type] || {};
+		type = _map.base || _type;
+
+		match = function(target){
+			return Slick.match(target, _match);
+		};
+
+		var elementEvent = Element.Events[_type];
+		if (_map.condition || elementEvent && elementEvent.condition){
+			var __match = match, condition = _map.condition || elementEvent.condition;
+			match = function(target, event){
+				return __match(target, event) && condition.call(target, event, type);
+			};
+		}
+
+		var self = this, uid = String.uniqueID();
+		var delegator = _map.listen ? function(event, target){
+			if (!target && event && event.target) target = event.target;
+			if (target) _map.listen(self, match, fn, event, target, uid);
+		} : function(event, target){
+			if (!target && event && event.target) target = event.target;
+			if (target) bubbleUp(self, match, fn, event, target);
+		};
+
+		if (!stored) stored = {};
+		stored[uid] = {
+			match: _match,
+			fn: _fn,
+			delegator: delegator
+		};
+		storage[_type] = stored;
+		return addEvent.call(this, type, delegator, _map.capture);
+	},
+
+	removeEvent: function(type, match, fn, _uid){
+		var storage = this.retrieve('$delegates', {}), stored = storage[type];
+		if (!stored) return this;
+
+		if (_uid){
+			var _type = type, delegator = stored[_uid].delegator, _map = map[type] || {};
+			type = _map.base || _type;
+			if (_map.remove) _map.remove(this, _uid);
+			delete stored[_uid];
+			storage[_type] = stored;
+			return removeEvent.call(this, type, delegator, _map.capture);
+		}
+
+		var __uid, s;
+		if (fn) for (__uid in stored){
+			s = stored[__uid];
+			if (s.match == match && s.fn == fn) return delegation.removeEvent.call(this, type, match, fn, __uid);
+		} else for (__uid in stored){
+			s = stored[__uid];
+			if (s.match == match) delegation.removeEvent.call(this, type, match, s.fn, __uid);
+		}
+		return this;
+	}
+
+};
+
+[Element, Window, Document].invoke('implement', {
+	addEvent: relay(addEvent, delegation.addEvent),
+	removeEvent: relay(removeEvent, delegation.removeEvent)
+});
+
+})();
+
+/*
+---
+
+name: Element.Style
+
+description: Contains methods for interacting with the styles of Elements in a fashionable way.
+
+license: MIT-style license.
+
+requires: Element
+
+provides: Element.Style
+
+...
+*/
+
+(function(){
+
+var html = document.html, el;
+
+//<ltIE9>
+// Check for oldIE, which does not remove styles when they're set to null
+el = document.createElement('div');
+el.style.color = 'red';
+el.style.color = null;
+var doesNotRemoveStyles = el.style.color == 'red';
+
+// check for oldIE, which returns border* shorthand styles in the wrong order (color-width-style instead of width-style-color)
+var border = '1px solid #123abc';
+el.style.border = border;
+var returnsBordersInWrongOrder = el.style.border != border;
+el = null;
+//</ltIE9>
+
+var hasGetComputedStyle = !!window.getComputedStyle,
+	supportBorderRadius = document.createElement('div').style.borderRadius != null;
+
+Element.Properties.styles = {set: function(styles){
+	this.setStyles(styles);
+}};
+
+var hasOpacity = (html.style.opacity != null),
+	hasFilter = (html.style.filter != null),
+	reAlpha = /alpha\(opacity=([\d.]+)\)/i;
+
+var setVisibility = function(element, opacity){
+	element.store('$opacity', opacity);
+	element.style.visibility = opacity > 0 || opacity == null ? 'visible' : 'hidden';
+};
+
+//<ltIE9>
+var setFilter = function(element, regexp, value){
+	var style = element.style,
+		filter = style.filter || element.getComputedStyle('filter') || '';
+	style.filter = (regexp.test(filter) ? filter.replace(regexp, value) : filter + ' ' + value).trim();
+	if (!style.filter) style.removeAttribute('filter');
+};
+//</ltIE9>
+
+var setOpacity = (hasOpacity ? function(element, opacity){
+	element.style.opacity = opacity;
+} : (hasFilter ? function(element, opacity){
+	if (!element.currentStyle || !element.currentStyle.hasLayout) element.style.zoom = 1;
+	if (opacity == null || opacity == 1){
+		setFilter(element, reAlpha, '');
+		if (opacity == 1 && getOpacity(element) != 1) setFilter(element, reAlpha, 'alpha(opacity=100)');
+	} else {
+		setFilter(element, reAlpha, 'alpha(opacity=' + (opacity * 100).limit(0, 100).round() + ')');
+	}
+} : setVisibility));
+
+var getOpacity = (hasOpacity ? function(element){
+	var opacity = element.style.opacity || element.getComputedStyle('opacity');
+	return (opacity == '') ? 1 : opacity.toFloat();
+} : (hasFilter ? function(element){
+	var filter = (element.style.filter || element.getComputedStyle('filter')),
+		opacity;
+	if (filter) opacity = filter.match(reAlpha);
+	return (opacity == null || filter == null) ? 1 : (opacity[1] / 100);
+} : function(element){
+	var opacity = element.retrieve('$opacity');
+	if (opacity == null) opacity = (element.style.visibility == 'hidden' ? 0 : 1);
+	return opacity;
+}));
+
+var floatName = (html.style.cssFloat == null) ? 'styleFloat' : 'cssFloat',
+	namedPositions = {left: '0%', top: '0%', center: '50%', right: '100%', bottom: '100%'},
+	hasBackgroundPositionXY = (html.style.backgroundPositionX != null),
+	prefixPattern = /^-(ms)-/;
+
+var camelCase = function(property){
+	return property.replace(prefixPattern, '$1-').camelCase();
+};
+
+//<ltIE9>
+var removeStyle = function(style, property){
+	if (property == 'backgroundPosition'){
+		style.removeAttribute(property + 'X');
+		property += 'Y';
+	}
+	style.removeAttribute(property);
+};
+//</ltIE9>
+
+Element.implement({
+
+	getComputedStyle: function(property){
+		if (!hasGetComputedStyle && this.currentStyle) return this.currentStyle[camelCase(property)];
+		var defaultView = Element.getDocument(this).defaultView,
+			computed = defaultView ? defaultView.getComputedStyle(this, null) : null;
+		return (computed) ? computed.getPropertyValue((property == floatName) ? 'float' : property.hyphenate()) : '';
+	},
+
+	setStyle: function(property, value){
+		if (property == 'opacity'){
+			if (value != null) value = parseFloat(value);
+			setOpacity(this, value);
+			return this;
+		}
+		property = camelCase(property == 'float' ? floatName : property);
+		if (typeOf(value) != 'string'){
+			var map = (Element.Styles[property] || '@').split(' ');
+			value = Array.convert(value).map(function(val, i){
+				if (!map[i]) return '';
+				return (typeOf(val) == 'number') ? map[i].replace('@', Math.round(val)) : val;
+			}).join(' ');
+		} else if (value == String(Number(value))){
+			value = Math.round(value);
+		}
+		this.style[property] = value;
+		//<ltIE9>
+		if ((value == '' || value == null) && doesNotRemoveStyles && this.style.removeAttribute){
+			removeStyle(this.style, property);
+		}
+		//</ltIE9>
+		return this;
+	},
+
+	getStyle: function(property){
+		if (property == 'opacity') return getOpacity(this);
+		property = camelCase(property == 'float' ? floatName : property);
+		if (supportBorderRadius && property.indexOf('borderRadius') != -1){
+			return ['borderTopLeftRadius', 'borderTopRightRadius', 'borderBottomRightRadius', 'borderBottomLeftRadius'].map(function(corner){
+				return this.style[corner] || '0px';
+			}, this).join(' ');
+		}
+		var result = this.style[property];
+		if (!result || property == 'zIndex'){
+			if (Element.ShortStyles.hasOwnProperty(property)){
+				result = [];
+				for (var s in Element.ShortStyles[property]) result.push(this.getStyle(s));
+				return result.join(' ');
+			}
+			result = this.getComputedStyle(property);
+		}
+		if (hasBackgroundPositionXY && /^backgroundPosition[XY]?$/.test(property)){
+			return result.replace(/(top|right|bottom|left)/g, function(position){
+				return namedPositions[position];
+			}) || '0px';
+		}
+		if (!result && property == 'backgroundPosition') return '0px 0px';
+		if (result){
+			result = String(result);
+			var color = result.match(/rgba?\([\d\s,]+\)/);
+			if (color) result = result.replace(color[0], color[0].rgbToHex());
+		}
+		if (!hasGetComputedStyle && !this.style[property]){
+			if ((/^(height|width)$/).test(property) && !(/px$/.test(result))){
+				var values = (property == 'width') ? ['left', 'right'] : ['top', 'bottom'], size = 0;
+				values.each(function(value){
+					size += this.getStyle('border-' + value + '-width').toInt() + this.getStyle('padding-' + value).toInt();
+				}, this);
+				return this['offset' + property.capitalize()] - size + 'px';
+			}
+			if ((/^border(.+)Width|margin|padding/).test(property) && isNaN(parseFloat(result))){
+				return '0px';
+			}
+		}
+		//<ltIE9>
+		if (returnsBordersInWrongOrder && /^border(Top|Right|Bottom|Left)?$/.test(property) && /^#/.test(result)){
+			return result.replace(/^(.+)\s(.+)\s(.+)$/, '$2 $3 $1');
+		}
+		//</ltIE9>
+
+		return result;
+	},
+
+	setStyles: function(styles){
+		for (var style in styles) this.setStyle(style, styles[style]);
+		return this;
+	},
+
+	getStyles: function(){
+		var result = {};
+		Array.flatten(arguments).each(function(key){
+			result[key] = this.getStyle(key);
+		}, this);
+		return result;
+	}
+
+});
+
+Element.Styles = {
+	left: '@px', top: '@px', bottom: '@px', right: '@px',
+	width: '@px', height: '@px', maxWidth: '@px', maxHeight: '@px', minWidth: '@px', minHeight: '@px',
+	backgroundColor: 'rgb(@, @, @)', backgroundSize: '@px', backgroundPosition: '@px @px', color: 'rgb(@, @, @)',
+	fontSize: '@px', letterSpacing: '@px', lineHeight: '@px', clip: 'rect(@px @px @px @px)',
+	margin: '@px @px @px @px', padding: '@px @px @px @px', border: '@px @ rgb(@, @, @) @px @ rgb(@, @, @) @px @ rgb(@, @, @)',
+	borderWidth: '@px @px @px @px', borderStyle: '@ @ @ @', borderColor: 'rgb(@, @, @) rgb(@, @, @) rgb(@, @, @) rgb(@, @, @)',
+	zIndex: '@', 'zoom': '@', fontWeight: '@', textIndent: '@px', opacity: '@', borderRadius: '@px @px @px @px'
+};
+
+
+
+
+
+Element.ShortStyles = {margin: {}, padding: {}, border: {}, borderWidth: {}, borderStyle: {}, borderColor: {}};
+
+['Top', 'Right', 'Bottom', 'Left'].each(function(direction){
+	var Short = Element.ShortStyles;
+	var All = Element.Styles;
+	['margin', 'padding'].each(function(style){
+		var sd = style + direction;
+		Short[style][sd] = All[sd] = '@px';
+	});
+	var bd = 'border' + direction;
+	Short.border[bd] = All[bd] = '@px @ rgb(@, @, @)';
+	var bdw = bd + 'Width', bds = bd + 'Style', bdc = bd + 'Color';
+	Short[bd] = {};
+	Short.borderWidth[bdw] = Short[bd][bdw] = All[bdw] = '@px';
+	Short.borderStyle[bds] = Short[bd][bds] = All[bds] = '@';
+	Short.borderColor[bdc] = Short[bd][bdc] = All[bdc] = 'rgb(@, @, @)';
+});
+
+if (hasBackgroundPositionXY) Element.ShortStyles.backgroundPosition = {backgroundPositionX: '@', backgroundPositionY: '@'};
+})();
+
+/*
+---
+
+name: Class.Thenable
+
+description: Contains a Utility Class that can be implemented into your own Classes to make them "thenable".
+
+license: MIT-style license.
+
+requires: Class
+
+provides: [Class.Thenable]
+
+...
+*/
+
+(function(){
+
+var STATE_PENDING = 0,
+	STATE_FULFILLED = 1,
+	STATE_REJECTED = 2;
+
+var Thenable = Class.Thenable = new Class({
+
+	$thenableState: STATE_PENDING,
+	$thenableResult: null,
+	$thenableReactions: [],
+
+	resolve: function(value){
+		resolve(this, value);
+		return this;
+	},
+
+	reject: function(reason){
+		reject(this, reason);
+		return this;
+	},
+
+	getThenableState: function(){
+		switch (this.$thenableState){
+			case STATE_PENDING:
+				return 'pending';
+
+			case STATE_FULFILLED:
+				return 'fulfilled';
+
+			case STATE_REJECTED:
+				return 'rejected';
+		}
+	},
+
+	resetThenable: function(reason){
+		reject(this, reason);
+		reset(this);
+		return this;
+	},
+
+	then: function(onFulfilled, onRejected){
+		if (typeof onFulfilled !== 'function') onFulfilled = 'Identity';
+		if (typeof onRejected !== 'function') onRejected = 'Thrower';
+
+		var thenable = new Thenable();
+
+		this.$thenableReactions.push({
+			thenable: thenable,
+			fulfillHandler: onFulfilled,
+			rejectHandler: onRejected
+		});
+
+		if (this.$thenableState !== STATE_PENDING){
+			react(this);
+		}
+
+		return thenable;
+	},
+
+	'catch': function(onRejected){
+		return this.then(null, onRejected);
+	}
+
+});
+
+Thenable.extend({
+	resolve: function(value){
+		var thenable;
+		if (value instanceof Thenable){
+			thenable = value;
+		} else {
+			thenable = new Thenable();
+			resolve(thenable, value);
+		}
+		return thenable;
+	},
+	reject: function(reason){
+		var thenable = new Thenable();
+		reject(thenable, reason);
+		return thenable;
+	}
+});
+
+// Private functions
+
+function resolve(thenable, value){
+	if (thenable.$thenableState === STATE_PENDING){
+		if (thenable === value){
+			reject(thenable, new TypeError('Tried to resolve a thenable with itself.'));
+		} else if (value && (typeof value === 'object' || typeof value === 'function')){
+			var then;
+			try {
+				then = value.then;
+			} catch (exception){
+				reject(thenable, exception);
+			}
+			if (typeof then === 'function'){
+				var resolved = false;
+				defer(function(){
+					try {
+						then.call(
+							value,
+							function(nextValue){
+								if (!resolved){
+									resolved = true;
+									resolve(thenable, nextValue);
+								}
+							},
+							function(reason){
+								if (!resolved){
+									resolved = true;
+									reject(thenable, reason);
+								}
+							}
+						);
+					} catch (exception){
+						if (!resolved){
+							resolved = true;
+							reject(thenable, exception);
+						}
+					}
+				});
+			} else {
+				fulfill(thenable, value);
+			}
+		} else {
+			fulfill(thenable, value);
+		}
+	}
+}
+
+function fulfill(thenable, value){
+	if (thenable.$thenableState === STATE_PENDING){
+		thenable.$thenableResult = value;
+		thenable.$thenableState = STATE_FULFILLED;
+
+		react(thenable);
+	}
+}
+
+function reject(thenable, reason){
+	if (thenable.$thenableState === STATE_PENDING){
+		thenable.$thenableResult = reason;
+		thenable.$thenableState = STATE_REJECTED;
+
+		react(thenable);
+	}
+}
+
+function reset(thenable){
+	if (thenable.$thenableState !== STATE_PENDING){
+		thenable.$thenableResult = null;
+		thenable.$thenableState = STATE_PENDING;
+	}
+}
+
+function react(thenable){
+	var state = thenable.$thenableState,
+		result = thenable.$thenableResult,
+		reactions = thenable.$thenableReactions,
+		type;
+
+	if (state === STATE_FULFILLED){
+		thenable.$thenableReactions = [];
+		type = 'fulfillHandler';
+	} else if (state == STATE_REJECTED){
+		thenable.$thenableReactions = [];
+		type = 'rejectHandler';
+	}
+
+	if (type){
+		defer(handle.pass([result, reactions, type]));
+	}
+}
+
+function handle(result, reactions, type){
+	for (var i = 0, l = reactions.length; i < l; ++i){
+		var reaction = reactions[i],
+			handler = reaction[type];
+
+		if (handler === 'Identity'){
+			resolve(reaction.thenable, result);
+		} else if (handler === 'Thrower'){
+			reject(reaction.thenable, result);
+		} else {
+			try {
+				resolve(reaction.thenable, handler(result));
+			} catch (exception){
+				reject(reaction.thenable, exception);
+			}
+		}
+	}
+}
+
+var defer;
+if (typeof process !== 'undefined' && typeof process.nextTick === 'function'){
+	defer = process.nextTick;
+} else if (typeof setImmediate !== 'undefined'){
+	defer = setImmediate;
+} else {
+	defer = function(fn){
+		setTimeout(fn, 0);
+	};
+}
+
+})();
+
+/*
+---
+
+name: Fx
+
+description: Contains the basic animation logic to be extended by all other Fx Classes.
+
+license: MIT-style license.
+
+requires: [Chain, Events, Options, Class.Thenable]
+
+provides: Fx
+
+...
+*/
+
+(function(){
+
+var Fx = this.Fx = new Class({
+
+	Implements: [Chain, Events, Options, Class.Thenable],
+
+	options: {
+		/*
+		onStart: nil,
+		onCancel: nil,
+		onComplete: nil,
+		*/
+		fps: 60,
+		unit: false,
+		duration: 500,
+		frames: null,
+		frameSkip: true,
+		link: 'ignore'
+	},
+
+	initialize: function(options){
+		this.subject = this.subject || this;
+		this.setOptions(options);
+	},
+
+	getTransition: function(){
+		return function(p){
+			return -(Math.cos(Math.PI * p) - 1) / 2;
+		};
+	},
+
+	step: function(now){
+		if (this.options.frameSkip){
+			var diff = (this.time != null) ? (now - this.time) : 0, frames = diff / this.frameInterval;
+			this.time = now;
+			this.frame += frames;
+		} else {
+			this.frame++;
+		}
+
+		if (this.frame < this.frames){
+			var delta = this.transition(this.frame / this.frames);
+			this.set(this.compute(this.from, this.to, delta));
+		} else {
+			this.frame = this.frames;
+			this.set(this.compute(this.from, this.to, 1));
+			this.stop();
+		}
+	},
+
+	set: function(now){
+		return now;
+	},
+
+	compute: function(from, to, delta){
+		return Fx.compute(from, to, delta);
+	},
+
+	check: function(){
+		if (!this.isRunning()) return true;
+		switch (this.options.link){
+			case 'cancel': this.cancel(); return true;
+			case 'chain': this.chain(this.caller.pass(arguments, this)); return false;
+		}
+		return false;
+	},
+
+	start: function(from, to){
+		if (!this.check(from, to)) return this;
+		this.from = from;
+		this.to = to;
+		this.frame = (this.options.frameSkip) ? 0 : -1;
+		this.time = null;
+		this.transition = this.getTransition();
+		var frames = this.options.frames, fps = this.options.fps, duration = this.options.duration;
+		this.duration = Fx.Durations[duration] || duration.toInt();
+		this.frameInterval = 1000 / fps;
+		this.frames = frames || Math.round(this.duration / this.frameInterval);
+		if (this.getThenableState() !== 'pending'){
+			this.resetThenable(this.subject);
+		}
+		this.fireEvent('start', this.subject);
+		pushInstance.call(this, fps);
+		return this;
+	},
+
+	stop: function(){
+		if (this.isRunning()){
+			this.time = null;
+			pullInstance.call(this, this.options.fps);
+			if (this.frames == this.frame){
+				this.fireEvent('complete', this.subject);
+				if (!this.callChain()) this.fireEvent('chainComplete', this.subject);
+			} else {
+				this.fireEvent('stop', this.subject);
+			}
+			this.resolve(this.subject === this ? null : this.subject);
+		}
+		return this;
+	},
+
+	cancel: function(){
+		if (this.isRunning()){
+			this.time = null;
+			pullInstance.call(this, this.options.fps);
+			this.frame = this.frames;
+			this.fireEvent('cancel', this.subject).clearChain();
+			this.reject(this.subject);
+		}
+		return this;
+	},
+
+	pause: function(){
+		if (this.isRunning()){
+			this.time = null;
+			pullInstance.call(this, this.options.fps);
+		}
+		return this;
+	},
+
+	resume: function(){
+		if (this.isPaused()) pushInstance.call(this, this.options.fps);
+		return this;
+	},
+
+	isRunning: function(){
+		var list = instances[this.options.fps];
+		return list && list.contains(this);
+	},
+
+	isPaused: function(){
+		return (this.frame < this.frames) && !this.isRunning();
+	}
+
+});
+
+Fx.compute = function(from, to, delta){
+	return (to - from) * delta + from;
+};
+
+Fx.Durations = {'short': 250, 'normal': 500, 'long': 1000};
+
+// global timers
+
+var instances = {}, timers = {};
+
+var loop = function(){
+	var now = Date.now();
+	for (var i = this.length; i--;){
+		var instance = this[i];
+		if (instance) instance.step(now);
+	}
+};
+
+var pushInstance = function(fps){
+	var list = instances[fps] || (instances[fps] = []);
+	list.push(this);
+	if (!timers[fps]) timers[fps] = loop.periodical(Math.round(1000 / fps), list);
+};
+
+var pullInstance = function(fps){
+	var list = instances[fps];
+	if (list){
+		list.erase(this);
+		if (!list.length && timers[fps]){
+			delete instances[fps];
+			timers[fps] = clearInterval(timers[fps]);
+		}
+	}
+};
+
+})();
+
+/*
+---
+
+name: Fx.CSS
+
+description: Contains the CSS animation logic. Used by Fx.Tween, Fx.Morph, Fx.Elements.
+
+license: MIT-style license.
+
+requires: [Fx, Element.Style]
+
+provides: Fx.CSS
+
+...
+*/
+
+Fx.CSS = new Class({
+
+	Extends: Fx,
+
+	//prepares the base from/to object
+
+	prepare: function(element, property, values){
+		values = Array.convert(values);
+		var from = values[0], to = values[1];
+		if (to == null){
+			to = from;
+			from = element.getStyle(property);
+			var unit = this.options.unit;
+			// adapted from: https://github.com/ryanmorr/fx/blob/master/fx.js#L299
+			if (unit && from && typeof from == 'string' && from.slice(-unit.length) != unit && parseFloat(from) != 0){
+				element.setStyle(property, to + unit);
+				var value = element.getComputedStyle(property);
+				// IE and Opera support pixelLeft or pixelWidth
+				if (!(/px$/.test(value))){
+					value = element.style[('pixel-' + property).camelCase()];
+					if (value == null){
+						// adapted from Dean Edwards' http://erik.eae.net/archives/2007/07/27/18.54.15/#comment-102291
+						var left = element.style.left;
+						element.style.left = to + unit;
+						value = element.style.pixelLeft;
+						element.style.left = left;
+					}
+				}
+				from = (to || 1) / (parseFloat(value) || 1) * (parseFloat(from) || 0);
+				element.setStyle(property, from + unit);
+			}
+		}
+		return {from: this.parse(from), to: this.parse(to)};
+	},
+
+	//parses a value into an array
+
+	parse: function(value){
+		value = Function.convert(value)();
+		value = (typeof value == 'string') ? value.split(' ') : Array.convert(value);
+		return value.map(function(val){
+			val = String(val);
+			var found = false;
+			Object.each(Fx.CSS.Parsers, function(parser){
+				if (found) return;
+				var parsed = parser.parse(val);
+				if (parsed || parsed === 0) found = {value: parsed, parser: parser};
+			});
+			found = found || {value: val, parser: Fx.CSS.Parsers.String};
+			return found;
+		});
+	},
+
+	//computes by a from and to prepared objects, using their parsers.
+
+	compute: function(from, to, delta){
+		var computed = [];
+		(Math.min(from.length, to.length)).times(function(i){
+			computed.push({value: from[i].parser.compute(from[i].value, to[i].value, delta), parser: from[i].parser});
+		});
+		computed.$family = Function.convert('fx:css:value');
+		return computed;
+	},
+
+	//serves the value as settable
+
+	serve: function(value, unit){
+		if (typeOf(value) != 'fx:css:value') value = this.parse(value);
+		var returned = [];
+		value.each(function(bit){
+			returned = returned.concat(bit.parser.serve(bit.value, unit));
+		});
+		return returned;
+	},
+
+	//renders the change to an element
+
+	render: function(element, property, value, unit){
+		element.setStyle(property, this.serve(value, unit));
+	},
+
+	//searches inside the page css to find the values for a selector
+
+	search: function(selector){
+		if (Fx.CSS.Cache[selector]) return Fx.CSS.Cache[selector];
+		var to = {}, selectorTest = new RegExp('^' + selector.escapeRegExp() + '$');
+
+		var searchStyles = function(rules){
+			Array.each(rules, function(rule){
+				if (rule.media){
+					searchStyles(rule.rules || rule.cssRules);
+					return;
+				}
+				if (!rule.style) return;
+				var selectorText = (rule.selectorText) ? rule.selectorText.replace(/^\w+/, function(m){
+					return m.toLowerCase();
+				}) : null;
+				if (!selectorText || !selectorTest.test(selectorText)) return;
+				Object.each(Element.Styles, function(value, style){
+					if (!rule.style[style] || Element.ShortStyles[style]) return;
+					value = String(rule.style[style]);
+					to[style] = ((/^rgb/).test(value)) ? value.rgbToHex() : value;
+				});
+			});
+		};
+
+		Array.each(document.styleSheets, function(sheet){
+			var href = sheet.href;
+			if (href && href.indexOf('://') > -1 && href.indexOf(document.domain) == -1) return;
+			var rules = sheet.rules || sheet.cssRules;
+			searchStyles(rules);
+		});
+		return Fx.CSS.Cache[selector] = to;
+	}
+
+});
+
+Fx.CSS.Cache = {};
+
+Fx.CSS.Parsers = {
+
+	Color: {
+		parse: function(value){
+			if (value.match(/^#[0-9a-f]{3,6}$/i)) return value.hexToRgb(true);
+			return ((value = value.match(/(\d+),\s*(\d+),\s*(\d+)/))) ? [value[1], value[2], value[3]] : false;
+		},
+		compute: function(from, to, delta){
+			return from.map(function(value, i){
+				return Math.round(Fx.compute(from[i], to[i], delta));
+			});
+		},
+		serve: function(value){
+			return value.map(Number);
+		}
+	},
+
+	Number: {
+		parse: parseFloat,
+		compute: Fx.compute,
+		serve: function(value, unit){
+			return (unit) ? value + unit : value;
+		}
+	},
+
+	String: {
+		parse: Function.convert(false),
+		compute: function(zero, one){
+			return one;
+		},
+		serve: function(zero){
+			return zero;
+		}
+	}
+
+};
+
+
+
+/*
+---
+
+name: Fx.Tween
+
+description: Formerly Fx.Style, effect to transition any CSS property for an element.
+
+license: MIT-style license.
+
+requires: Fx.CSS
+
+provides: [Fx.Tween, Element.fade, Element.highlight]
+
+...
+*/
+
+Fx.Tween = new Class({
+
+	Extends: Fx.CSS,
+
+	initialize: function(element, options){
+		this.element = this.subject = document.id(element);
+		this.parent(options);
+	},
+
+	set: function(property, now){
+		if (arguments.length == 1){
+			now = property;
+			property = this.property || this.options.property;
+		}
+		this.render(this.element, property, now, this.options.unit);
+		return this;
+	},
+
+	start: function(property, from, to){
+		if (!this.check(property, from, to)) return this;
+		var args = Array.flatten(arguments);
+		this.property = this.options.property || args.shift();
+		var parsed = this.prepare(this.element, this.property, args);
+		return this.parent(parsed.from, parsed.to);
+	}
+
+});
+
+Element.Properties.tween = {
+
+	set: function(options){
+		this.get('tween').cancel().setOptions(options);
+		return this;
+	},
+
+	get: function(){
+		var tween = this.retrieve('tween');
+		if (!tween){
+			tween = new Fx.Tween(this, {link: 'cancel'});
+			this.store('tween', tween);
+		}
+		return tween;
+	}
+
+};
+
+Element.implement({
+
+	tween: function(property, from, to){
+		this.get('tween').start(property, from, to);
+		return this;
+	},
+
+	fade: function(){
+		var fade = this.get('tween'), method, args = ['opacity'].append(arguments), toggle;
+		if (args[1] == null) args[1] = 'toggle';
+		switch (args[1]){
+			case 'in': method = 'start'; args[1] = 1; break;
+			case 'out': method = 'start'; args[1] = 0; break;
+			case 'show': method = 'set'; args[1] = 1; break;
+			case 'hide': method = 'set'; args[1] = 0; break;
+			case 'toggle':
+				var flag = this.retrieve('fade:flag', this.getStyle('opacity') == 1);
+				method = 'start';
+				args[1] = flag ? 0 : 1;
+				this.store('fade:flag', !flag);
+				toggle = true;
+				break;
+			default: method = 'start';
+		}
+		if (!toggle) this.eliminate('fade:flag');
+		fade[method].apply(fade, args);
+		var to = args[args.length - 1];
+
+		if (method == 'set'){
+			this.setStyle('visibility', to == 0 ? 'hidden' : 'visible');
+		} else if (to != 0){
+			if (fade.$chain.length){
+				fade.chain(function(){
+					this.element.setStyle('visibility', 'visible');
+					this.callChain();
+				});
+			} else {
+				this.setStyle('visibility', 'visible');
+			}
+		} else {
+			fade.chain(function(){
+				if (this.element.getStyle('opacity')) return;
+				this.element.setStyle('visibility', 'hidden');
+				this.callChain();
+			});
+		}
+
+		return this;
+	},
+
+	highlight: function(start, end){
+		if (!end){
+			end = this.retrieve('highlight:original', this.getStyle('background-color'));
+			end = (end == 'transparent') ? '#fff' : end;
+		}
+		var tween = this.get('tween');
+		tween.start('background-color', start || '#ffff88', end).chain(function(){
+			this.setStyle('background-color', this.retrieve('highlight:original'));
+			tween.callChain();
+		}.bind(this));
+		return this;
+	}
+
+});
+
+/*
+---
+
 name: DOMReady
 
 description: Contains the custom event domready.
@@ -5078,7 +5224,7 @@ var ready,
 
 var domready = function(){
 	clearTimeout(timer);
-	if (!ready) {
+	if (!ready){
 		Browser.loaded = ready = true;
 		document.removeListener('DOMContentLoaded', domready).removeListener('readystatechange', check);
 		document.fireEvent('domready');
