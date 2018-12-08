@@ -22,4 +22,5 @@
 	<script src="{{ "/js/main.js" | prepend: site.baseurl | append: '?v=' | append: site.asset_version }}"></script>
 	<script src="{{ "/js/stripe.js" | prepend: site.baseurl | append: '?v=' | append: site.asset_version }}"></script>
 	<script src="{{ "/js/controller-sig.js" | prepend: site.baseurl | append: '?v=' | append: site.asset_version }}"></script>
+	<script>const stripe_pubkey = '{{ site.stripe_pubkey }}';</script>
 </head>

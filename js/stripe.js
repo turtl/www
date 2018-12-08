@@ -54,7 +54,7 @@ const stripe_handler = function(btnsel, type) {
 	const amount = payment_types[type].amount;
 
 	var handler = StripeCheckout.configure({
-		key: "pk_test_VZ4KZj7x2unpKJNG0ytfh9uI",
+		key: stripe_pubkey,
 		image: "/images/logo.svg",
 		name: "Turtl",
 		description: payment_title,
