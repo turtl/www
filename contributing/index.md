@@ -8,7 +8,7 @@ permalink: "contributing/"
 {% include toc.md %}
 
 Thanks for your interest in helping build Turtl! Turtl is an open-source project
-owned and operated by [Lyon Bros. Enterprises, LLC.](https://lyonbros.com).
+owned and operated by [Lyon Bros LLC](https://lyonbros.com).
 
 ## Sign the Contributor License Agreement
 
