@@ -4,9 +4,9 @@ title: "Entity Contributor License Agreement"
 permalink: "contributing/ecla/"
 ---
 
-# Lyon Bros. Enterprises, LLC Entity Contributor License Agreement
+# Lyon Bros LLC Entity Contributor License Agreement
 
-Thank you for your interest in contributing to Lyon Bros. Enterprises Turtl project ("We" or "Us").
+Thank you for your interest in contributing to Lyon Bros LLC's Turtl project ("We" or "Us").
 
 This contributor agreement ("Agreement") documents the rights granted by contributors to Us. To make this document effective, please sign it and send it to Us by electronic submission, following the instructions at https://turtlapp.com/contributing/. This is a legally binding document, so please read it carefully before agreeing to it. The Agreement may cover more than one software project managed by Us.
 
