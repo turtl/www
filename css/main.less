@@ -100,6 +100,10 @@ body.home {
 	code {max-width: 100%; word-wrap: break-word; white-space: pre-wrap;}
 }
 
+@button-accent-bg: #904890;
+.button-accent {color: #fff !important; background-color: @button-accent-bg !important; transition: background-color 0.3s;}
+.button-accent:hover {background-color: darken(@button-accent-bg, 5%) !important;}
+
 // CLA. could prob use uikit but just want to get this out the door
 .signature {}
 .signature {
