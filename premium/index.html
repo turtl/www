@@ -1,0 +1,168 @@
+---
+layout: default
+title: "Premium"
+permalink: "premium/"
+---
+
+{% if site.enable_premium %}
+<div class="uk-section uk-section-muted">
+	<div class="uk-container uk-container-xsmall">
+		<div uk-grid class="premium uk-flex uk-child-width-1-2@s uk-grid-medium">
+			<div class="premium-card">
+				<div class="uk-card uk-card-primary uk-card-body">
+					<div class="card-inner">
+						<div class="name uk-text-emphasis">Premium</div>
+						<h2 class="uk-margin-small">$8/mo</h2>
+						<ul class="uk-list uk-list-divider uk-margin-medium">
+							<li>Store up to 10GB of note data</li>
+							<li>Collaborate with up to 20 people on each space</li>
+							<li>Dedicated support</li>
+						</ul>
+						<div class="uk-text-center">
+							<a id="turtl-premium-button" class="uk-button uk-button-secondary" href="#">Start free 30 day trial</a>
+							<script src="https://checkout.stripe.com/checkout.js"></script>
+							<script>stripe_handler('#turtl-premium-button', 'premium');</script>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="uk-flex-first@s">
+				<div class="uk-card uk-card-default uk-card-body">
+					<div class="card-inner">
+						<div class="name uk-text-emphasis">Basic</div>
+						<h2 class="uk-margin-small">Free</h2>
+						<ul class="uk-list uk-list-divider uk-margin-medium">
+							<li>Store up to 50MB of note data</li>
+							<li>Collaborate with up to three people on each space</li>
+							<li>Community support</li>
+						</ul>
+						<div class="uk-text-center">
+							<a class="uk-button uk-button-default" href="/download/">Download Turtl</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="uk-container uk-container-small uk-margin-large">
+		<table class="uk-table uk-table-divider">
+			<thead>
+				<tr>
+					<th>Features</th>
+					<th>Basic</th>
+					<th>Premium</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Encrypt and secure all your private data</td>
+					<td><span uk-icon="icon: check"></span></td>
+					<td><span uk-icon="icon: check"></span></td>
+				</tr>
+				<tr>
+					<td>Use Turtl on unlimited devices</td>
+					<td><span uk-icon="icon: check"></span></td>
+					<td><span uk-icon="icon: check"></span></td>
+				</tr>
+				<tr>
+					<td>Collaboraters per Space</td>
+					<td>3</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>Storage</td>
+					<td>50MB</td>
+					<td>10GB</td>
+				</tr>
+				<tr>
+					<td>Support</td>
+					<td>Community</td>
+					<td>Dedicated</td>
+				</tr>
+				<tr>
+					<td>Cost</td>
+					<td>Free</td>
+					<td>$8/mo</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="uk-margin-large">
+			<h2>Custom plans</h2>
+			<p>
+				Need something more than what we offer above? <a href="mailto:sales@turtlapp">Get in touch</a> and we'll figure out a plan for you!
+			</p>
+		</div>
+	</div>
+</div>
+
+<div id="payment-loading-modal" uk-modal="esc-close: false; bg-close: false">
+	<div class="uk-modal-dialog uk-margin-auto-vertical">
+		<div class="uk-padding uk-text-center">
+			<div uk-spinner></div>
+		</div>
+	</div>
+</div>
+
+<div id="payment-success-modal" uk-modal="esc-close: false; bg-close: false">
+	<div class="uk-modal-dialog uk-margin-auto-vertical">
+		<div class="uk-padding">
+			<h2>Thank you!</h2>
+			<p>
+				Your payment information was successfully processed.
+			</p>
+			<p>
+				<em>Please save this link</em>, which will allow you to manage your Turtl
+				subscription:
+			</p>
+			<pre><a target="_blank" href="[[manage_url]]">[[manage_url]]</a></pre>
+			<p>
+				This link has also been emailed to you at <code>[[email]]</code>!
+			</p>
+			<div class="uk-text-center uk-margin-top">
+				<button class="uk-button uk-button-primary close-modal">Done!</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="payment-error-modal" uk-modal="esc-close: false; bg-close: false">
+	<div class="uk-modal-dialog uk-margin-auto-vertical">
+		<div class="uk-padding">
+			<h2>There was a problem with your payment</h2>
+			<p>
+				Unfortunately, it looks like there was a problem processing your
+				payment:
+			</p>
+			<pre><code>[[error]]</code></pre>
+			<p>Please try again, or email us at <a href="mailto:info@turtlapp.com">info@turtlapp.com</a> for help.</p>
+			<div class="uk-text-center uk-margin-top">
+				<button class="uk-button uk-button-primary close-modal">Okay</button>
+			</div>
+		</div>
+	</div>
+</div>
+{% else %}
+<div class="uk-section">
+	<div class="uk-container uk-container-small">
+		<div class="premium">
+			<h1>Turtl Premium</h1>
+			<p>
+				The Turtl service is free and in most cases should work for most users.
+				However, beginning soon, Turtl will launch a Premium service that will
+				include more storage and will unlock various features in the Turtl apps.
+			</p>
+			<p>
+				In the meantime while we figure out what our Premium service will offer,
+				please <a href="/donate"><strong>consider making a donation to aid in Turtl's development!</strong></a>
+			</p>
+			<p>
+				If you want the total freedom and security of Turtl without paying us,
+				you are more than free to <a href="https://github.com/turtl/server#running-the-server">run your own Turtl server.</a>
+			</p>
+		</div>
+	</div>
+</div>
+{% endif %}
+

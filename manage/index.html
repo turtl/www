@@ -1,0 +1,57 @@
+---
+layout: default
+title: "Manage your subscription"
+permalink: "manage/"
+body_class: 'manage'
+---
+
+<div class="uk-section">
+	<div class="uk-container uk-container-xsmall">
+		<div id="manage">
+			<h1>Manage your subscription</h1>
+
+			<div class="top-msg"></div>
+
+			<div class="form-container">
+				<p>
+					Your billing email is used to contact you about your payment
+					and your account. Your Turtl account email is used to link
+					your billing info to your Turtl account so we know which
+					account to give premium features to.
+				</p>
+				<form class="uk-form-stacked uk-child-width-1-2@s" uk-grid>
+					<div>
+						<label for="manage-billing-email" class="uk-form-label">Billing email</label>
+						<input id="manage-billing-email" class="uk-input" type="email" name="billing-email" placeholder="Billing email">
+					</div>
+					<div>
+						<label for="manage-account-email" class="uk-form-label">Your Turtl account email</label>
+						<div class="uk-inline uk-width-1-1">
+							<span class="linked-icon uk-form-icon uk-form-icon-flip uk-text-primary" uk-icon="icon: check"></span>
+							<input id="manage-account-email" class="uk-input" type="email" name="account-email" placeholder="Turtl account email">
+						</div>
+					</div>
+					<div class="uk-width-1-1 uk-text-center">
+						<input type="submit" class="uk-button uk-button-primary" value="Save subscription">
+					</div>
+				</form>
+				<hr class="uk-margin">
+				<div class="uk-text-center">
+					<a class="uk-text-danger" href="#cancel">Cancel my Turtl premium subscription</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="loading-modal" uk-modal="esc-close: false; bg-close: false">
+	<div class="uk-modal-dialog uk-margin-auto-vertical">
+		<div class="uk-padding uk-text-center">
+			<div uk-spinner></div>
+		</div>
+	</div>
+</div>
+
+<script src="/js/manage.js"></script>
+<script>new ManageController({el: $('manage')});</script>
+
