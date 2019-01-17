@@ -4,6 +4,7 @@ title: "Premium"
 permalink: "premium/"
 ---
 
+{% if site.enable_premium %}
 <div class="uk-section uk-section-muted">
 	<div class="uk-container uk-container-xsmall">
 		<div uk-grid class="premium uk-flex uk-child-width-1-2@s uk-grid-medium">
@@ -142,4 +143,26 @@ permalink: "premium/"
 		</div>
 	</div>
 </div>
+{% else %}
+<div class="uk-section">
+	<div class="uk-container uk-container-small">
+		<div class="premium">
+			<h1>Turtl Premium</h1>
+			<p>
+				The Turtl service is free and in most cases should work for most users.
+				However, beginning soon, Turtl will launch a Premium service that will
+				include more storage and will unlock various features in the Turtl apps.
+			</p>
+			<p>
+				In the meantime while we figure out what our Premium service will offer,
+				please <a href="/donate"><strong>consider making a donation to aid in Turtl's development!</strong></a>
+			</p>
+			<p>
+				If you want the total freedom and security of Turtl without paying us,
+				you are more than free to <a href="https://github.com/turtl/server#running-the-server">run your own Turtl server.</a>
+			</p>
+		</div>
+	</div>
+</div>
+{% endif %}
 

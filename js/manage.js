@@ -60,7 +60,7 @@ const ManageController = Composer.Controller.extend({
 				this.success('Your billing information has been saved'+extra);
 			})
 			.catch(function(err) {
-				this.error(msg);
+				this.error(err);
 			});
 	},
 
