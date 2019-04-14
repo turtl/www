@@ -86,6 +86,7 @@ const stripe_handler = function(btnsel, type) {
 			load_modal_template($('payment-loading-modal'));
 			Sexhr(req)
 				.spread(function(res, xhr) {
+					_paq.push(['trackGoal', 4, amount);
 					stripe_success(JSON.parse(res));
 				})
 				.catch(function(err) {
@@ -96,6 +97,7 @@ const stripe_handler = function(btnsel, type) {
 
 	document.getElement(btnsel).addEventListener('click', function(e) {
 		e.preventDefault();
+		_paq.push(['trackGoal', 1, amount);
 		handler.open();
 	});
 };
