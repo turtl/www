@@ -12,7 +12,7 @@ Frequently Asked Questions
 
 A lot of the background work for Turtl iOS is now complete, and it's a matter
 of putting in the time. Hopefully by 2019, Turtl will have an iOS app.
-[Track the feature here](https://github.com/turtl/tracker/issues/96)!
+[Track the feature here](https://github.com/turtl/tracker/issues/24)!
 
 ### How do I get the server running?
 
