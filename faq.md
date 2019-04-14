@@ -27,6 +27,10 @@ you run into problems. The bulk of the work for the project happens on the
 clients (desktop, mobile) and helping with platform-specific server issues is
 not a priority.
 
+### How do I delete my account?
+
+Use our handy [account delete](/users/delete/) page.
+
 ### Why isn't Turtl a native app?
 
 This is a small project, maintained by people with limited time, built mainly
