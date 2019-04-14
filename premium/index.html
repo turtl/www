@@ -6,26 +6,27 @@ permalink: "premium/"
 
 {% if site.enable_premium %}
 <div class="uk-section uk-section-muted">
-	<div class="uk-container uk-container-xsmall">
-		<div uk-grid class="premium uk-flex uk-child-width-1-2@s uk-grid-medium">
+	<div class="uk-container uk-container-small">
+		<div uk-grid class="premium uk-flex uk-child-width-1-3@s uk-grid-medium">
 			<div class="premium-card">
 				<div class="uk-card uk-card-primary uk-card-body">
 					<div class="card-inner">
 						<div class="name uk-text-emphasis">Premium</div>
-						<h2 class="uk-margin-small">$8/mo</h2>
+						<h2 class="uk-margin-small">$3/mo</h2>
 						<ul class="uk-list uk-list-divider uk-margin-medium">
 							<li>Store up to 10GB of note data</li>
 							<li>Collaborate with up to 20 people on each space</li>
-							<li>Dedicated support</li>
+							<li>Community support</li>
 						</ul>
 						<div class="uk-text-center">
-							<a id="turtl-premium-button" class="button-accent uk-button uk-button-secondary" href="#">Start free 30 day trial</a>
+							<a id="turtl-premium-button" class="button-accent uk-button uk-button-secondary" href="#">Start 30 day trial</a>
 							<script src="https://checkout.stripe.com/checkout.js"></script>
 							<script>stripe_handler('#turtl-premium-button', 'premium');</script>
 						</div>
 					</div>
 				</div>
 			</div>
+			<script>document.getElement('.premium-card').addEvent('click', function(e) { $('turtl-premium-button').click(); });</script>
 			<div class="uk-flex-first@s">
 				<div class="uk-card uk-card-default uk-card-body">
 					<div class="card-inner">
@@ -42,6 +43,24 @@ permalink: "premium/"
 					</div>
 				</div>
 			</div>
+			<div>
+				<div class="uk-card uk-card-default uk-card-body">
+					<div class="card-inner">
+						<div class="name uk-text-emphasis">Business</div>
+						<h2 class="uk-margin-small">$8/mo</h2>
+						<ul class="uk-list uk-list-divider uk-margin-medium">
+							<li>Store up to 50GB of note data</li>
+							<li>Collaborate with up to 50 people on each space</li>
+							<li>Dedicated support</li>
+						</ul>
+						<div class="uk-text-center">
+							<a id="turtl-business-button" class="uk-button uk-button-primary" href="#">Start 30 day trial</a>
+							<script src="https://checkout.stripe.com/checkout.js"></script>
+							<script>stripe_handler('#turtl-business-button', 'business');</script>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -52,6 +71,7 @@ permalink: "premium/"
 					<th>Features</th>
 					<th>Basic</th>
 					<th>Premium</th>
+					<th>Business</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -59,9 +79,11 @@ permalink: "premium/"
 					<td>Encrypt and secure all your private data</td>
 					<td><span uk-icon="icon: check"></span></td>
 					<td><span uk-icon="icon: check"></span></td>
+					<td><span uk-icon="icon: check"></span></td>
 				</tr>
 				<tr>
 					<td>Use Turtl on unlimited devices</td>
+					<td><span uk-icon="icon: check"></span></td>
 					<td><span uk-icon="icon: check"></span></td>
 					<td><span uk-icon="icon: check"></span></td>
 				</tr>
@@ -69,20 +91,24 @@ permalink: "premium/"
 					<td>Collaboraters per Space</td>
 					<td>3</td>
 					<td>20</td>
+					<td>50</td>
 				</tr>
 				<tr>
 					<td>Storage</td>
 					<td>50MB</td>
 					<td>10GB</td>
+					<td>50GB</td>
 				</tr>
 				<tr>
 					<td>Support</td>
+					<td>Community</td>
 					<td>Community</td>
 					<td>Dedicated</td>
 				</tr>
 				<tr>
 					<td>Cost</td>
 					<td>Free</td>
+					<td>$3/mo</td>
 					<td>$8/mo</td>
 				</tr>
 			</tbody>

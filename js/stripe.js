@@ -44,8 +44,13 @@ const stripe_error = function(errobj) {
 const stripe_handler = function(btnsel, type) {
 	const payment_types = {
 		'premium': {
-			title: 'Turtl Premium ($8/mo)',
+			title: 'Turtl Premium ($3/mo)',
 			button: 'Get Premium',
+			amount: 300,
+		},
+		'business': {
+			title: 'Turtl Business ($8/mo)',
+			button: 'Get Business',
 			amount: 800,
 		},
 	};

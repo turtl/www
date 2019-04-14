@@ -106,13 +106,13 @@ const ManageController = Composer.Controller.extend({
 
 	cancel_subscription: function(e) {
 		if(e) e.stop();
-		if(!confirm('Are you sure you want to cancel your Turtl Premium subscription?')) {
+		if(!confirm('Are you sure you want to cancel your Turtl subscription?')) {
 			return false;
 		}
 		this.model.cancel()
 			.bind(this)
 			.then(function() {
-				this.el.set('html', '<h2>Your subscription has been cancelled</h2><p>Thanks for giving Turtl Premium a try!</p><p><a class="uk-button uk-button-primary" href="/">Return to the homepage &raquo;</a>');
+				this.el.set('html', '<h2>Your subscription has been cancelled</h2><p>Thanks for giving Turtl a try!</p><p><a class="uk-button uk-button-primary" href="/">Return to the homepage &raquo;</a>');
 			})
 			.catch(function(err) {
 				this.error('There was a problem cancelling: '+err.message);

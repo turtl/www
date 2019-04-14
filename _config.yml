@@ -5,8 +5,8 @@ description: The safe way to remember everything. Take all your important data w
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://turtlapp.com"
 permalink: "/:year/:month/:title/"
-enable_premium: false
-stripe_pubkey: "pk_live_61JSZue0As9lbGB2CZK0DSRU"
+enable_premium: true
+stripe_pubkey: "pk_test_3ox4VVapKWQm4IktdTi3oYS9"
 
 # Build settings
 markdown: kramdown
